@@ -187,52 +187,56 @@
   // Otherwise the final numbers already in the HTML stay as they are.
 
 
-  /* ---------- 6. Prefill booking form ---------- */
+  /* ---------- 6. Prefill booking form (home page) ---------- */
   const form = $("#booking-form");
   const fDestination = $("#b-destination");
   const fPackage = $("#b-package");
   const fDate = $("#b-date");
   const fGuests = $("#b-guests");
 
-  // No past dates
-  [$("#search-date"), fDate].forEach((input) => input && input.setAttribute("min", todayISO));
+  // No past dates on any date field
+  $$('input[type="date"]').forEach((input) => input.setAttribute("min", todayISO));
 
   function setSelect(select, value) {
+    if (!select) return;
     const match = Array.from(select.options).find((o) => o.value === value || o.textContent === value);
     if (match) select.value = match.value || match.textContent;
   }
 
-  // Destination cards and links
+  // Destination links and package buttons fill the booking form
   $$("[data-destination]").forEach((el) =>
     el.addEventListener("click", () => {
       setSelect(fDestination, el.dataset.destination);
-      clearError(fDestination.closest(".form-field"));
+      if (fDestination) clearError(fDestination.closest(".form-field"));
     })
   );
-
-  // Package buttons
   $$("[data-package]").forEach((el) =>
     el.addEventListener("click", () => setSelect(fPackage, el.dataset.package))
   );
 
-  // Hero search → fills the booking form and jumps to it
+  // Hero search fills the booking form and jumps to it
   const searchForm = $("#hero-search");
-  searchForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const dest = $("#search-destination").value;
-    const date = $("#search-date").value;
-    const guests = $("#search-guests").value;
+  if (searchForm && form) {
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const dest = $("#search-destination").value;
+      const date = $("#search-date").value;
+      const guests = $("#search-guests").value;
 
-    if (dest) setSelect(fDestination, dest);
-    if (date) fDate.value = date;
-    if (guests) fGuests.value = guests === "5+" ? 5 : guests;
+      if (dest) setSelect(fDestination, dest);
+      if (date) fDate.value = date;
+      if (guests) fGuests.value = guests === "5+" ? 5 : guests;
 
-    $("#booking").scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
-    setTimeout(() => (dest ? $("#b-name") : fDestination).focus({ preventScroll: true }), 700);
-  });
+      $("#booking").scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+      setTimeout(() => (dest ? $("#b-name") : fDestination).focus({ preventScroll: true }), 700);
+    });
+  }
 
 
-  /* ---------- 7. Booking form: validation + WhatsApp ---------- */
+  /* ---------- 7. WhatsApp booking forms: validation + hand-off ----------
+     Works for any form with these field names:
+     name, phone, destination, date, guests (+ optional package, message).
+     Used by #booking-form (home) and #trip-form (destination page). */
   const rules = {
     name(v) {
       if (!v.trim()) return "Please enter your name.";
@@ -260,6 +264,7 @@
   };
 
   function showError(field, message) {
+    if (!field) return;
     field.classList.add("has-error");
     const err = $(".form-error", field);
     if (err) err.textContent = message;
@@ -284,46 +289,52 @@
     return true;
   }
 
-  $$("input, select, textarea", form).forEach((input) => {
-    input.addEventListener("blur", () => { if (input.value || input.closest(".has-error")) validateField(input); });
-    input.addEventListener("input", () => { if (input.closest(".has-error")) validateField(input); });
-    input.addEventListener("change", () => { if (input.closest(".has-error")) validateField(input); });
-  });
+  function initWhatsAppForm(formEl) {
+    $$("input, select, textarea", formEl).forEach((input) => {
+      input.addEventListener("blur", () => { if (input.value || input.closest(".has-error")) validateField(input); });
+      input.addEventListener("input", () => { if (input.closest(".has-error")) validateField(input); });
+      input.addEventListener("change", () => { if (input.closest(".has-error")) validateField(input); });
+    });
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const success = $("#form-success");
-    success.hidden = true;
+    formEl.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const success = $(".form-success", formEl);
+      if (success) success.hidden = true;
 
-    const inputs = $$("input, select, textarea", form).filter((i) => rules[i.name]);
-    const results = inputs.map((i) => ({ input: i, ok: validateField(i) }));
-    const firstBad = results.find((r) => !r.ok);
-    if (firstBad) {
-      firstBad.input.focus();
-      return;
-    }
+      const inputs = $$("input, select, textarea", formEl).filter((i) => rules[i.name]);
+      const results = inputs.map((i) => ({ input: i, ok: validateField(i) }));
+      const firstBad = results.find((r) => !r.ok);
+      if (firstBad) {
+        if (firstBad.input.type !== "hidden") firstBad.input.focus();
+        return;
+      }
 
-    const data = Object.fromEntries(new FormData(form).entries());
-    const lines = [
-      "Hello TravelOrio! I'd like to book a trip.",
-      "",
-      `Name: ${data.name.trim()}`,
-      `Phone: ${data.phone.trim()}`,
-      `Destination: ${data.destination}`,
-      `Package: ${data.package || "Not sure yet"}`,
-      `Travel date: ${data.date}`,
-      `Travelers: ${data.guests}`,
-    ];
-    if (data.message && data.message.trim()) lines.push("", `Message: ${data.message.trim()}`);
+      const data = Object.fromEntries(new FormData(formEl).entries());
+      const lines = [
+        "Hello TravelOrio! I'd like to book a trip.",
+        "",
+        `Name: ${data.name.trim()}`,
+        `Phone: ${data.phone.trim()}`,
+        `Destination: ${data.destination}`,
+        `Package: ${data.package || "Not sure yet"}`,
+        `Travel date: ${data.date}`,
+        `Travelers: ${data.guests}`,
+      ];
+      if (data.message && data.message.trim()) lines.push("", `Message: ${data.message.trim()}`);
 
-    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
-    const win = window.open(url, "_blank", "noopener");
-    success.hidden = false;
-    success.innerHTML = win
-      ? "Thank you! Your request is ready. Complete it in WhatsApp and we'll reply shortly."
-      : `Thank you! Your request is ready. <a href="${url}" target="_blank" rel="noopener"><strong>Tap here to send it on WhatsApp.</strong></a>`;
-    success.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
-  });
+      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+      const win = window.open(url, "_blank", "noopener");
+      if (success) {
+        success.hidden = false;
+        success.innerHTML = win
+          ? "Thank you! Your request is ready. Complete it in WhatsApp and we'll reply shortly."
+          : `Thank you! Your request is ready. <a href="${url}" target="_blank" rel="noopener"><strong>Tap here to send it on WhatsApp.</strong></a>`;
+        success.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
+      }
+    });
+  }
+
+  $$("#booking-form, #trip-form").forEach(initWhatsAppForm);
 
 
   /* ---------- 8. Footer year ---------- */
