@@ -200,7 +200,10 @@
   function setSelect(select, value) {
     if (!select) return;
     const match = Array.from(select.options).find((o) => o.value === value || o.textContent === value);
-    if (match) select.value = match.value || match.textContent;
+    if (match) {
+      select.value = match.value || match.textContent;
+      select.dispatchEvent(new Event("change", { bubbles: true }));   // lets estimate/validation react
+    }
   }
 
   // Destination links and package buttons fill the booking form
@@ -320,6 +323,7 @@
         `Travel date: ${data.date}`,
         `Travelers: ${data.guests}`,
       ];
+      if (data.estimate) lines.push(`Estimated total: ${data.estimate}`);
       if (data.message && data.message.trim()) lines.push("", `Message: ${data.message.trim()}`);
 
       const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
