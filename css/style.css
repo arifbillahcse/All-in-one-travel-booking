@@ -1,5 +1,5 @@
 /* =========================================================
-   Bangla Voyage — Design D "Quiet Luxury"
+   TravelOrio — Design D "Quiet Luxury"
    Gorgeous animated hero, calm minimal sections.
    ---------------------------------------------------------
    1.  Tokens
@@ -99,7 +99,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) - 8px); }
 .skip-link {
   position: fixed;
   left: 1rem;
-  top: -4rem;
+  top: -8rem;
   z-index: 1000;
   background: var(--ink);
   color: var(--white);
@@ -655,6 +655,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) - 8px); }
 }
 .section__title {
   margin-top: 0.7rem;
+  text-wrap: balance;
   font-size: clamp(2rem, 4.2vw, 3.2rem);
 }
 .section__lead {
@@ -780,6 +781,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) - 8px); }
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
   font-size: 0.95rem;
+  align-content: start;
   flex: 1;
 }
 .package__list li {
@@ -984,6 +986,8 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) - 8px); }
   background-repeat: no-repeat;
   background-position: right 1rem center;
 }
+.form-field input,
+.form-field select { height: 3.2rem; }
 .form-field textarea { resize: vertical; min-height: 110px; }
 .form-field input::placeholder,
 .form-field textarea::placeholder { color: #9aa1ad; }
