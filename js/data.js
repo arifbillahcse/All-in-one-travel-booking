@@ -354,6 +354,51 @@
     },
   ];
 
+
+  /* ---------------------------------------------------------
+     Sample reviews — placeholders. Replace with real ones
+     (keep the fields) before launch.
+     slug = destination slug, date = YYYY-MM
+     --------------------------------------------------------- */
+  const reviews = [
+    { name: "Rahim Uddin", city: "Dhaka", slug: "sundarbans", rating: 5, date: "2026-02", type: "Friends", featured: true,
+      title: "Flawless from start to finish",
+      text: "The Sundarbans trip was flawless. Our guide spotted tiger tracks on the very first morning, and the launch was clean and comfortable. Every detail had been handled before we even arrived. Highly recommended." },
+    { name: "Nusrat Jahan", city: "Chattogram", slug: "coxs-bazar", rating: 5, date: "2026-01", type: "Family",
+      title: "Perfect for a family of five",
+      text: "Everything was organised perfectly for our family of five. The hotel was right on the beach, the driver was patient with the kids, and the Sonadia boat trip was the highlight for all of us." },
+    { name: "Tanvir Ahmed", city: "Sylhet", slug: "bandarban", rating: 5, date: "2025-12", type: "Friends",
+      title: "Magical, even in the clouds",
+      text: "Bandarban in winter was magical. Fair prices, kind staff and quick replies on WhatsApp throughout. The Nilgiri sunrise above the clouds is something I will never forget." },
+    { name: "Sadia Rahman", city: "Dhaka", slug: "saint-martin", rating: 5, date: "2026-02", type: "Couple",
+      title: "Our quietest, happiest weekend",
+      text: "We wanted to switch off and Saint Martin's was perfect. TravelOrio explained the ship timings and island rules clearly beforehand, so nothing surprised us. Sunset on the rocks was unreal." },
+    { name: "Imran Hossain", city: "Khulna", slug: "sylhet", rating: 5, date: "2025-11", type: "Couple",
+      title: "Tea gardens and swamp forest",
+      text: "A beautifully paced three days. Ratargul by boat was surreal, and our guide knew exactly when to arrive to avoid the crowds. The seven-layer tea was a lovely bonus." },
+    { name: "Farzana Akter", city: "Rajshahi", slug: "kuakata", rating: 4, date: "2026-01", type: "Family",
+      title: "Lovely beach, long journey",
+      text: "Seeing sunrise and sunset from the same beach was wonderful and the Rakhine temple was peaceful. The road from Dhaka is long, but the team kept us updated and the hotel was spotless." },
+    { name: "Mahfuz Alam", city: "Dhaka", slug: "coxs-bazar", rating: 5, date: "2025-12", type: "Solo",
+      title: "Great for solo travelers",
+      text: "I travelled alone and felt looked after the entire time. The guide suggested quieter spots like Inani, and the single-room price was fair. I would book again without thinking." },
+    { name: "Tahmina Sultana", city: "Dhaka", slug: "bandarban", rating: 5, date: "2026-03", type: "Family",
+      title: "Careful with permits and safety",
+      text: "I was nervous about the hills with my parents, but the team handled the permits, the jeeps and a gentle itinerary. My father still talks about the Golden Temple." },
+    { name: "Rafiqul Islam", city: "Bogura", slug: "sundarbans", rating: 5, date: "2025-11", type: "Family",
+      title: "Educational and peaceful",
+      text: "The kids learnt so much about the mangroves and the animals. Food on the launch was fresh and tasty, and the crew was respectful and careful throughout." },
+    { name: "Nabila Karim", city: "Dhaka", slug: "saint-martin", rating: 5, date: "2026-01", type: "Friends",
+      title: "Clear water, clear communication",
+      text: "Booking was easy over WhatsApp, and every question got a quick, honest answer. The island was exactly as promised: turquoise water, coconut palms and no rush." },
+    { name: "Shamim Reza", city: "Narayanganj", slug: "sylhet", rating: 5, date: "2026-03", type: "Friends",
+      title: "Worth every taka",
+      text: "Jaflong and Sripur in one day sounded tiring, but the schedule was relaxed with proper breaks. Prices were exactly what was quoted, with no surprise charges at the end." },
+    { name: "Priya Das", city: "Barishal", slug: "kuakata", rating: 5, date: "2025-12", type: "Couple",
+      title: "A calm, beautiful short break",
+      text: "Two days was just right. We caught a golden sunset on the first evening and a misty sunrise the next morning. Fatrar Char by boat was a pleasant surprise." },
+  ];
+
   // Fill in derived fields
   places.forEach((p) => {
     p.heroImage = img(p.slug, "hero", 1920, 1080);
@@ -363,5 +408,6 @@
   });
 
   window.TRAVELORIO_DESTINATIONS = places;
+  window.TRAVELORIO_REVIEWS = reviews;
   window.TRAVELORIO_IMG = img;
 })();
