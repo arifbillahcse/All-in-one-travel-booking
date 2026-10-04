@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangla Voyage | Six Places. One Unforgettable Bangladesh.</title>
+  <meta name="description" content="Book curated tours to Cox's Bazar, Sundarbans, Sylhet, Bandarban, Saint Martin and Kuakata with local guides and transparent pricing.">
+  <meta name="theme-color" content="#0F766E">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bangla Voyage | Six Places. One Unforgettable Bangladesh.">
+  <meta property="og:description" content="Curated tours to Bangladesh's most beautiful destinations.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles (to be added in the next step) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#destinations">Skip to content</a>
+
+  <!-- =====================================================
+       1. NAVBAR
+       ===================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#home" class="navbar__logo" aria-label="Bangla Voyage home">
+        <svg class="navbar__logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M15.5 8.5l-2 5-5 2 2-5 5-2z"/>
+        </svg>
+        <span>Bangla Voyage</span>
+      </a>
+
+      <nav class="navbar__nav" id="nav-menu" aria-label="Main navigation">
+        <ul class="navbar__links">
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#booking" class="btn btn--primary navbar__cta">Book Now</a>
+      </nav>
+
+      <button class="navbar__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         2. HERO (layered paper-cut landscape)
+         ===================================================== -->
+    <section class="hero" id="home" aria-label="Welcome">
+
+      <!-- Animated paper-cut scene. Each layer has data-depth for parallax. -->
+      <div class="hero__scene" aria-hidden="true">
+
+        <!-- Sky + sun -->
+        <div class="hero__layer hero__sky" data-depth="0.02"></div>
+
+        <div class="hero__layer hero__sun-wrap" data-depth="0.04">
+          <svg class="hero__sun" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle class="sun__glow" cx="100" cy="100" r="95"/>
+            <circle class="sun__core" cx="100" cy="100" r="55"/>
+          </svg>
+        </div>
+
+        <!-- Clouds -->
+        <div class="hero__layer hero__clouds" data-depth="0.06">
+          <svg class="cloud cloud--1" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg"><path d="M30 70a24 24 0 0 1 4-47 36 36 0 0 1 68-8 30 30 0 0 1 50 14 26 26 0 0 1 36 41z"/></svg>
+          <svg class="cloud cloud--2" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg"><path d="M30 70a24 24 0 0 1 4-47 36 36 0 0 1 68-8 30 30 0 0 1 50 14 26 26 0 0 1 36 41z"/></svg>
+          <svg class="cloud cloud--3" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg"><path d="M30 70a24 24 0 0 1 4-47 36 36 0 0 1 68-8 30 30 0 0 1 50 14 26 26 0 0 1 36 41z"/></svg>
+        </div>
+
+        <!-- Birds -->
+        <div class="hero__layer hero__birds" data-depth="0.08">
+          <svg class="bird bird--1" viewBox="0 0 40 16" xmlns="http://www.w3.org/2000/svg"><path d="M2 12C10 0 16 2 20 10 24 2 30 0 38 12 30 6 24 6 20 14 16 6 10 6 2 12z"/></svg>
+          <svg class="bird bird--2" viewBox="0 0 40 16" xmlns="http://www.w3.org/2000/svg"><path d="M2 12C10 0 16 2 20 10 24 2 30 0 38 12 30 6 24 6 20 14 16 6 10 6 2 12z"/></svg>
+          <svg class="bird bird--3" viewBox="0 0 40 16" xmlns="http://www.w3.org/2000/svg"><path d="M2 12C10 0 16 2 20 10 24 2 30 0 38 12 30 6 24 6 20 14 16 6 10 6 2 12z"/></svg>
+        </div>
+
+        <!-- Far hills -->
+        <div class="hero__layer hero__hills hero__hills--far" data-depth="0.10">
+          <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 220C120 150 220 130 340 180s240 70 380-10 260-90 400-20 220 40 320-30v320H0z"/>
+          </svg>
+        </div>
+
+        <!-- Mid hills -->
+        <div class="hero__layer hero__hills hero__hills--mid" data-depth="0.16">
+          <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 250C140 190 260 170 400 215s260 50 400-20 280-70 420-10 150 30 220 5v150H0z"/>
+          </svg>
+        </div>
+
+        <!-- Mangrove forest -->
+        <div class="hero__layer hero__forest" data-depth="0.22">
+          <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 220V120c20-30 40-30 60 0 20-50 50-50 70 0 20-30 45-30 65 0 25-60 60-60 85 0 20-35 45-35 65 0 25-55 60-55 85 0 20-30 45-30 65 0 25-50 60-50 85 0 20-30 45-30 65 0 25-60 60-60 85 0 20-35 45-35 65 0 25-50 60-50 85 0 20-30 45-30 65 0 25-55 60-55 85 0 20-30 45-30 65 0 25-50 60-50 85 0 20-30 45-30 65 0V220z"/>
+          </svg>
+        </div>
+
+        <!-- River + boat (nouka) -->
+        <div class="hero__layer hero__river" data-depth="0.30">
+          <svg class="river__water" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 40C180 10 340 70 540 40s360-40 540 0 240 20 360-10v170H0z"/>
+            <path class="wave wave--1" d="M0 90c120-14 240 14 360 0s240-14 360 0 240 14 360 0 240-14 360 0"/>
+            <path class="wave wave--2" d="M0 130c120-14 240 14 360 0s240-14 360 0 240 14 360 0 240-14 360 0"/>
+          </svg>
+
+          <!-- Nouka (traditional boat) -->
+          <svg class="nouka" viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg">
+            <path class="nouka__sail" d="M118 8v66l52-8z"/>
+            <path class="nouka__sail nouka__sail--2" d="M108 14v60H60z"/>
+            <rect class="nouka__mast" x="108" y="6" width="4" height="74"/>
+            <path class="nouka__hull" d="M10 80h200c-6 24-30 38-60 38H70c-30 0-54-14-60-38z"/>
+            <path class="nouka__cabin" d="M80 80V62c0-10 8-16 30-16s30 6 30 16v18z"/>
+          </svg>
+        </div>
+
+        <!-- Foreground reeds -->
+        <div class="hero__layer hero__foreground" data-depth="0.40">
+          <svg class="reeds reeds--left" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 260C22 180 14 120 4 60 24 110 34 170 34 260z"/>
+            <path d="M50 260C54 170 50 100 70 30 72 110 66 180 66 260z"/>
+            <path d="M90 260C90 190 100 130 130 80 118 140 112 200 114 260z"/>
+            <path d="M140 260C146 200 164 150 200 120 176 170 168 220 166 260z"/>
+          </svg>
+          <svg class="reeds reeds--right" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+            <path d="M200 260C198 180 206 120 216 60 196 110 186 170 186 260z"/>
+            <path d="M170 260C166 170 170 100 150 30 148 110 154 180 154 260z"/>
+            <path d="M130 260C130 190 120 130 90 80 102 140 108 200 106 260z"/>
+            <path d="M80 260C74 200 56 150 20 120 44 170 52 220 54 260z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Hero content -->
+      <div class="container hero__content">
+        <p class="eyebrow hero__eyebrow">Curated Journeys across Bangladesh</p>
+        <h1 class="hero__title">
+          <span class="line"><span class="line__inner">Six Places.</span></span>
+          <span class="line"><span class="line__inner">One <em>Unforgettable</em></span></span>
+          <span class="line"><span class="line__inner">Bangladesh.</span></span>
+        </h1>
+        <p class="hero__subtitle">Hand-planned tours to the country's most beautiful destinations, with local guides, honest prices and zero stress.</p>
+        <div class="hero__actions">
+          <a href="#destinations" class="btn btn--primary btn--lg">Explore Destinations</a>
+          <a href="#packages" class="btn btn--ghost btn--lg">View Packages</a>
+        </div>
+      </div>
+
+      <!-- Search bar -->
+      <form class="container hero__search" id="hero-search" aria-label="Search tours">
+        <div class="search__field">
+          <label for="search-destination">Where</label>
+          <select id="search-destination" name="destination">
+            <option value="">Choose destination</option>
+            <option>Cox's Bazar</option>
+            <option>Sundarbans</option>
+            <option>Sylhet</option>
+            <option>Bandarban</option>
+            <option>Saint Martin's Island</option>
+            <option>Kuakata</option>
+          </select>
+        </div>
+        <div class="search__field">
+          <label for="search-date">When</label>
+          <input type="date" id="search-date" name="date">
+        </div>
+        <div class="search__field">
+          <label for="search-guests">Guests</label>
+          <select id="search-guests" name="guests">
+            <option value="1">1 Guest</option>
+            <option value="2" selected>2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5+">5+ Guests</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn--primary search__btn">Search</button>
+      </form>
+
+      <a href="#destinations" class="hero__scroll" aria-label="Scroll to destinations">
+        <span class="hero__scroll-line"></span>
+        <span>Scroll</span>
+      </a>
+    </section>
+
+
+    <!-- =====================================================
+         3. DESTINATIONS (6 places)
+         ===================================================== -->
+    <section class="section" id="destinations">
+      <div class="container">
+        <header class="section__header" data-reveal>
+          <p class="eyebrow">Destinations</p>
+          <h2 class="section__title">Six places worth the journey</h2>
+          <p class="section__lead">From the world's longest sea beach to the largest mangrove forest on Earth.</p>
+        </header>
+
+        <div class="grid grid--3">
+
+          <article class="card destination" data-reveal>
+            <a href="#booking" class="card__media" data-destination="Cox's Bazar">
+              <img src="https://picsum.photos/seed/coxsbazar/800/600" alt="Cox's Bazar sea beach at sunset" loading="lazy" width="800" height="600">
+              <span class="card__tag">From ৳4,500</span>
+            </a>
+            <div class="card__body">
+              <p class="card__meta">Chattogram Division · 2–4 days</p>
+              <h3 class="card__title">Cox's Bazar</h3>
+              <p class="card__text">Walk the world's longest natural sea beach, catch golden sunsets and explore Himchari and Inani.</p>
+              <a href="#booking" class="link-arrow" data-destination="Cox's Bazar">Book this trip <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="card destination" data-reveal>
+            <a href="#booking" class="card__media" data-destination="Sundarbans">
+              <img src="https://picsum.photos/seed/sundarbans/800/600" alt="Mangrove forest in the Sundarbans" loading="lazy" width="800" height="600">
+              <span class="card__tag">From ৳8,500</span>
+            </a>
+            <div class="card__body">
+              <p class="card__meta">Khulna Division · 3 days</p>
+              <h3 class="card__title">Sundarbans</h3>
+              <p class="card__text">Cruise the tidal creeks of the largest mangrove forest on Earth, home of the Royal Bengal tiger.</p>
+              <a href="#booking" class="link-arrow" data-destination="Sundarbans">Book this trip <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="card destination" data-reveal>
+            <a href="#booking" class="card__media" data-destination="Sylhet">
+              <img src="https://picsum.photos/seed/sylhet/800/600" alt="Tea gardens and misty hills of Sylhet" loading="lazy" width="800" height="600">
+              <span class="card__tag">From ৳5,500</span>
+            </a>
+            <div class="card__body">
+              <p class="card__meta">Sylhet Division · 2–3 days</p>
+              <h3 class="card__title">Sylhet</h3>
+              <p class="card__text">Rolling tea estates, the Ratargul swamp forest, Jaflong and the crystal streams of Sripur.</p>
+              <a href="#booking" class="link-arrow" data-destination="Sylhet">Book this trip <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="card destination" data-reveal>
+            <a href="#booking" class="card__media" data-destination="Bandarban">
+              <img src="https://picsum.photos/seed/bandarban/800/600" alt="Hills and clouds of Bandarban" loading="lazy" width="800" height="600">
+              <span class="card__tag">From ৳6,000</span>
+            </a>
+            <div class="card__body">
+              <p class="card__meta">Chattogram Hill Tracts · 3 days</p>
+              <h3 class="card__title">Bandarban</h3>
+              <p class="card__text">Sea-of-clouds sunrises, Nafakhum waterfall and Nilgiri, alongside the vibrant hill communities.</p>
+              <a href="#booking" class="link-arrow" data-destination="Bandarban">Book this trip <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="card destination" data-reveal>
+            <a href="#booking" class="card__media" data-destination="Saint Martin's Island">
+              <img src="https://picsum.photos/seed/saintmartin/800/600" alt="Coral island and turquoise water of Saint Martin's" loading="lazy" width="800" height="600">
+              <span class="card__tag">From ৳7,000</span>
+            </a>
+            <div class="card__body">
+              <p class="card__meta">Bay of Bengal · 2–3 days</p>
+              <h3 class="card__title">Saint Martin's Island</h3>
+              <p class="card__text">Bangladesh's only coral island: turquoise water, coconut palms and quiet moonlit beaches.</p>
+              <a href="#booking" class="link-arrow" data-destination="Saint Martin's Island">Book this trip <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="card destination" data-reveal>
+            <a href="#booking" class="card__media" data-destination="Kuakata">
+              <img src="https://picsum.photos/seed/kuakata/800/600" alt="Sunrise over the sea at Kuakata" loading="lazy" width="800" height="600">
+              <span class="card__tag">From ৳4,000</span>
+            </a>
+            <div class="card__body">
+              <p class="card__meta">Barishal Division · 2 days</p>
+              <h3 class="card__title">Kuakata</h3>
+              <p class="card__text">See both sunrise and sunset from the same beach, plus Buddhist temples and Fatrar Char.</p>
+              <a href="#booking" class="link-arrow" data-destination="Kuakata">Book this trip <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         4. PACKAGES
+         ===================================================== -->
+    <section class="section section--alt" id="packages">
+      <div class="container">
+        <header class="section__header" data-reveal>
+          <p class="eyebrow">Packages</p>
+          <h2 class="section__title">Choose how you want to travel</h2>
+          <p class="section__lead">Transparent pricing per person. No hidden fees.</p>
+        </header>
+
+        <div class="grid grid--3 packages">
+
+          <article class="package" data-reveal>
+            <h3 class="package__name">Weekend Escape</h3>
+            <p class="package__desc">A quick, restful getaway.</p>
+            <p class="package__price"><span class="package__currency">৳</span>5,500<small> / person</small></p>
+            <ul class="package__list">
+              <li>2 days, 1 night</li>
+              <li>Standard hotel stay</li>
+              <li>Breakfast included</li>
+              <li>Local transport</li>
+            </ul>
+            <a href="#booking" class="btn btn--outline btn--block" data-package="Weekend Escape">Choose plan</a>
+          </article>
+
+          <article class="package package--featured" data-reveal>
+            <span class="package__badge">Most Popular</span>
+            <h3 class="package__name">Explorer</h3>
+            <p class="package__desc">The complete experience, our best value.</p>
+            <p class="package__price"><span class="package__currency">৳</span>12,500<small> / person</small></p>
+            <ul class="package__list">
+              <li>4 days, 3 nights</li>
+              <li>Premium hotel or resort</li>
+              <li>All meals included</li>
+              <li>Private transport and guide</li>
+              <li>Entry tickets and activities</li>
+            </ul>
+            <a href="#booking" class="btn btn--primary btn--block" data-package="Explorer">Choose plan</a>
+          </article>
+
+          <article class="package" data-reveal>
+            <h3 class="package__name">Grand Bangladesh</h3>
+            <p class="package__desc">Multiple destinations in one trip.</p>
+            <p class="package__price"><span class="package__currency">৳</span>28,000<small> / person</small></p>
+            <ul class="package__list">
+              <li>8 days, 7 nights</li>
+              <li>3 destinations of your choice</li>
+              <li>Luxury stays</li>
+              <li>Dedicated trip manager</li>
+              <li>Airport pickup and drop</li>
+            </ul>
+            <a href="#booking" class="btn btn--outline btn--block" data-package="Grand Bangladesh">Choose plan</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         5. WHY CHOOSE US
+         ===================================================== -->
+    <section class="section" id="why-us">
+      <div class="container">
+        <header class="section__header" data-reveal>
+          <p class="eyebrow">Why Bangla Voyage</p>
+          <h2 class="section__title">Travel with people who know the way</h2>
+        </header>
+
+        <div class="grid grid--4 features">
+
+          <div class="feature" data-reveal>
+            <div class="feature__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            </div>
+            <h3 class="feature__title">Local Expert Guides</h3>
+            <p class="feature__text">Born and raised in the regions you visit, they know the hidden spots.</p>
+          </div>
+
+          <div class="feature" data-reveal>
+            <div class="feature__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.2c-.6-.8-1.6-1.2-2.8-1.2-1.7 0-2.8.9-2.8 2 0 3 5.6 1.4 5.6 4.2 0 1.2-1.2 2-2.8 2-1.3 0-2.3-.5-3-1.4M12 6v2m0 8v2"/></svg>
+            </div>
+            <h3 class="feature__title">Honest Pricing</h3>
+            <p class="feature__text">One clear price per person. What you see is what you pay.</p>
+          </div>
+
+          <div class="feature" data-reveal>
+            <div class="feature__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3 class="feature__title">Safe and Insured</h3>
+            <p class="feature__text">Vetted hotels, licensed boats and 24/7 trip monitoring.</p>
+          </div>
+
+          <div class="feature" data-reveal>
+            <div class="feature__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-5.2A8 8 0 1 1 21 12z"/><path d="M9 10h6M9 14h4"/></svg>
+            </div>
+            <h3 class="feature__title">Instant WhatsApp Support</h3>
+            <p class="feature__text">Reach a real person any time, before and during your trip.</p>
+          </div>
+
+        </div>
+
+        <div class="stats" data-reveal>
+          <div class="stat"><span class="stat__num" data-count="5000">5,000</span><span class="stat__label">Happy travelers</span></div>
+          <div class="stat"><span class="stat__num" data-count="6">6</span><span class="stat__label">Destinations</span></div>
+          <div class="stat"><span class="stat__num" data-count="8">8</span><span class="stat__label">Years of experience</span></div>
+          <div class="stat"><span class="stat__num" data-count="4.9" data-decimals="1">4.9</span><span class="stat__label">Average rating</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         6. HOW IT WORKS
+         ===================================================== -->
+    <section class="section section--alt" id="how-it-works">
+      <div class="container">
+        <header class="section__header" data-reveal>
+          <p class="eyebrow">How It Works</p>
+          <h2 class="section__title">Booking takes three simple steps</h2>
+        </header>
+
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <span class="step__num">01</span>
+            <h3 class="step__title">Choose your destination</h3>
+            <p class="step__text">Pick a place and a package that fits your time and budget.</p>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step__num">02</span>
+            <h3 class="step__title">Send your request</h3>
+            <p class="step__text">Fill in the short form or message us on WhatsApp with your dates.</p>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step__num">03</span>
+            <h3 class="step__title">Confirm and travel</h3>
+            <p class="step__text">We confirm everything within hours. Pack your bag, we handle the rest.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         7. REVIEWS
+         ===================================================== -->
+    <section class="section" id="reviews">
+      <div class="container">
+        <header class="section__header" data-reveal>
+          <p class="eyebrow">Reviews</p>
+          <h2 class="section__title">Loved by travelers</h2>
+        </header>
+
+        <div class="grid grid--3">
+
+          <figure class="review" data-reveal>
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="review__text">"The Sundarbans trip was flawless. Our guide spotted tiger tracks on the very first morning. Highly recommended."</blockquote>
+            <figcaption class="review__author">
+              <img src="https://picsum.photos/seed/person1/80/80" alt="" width="44" height="44" loading="lazy">
+              <span><strong>Rahim Uddin</strong><small>Dhaka · Sundarbans</small></span>
+            </figcaption>
+          </figure>
+
+          <figure class="review" data-reveal>
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="review__text">"Everything was organized perfectly for our family of five. The hotel in Cox's Bazar was right on the beach."</blockquote>
+            <figcaption class="review__author">
+              <img src="https://picsum.photos/seed/person2/80/80" alt="" width="44" height="44" loading="lazy">
+              <span><strong>Nusrat Jahan</strong><small>Chattogram · Cox's Bazar</small></span>
+            </figcaption>
+          </figure>
+
+          <figure class="review" data-reveal>
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="review__text">"Bandarban in the monsoon was magical. Fair prices, kind staff and quick replies on WhatsApp throughout."</blockquote>
+            <figcaption class="review__author">
+              <img src="https://picsum.photos/seed/person3/80/80" alt="" width="44" height="44" loading="lazy">
+              <span><strong>Tanvir Ahmed</strong><small>Sylhet · Bandarban</small></span>
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         8. BOOKING / CONTACT
+         ===================================================== -->
+    <section class="section section--alt" id="booking">
+      <div class="container booking">
+
+        <div class="booking__info" data-reveal>
+          <p class="eyebrow">Book Your Trip</p>
+          <h2 class="section__title">Tell us where you want to go</h2>
+          <p class="section__lead">Send a request and we'll reply with a personalised quote within a few hours.</p>
+
+          <ul class="contact-list" id="contact">
+            <li>
+              <span class="contact-list__label">WhatsApp</span>
+              <a href="https://wa.me/8801000000000" target="_blank" rel="noopener">+880 1000-000000</a>
+            </li>
+            <li>
+              <span class="contact-list__label">Email</span>
+              <a href="mailto:hello@banglavoyage.com">hello@banglavoyage.com</a>
+            </li>
+            <li>
+              <span class="contact-list__label">Office</span>
+              <span>House 12, Road 5, Dhanmondi, Dhaka</span>
+            </li>
+            <li>
+              <span class="contact-list__label">Hours</span>
+              <span>Sat–Thu, 9:00 AM – 9:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="booking__form" id="booking-form" novalidate data-reveal>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="b-name">Full name</label>
+              <input type="text" id="b-name" name="name" placeholder="Your name" required autocomplete="name">
+              <small class="form-error" aria-live="polite"></small>
+            </div>
+            <div class="form-field">
+              <label for="b-phone">Phone / WhatsApp</label>
+              <input type="tel" id="b-phone" name="phone" placeholder="+880 1XXX-XXXXXX" required autocomplete="tel">
+              <small class="form-error" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="b-destination">Destination</label>
+              <select id="b-destination" name="destination" required>
+                <option value="">Select destination</option>
+                <option>Cox's Bazar</option>
+                <option>Sundarbans</option>
+                <option>Sylhet</option>
+                <option>Bandarban</option>
+                <option>Saint Martin's Island</option>
+                <option>Kuakata</option>
+              </select>
+              <small class="form-error" aria-live="polite"></small>
+            </div>
+            <div class="form-field">
+              <label for="b-package">Package</label>
+              <select id="b-package" name="package">
+                <option value="">Not sure yet</option>
+                <option>Weekend Escape</option>
+                <option>Explorer</option>
+                <option>Grand Bangladesh</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="b-date">Travel date</label>
+              <input type="date" id="b-date" name="date" required>
+              <small class="form-error" aria-live="polite"></small>
+            </div>
+            <div class="form-field">
+              <label for="b-guests">Number of travelers</label>
+              <input type="number" id="b-guests" name="guests" min="1" max="50" value="2" required>
+              <small class="form-error" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="b-message">Message <span class="optional">(optional)</span></label>
+            <textarea id="b-message" name="message" rows="4" placeholder="Anything we should know? Dietary needs, special occasion, budget…"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary btn--lg">Send via WhatsApp</button>
+            <p class="form-note">We never share your details. No payment is taken at this step.</p>
+          </div>
+
+          <p class="form-success" id="form-success" role="status" hidden>Thank you! Your request is ready. Complete it in WhatsApp and we'll reply shortly.</p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       9. FOOTER
+       ===================================================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+
+      <div class="footer__brand">
+        <a href="#home" class="navbar__logo footer__logo">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M15.5 8.5l-2 5-5 2 2-5 5-2z"/>
+          </svg>
+          <span>Bangla Voyage</span>
+        </a>
+        <p>Curated tours to the most beautiful places in Bangladesh.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Destinations">
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="#destinations">Cox's Bazar</a></li>
+          <li><a href="#destinations">Sundarbans</a></li>
+          <li><a href="#destinations">Sylhet</a></li>
+          <li><a href="#destinations">Bandarban</a></li>
+          <li><a href="#destinations">Saint Martin's Island</a></li>
+          <li><a href="#destinations">Kuakata</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-label="Company">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#booking">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <h4>Stay in touch</h4>
+        <ul>
+          <li><a href="mailto:hello@banglavoyage.com">hello@banglavoyage.com</a></li>
+          <li><a href="https://wa.me/8801000000000" target="_blank" rel="noopener">WhatsApp us</a></li>
+        </ul>
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="YouTube">YouTube</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p>&copy; <span id="year">2026</span> Bangla Voyage. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <a href="https://wa.me/8801000000000" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.8-.1a15 15 0 0 1-6.3-4.7c-.4-.6-1.5-2-1.5-3.8s.9-2.7 1.3-3.1c.3-.3.7-.4.9-.4h.7c.2 0 .5-.1.8.6l1 2.3c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.300 1.700 2.100 1.200 1 2.200 1.400 2.500 1.500.3.1.5.1.7-.1l.9-1.100c.2-.3.4-.2.7-.1l2.200 1c.3.100.5.200.600.400.1.200.1.800-.1 1.500z"/></svg>
+  </a>
+
+  <!-- Scripts (to be added in the next step) -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
