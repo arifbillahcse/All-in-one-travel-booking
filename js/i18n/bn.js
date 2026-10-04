@@ -483,5 +483,6 @@ window.TRAVELORIO_I18N.bn = {
  "Ready to write <em>your own story?</em>": "আপনার <em>নিজের গল্প</em> লিখতে প্রস্তুত?",
  "View {name} trip details": "{name} ভ্রমণের বিস্তারিত দেখুন",
  "Plan your trip": "আপনার ভ্রমণ সাজান",
- "No payment is taken at this step.": "এই ধাপে কোনো টাকা নেওয়া হয় না।"
+ "No payment is taken at this step.": "এই ধাপে কোনো টাকা নেওয়া হয় না।",
+ "4.9 rating · 5,000+ happy travelers": "৪.৯ রেটিং · ৫,০০০+ সন্তুষ্ট ভ্রমণকারী"
 };

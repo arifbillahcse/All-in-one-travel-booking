@@ -71,17 +71,12 @@
       <!-- Animated paper-cut scene. Each layer has data-depth for parallax. -->
       <div class="hero__scene" aria-hidden="true">
 
-        <!-- Sky + sun -->
         <div class="hero__layer hero__sky" data-depth="0.02"></div>
 
-        <div class="hero__layer hero__sun-wrap" data-depth="0.04">
-          <svg class="hero__sun" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <circle class="sun__glow" cx="100" cy="100" r="95"/>
-            <circle class="sun__core" cx="100" cy="100" r="55"/>
-          </svg>
-        </div>
+        <!-- Sun on the horizon -->
+        <div class="hero__layer hero__sun-wrap" data-depth="0.04"><div class="hero__sun"></div></div>
 
-        <!-- Clouds -->
+        <!-- Clouds (soft, drift on the right side only) -->
         <div class="hero__layer hero__clouds" data-depth="0.06">
           <svg class="cloud cloud--1" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg"><path d="M30 70a24 24 0 0 1 4-47 36 36 0 0 1 68-8 30 30 0 0 1 50 14 26 26 0 0 1 36 41z"/></svg>
           <svg class="cloud cloud--2" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg"><path d="M30 70a24 24 0 0 1 4-47 36 36 0 0 1 68-8 30 30 0 0 1 50 14 26 26 0 0 1 36 41z"/></svg>
@@ -98,13 +93,20 @@
         <!-- Distant islands on the horizon -->
         <div class="hero__layer hero__islands" data-depth="0.10">
           <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 200V150C80 142 140 92 210 112 250 62 300 62 330 112 380 132 440 170 540 200z"/>
-            <path d="M860 200C930 180 990 122 1050 138 1100 100 1160 100 1200 142 1270 150 1340 160 1440 152V200z"/>
+            <path d="M0 200V158C70 146 130 100 205 118 245 74 300 72 332 118 384 138 446 172 540 200z"/>
+            <path d="M820 200C900 178 980 138 1056 148 1104 112 1170 112 1214 150 1290 156 1356 168 1440 160V200z"/>
+            <g class="palms">
+              <path d="M1128 150c0-22 3-38 10-54" fill="none"/>
+              <path d="M1138 96c-10-12-26-11-35 0 12-4 23-2 35 0zM1138 96c10-12 27-11 36 0-12-4-24-2-36 0zM1138 96c-5-16 3-28 14-32-6 9-8 20-14 32z" stroke="none"/>
+              <path d="M1176 154c0-16 2-28 7-40" fill="none"/>
+              <path d="M1183 114c-8-9-20-8-27 0 9-3 18-2 27 0zM1183 114c8-9 21-8 28 0-10-3-19-2-28 0z" stroke="none"/>
+            </g>
           </svg>
         </div>
 
-        <!-- Sea, first wave, ship, second wave -->
+        <!-- Sea, sun reflection, first wave, ship, second wave -->
         <div class="hero__layer hero__sea" data-depth="0.14"></div>
+        <div class="hero__layer hero__glint" data-depth="0.14"></div>
         <svg class="wave wave--1" viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 C1680,120 1920,0 2160,60 C2400,120 2640,0 2880,60 L2880,120 L0,120 Z"/></svg>
 
         <div class="hero__layer hero__ship" data-depth="0.22">
@@ -127,17 +129,19 @@
         </div>
 
         <svg class="wave wave--2" viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,70 C240,10 480,110 720,70 C960,30 1200,110 1440,70 C1680,10 1920,110 2160,70 C2400,30 2640,110 2880,70 L2880,120 L0,120 Z"/></svg>
-
-        <!-- Floating travel icons -->
-        <div class="hero__layer hero__icons" data-depth="0.18">
-          <svg class="float-icon fi--1" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v14M7 11h10M5 15a7 7 0 0 0 14 0"/></svg>
-          <svg class="float-icon fi--2" viewBox="0 0 24 24"><path d="M12 21 4 11a8 8 0 0 1 16 0z"/><path d="M12 21V8M8 19l-3-8M16 19l3-8"/></svg>
-          <svg class="float-icon fi--3" viewBox="0 0 24 24"><path d="M12 22c0-6 1-10 3-13"/><path d="M15 9c-1-3-4-4-7-3 2 0 4 1 5 3M15 9c2-2 5-2 7 0-3-1-5 0-6 1M15 9c0-3 1-5 3-6-1 2-1 4-1 6"/></svg>
-          <svg class="float-icon fi--4" viewBox="0 0 24 24"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1.500a2 2 0 0 0 0 4V16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1.500a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>
-        </div>
-
         <svg class="wave wave--3" viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,80 C240,120 480,40 720,80 C960,120 1200,40 1440,80 C1680,120 1920,40 2160,80 C2400,120 2640,40 2880,80 L2880,120 L0,120 Z"/></svg>
       </div>
+
+
+      <!-- Clickable destination chips -->
+      <ul class="hero__chips" aria-label="Destinations">
+        <li><a class="hero-chip" href="destination.html?place=coxs-bazar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c0-6 1-10 3-13"/><path d="M15 9c-1-3-4-4-7-3 2 0 4 1 5 3M15 9c2-2 5-2 7 0-3-1-5 0-6 1M15 9c0-3 1-5 3-6-1 2-1 4-1 6"/></svg>Cox's Bazar</a></li>
+        <li><a class="hero-chip" href="destination.html?place=sundarbans"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-6M12 15c-4 0-6-3-5-6 1-3 4-4 5-6 1 2 4 3 5 6 1 3-1 6-5 6z"/></svg>Sundarbans</a></li>
+        <li><a class="hero-chip" href="destination.html?place=sylhet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15M5 19l8-8"/></svg>Sylhet</a></li>
+        <li><a class="hero-chip" href="destination.html?place=bandarban"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19l6-10 4 6 3-4 5 8z"/></svg>Bandarban</a></li>
+        <li><a class="hero-chip" href="destination.html?place=saint-martin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21 4 11a8 8 0 0 1 16 0z"/><path d="M12 21V8M8 19l-3-8M16 19l3-8"/></svg>Saint Martin's Island</a></li>
+        <li><a class="hero-chip" href="destination.html?place=kuakata"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18M7 18a5 5 0 0 1 10 0M12 6v3M5 10l2 2M19 10l-2 2"/></svg>Kuakata</a></li>
+      </ul>
 
       <!-- Hero content -->
       <div class="container hero__content">
@@ -152,11 +156,7 @@
           <a href="#destinations" class="btn btn--primary btn--lg">Explore Destinations</a>
           <a href="#packages" class="btn btn--ghost btn--lg">View Packages</a>
         </div>
-        <ul class="hero__stats">
-          <li><strong data-count="6">6</strong>Destinations</li>
-          <li><strong data-count="5000">5,000</strong>Happy travelers</li>
-          <li><strong>24/7</strong>WhatsApp support</li>
-        </ul>
+        <p class="hero__trust"><span class="stars" aria-hidden="true">★★★★★</span><span>4.9 rating · 5,000+ happy travelers</span></p>
       </div>
 
       <!-- Search bar -->
@@ -189,11 +189,6 @@
         </div>
         <button type="submit" class="btn btn--primary search__btn">Search</button>
       </form>
-
-      <a href="#destinations" class="hero__scroll" aria-label="Scroll to destinations">
-        <span class="hero__scroll-line"></span>
-        <span>Scroll</span>
-      </a>
     </section>
 
 
