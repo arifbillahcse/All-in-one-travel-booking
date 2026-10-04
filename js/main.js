@@ -19,6 +19,11 @@
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+  // Language helpers (js/i18n/core.js defines window.TO; fall back to plain English if it is missing)
+  const TO = window.TO || null;
+  const T = (key, vars) => (TO ? TO.t(key, vars) : (vars ? key.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m)) : key));
+  const NUM = (n, opts) => (TO ? TO.num(n, opts) : Number(n).toLocaleString("en-US", opts));
+
   const toISODate = (d) => {
     const pad = (n) => String(n).padStart(2, "0");
     return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
@@ -44,7 +49,7 @@
   function setMenu(open) {
     navbar.classList.toggle("is-open", open);
     navToggle.setAttribute("aria-expanded", String(open));
-    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    navToggle.setAttribute("aria-label", open ? T("Close menu") : T("Open menu"));
     document.body.style.overflow = open ? "hidden" : "";
   }
 
@@ -155,17 +160,14 @@
     const decimals = parseInt(el.dataset.decimals || "0", 10);
     const duration = 1600;
     const start = performance.now();
-    const fmt = (n) => n.toLocaleString("en-US", {
-      minimumFractionDigits: decimals,
-      maximumFractionDigits: decimals,
-    });
+    const fmt = (n) => NUM(n, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
 
     function frame(now) {
       const t = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - t, 3);          // easeOutCubic
       el.textContent = fmt(target * eased);
       if (t < 1) requestAnimationFrame(frame);
-      else el.textContent = fmt(target);
+      else { el.textContent = fmt(target); el.dataset.done = "1"; }
     }
     requestAnimationFrame(frame);
   }
@@ -185,6 +187,20 @@
     counters.forEach((el) => { el.textContent = "0"; countObserver.observe(el); });
   }
   // Otherwise the final numbers already in the HTML stay as they are.
+
+  // Re-format counters when the language changes (the language walker skips [data-count])
+  function refreshCounters() {
+    counters.forEach((el) => {
+      const decimals = parseInt(el.dataset.decimals || "0", 10);
+      const target = parseFloat(el.dataset.count);
+      const finished = el.dataset.done === "1" || prefersReducedMotion || !("IntersectionObserver" in window);
+      el.textContent = NUM(finished ? target : 0, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    });
+  }
+  if (TO) {
+    refreshCounters();
+    document.addEventListener("travelorio:langchange", refreshCounters);
+  }
 
 
   /* ---------- 6. Prefill booking form (home page) ---------- */
@@ -242,26 +258,26 @@
      Used by #booking-form (home) and #trip-form (destination page). */
   const rules = {
     name(v) {
-      if (!v.trim()) return "Please enter your name.";
-      if (v.trim().length < 2) return "Name looks too short.";
+      if (!v.trim()) return T("Please enter your name.");
+      if (v.trim().length < 2) return T("Name looks too short.");
       return "";
     },
     phone(v) {
       const digits = v.replace(/[\s\-()]/g, "");
-      if (!digits) return "Please enter your phone number.";
-      if (!/^\+?\d{10,15}$/.test(digits)) return "Enter a valid number, e.g. +8801XXXXXXXXX.";
+      if (!digits) return T("Please enter your phone number.");
+      if (!/^\+?\d{10,15}$/.test(digits)) return T("Enter a valid number, e.g. +8801XXXXXXXXX.");
       return "";
     },
     destination(v) { return v ? "" : "Please choose a destination."; },
     date(v) {
-      if (!v) return "Please pick a travel date.";
-      if (v < todayISO) return "Travel date can't be in the past.";
+      if (!v) return T("Please pick a travel date.");
+      if (v < todayISO) return T("Travel date can't be in the past.");
       return "";
     },
     guests(v) {
       const n = Number(v);
-      if (!v || !Number.isInteger(n)) return "Enter the number of travelers.";
-      if (n < 1 || n > 50) return "Choose between 1 and 50 travelers.";
+      if (!v || !Number.isInteger(n)) return T("Enter the number of travelers.");
+      if (n < 1 || n > 50) return T("Choose between 1 and 50 travelers.");
       return "";
     },
   };
@@ -314,25 +330,26 @@
 
       const data = Object.fromEntries(new FormData(formEl).entries());
       const lines = [
-        "Hello TravelOrio! I'd like to book a trip.",
+        T("Hello TravelOrio! I'd like to book a trip."),
         "",
-        `Name: ${data.name.trim()}`,
-        `Phone: ${data.phone.trim()}`,
-        `Destination: ${data.destination}`,
-        `Package: ${data.package || "Not sure yet"}`,
-        `Travel date: ${data.date}`,
-        `Travelers: ${data.guests}`,
+        T("Name: {v}", { v: data.name.trim() }),
+        T("Phone: {v}", { v: data.phone.trim() }),
+        T("Destination: {v}", { v: T(data.destination) }),
+        T("Package: {v}", { v: T(data.package || "Not sure yet") }),
+        T("Travel date: {v}", { v: TO ? TO.fmtDate(data.date) : data.date }),
+        T("Travelers: {v}", { v: NUM(data.guests) }),
       ];
-      if (data.estimate) lines.push(`Estimated total: ${data.estimate}`);
-      if (data.message && data.message.trim()) lines.push("", `Message: ${data.message.trim()}`);
+      if (data.estimate) lines.push(T("Estimated total: {v}", { v: data.estimate }));
+      if (data.message && data.message.trim()) lines.push("", T("Message: {v}", { v: data.message.trim() }));
 
       const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
       const win = window.open(url, "_blank", "noopener");
       if (success) {
         success.hidden = false;
+        const ok = T("Thank you! Your request is ready. Complete it in WhatsApp and we'll reply shortly.");
         success.innerHTML = win
-          ? "Thank you! Your request is ready. Complete it in WhatsApp and we'll reply shortly."
-          : `Thank you! Your request is ready. <a href="${url}" target="_blank" rel="noopener"><strong>Tap here to send it on WhatsApp.</strong></a>`;
+          ? ok
+          : `${ok} <a href="${url}" target="_blank" rel="noopener"><strong>${T("Tap here to send it on WhatsApp.")}</strong></a>`;
         success.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
       }
     });
@@ -340,8 +357,19 @@
 
   $$("#booking-form, #trip-form").forEach(initWhatsAppForm);
 
+  // A language switch clears stale error messages and success notes
+  document.addEventListener("travelorio:langchange", () => {
+    $$("#booking-form, #trip-form").forEach((f) => {
+      $$(".has-error", f).forEach((field) => clearError(field));
+      const ok = $(".form-success", f);
+      if (ok) ok.hidden = true;
+    });
+  });
+
 
   /* ---------- 8. Footer year ---------- */
   const year = $("#year");
-  if (year) year.textContent = new Date().getFullYear();
+  const setYear = () => { if (year) year.textContent = NUM(new Date().getFullYear(), { useGrouping: false }); };
+  setYear();
+  if (TO) document.addEventListener("travelorio:langchange", setYear);
 })();

@@ -32,6 +32,7 @@
     /* ---------------------------------------------------- Cox's Bazar */
     {
       slug: "coxs-bazar",
+      overviewTitle: "A coastline made for slow days",
       name: "Cox's Bazar",
       region: "Chattogram Division",
       tagline: "Walk the world's longest natural sea beach and watch the sun melt into the Bay of Bengal.",
@@ -87,6 +88,7 @@
     /* ---------------------------------------------------- Sundarbans */
     {
       slug: "sundarbans",
+      overviewTitle: "Into the world's largest mangrove",
       name: "Sundarbans",
       region: "Khulna Division",
       tagline: "Cruise silent tidal creeks through the largest mangrove forest on Earth.",
@@ -141,6 +143,7 @@
     /* ---------------------------------------------------- Sylhet */
     {
       slug: "sylhet",
+      overviewTitle: "Green hills and clear streams",
       name: "Sylhet",
       region: "Sylhet Division",
       tagline: "Mist-wrapped tea hills, swamp forests and crystal streams in Bangladesh's green north-east.",
@@ -195,6 +198,7 @@
     /* ---------------------------------------------------- Bandarban */
     {
       slug: "bandarban",
+      overviewTitle: "Where the clouds come to rest",
       name: "Bandarban",
       region: "Chattogram Hill Tracts",
       tagline: "Rise above the clouds in Bangladesh's wild hill country.",
@@ -249,6 +253,7 @@
     /* ---------------------------------------------------- Saint Martin's */
     {
       slug: "saint-martin",
+      overviewTitle: "Island time, turquoise water",
       name: "Saint Martin's Island",
       region: "Bay of Bengal",
       tagline: "Bangladesh's only coral island, ringed by turquoise water and coconut palms.",
@@ -303,6 +308,7 @@
     /* ---------------------------------------------------- Kuakata */
     {
       slug: "kuakata",
+      overviewTitle: "One beach, two skies",
       name: "Kuakata",
       region: "Barishal Division",
       tagline: "Watch the sun rise and set over the same sea.",
