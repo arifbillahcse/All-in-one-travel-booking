@@ -1,5 +1,5 @@
 /*
- * One-time exporter: reads the legacy browser data files in public/assets/js
+ * One-time exporter: reads the original static-site data files in static-backup/js
  * and writes English + Bangla content as JSON for the database seeders.
  *
  *   node tools/export-legacy-content.cjs
@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 
-const JS = path.join(__dirname, '..', 'public', 'assets', 'js');
+const JS = path.join(__dirname, '..', 'static-backup', 'js');
 const OUT = path.join(__dirname, '..', 'database', 'seeders', 'data');
 
 const ctx = { window: {}, console };
