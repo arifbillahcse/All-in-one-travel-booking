@@ -10,7 +10,8 @@ being migrated from a static HTML/CSS/JS site to Laravel 11.
 | 1 | Laravel foundation, Blade layout, assets | done |
 | 2 | Pages converted to Blade | done |
 | 3 | Database, models, seeders | done |
-| 4-10 | Bilingual routing, dynamic pages, booking, admin, media/SEO, tests, deploy | planned |
+| 4 | Bilingual routing: `/bn/...`, `lang/bn.json`, hreflang | done |
+| 5-10 | Dynamic pages, booking, admin, media/SEO, tests, deploy | next: Phase 5 |
 
 The original static site is kept untouched in `static-backup/` as the visual reference.
 
@@ -64,3 +65,16 @@ and reads return the current locale, falling back to English.
 (exported from the old static content by `node tools/export-legacy-content.cjs`).
 Seeders update by slug, so re-running them never duplicates rows, and a missing Bangla
 string stops the seed with an error.
+
+## Languages
+
+English lives at `/...` and Bangla at `/bn/...`; the URL decides the language (`App\Http\Middleware\SetLocale`),
+so every page has its own indexable address and `hreflang` links.
+
+- Write UI text in Blade in English: `{{ __('Book Now') }}`. The English text is the key, and `lang/bn.json` holds the Bangla.
+  A missing translation shows English. `php artisan test` fails if a view uses a string that is not in `lang/bn.json`.
+- Don't add keys that are only digits (Laravel renumbers them). Use `to_locale_digits('3')` instead.
+- Helpers: `lroute('packages')` / `lurl('blog')` (links in the current language), `alternate_url('bn')` (language switch),
+  `t('{name} Tour Packages', ['name' => $n])`, `format_money()`, `format_number()`, `format_date()`, `to_locale_digits()`.
+- Database content is translated per column (see Database). Sections still built by the old browser scripts
+  (`public/assets/js/*.js`) use `i18n/core.js` with the page language from `<html lang>`; Phase 5 removes that.

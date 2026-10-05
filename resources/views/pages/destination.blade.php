@@ -9,27 +9,27 @@
     <!-- =====================================================
          1. DESTINATION HERO
          ===================================================== -->
-    <section class="dest-hero" id="home" aria-label="Destination introduction">
+    <section class="dest-hero" id="home" aria-label="{{ __('Destination introduction') }}">
       <div class="dest-hero__media" aria-hidden="true">
         <img data-field="heroImage" src="https://picsum.photos/seed/coxsbazar-hero/1920/1080" alt="" width="1920" height="1080" fetchpriority="high">
       </div>
 
       <div class="container dest-hero__content">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+        <nav class="breadcrumb" aria-label="{{ __('Breadcrumb') }}">
           <ol>
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('home') }}#destinations">Destinations</a></li>
-            <li aria-current="page" data-field="name">Cox's Bazar</li>
+            <li><a href="{{ lroute('home') }}">{{ __('Home') }}</a></li>
+            <li><a href="{{ lroute('home') }}#destinations">{{ __('Destinations') }}</a></li>
+            <li aria-current="page" data-field="name">{{ __('Cox\'s Bazar') }}</li>
           </ol>
         </nav>
 
         <p class="eyebrow dest-hero__eyebrow" data-field="region">Chattogram Division</p>
-        <h1 class="dest-hero__title" data-field="name">Cox's Bazar</h1>
+        <h1 class="dest-hero__title" data-field="name">{{ __('Cox\'s Bazar') }}</h1>
         <p class="dest-hero__tagline" data-field="tagline">Walk the world's longest natural sea beach and watch the sun melt into the Bay of Bengal.</p>
 
         <div class="dest-hero__actions">
-          <a href="#book" class="btn btn--primary btn--lg">Book This Trip</a>
-          <a href="#itinerary" class="btn btn--ghost btn--lg">View Itinerary</a>
+          <a href="#book" class="btn btn--primary btn--lg">{{ __('Book This Trip') }}</a>
+          <a href="#itinerary" class="btn btn--ghost btn--lg">{{ __('View Itinerary') }}</a>
         </div>
       </div>
     </section>
@@ -38,27 +38,27 @@
     <!-- =====================================================
          2. QUICK FACTS STRIP
          ===================================================== -->
-    <section class="facts" aria-label="Quick facts">
+    <section class="facts" aria-label="{{ __('Quick facts') }}">
       <div class="container">
         <dl class="facts__list">
           <div class="facts__item">
-            <dt>Starting from</dt>
-            <dd data-field="priceFact">৳4,500 <small>/ person</small></dd>
+            <dt>{{ __('Starting from') }}</dt>
+            <dd data-field="priceFact">৳4,500 <small>{{ __('/ person') }}</small></dd>
           </div>
           <div class="facts__item">
-            <dt>Duration</dt>
+            <dt>{{ __('Duration') }}</dt>
             <dd data-field="duration">2–4 days</dd>
           </div>
           <div class="facts__item">
-            <dt>Best time</dt>
+            <dt>{{ __('Best time') }}</dt>
             <dd data-field="bestTime">Nov – Mar</dd>
           </div>
           <div class="facts__item">
-            <dt>From Dhaka</dt>
+            <dt>{{ __('From Dhaka') }}</dt>
             <dd data-field="distance">~400 km · 1 hr by air</dd>
           </div>
           <div class="facts__item">
-            <dt>Trip style</dt>
+            <dt>{{ __('Trip style') }}</dt>
             <dd data-field="style">Beach · Relaxed</dd>
           </div>
         </dl>
@@ -76,7 +76,7 @@
 
           <!-- Overview -->
           <div class="detail-block" data-reveal>
-            <p class="eyebrow">Overview</p>
+            <p class="eyebrow">{{ __('Overview') }}</p>
             <h2 class="section__title" data-field="overviewTitle">A coastline made for slow days</h2>
             <div class="prose" data-field="overview">
               <p>Cox's Bazar is home to 120 km of unbroken golden sand, the longest natural sea beach in the world. Mornings start with fishermen hauling in their nets, afternoons belong to the surf, and evenings turn the sky orange over the Bay of Bengal.</p>
@@ -95,8 +95,8 @@
 
           <!-- Attractions -->
           <div class="detail-block" id="attractions" data-reveal>
-            <p class="eyebrow">Top attractions</p>
-            <h2 class="section__title">What you'll see</h2>
+            <p class="eyebrow">{{ __('Top attractions') }}</p>
+            <h2 class="section__title">{{ __('What you\'ll see') }}</h2>
 
             <div class="grid grid--2 attractions" data-field="attractions">
               <article class="attraction">
@@ -132,8 +132,8 @@
 
           <!-- Itinerary -->
           <div class="detail-block" id="itinerary" data-reveal>
-            <p class="eyebrow">Itinerary</p>
-            <h2 class="section__title">Your day-by-day plan</h2>
+            <p class="eyebrow">{{ __('Itinerary') }}</p>
+            <h2 class="section__title">{{ __('Your day-by-day plan') }}</h2>
 
             <div class="itinerary" data-field="itinerary">
               <details class="itinerary__day" open>
@@ -199,12 +199,12 @@
 
           <!-- Included / Not included -->
           <div class="detail-block" id="inclusions" data-reveal>
-            <p class="eyebrow">Inclusions</p>
-            <h2 class="section__title">What's covered</h2>
+            <p class="eyebrow">{{ __('Inclusions') }}</p>
+            <h2 class="section__title">{{ __('What\'s covered') }}</h2>
 
             <div class="grid grid--2 inclusions">
               <div class="inclusions__col inclusions__col--yes">
-                <h3>Included</h3>
+                <h3>{{ __('Included') }}</h3>
                 <ul class="tick-list" data-field="included">
                   <li>Hotel stay (twin-sharing)</li>
                   <li>Daily breakfast</li>
@@ -215,7 +215,7 @@
                 </ul>
               </div>
               <div class="inclusions__col inclusions__col--no">
-                <h3>Not included</h3>
+                <h3>{{ __('Not included') }}</h3>
                 <ul class="cross-list" data-field="excluded">
                   <li>Flights or long-distance bus tickets</li>
                   <li>Lunch and dinner (unless upgraded)</li>
@@ -229,8 +229,8 @@
 
           <!-- Gallery -->
           <div class="detail-block" id="gallery" data-reveal>
-            <p class="eyebrow">Gallery</p>
-            <h2 class="section__title">A glimpse of the trip</h2>
+            <p class="eyebrow">{{ __('Gallery') }}</p>
+            <h2 class="section__title">{{ __('A glimpse of the trip') }}</h2>
 
             <div class="gallery" data-field="gallery">
               <a class="gallery__item gallery__item--wide" href="https://picsum.photos/seed/cox-g1/1600/1000">
@@ -256,8 +256,8 @@
 
           <!-- When to go -->
           <div class="detail-block" id="best-time" data-reveal>
-            <p class="eyebrow">When to go</p>
-            <h2 class="section__title">Best time to visit</h2>
+            <p class="eyebrow">{{ __('When to go') }}</p>
+            <h2 class="section__title">{{ __('Best time to visit') }}</h2>
 
             <div class="seasons" data-field="seasons">
               <div class="season season--best">
@@ -280,12 +280,12 @@
 
           <!-- Getting there + tips -->
           <div class="detail-block" id="getting-there" data-reveal>
-            <p class="eyebrow">Plan ahead</p>
-            <h2 class="section__title">Getting there and travel tips</h2>
+            <p class="eyebrow">{{ __('Plan ahead') }}</p>
+            <h2 class="section__title">{{ __('Getting there and travel tips') }}</h2>
 
             <div class="grid grid--2 plan">
               <div class="plan__col">
-                <h3>How to get there</h3>
+                <h3>{{ __('How to get there') }}</h3>
                 <ul class="info-list" data-field="transport">
                   <li><strong>By air:</strong> about 1 hour from Dhaka, with several daily flights.</li>
                   <li><strong>By bus:</strong> 9–11 hours overnight AC coach from Dhaka.</li>
@@ -293,7 +293,7 @@
                 </ul>
               </div>
               <div class="plan__col">
-                <h3>Good to know</h3>
+                <h3>{{ __('Good to know') }}</h3>
                 <ul class="info-list" data-field="tips">
                   <li>Book hotels early for Eid and winter weekends.</li>
                   <li>Swim only in flagged safe zones.</li>
@@ -306,8 +306,8 @@
 
           <!-- FAQ -->
           <div class="detail-block" id="faq" data-reveal>
-            <p class="eyebrow">FAQ</p>
-            <h2 class="section__title">Common questions</h2>
+            <p class="eyebrow">{{ __('FAQ') }}</p>
+            <h2 class="section__title">{{ __('Common questions') }}</h2>
 
             <div class="faq" data-field="faq">
               <details class="faq__item">
@@ -319,12 +319,12 @@
                 <p>Absolutely. Tell us your dates, budget and interests in the booking form and we'll adjust the days, hotel and activities.</p>
               </details>
               <details class="faq__item">
-                <summary>How do I pay?</summary>
-                <p>No payment is taken online. After you send a request we confirm availability and share bKash, Nagad or bank transfer details.</p>
+                <summary>{{ __('How do I pay?') }}</summary>
+                <p>{{ __('No payment is taken online. After you send a request we confirm availability and share bKash, Nagad or bank transfer details.') }}</p>
               </details>
               <details class="faq__item">
-                <summary>What is the cancellation policy?</summary>
-                <p>Free cancellation up to 7 days before departure. After that, charges depend on hotel and transport bookings already made.</p>
+                <summary>{{ __('What is the cancellation policy?') }}</summary>
+                <p>{{ __('Free cancellation up to 7 days before departure. After that, charges depend on hotel and transport bookings already made.') }}</p>
               </details>
               <details class="faq__item">
                 <summary>Is there a group discount?</summary>
@@ -337,60 +337,60 @@
 
 
         <!-- Sticky booking card -->
-        <aside class="detail-side" id="book" aria-label="Book this trip">
+        <aside class="detail-side" id="book" aria-label="{{ __('Book this trip') }}">
           <div class="book-card" data-reveal>
-            <p class="book-card__from">Starting from</p>
-            <p class="book-card__price" data-field="priceCard"><span class="package__currency">৳</span>4,500<small> / person</small></p>
-            <p class="book-card__note">Free cancellation up to 7 days before departure.</p>
+            <p class="book-card__from">{{ __('Starting from') }}</p>
+            <p class="book-card__price" data-field="priceCard"><span class="package__currency">৳</span>4,500<small> {{ __('/ person') }}</small></p>
+            <p class="book-card__note">{{ __('Free cancellation up to 7 days before departure.') }}</p>
 
             <form class="book-card__form" id="trip-form" novalidate>
               <input type="hidden" name="destination" value="Cox's Bazar" data-field="destinationInput">
 
               <div class="form-field">
-                <label for="t-name">Full name</label>
-                <input type="text" id="t-name" name="name" placeholder="Your name" required autocomplete="name">
+                <label for="t-name">{{ __('Full name') }}</label>
+                <input type="text" id="t-name" name="name" placeholder="{{ __('Your name') }}" required autocomplete="name">
                 <small class="form-error" aria-live="polite"></small>
               </div>
 
               <div class="form-field">
-                <label for="t-phone">Phone / WhatsApp</label>
-                <input type="tel" id="t-phone" name="phone" placeholder="+880 1XXX-XXXXXX" required autocomplete="tel">
+                <label for="t-phone">{{ __('Phone / WhatsApp') }}</label>
+                <input type="tel" id="t-phone" name="phone" placeholder="{{ __('+880 1XXX-XXXXXX') }}" required autocomplete="tel">
                 <small class="form-error" aria-live="polite"></small>
               </div>
 
               <div class="form-row">
                 <div class="form-field">
-                  <label for="t-date">Travel date</label>
+                  <label for="t-date">{{ __('Travel date') }}</label>
                   <input type="date" id="t-date" name="date" required>
                   <small class="form-error" aria-live="polite"></small>
                 </div>
                 <div class="form-field">
-                  <label for="t-guests">Travelers</label>
+                  <label for="t-guests">{{ __('Travelers') }}</label>
                   <input type="number" id="t-guests" name="guests" min="1" max="50" value="2" required>
                   <small class="form-error" aria-live="polite"></small>
                 </div>
               </div>
 
               <div class="form-field">
-                <label for="t-package">Package</label>
+                <label for="t-package">{{ __('Package') }}</label>
                 <select id="t-package" name="package">
-                  <option value="">Not sure yet</option>
-                  <option value="Weekend Escape">Weekend Escape</option>
-                  <option value="Explorer" selected>Explorer</option>
-                  <option value="Grand Bangladesh">Grand Bangladesh</option>
+                  <option value="">{{ __('Not sure yet') }}</option>
+                  <option value="Weekend Escape">{{ __('Weekend Escape') }}</option>
+                  <option value="Explorer" selected>{{ __('Explorer') }}</option>
+                  <option value="Grand Bangladesh">{{ __('Grand Bangladesh') }}</option>
                 </select>
                 <small class="form-error" aria-hidden="true"></small>
               </div>
 
-              <button type="submit" class="btn btn--primary btn--block btn--lg">Send via WhatsApp</button>
-              <p class="form-note">No payment is taken at this step.</p>
-              <p class="form-success" id="trip-success" role="status" hidden>Thank you! Complete your request in WhatsApp and we'll reply shortly.</p>
+              <button type="submit" class="btn btn--primary btn--block btn--lg">{{ __('Send via WhatsApp') }}</button>
+              <p class="form-note">{{ __('No payment is taken at this step.') }}</p>
+              <p class="form-success" id="trip-success" role="status" hidden>{{ __('Thank you! Complete your request in WhatsApp and we\'ll reply shortly.') }}</p>
             </form>
 
             <ul class="book-card__trust">
-              <li>Reply within a few hours</li>
-              <li>Local guides, vetted hotels</li>
-              <li>No hidden fees</li>
+              <li>{{ __('Reply within a few hours') }}</li>
+              <li>{{ __('Local guides, vetted hotels') }}</li>
+              <li>{{ __('No hidden fees') }}</li>
             </ul>
           </div>
         </aside>
@@ -405,45 +405,45 @@
     <section class="section section--alt" id="more-destinations">
       <div class="container">
         <header class="section__header" data-reveal>
-          <p class="eyebrow">Keep exploring</p>
-          <h2 class="section__title">More places to love</h2>
-          <p class="section__lead">Combine two destinations in our Grand Bangladesh package.</p>
+          <p class="eyebrow">{{ __('Keep exploring') }}</p>
+          <h2 class="section__title">{{ __('More places to love') }}</h2>
+          <p class="section__lead">{{ __('Combine two destinations in our Grand Bangladesh package.') }}</p>
         </header>
 
         <div class="grid grid--3" data-field="related">
           <article class="card destination" data-reveal>
-            <a href="{{ route('destination', 'saint-martin') }}" class="card__media">
-              <img src="https://picsum.photos/seed/saintmartin/800/600" alt="Coral island and turquoise water of Saint Martin's" loading="lazy" width="800" height="600">
-              <span class="card__tag">From ৳7,000</span>
+            <a href="{{ lroute('destination', 'saint-martin') }}" class="card__media">
+              <img src="https://picsum.photos/seed/saintmartin/800/600" alt="{{ __('Coral island and turquoise water of Saint Martin\'s') }}" loading="lazy" width="800" height="600">
+              <span class="card__tag">{{ __('From ৳7,000') }}</span>
             </a>
             <div class="card__body">
-              <p class="card__meta">Bay of Bengal · 2–3 days</p>
-              <h3 class="card__title">Saint Martin's Island</h3>
-              <a href="{{ route('destination', 'saint-martin') }}" class="link-arrow">View details <span aria-hidden="true">→</span></a>
+              <p class="card__meta">{{ __('Bay of Bengal · 2–3 days') }}</p>
+              <h3 class="card__title">{{ __('Saint Martin\'s Island') }}</h3>
+              <a href="{{ lroute('destination', 'saint-martin') }}" class="link-arrow">{{ __('View details') }} <span aria-hidden="true">→</span></a>
             </div>
           </article>
 
           <article class="card destination" data-reveal>
-            <a href="{{ route('destination', 'bandarban') }}" class="card__media">
-              <img src="https://picsum.photos/seed/bandarban/800/600" alt="Hills and clouds of Bandarban" loading="lazy" width="800" height="600">
-              <span class="card__tag">From ৳6,000</span>
+            <a href="{{ lroute('destination', 'bandarban') }}" class="card__media">
+              <img src="https://picsum.photos/seed/bandarban/800/600" alt="{{ __('Hills and clouds of Bandarban') }}" loading="lazy" width="800" height="600">
+              <span class="card__tag">{{ __('From ৳6,000') }}</span>
             </a>
             <div class="card__body">
-              <p class="card__meta">Chattogram Hill Tracts · 3 days</p>
-              <h3 class="card__title">Bandarban</h3>
-              <a href="{{ route('destination', 'bandarban') }}" class="link-arrow">View details <span aria-hidden="true">→</span></a>
+              <p class="card__meta">{{ __('Chattogram Hill Tracts · 3 days') }}</p>
+              <h3 class="card__title">{{ __('Bandarban') }}</h3>
+              <a href="{{ lroute('destination', 'bandarban') }}" class="link-arrow">{{ __('View details') }} <span aria-hidden="true">→</span></a>
             </div>
           </article>
 
           <article class="card destination" data-reveal>
-            <a href="{{ route('destination', 'kuakata') }}" class="card__media">
-              <img src="https://picsum.photos/seed/kuakata/800/600" alt="Sunrise over the sea at Kuakata" loading="lazy" width="800" height="600">
-              <span class="card__tag">From ৳4,000</span>
+            <a href="{{ lroute('destination', 'kuakata') }}" class="card__media">
+              <img src="https://picsum.photos/seed/kuakata/800/600" alt="{{ __('Sunrise over the sea at Kuakata') }}" loading="lazy" width="800" height="600">
+              <span class="card__tag">{{ __('From ৳4,000') }}</span>
             </a>
             <div class="card__body">
-              <p class="card__meta">Barishal Division · 2 days</p>
-              <h3 class="card__title">Kuakata</h3>
-              <a href="{{ route('destination', 'kuakata') }}" class="link-arrow">View details <span aria-hidden="true">→</span></a>
+              <p class="card__meta">{{ __('Barishal Division · 2 days') }}</p>
+              <h3 class="card__title">{{ __('Kuakata') }}</h3>
+              <a href="{{ lroute('destination', 'kuakata') }}" class="link-arrow">{{ __('View details') }} <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
@@ -454,13 +454,13 @@
     <!-- =====================================================
          5. CLOSING CTA
          ===================================================== -->
-    <section class="cta-band" aria-label="Ready to book">
+    <section class="cta-band" aria-label="{{ __('Ready to book') }}">
       <div class="container cta-band__inner" data-reveal>
         <div>
-          <h2 class="cta-band__title" data-field="ctaTitle">Ready for your <em>Cox's Bazar</em> escape?</h2>
-          <p>Message us and we'll build a plan around your dates and budget.</p>
+          <h2 class="cta-band__title" data-field="ctaTitle">Ready for your <em>{{ __('Cox\'s Bazar') }}</em> escape?</h2>
+          <p>{{ __('Message us and we\'ll build a plan around your dates and budget.') }}</p>
         </div>
-        <a href="{{ whatsapp_url() }}" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a href="{{ whatsapp_url() }}" class="btn btn--primary btn--lg" target="_blank" rel="noopener">{{ __('Chat on WhatsApp') }}</a>
       </div>
     </section>
 

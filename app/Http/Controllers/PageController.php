@@ -54,6 +54,7 @@ class PageController extends Controller
 
         return view('pages.destination', [
             'slug' => $slug,
+            'fullTitle' => t('{name} Tour Packages | TravelOrio', ['name' => __($name)]),
             'title' => $name.' Tour Packages',
         ]);
     }

@@ -8,7 +8,7 @@
     <!-- =====================================================
          1. PAGE HERO
          ===================================================== -->
-    <section class="page-hero" id="home" aria-label="Blog introduction">
+    <section class="page-hero" id="home" aria-label="{{ __('Blog introduction') }}">
       <div class="page-hero__waves" aria-hidden="true">
         <svg class="wave wave--1" viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 C1680,120 1920,0 2160,60 C2400,120 2640,0 2880,60 L2880,120 L0,120 Z"/></svg>
         <svg class="wave wave--2" viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,70 C240,10 480,110 720,70 C960,30 1200,110 1440,70 C1680,10 1920,110 2160,70 C2400,30 2640,110 2880,70 L2880,120 L0,120 Z"/></svg>
@@ -16,18 +16,18 @@
       </div>
 
       <div class="container page-hero__content">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+        <nav class="breadcrumb" aria-label="{{ __('Breadcrumb') }}">
           <ol>
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li aria-current="page">Blog</li>
+            <li><a href="{{ lroute('home') }}">{{ __('Home') }}</a></li>
+            <li aria-current="page">{{ __('Blog') }}</li>
           </ol>
         </nav>
-        <p class="eyebrow page-hero__eyebrow">Blog</p>
-        <h1 class="page-hero__title">Stories, guides <em>&amp; tips</em></h1>
-        <p class="page-hero__lead">Practical advice and honest stories from our guides, to help you plan a better trip around Bangladesh.</p>
+        <p class="eyebrow page-hero__eyebrow">{{ __('Blog') }}</p>
+        <h1 class="page-hero__title">{{ __('Stories, guides') }} <em>{{ __('& tips') }}</em></h1>
+        <p class="page-hero__lead">{{ __('Practical advice and honest stories from our guides, to help you plan a better trip around Bangladesh.') }}</p>
         <div class="page-hero__actions">
-          <a href="#articles" class="btn btn--primary btn--lg">Browse Articles</a>
-          <a href="{{ route('packages') }}" class="btn btn--ghost btn--lg">Plan a Trip</a>
+          <a href="#articles" class="btn btn--primary btn--lg">{{ __('Browse Articles') }}</a>
+          <a href="{{ lroute('packages') }}" class="btn btn--ghost btn--lg">{{ __('Plan a Trip') }}</a>
         </div>
       </div>
     </section>
@@ -40,11 +40,11 @@
       <div class="container">
 
         <div class="blog-tools" data-reveal>
-          <div class="chips" id="blog-filters" role="group" aria-label="Filter articles by category"></div>
+          <div class="chips" id="blog-filters" role="group" aria-label="{{ __('Filter articles by category') }}"></div>
           <div class="blog-search">
-            <label for="blog-search" class="sr-only">Search articles</label>
+            <label for="blog-search" class="sr-only">{{ __('Search articles') }}</label>
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-            <input type="search" id="blog-search" placeholder="Search articles…" autocomplete="off">
+            <input type="search" id="blog-search" placeholder="{{ __('Search articles…') }}" autocomplete="off">
           </div>
         </div>
         <p class="review-status" id="blog-status" aria-live="polite"></p>
@@ -53,7 +53,7 @@
         <div class="grid grid--3" id="blog-grid"></div>
 
         <div class="reviews-more">
-          <button type="button" class="btn btn--outline" id="blog-more" hidden>Show more articles</button>
+          <button type="button" class="btn btn--outline" id="blog-more" hidden>{{ __('Show more articles') }}</button>
         </div>
       </div>
     </section>
@@ -62,13 +62,13 @@
     <!-- =====================================================
          3. CLOSING CTA
          ===================================================== -->
-    <section class="cta-band" aria-label="Plan your trip">
+    <section class="cta-band" aria-label="{{ __('Plan your trip') }}">
       <div class="container cta-band__inner" data-reveal>
         <div>
-          <h2 class="cta-band__title" data-i18n-html>Ready to turn <em>reading into travelling?</em></h2>
-          <p>Tell us your dates and we will plan it for you.</p>
+          <h2 class="cta-band__title">{!! __('Ready to turn <em>reading into travelling?</em>') !!}</h2>
+          <p>{{ __('Tell us your dates and we will plan it for you.') }}</p>
         </div>
-        <a href="{{ route('packages') }}" class="btn btn--primary btn--lg">View Packages</a>
+        <a href="{{ lroute('packages') }}" class="btn btn--primary btn--lg">{{ __('View Packages') }}</a>
       </div>
     </section>
 
