@@ -229,7 +229,7 @@
   window.TO = {
     get lang() { return lang; },
     t: t, num: num, money: money, digits: digits, fmtDate: fmtDate,
-    place: place, places: places, placeByName: placeByName, reviews: reviews,
+    place: place, places: places, placeByName: placeByName, reviews: reviews, localize: overlay,
     setLang: setLang, apply: apply, locale: locale
   };
 })();

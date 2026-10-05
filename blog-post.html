@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search).get('lang'),l=q||localStorage.getItem('travelorio-lang');if(l==='bn'){d.lang='bn';}var t=localStorage.getItem('travelorio-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)){d.setAttribute('data-theme','dark');}}catch(e){}})();</script>
-  <title>Traveler Reviews | TravelOrio</title>
-  <meta name="description" content="Read verified reviews from travelers who explored Bangladesh with TravelOrio, and share your own experience.">
+  <title>Article | TravelOrio</title>
+  <meta name="description" content="Travel guides and tips from TravelOrio.">
   <meta name="theme-color" content="#0a6ea8">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Traveler Reviews | TravelOrio">
-  <meta property="og:description" content="Read verified reviews from travelers who explored Bangladesh with TravelOrio, and share your own experience.">
+  <meta property="og:title" content="Article | TravelOrio">
+  <meta property="og:description" content="Travel guides and tips from TravelOrio.">
   <meta property="og:type" content="website">
 
   <!-- Fonts -->
@@ -20,9 +20,9 @@
 
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="page-reviews">
+<body class="page-blog page-article">
 
-  <a class="skip-link" href="#summary">Skip to content</a>
+  <a class="skip-link" href="#story">Skip to content</a>
 
   <!-- =====================================================
        NAVBAR
@@ -54,8 +54,8 @@
           </li>
           <li><a href="packages.html">Packages</a></li>
           <li><a href="why-us.html">Why Us</a></li>
-          <li><a href="reviews.html" aria-current="page">Reviews</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="blog.html" aria-current="page">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <a href="packages.html" class="btn btn--primary navbar__cta">Book Now</a>
@@ -79,168 +79,64 @@
 
   <main>
 
+    <div class="read-progress" id="read-progress" aria-hidden="true"></div>
+
     <!-- =====================================================
-         1. PAGE HERO
+         1. ARTICLE HERO
          ===================================================== -->
-    <section class="page-hero" id="home" aria-label="Reviews introduction">
+    <section class="page-hero" id="home" aria-label="Article introduction">
       <div class="page-hero__waves" aria-hidden="true">
         <svg class="wave wave--1" viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 C1680,120 1920,0 2160,60 C2400,120 2640,0 2880,60 L2880,120 L0,120 Z"/></svg>
         <svg class="wave wave--2" viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,70 C240,10 480,110 720,70 C960,30 1200,110 1440,70 C1680,10 1920,110 2160,70 C2400,30 2640,110 2880,70 L2880,120 L0,120 Z"/></svg>
         <svg class="wave wave--3" viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,80 C240,120 480,40 720,80 C960,120 1200,40 1440,80 C1680,120 1920,40 2160,80 C2400,120 2640,40 2880,80 L2880,120 L0,120 Z"/></svg>
       </div>
+
       <div class="container page-hero__content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li aria-current="page">Reviews</li>
+            <li><a href="blog.html">Blog</a></li>
+            <li aria-current="page" id="post-crumb" data-no-i18n>Article</li>
           </ol>
         </nav>
-        <p class="eyebrow page-hero__eyebrow">Traveler reviews</p>
-        <h1 class="page-hero__title">Real trips. <em>Real words.</em></h1>
-        <p class="page-hero__lead">Read what travelers say about their journeys across Bangladesh, then share your own story.</p>
-        <div class="page-hero__actions">
-          <a href="#all-reviews" class="btn btn--primary btn--lg">Read Reviews</a>
-          <a href="#write" class="btn btn--ghost btn--lg">Write a Review</a>
-        </div>
+        <p class="eyebrow page-hero__eyebrow" id="post-cat" data-no-i18n>Guides</p>
+        <h1 class="page-hero__title page-hero__title--article" id="post-title" data-no-i18n>Travel story</h1>
+        <p class="page-hero__lead" id="post-meta" data-no-i18n></p>
       </div>
     </section>
 
 
     <!-- =====================================================
-         2. RATING SUMMARY + FEATURED STORY (rendered by JS)
+         2. ARTICLE
          ===================================================== -->
-    <section class="section section--tight" id="summary">
-      <div class="container summary">
-
-        <div class="rating-card" id="rating-card" data-reveal>
-          <p class="rating-card__label">Overall rating</p>
-          <p class="rating-card__score"><span id="rating-avg">4.9</span><small>/ 5</small></p>
-          <p class="rating-card__stars" id="rating-stars" aria-hidden="true">★★★★★</p>
-          <p class="rating-card__count" id="rating-count">Based on traveler reviews</p>
-          <ul class="rating-bars" id="rating-bars" aria-label="Rating breakdown"></ul>
-        </div>
-
-        <figure class="featured-quote" id="featured-quote" data-reveal>
-          <svg class="featured-quote__mark" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.5 6C6.5 7 4 9.8 4 13.5V18h6v-6H7c0-2 1-3.500 3-4.200zm9 0c-3 1-5.500 3.800-5.500 7.500V18h6v-6h-3c0-2 1-3.500 3-4.200z"/></svg>
-          <blockquote id="featured-text">Our travelers' words appear here.</blockquote>
-          <figcaption id="featured-author"></figcaption>
-        </figure>
-
+    <section class="section" id="story">
+      <div class="container container--article">
+        <article class="article" id="article" data-no-i18n></article>
       </div>
     </section>
 
 
     <!-- =====================================================
-         3. ALL REVIEWS
+         3. PREVIOUS / NEXT + RELATED
          ===================================================== -->
-    <section class="section section--alt" id="all-reviews">
+    <section class="section section--alt" id="more-reading">
       <div class="container">
+        <nav class="post-nav" id="post-nav" aria-label="More articles" data-no-i18n></nav>
+
         <header class="section__header" data-reveal>
-          <p class="eyebrow">All reviews</p>
-          <h2 class="section__title">What travelers say</h2>
+          <p class="eyebrow">Keep reading</p>
+          <h2 class="section__title">Related articles</h2>
         </header>
-
-        <div class="review-tools" data-reveal>
-          <div class="chips" id="review-filters" role="group" aria-label="Filter reviews by destination"></div>
-          <div class="review-sort">
-            <label for="review-sort">Sort by</label>
-            <select id="review-sort">
-              <option value="newest">Newest</option>
-              <option value="highest">Highest rated</option>
-            </select>
-          </div>
-        </div>
-
-        <p class="review-status" id="review-status" aria-live="polite"></p>
-
-        <div class="reviews-grid" id="reviews-grid">
-          <noscript><p>Please enable JavaScript to browse reviews.</p></noscript>
-        </div>
-
-        <div class="reviews-more">
-          <button type="button" class="btn btn--outline" id="reviews-more" hidden>Show more reviews</button>
-        </div>
+        <div class="grid grid--3" id="related-posts"></div>
       </div>
     </section>
 
 
-    <!-- =====================================================
-         4. WRITE A REVIEW
-         ===================================================== -->
-    <section class="section" id="write">
-      <div class="container booking">
-
-        <div class="booking__info" data-reveal>
-          <p class="eyebrow">Share your story</p>
-          <h2 class="section__title">Travelled with us?</h2>
-          <p class="section__lead">Your review helps other travelers choose with confidence. Send it to us and we will publish it after a quick check.</p>
-          <ul class="tick-list">
-            <li>Tell us what you loved, and what we could improve</li>
-            <li>Mention the destination and who you travelled with</li>
-            <li>Honest reviews only, whether good or critical</li>
-          </ul>
-        </div>
-
-        <form class="booking__form" id="review-form" novalidate data-reveal>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="r-name">Your name</label>
-              <input type="text" id="r-name" name="name" placeholder="Your name" required autocomplete="name">
-              <small class="form-error" aria-live="polite"></small>
-            </div>
-            <div class="form-field">
-              <label for="r-destination">Destination</label>
-              <select id="r-destination" name="destination" required>
-                <option value="">Select destination</option>
-                <option value="Cox's Bazar">Cox's Bazar</option>
-                <option value="Sundarbans">Sundarbans</option>
-                <option value="Sylhet">Sylhet</option>
-                <option value="Bandarban">Bandarban</option>
-                <option value="Saint Martin's Island">Saint Martin's Island</option>
-                <option value="Kuakata">Kuakata</option>
-              </select>
-              <small class="form-error" aria-live="polite"></small>
-            </div>
-          </div>
-
-          <div class="form-field" id="rating-field">
-            <span class="form-label" id="r-rating-label">Your rating</span>
-            <div class="star-input" role="radiogroup" aria-labelledby="r-rating-label">
-              <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 stars"><span class="sr-only">5 stars</span></label>
-              <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars"><span class="sr-only">4 stars</span></label>
-              <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars"><span class="sr-only">3 stars</span></label>
-              <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars"><span class="sr-only">2 stars</span></label>
-              <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star"><span class="sr-only">1 star</span></label>
-            </div>
-            <small class="form-error" aria-live="polite"></small>
-          </div>
-
-          <div class="form-field">
-            <label for="r-text">Your review</label>
-            <textarea id="r-text" name="text" rows="5" placeholder="What made your trip special?" required minlength="20"></textarea>
-            <small class="form-error" aria-live="polite"></small>
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" class="btn btn--primary btn--lg">Send Review via WhatsApp</button>
-            <p class="form-note">We may edit for length and clarity. Your phone number is never published.</p>
-          </div>
-
-          <p class="form-success" id="review-success" role="status" hidden>Thank you! Please complete sending in WhatsApp and we'll publish your review soon.</p>
-        </form>
-
-      </div>
-    </section>
-
-
-    <!-- =====================================================
-         5. CLOSING CTA
-         ===================================================== -->
     <section class="cta-band" aria-label="Plan your trip">
       <div class="container cta-band__inner" data-reveal>
         <div>
-          <h2 class="cta-band__title" data-i18n-html>Ready to write <em>your own story?</em></h2>
-          <p>Pick a plan and we will take care of the rest.</p>
+          <h2 class="cta-band__title" data-i18n-html>Ready to turn <em>reading into travelling?</em></h2>
+          <p>Tell us your dates and we will plan it for you.</p>
         </div>
         <a href="packages.html" class="btn btn--primary btn--lg">View Packages</a>
       </div>
@@ -317,11 +213,13 @@
   </a>
 
   <!-- Order matters: data -> translations -> language engine -> page script -> shared behaviour -->
+  <script src="js/blog-core.js" defer></script>
   <script src="js/data.js" defer></script>
   <script src="js/i18n/bn.js" defer></script>
   <script src="js/i18n/data-bn.js" defer></script>
+  <script src="js/i18n/blog-bn.js" defer></script>
   <script src="js/i18n/core.js" defer></script>
-  <script src="js/reviews.js" defer></script>
+  <script src="js/blog-post.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
