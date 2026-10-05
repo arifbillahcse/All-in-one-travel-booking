@@ -6,7 +6,14 @@ if (! function_exists('site')) {
      */
     function site(string $key, mixed $default = null): mixed
     {
-        return config('travelorio.'.$key, $default);
+        // Admin-edited values (settings table) win over the config defaults.
+        try {
+            $overrides = \App\Models\Setting::overrides();
+        } catch (\Throwable) {
+            $overrides = []; // table not migrated yet (fresh install, CI)
+        }
+
+        return $overrides[$key] ?? config('travelorio.'.$key, $default);
     }
 }
 

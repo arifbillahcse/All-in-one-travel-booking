@@ -9,6 +9,9 @@
 */
 
 return [
+    // Languages the site is published in; the first is the default.
+    'locales' => ['en' => 'English', 'bn' => 'বাংলা'],
+
     'name'     => 'TravelOrio',
     'tagline'  => 'Six Places. One Unforgettable Bangladesh.',
     'email'    => env('TRAVELORIO_EMAIL', 'hello@travelorio.com'),

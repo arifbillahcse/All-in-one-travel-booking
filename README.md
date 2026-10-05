@@ -9,7 +9,7 @@ being migrated from a static HTML/CSS/JS site to Laravel 11.
 |---|---|---|
 | 1 | Laravel foundation, Blade layout, assets | done |
 | 2 | Pages converted to Blade | done |
-| 3 | Database, models, seeders | next |
+| 3 | Database, models, seeders | done |
 | 4-10 | Bilingual routing, dynamic pages, booking, admin, media/SEO, tests, deploy | planned |
 
 The original static site is kept untouched in `static-backup/` as the visual reference.
@@ -20,6 +20,8 @@ The original static site is kept untouched in `static-backup/` as the visual ref
 composer install
 cp .env.example .env
 php artisan key:generate
+touch database/database.sqlite
+php artisan migrate --seed
 npm install
 npm run build        # or: npm run dev
 php artisan serve
@@ -43,3 +45,22 @@ Requires PHP 8.2+, Composer, Node 20+.
 ```bash
 php artisan test
 ```
+
+## Database
+
+Content tables use `spatie/laravel-translatable`: a translated column stores `{"en": ..., "bn": ...}`
+and reads return the current locale, falling back to English.
+
+| Table | Model | Notes |
+|---|---|---|
+| `destinations` | `Destination` | itinerary, FAQ, seasons, etc. are JSON; `related` lists slugs |
+| `packages`, `addons` | `Package`, `Addon` | plan cards, comparison table and extras |
+| `reviews` | `Review` | belongs to a destination; `is_approved` hides a review |
+| `post_categories`, `posts` | `PostCategory`, `Post` | body is an ordered JSON list of blocks (`p`, `h2`, `ul`, `tip`) |
+| `inquiries` | `Inquiry` | booking and contact leads with a status workflow |
+| `settings` | `Setting` | admin overrides for `config/travelorio.php` via `site()` |
+
+`php artisan migrate:fresh --seed` rebuilds everything from `database/seeders/data/*.json`
+(exported from the old static content by `node tools/export-legacy-content.cjs`).
+Seeders update by slug, so re-running them never duplicates rows, and a missing Bangla
+string stops the seed with an error.
