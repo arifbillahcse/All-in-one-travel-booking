@@ -12,7 +12,8 @@ being migrated from a static HTML/CSS/JS site to Laravel 11.
 | 3 | Database, models, seeders | done |
 | 4 | Bilingual routing: `/bn/...`, `lang/bn.json`, hreflang | done |
 | 5 | Every page rendered from the database | done |
-| 6-10 | Booking and contact, admin, media/SEO, tests, deploy | next: Phase 6 |
+| 6 | Booking, contact and review forms saved to the database | done |
+| 7-10 | Admin panel, media/SEO, tests, deploy | next: Phase 7 |
 
 The original static site is kept untouched in `static-backup/` as the visual reference.
 
@@ -79,3 +80,24 @@ so every page has its own indexable address and `hreflang` links.
   `t('{name} Tour Packages', ['name' => $n])`, `format_money()`, `format_number()`, `format_date()`, `to_locale_digits()`.
 - Database content is translated per column (see Database). The few messages that browser scripts show (form errors,
   estimate) come from `public/assets/js/i18n/bn.js` through `TO.t()`; add a key there when a script needs a new message.
+
+## Forms and leads
+
+Booking (home, packages, destination), contact and review forms post to Laravel
+(`InquiryController`, `ReviewController@store`) at `/inquiries/booking`, `/inquiries/contact` and `/reviews`
+(plus the `/bn/...` twins).
+
+1. The request is validated on the server (`app/Http/Requests`); messages are translated.
+2. A booking or contact message is saved in `inquiries` (status `new`, language, IP, plan, destination, estimate).
+   The estimate is always calculated on the server from the plan price. A review is saved with `is_approved = false`.
+3. The team gets an email (`App\Mail\InquiryReceived`, `ReviewSubmitted`) at `TRAVELORIO_NOTIFY_EMAIL`
+   (defaults to `TRAVELORIO_EMAIL`). A mail failure is logged and never blocks the visitor.
+4. The visitor is sent to WhatsApp with the message prefilled in their language (`App\Services\WhatsAppMessage`).
+   With JavaScript the page opens WhatsApp in a new tab; without it the form redirects.
+
+Protection: CSRF token, hidden honeypot field (`website`; spam gets a normal-looking reply but is not saved),
+and the `inquiries` rate limit (5 per minute and 40 per day per IP, see `AppServiceProvider`).
+
+Set `MAIL_MAILER` and the `MAIL_*` values in `.env` for real email; the default `log` writes mails to `storage/logs`.
+`APP_TIMEZONE` is `Asia/Dhaka`, which decides what "today" means for travel dates.
+After adding a message that scripts show, run `node tools/build-js-messages.cjs` to refresh `public/assets/js/i18n/bn.js`.

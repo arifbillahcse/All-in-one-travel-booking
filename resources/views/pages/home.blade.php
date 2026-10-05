@@ -374,59 +374,62 @@
           </ul>
         </div>
 
-        <form class="booking__form" id="booking-form" novalidate data-reveal>
+        <form method="post" action="{{ lurl('inquiries/booking') }}" class="booking__form" id="booking-form" novalidate data-reveal>
+          @csrf
+          <input type="hidden" name="_fragment" value="booking">
+          <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <div class="form-row">
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('name') ? ' has-error' : '' }}">
               <label for="b-name">{{ __('Full name') }}</label>
-              <input type="text" id="b-name" name="name" placeholder="{{ __('Your name') }}" required autocomplete="name">
-              <small class="form-error" aria-live="polite"></small>
+              <input type="text" id="b-name" name="name" placeholder="{{ __('Your name') }}" required autocomplete="name" value="{{ old('name') }}">
+              <small class="form-error" aria-live="polite">{{ $errors->first('name') }}</small>
             </div>
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('phone') ? ' has-error' : '' }}">
               <label for="b-phone">{{ __('Phone / WhatsApp') }}</label>
-              <input type="tel" id="b-phone" name="phone" placeholder="{{ __('+880 1XXX-XXXXXX') }}" required autocomplete="tel">
-              <small class="form-error" aria-live="polite"></small>
+              <input type="tel" id="b-phone" name="phone" placeholder="{{ __('+880 1XXX-XXXXXX') }}" required autocomplete="tel" value="{{ old('phone') }}">
+              <small class="form-error" aria-live="polite">{{ $errors->first('phone') }}</small>
             </div>
           </div>
 
           <div class="form-row">
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('destination') ? ' has-error' : '' }}">
               <label for="b-destination">{{ __('Destination') }}</label>
               <select id="b-destination" name="destination" required>
-                <option value="">{{ __('Select destination') }}</option>
+                <option value="" @selected(old('destination') === '')>{{ __('Select destination') }}</option>
                 @foreach ($destinations as $place)
-                <option value="{{ $place->getTranslation('name', 'en') }}">{{ $place->name }}</option>
+                <option value="{{ $place->getTranslation('name', 'en') }}" @selected(old('destination') === $place->getTranslation('name', 'en'))>{{ $place->name }}</option>
                 @endforeach
               </select>
-              <small class="form-error" aria-live="polite"></small>
+              <small class="form-error" aria-live="polite">{{ $errors->first('destination') }}</small>
             </div>
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('package') ? ' has-error' : '' }}">
               <label for="b-package">{{ __('Package') }}</label>
               <select id="b-package" name="package">
-                <option value="">{{ __('Not sure yet') }}</option>
+                <option value="" @selected(old('package') === '')>{{ __('Not sure yet') }}</option>
                 @foreach ($packages as $package)
-                <option value="{{ $package->getTranslation('name', 'en') }}">{{ $package->name }}</option>
+                <option value="{{ $package->getTranslation('name', 'en') }}" @selected(old('package') === $package->getTranslation('name', 'en'))>{{ $package->name }}</option>
                 @endforeach
               </select>
-              <small class="form-error" aria-hidden="true"></small>
+              <small class="form-error" aria-hidden="true">{{ $errors->first('package') }}</small>
             </div>
           </div>
 
           <div class="form-row">
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('date') ? ' has-error' : '' }}">
               <label for="b-date">{{ __('Travel date') }}</label>
-              <input type="date" id="b-date" name="date" required>
-              <small class="form-error" aria-live="polite"></small>
+              <input type="date" id="b-date" name="date" required value="{{ old('date') }}">
+              <small class="form-error" aria-live="polite">{{ $errors->first('date') }}</small>
             </div>
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('guests') ? ' has-error' : '' }}">
               <label for="b-guests">{{ __('Number of travelers') }}</label>
-              <input type="number" id="b-guests" name="guests" min="1" max="50" value="2" required>
-              <small class="form-error" aria-live="polite"></small>
+              <input type="number" id="b-guests" name="guests" min="1" max="50" value="{{ old('guests', '2') }}" required>
+              <small class="form-error" aria-live="polite">{{ $errors->first('guests') }}</small>
             </div>
           </div>
 
-          <div class="form-field">
+          <div class="form-field{{ $errors->has('message') ? ' has-error' : '' }}">
             <label for="b-message">{{ __('Message') }} <span class="optional">{{ __('(optional)') }}</span></label>
-            <textarea id="b-message" name="message" rows="4" placeholder="{{ __('Anything we should know? Dietary needs, special occasion, budget…') }}"></textarea>
+            <textarea id="b-message" name="message" rows="4" placeholder="{{ __('Anything we should know? Dietary needs, special occasion, budget…') }}">{{ old('message') }}</textarea>
           </div>
 
           <div class="form-actions">

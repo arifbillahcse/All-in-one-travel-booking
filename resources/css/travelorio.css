@@ -2607,6 +2607,9 @@ html[data-theme="dark"] .page-hero { background: linear-gradient(165deg, #04162a
 /* Guard against sub-pixel horizontal scroll from animated/transformed children */
 main { overflow-x: clip; }
 
+/* Honeypot field for spam bots: invisible to people and assistive tech */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
 /* ---------- 25. Blog ---------- */
 .blog-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; }
 .blog-search { position: relative; flex: 1 1 240px; max-width: 340px; }

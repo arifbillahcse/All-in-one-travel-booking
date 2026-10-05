@@ -90,46 +90,49 @@
     <section class="section section--alt" id="message">
       <div class="container contact-split">
 
-        <form class="booking__form" id="contact-form" novalidate data-reveal>
+        <form method="post" action="{{ lurl('inquiries/contact') }}" class="booking__form" id="contact-form" novalidate data-reveal>
+          @csrf
+          <input type="hidden" name="_fragment" value="contact-form">
+          <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <h2 class="contact-form__title">{{ __('Send us a message') }}</h2>
           <p class="contact-form__lead">{{ __('Tell us how we can help and we\'ll get back to you.') }}</p>
 
           <div class="form-row">
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('name') ? ' has-error' : '' }}">
               <label for="c-name">{{ __('Full name') }}</label>
-              <input type="text" id="c-name" name="name" placeholder="{{ __('Your name') }}" required autocomplete="name">
-              <small class="form-error" aria-live="polite"></small>
+              <input type="text" id="c-name" name="name" placeholder="{{ __('Your name') }}" required autocomplete="name" value="{{ old('name') }}">
+              <small class="form-error" aria-live="polite">{{ $errors->first('name') }}</small>
             </div>
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('phone') ? ' has-error' : '' }}">
               <label for="c-phone">{{ __('Phone / WhatsApp') }}</label>
-              <input type="tel" id="c-phone" name="phone" placeholder="{{ __('+880 1XXX-XXXXXX') }}" required autocomplete="tel">
-              <small class="form-error" aria-live="polite"></small>
+              <input type="tel" id="c-phone" name="phone" placeholder="{{ __('+880 1XXX-XXXXXX') }}" required autocomplete="tel" value="{{ old('phone') }}">
+              <small class="form-error" aria-live="polite">{{ $errors->first('phone') }}</small>
             </div>
           </div>
 
           <div class="form-row">
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('email') ? ' has-error' : '' }}">
               <label for="c-email">{{ __('Email') }} <span class="optional">{{ __('(optional)') }}</span></label>
-              <input type="email" id="c-email" name="email" placeholder="{{ __('you@example.com') }}" autocomplete="email">
-              <small class="form-error" aria-live="polite"></small>
+              <input type="email" id="c-email" name="email" placeholder="{{ __('you@example.com') }}" autocomplete="email" value="{{ old('email') }}">
+              <small class="form-error" aria-live="polite">{{ $errors->first('email') }}</small>
             </div>
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('topic') ? ' has-error' : '' }}">
               <label for="c-topic">{{ __('Topic') }}</label>
               <select id="c-topic" name="topic">
-                <option value="Planning a trip">{{ __('Planning a trip') }}</option>
-                <option value="Group or corporate tour">{{ __('Group or corporate tour') }}</option>
-                <option value="Existing booking">{{ __('Existing booking') }}</option>
-                <option value="Partnership">{{ __('Partnership') }}</option>
-                <option value="Something else">{{ __('Something else') }}</option>
+                <option value="Planning a trip" @selected(old('topic') === 'Planning a trip')>{{ __('Planning a trip') }}</option>
+                <option value="Group or corporate tour" @selected(old('topic') === 'Group or corporate tour')>{{ __('Group or corporate tour') }}</option>
+                <option value="Existing booking" @selected(old('topic') === 'Existing booking')>{{ __('Existing booking') }}</option>
+                <option value="Partnership" @selected(old('topic') === 'Partnership')>{{ __('Partnership') }}</option>
+                <option value="Something else" @selected(old('topic') === 'Something else')>{{ __('Something else') }}</option>
               </select>
-              <small class="form-error" aria-hidden="true"></small>
+              <small class="form-error" aria-hidden="true">{{ $errors->first('topic') }}</small>
             </div>
           </div>
 
-          <div class="form-field">
+          <div class="form-field{{ $errors->has('message') ? ' has-error' : '' }}">
             <label for="c-message">{{ __('Message') }}</label>
-            <textarea id="c-message" name="message" rows="6" placeholder="{{ __('Tell us where you\'d like to go, when, and with whom…') }}" required minlength="10"></textarea>
-            <small class="form-error" aria-live="polite"></small>
+            <textarea id="c-message" name="message" rows="6" placeholder="{{ __('Tell us where you\'d like to go, when, and with whom…') }}" required minlength="10">{{ old('message') }}</textarea>
+            <small class="form-error" aria-live="polite">{{ $errors->first('message') }}</small>
           </div>
 
           <div class="form-actions">

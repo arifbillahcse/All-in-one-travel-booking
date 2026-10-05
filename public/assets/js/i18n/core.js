@@ -39,6 +39,37 @@
     return new Date(p[0], p[1] - 1, p[2] || 1).toLocaleDateString(locale(), opts || { day: "numeric", month: "long", year: "numeric" });
   }
 
+  /* Post a form to Laravel (JSON), then open WhatsApp with the message the server built.
+     The tab is opened inside the click so popup blockers allow it, then pointed at WhatsApp. */
+  function send(form) {
+    var win = window.open("", "_blank");
+    if (win) win.opener = null;
+    var token = (document.querySelector('meta[name="csrf-token"]') || {}).content || "";
+    var fail = function (message, errors) {
+      if (win) win.close();
+      return { ok: false, message: message, errors: errors || null };
+    };
+    return fetch(form.action, {
+      method: "POST",
+      credentials: "same-origin",
+      headers: { Accept: "application/json", "X-CSRF-TOKEN": token, "X-Requested-With": "XMLHttpRequest" },
+      body: new FormData(form)
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (body) {
+        if (res.ok && body.whatsapp_url) {
+          if (win) win.location.href = body.whatsapp_url;
+          return { ok: true, url: body.whatsapp_url, opened: !!win };
+        }
+        if (res.status === 422) return fail("", body.errors || {});
+        if (res.status === 419) return fail(t("Your session expired. Please reload the page and try again."));
+        if (res.status === 429) return fail(t("Please wait a minute and try again, or message us on WhatsApp."));
+        return fail(t("We could not send your request. Please try again or message us on WhatsApp."));
+      });
+    }, function () {
+      return fail(t("We could not send your request. Please try again or message us on WhatsApp."));
+    });
+  }
+
   function init() {
     document.dispatchEvent(new CustomEvent("travelorio:langready", { detail: { lang: lang } }));
   }
@@ -47,6 +78,6 @@
 
   window.TO = {
     get lang() { return lang; },
-    t: t, num: num, money: money, digits: digits, fmtDate: fmtDate, locale: locale
+    t: t, num: num, money: money, digits: digits, fmtDate: fmtDate, locale: locale, send: send
   };
 })();

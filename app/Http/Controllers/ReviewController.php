@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReviewSubmissionRequest;
+use App\Mail\ReviewSubmitted;
 use App\Models\Destination;
 use App\Models\Review;
 use Illuminate\Contracts\View\View;
+use App\Services\WhatsAppMessage;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ReviewController extends Controller
 {
@@ -48,5 +54,46 @@ class ReviewController extends Controller
             'reviews' => $reviews,
             'matching' => $matching,
         ]);
+    }
+
+    /**
+     * A visitor's review. It is saved hidden (is_approved = false) until someone approves it
+     * in the admin panel; the visitor is then sent to WhatsApp, as before.
+     */
+    public function store(ReviewSubmissionRequest $request, WhatsAppMessage $whatsapp): JsonResponse|RedirectResponse
+    {
+        if ($request->filled('website')) {
+            return $this->done($request, whatsapp_url());
+        }
+
+        $data = $request->validated();
+        $name = trim($data['name']);
+        $text = trim($data['text']);
+
+        $review = new Review([
+            'destination_id' => Destination::published()->where('name->en', $data['destination'])->value('id'),
+            'rating' => (int) $data['rating'],
+            'reviewed_on' => now()->toDateString(),
+            'is_approved' => false,
+        ]);
+        // Written in one language by the visitor; the team edits and translates when approving.
+        $review->setTranslations('name', ['en' => $name, 'bn' => $name]);
+        $review->setTranslations('city', ['en' => '', 'bn' => '']);
+        $review->setTranslations('title', ['en' => '', 'bn' => '']);
+        $review->setTranslations('body', ['en' => $text, 'bn' => $text]);
+        $review->save();
+
+        try {
+            Mail::to(site('notify_email') ?: site('email'))->send(new ReviewSubmitted($review->load('destination')));
+        } catch (\Throwable $e) {
+            report($e);
+        }
+
+        return $this->done($request, $whatsapp->url($whatsapp->review($data)));
+    }
+
+    private function done(Request $request, string $url): JsonResponse|RedirectResponse
+    {
+        return $request->expectsJson() ? response()->json(['whatsapp_url' => $url]) : redirect()->away($url);
     }
 }

@@ -16,7 +16,6 @@
 
   /* ---------- Write a review ---------- */
   var form = $("#review-form");
-  var WA = (((($(".whatsapp-float") || {}).href || "").match(/wa\.me\/(\d+)/)) || [])[1] || "";
 
   var rules = {
     name: function (v) { return v.trim().length < 2 ? t("Please enter your name.") : ""; },
@@ -61,22 +60,25 @@
       return;
     }
 
-    var msg = [
-      t("New review for TravelOrio (please moderate):"),
-      "",
-      t("Name: {v}", { v: form.elements.name.value.trim() }),
-      t("Destination: {v}", { v: t(form.elements.destination.value) }),
-      t("Rating: {v} / 5", { v: TO.num(valueOf("rating")) }),
-      "",
-      form.elements.text.value.trim()
-    ].join("\n");
-
-    var url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
-    var win = window.open(url, "_blank", "noopener");
-    success.hidden = false;
-    success.innerHTML = win
-      ? esc(t("Thank you! Please complete sending in WhatsApp and we'll publish your review soon."))
-      : esc(t("Thank you! Please complete sending in WhatsApp and we'll publish your review soon.")) + ' <a href="' + url + '" target="_blank" rel="noopener"><strong>' + esc(t("Tap here to send your review on WhatsApp.")) + "</strong></a>";
+    var button = $("button[type=submit]", form);
+    if (button) button.disabled = true;
+    TO.send(form).then(function (res) {
+      if (button) button.disabled = false;
+      if (!res.ok) {
+        var first = null;
+        Object.keys(res.errors || {}).forEach(function (name) {
+          var input = name === "rating" ? $('input[name="rating"]', form) : form.elements[name];
+          if (!input) return;
+          setError(name === "rating" ? $("#rating-field") : fieldOf(input), res.errors[name][0]);
+          first = first || input;
+        });
+        if (first) first.focus();
+        else { success.hidden = false; success.textContent = res.message; }
+        return;
+      }
+      success.hidden = false;
+      var ok = esc(t("Thank you! Please complete sending in WhatsApp and we'll publish your review soon."));
+      success.innerHTML = res.opened ? ok : ok + ' <a href="' + esc(res.url) + '" target="_blank" rel="noopener"><strong>' + esc(t("Tap here to send your review on WhatsApp.")) + "</strong></a>";
+    });
   });
-
 })();

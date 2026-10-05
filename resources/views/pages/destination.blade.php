@@ -214,43 +214,46 @@
             <p class="book-card__price"><span class="package__currency">৳</span>{{ format_number($destination->price_from) }}<small> {{ __('/ person') }}</small></p>
             <p class="book-card__note">{{ __('Free cancellation up to 7 days before departure.') }}</p>
 
-            <form class="book-card__form" id="trip-form" novalidate>
+            <form method="post" action="{{ lurl('inquiries/booking') }}" class="book-card__form" id="trip-form" novalidate>
+          @csrf
+          <input type="hidden" name="_fragment" value="book">
+          <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
               <input type="hidden" name="destination" value="{{ $destination->getTranslation('name', 'en') }}">
 
-              <div class="form-field">
+              <div class="form-field{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label for="t-name">{{ __('Full name') }}</label>
-                <input type="text" id="t-name" name="name" placeholder="{{ __('Your name') }}" required autocomplete="name">
-                <small class="form-error" aria-live="polite"></small>
+                <input type="text" id="t-name" name="name" placeholder="{{ __('Your name') }}" required autocomplete="name" value="{{ old('name') }}">
+                <small class="form-error" aria-live="polite">{{ $errors->first('name') }}</small>
               </div>
 
-              <div class="form-field">
+              <div class="form-field{{ $errors->has('phone') ? ' has-error' : '' }}">
                 <label for="t-phone">{{ __('Phone / WhatsApp') }}</label>
-                <input type="tel" id="t-phone" name="phone" placeholder="{{ __('+880 1XXX-XXXXXX') }}" required autocomplete="tel">
-                <small class="form-error" aria-live="polite"></small>
+                <input type="tel" id="t-phone" name="phone" placeholder="{{ __('+880 1XXX-XXXXXX') }}" required autocomplete="tel" value="{{ old('phone') }}">
+                <small class="form-error" aria-live="polite">{{ $errors->first('phone') }}</small>
               </div>
 
               <div class="form-row">
-                <div class="form-field">
+                <div class="form-field{{ $errors->has('date') ? ' has-error' : '' }}">
                   <label for="t-date">{{ __('Travel date') }}</label>
-                  <input type="date" id="t-date" name="date" required>
-                  <small class="form-error" aria-live="polite"></small>
+                  <input type="date" id="t-date" name="date" required value="{{ old('date') }}">
+                  <small class="form-error" aria-live="polite">{{ $errors->first('date') }}</small>
                 </div>
-                <div class="form-field">
+                <div class="form-field{{ $errors->has('guests') ? ' has-error' : '' }}">
                   <label for="t-guests">{{ __('Travelers') }}</label>
-                  <input type="number" id="t-guests" name="guests" min="1" max="50" value="2" required>
-                  <small class="form-error" aria-live="polite"></small>
+                  <input type="number" id="t-guests" name="guests" min="1" max="50" value="{{ old('guests', '2') }}" required>
+                  <small class="form-error" aria-live="polite">{{ $errors->first('guests') }}</small>
                 </div>
               </div>
 
-              <div class="form-field">
+              <div class="form-field{{ $errors->has('package') ? ' has-error' : '' }}">
                 <label for="t-package">{{ __('Package') }}</label>
                 <select id="t-package" name="package">
-                  <option value="">{{ __('Not sure yet') }}</option>
+                  <option value="" @selected(old('package') === '')>{{ __('Not sure yet') }}</option>
                   @foreach ($packages as $package)
-                  <option value="{{ $package->getTranslation('name', 'en') }}" @selected($package->is_featured)>{{ $package->name }}</option>
+                  <option value="{{ $package->getTranslation('name', 'en') }}" @selected(old('package', $package->is_featured ? $package->getTranslation('name', 'en') : '') === $package->getTranslation('name', 'en'))>{{ $package->name }}</option>
                   @endforeach
                 </select>
-                <small class="form-error" aria-hidden="true"></small>
+                <small class="form-error" aria-hidden="true">{{ $errors->first('package') }}</small>
               </div>
 
               <button type="submit" class="btn btn--primary btn--block btn--lg">{{ __('Send via WhatsApp') }}</button>

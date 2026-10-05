@@ -1,7 +1,7 @@
 /* =========================================================
    TravelOrio — contact page
-   Validates the message form and hands it to WhatsApp, in the
-   active language. Load order: bn.js, core.js, THIS, main.js
+   Validates the message form, posts it to Laravel and opens
+   WhatsApp with the server-built message. Load order: bn.js, core.js, THIS, main.js
    ========================================================= */
 (function () {
   "use strict";
@@ -12,7 +12,6 @@
 
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]; }); };
-  var WA = (((($(".whatsapp-float") || {}).href || "").match(/wa\.me\/(\d+)/)) || [])[1] || "";
 
   var rules = {
     name: function (v) { return v.trim().length < 2 ? t("Please enter your name.") : ""; },
@@ -51,23 +50,28 @@
     var bad = inputs.filter(function (el) { return !check(el); });
     if (bad.length) { bad[0].focus(); return; }
 
-    var d = Object.fromEntries(new FormData(form).entries());
-    var lines = [t("Hello TravelOrio! I have a question."), "", t("Name: {v}", { v: d.name.trim() }), t("Phone: {v}", { v: d.phone.trim() })];
-    if (d.email.trim()) lines.push(t("Email: {v}", { v: d.email.trim() }));
-    lines.push(t("Topic: {v}", { v: t(d.topic) }), "", d.message.trim());
-
-    var url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(lines.join("\n"));
-    var win = window.open(url, "_blank", "noopener");
-    success.hidden = false;
-    var ok = esc(t("Thank you! Please complete sending in WhatsApp and we'll reply shortly."));
-    success.innerHTML = win ? ok : ok + ' <a href="' + url + '" target="_blank" rel="noopener"><strong>' + esc(t("Tap here to send it on WhatsApp.")) + "</strong></a>";
-  });
-
-  document.addEventListener("travelorio:langchange", function () {
-    Array.prototype.forEach.call(form.querySelectorAll(".has-error"), function (f) {
-      f.classList.remove("has-error");
-      var o = $(".form-error", f); if (o) o.textContent = "";
+    var button = $("button[type=submit]", form);
+    if (button) button.disabled = true;
+    TO.send(form).then(function (res) {
+      if (button) button.disabled = false;
+      if (!res.ok) {
+        var first = null;
+        Object.keys(res.errors || {}).forEach(function (name) {
+          var el = form.elements[name];
+          if (!el) return;
+          var field = el.closest(".form-field");
+          field.classList.add("has-error");
+          $(".form-error", field).textContent = res.errors[name][0];
+          first = first || el;
+        });
+        if (first) first.focus();
+        else { success.hidden = false; success.textContent = res.message; }
+        return;
+      }
+      success.hidden = false;
+      var ok = esc(t("Thank you! Please complete sending in WhatsApp and we'll reply shortly."));
+      success.innerHTML = res.opened ? ok : ok + ' <a href="' + esc(res.url) + '" target="_blank" rel="noopener"><strong>' + esc(t("Tap here to send it on WhatsApp.")) + "</strong></a>";
     });
-    $("#contact-success").hidden = true;
   });
+
 })();

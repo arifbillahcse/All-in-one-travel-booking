@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 {{-- Applies the saved theme before first paint (prevents a flash). The language comes from the URL. --}}
 <script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('travelorio-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)){d.setAttribute('data-theme','dark');}}catch(e){}})();</script>
 

@@ -15,6 +15,8 @@ return [
     'name'     => 'TravelOrio',
     'tagline'  => 'Six Places. One Unforgettable Bangladesh.',
     'email'    => env('TRAVELORIO_EMAIL', 'hello@travelorio.com'),
+    // Where new inquiries and reviews are emailed (defaults to the public email).
+    'notify_email' => env('TRAVELORIO_NOTIFY_EMAIL'),
     'phone'         => env('TRAVELORIO_PHONE', '+8801779440297'),
     'phone_display' => env('TRAVELORIO_PHONE_DISPLAY', '+880 1779-440297'),
     'whatsapp' => env('TRAVELORIO_WHATSAPP', '8801779440297'),

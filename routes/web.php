@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ReviewController;
@@ -20,6 +21,9 @@ $pages = function () {
     Route::get('/packages', [PackageController::class, 'index'])->name('packages');
     Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+    Route::post('/inquiries/booking', [InquiryController::class, 'booking'])->middleware('throttle:inquiries')->name('inquiries.booking');
+    Route::post('/inquiries/contact', [InquiryController::class, 'contact'])->middleware('throttle:inquiries')->name('inquiries.contact');
+    Route::post('/reviews', [ReviewController::class, 'store'])->middleware('throttle:inquiries')->name('reviews.store');
     Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.post');
 };
 

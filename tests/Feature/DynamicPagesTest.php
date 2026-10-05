@@ -159,7 +159,7 @@ class DynamicPagesTest extends TestCase
         $this->assertSame(3, substr_count($html, '<article class="package'));
         $this->assertSame(4, substr_count($html, 'class="addon"'));
         $this->assertSame(6, substr_count($html, 'class="card destination"'));
-        $this->assertStringContainsString('<option value="Explorer" data-price="12500">', $html);
+        $this->assertMatchesRegularExpression('/<option value="Explorer"[^>]*data-price="12500"/', $html);
         $this->assertStringContainsString('data-slug="sylhet"', $html);
         $this->assertStringContainsString('from ৳4,000 / day', $html);
     }

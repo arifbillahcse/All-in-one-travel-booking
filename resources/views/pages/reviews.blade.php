@@ -127,44 +127,47 @@
           </ul>
         </div>
 
-        <form class="booking__form" id="review-form" novalidate data-reveal>
+        <form method="post" action="{{ lurl('reviews') }}" class="booking__form" id="review-form" novalidate data-reveal>
+          @csrf
+          <input type="hidden" name="_fragment" value="write">
+          <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <div class="form-row">
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('name') ? ' has-error' : '' }}">
               <label for="r-name">{{ __('Your name') }}</label>
-              <input type="text" id="r-name" name="name" placeholder="{{ __('Your name') }}" required autocomplete="name">
-              <small class="form-error" aria-live="polite"></small>
+              <input type="text" id="r-name" name="name" placeholder="{{ __('Your name') }}" required autocomplete="name" value="{{ old('name') }}">
+              <small class="form-error" aria-live="polite">{{ $errors->first('name') }}</small>
             </div>
-            <div class="form-field">
+            <div class="form-field{{ $errors->has('destination') ? ' has-error' : '' }}">
               <label for="r-destination">{{ __('Destination') }}</label>
               <select id="r-destination" name="destination" required>
-                <option value="">{{ __('Select destination') }}</option>
-                <option value="Cox's Bazar">{{ __('Cox\'s Bazar') }}</option>
-                <option value="Sundarbans">{{ __('Sundarbans') }}</option>
-                <option value="Sylhet">{{ __('Sylhet') }}</option>
-                <option value="Bandarban">{{ __('Bandarban') }}</option>
-                <option value="Saint Martin's Island">{{ __('Saint Martin\'s Island') }}</option>
-                <option value="Kuakata">{{ __('Kuakata') }}</option>
+                <option value="" @selected(old('destination') === '')>{{ __('Select destination') }}</option>
+                <option value="Cox's Bazar" @selected(old('destination') === 'Cox\'s Bazar')>{{ __('Cox\'s Bazar') }}</option>
+                <option value="Sundarbans" @selected(old('destination') === 'Sundarbans')>{{ __('Sundarbans') }}</option>
+                <option value="Sylhet" @selected(old('destination') === 'Sylhet')>{{ __('Sylhet') }}</option>
+                <option value="Bandarban" @selected(old('destination') === 'Bandarban')>{{ __('Bandarban') }}</option>
+                <option value="Saint Martin's Island" @selected(old('destination') === 'Saint Martin\'s Island')>{{ __('Saint Martin\'s Island') }}</option>
+                <option value="Kuakata" @selected(old('destination') === 'Kuakata')>{{ __('Kuakata') }}</option>
               </select>
-              <small class="form-error" aria-live="polite"></small>
+              <small class="form-error" aria-live="polite">{{ $errors->first('destination') }}</small>
             </div>
           </div>
 
-          <div class="form-field" id="rating-field">
+          <div class="form-field{{ $errors->has('rating') ? ' has-error' : '' }}" id="rating-field">
             <span class="form-label" id="r-rating-label">{{ __('Your rating') }}</span>
             <div class="star-input" role="radiogroup" aria-labelledby="r-rating-label">
-              <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="{{ __('5 stars') }}"><span class="sr-only">{{ __('5 stars') }}</span></label>
-              <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="{{ __('4 stars') }}"><span class="sr-only">{{ __('4 stars') }}</span></label>
-              <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="{{ __('3 stars') }}"><span class="sr-only">{{ __('3 stars') }}</span></label>
-              <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="{{ __('2 stars') }}"><span class="sr-only">{{ __('2 stars') }}</span></label>
-              <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="{{ __('1 star') }}"><span class="sr-only">{{ __('1 star') }}</span></label>
+              <input type="radio" id="star5" name="rating" value="5" @checked(old('rating') == '5')><label for="star5" title="{{ __('5 stars') }}"><span class="sr-only">{{ __('5 stars') }}</span></label>
+              <input type="radio" id="star4" name="rating" value="4" @checked(old('rating') == '4')><label for="star4" title="{{ __('4 stars') }}"><span class="sr-only">{{ __('4 stars') }}</span></label>
+              <input type="radio" id="star3" name="rating" value="3" @checked(old('rating') == '3')><label for="star3" title="{{ __('3 stars') }}"><span class="sr-only">{{ __('3 stars') }}</span></label>
+              <input type="radio" id="star2" name="rating" value="2" @checked(old('rating') == '2')><label for="star2" title="{{ __('2 stars') }}"><span class="sr-only">{{ __('2 stars') }}</span></label>
+              <input type="radio" id="star1" name="rating" value="1" @checked(old('rating') == '1')><label for="star1" title="{{ __('1 star') }}"><span class="sr-only">{{ __('1 star') }}</span></label>
             </div>
             <small class="form-error" aria-live="polite"></small>
           </div>
 
-          <div class="form-field">
+          <div class="form-field{{ $errors->has('text') ? ' has-error' : '' }}">
             <label for="r-text">{{ __('Your review') }}</label>
-            <textarea id="r-text" name="text" rows="5" placeholder="{{ __('What made your trip special?') }}" required minlength="20"></textarea>
-            <small class="form-error" aria-live="polite"></small>
+            <textarea id="r-text" name="text" rows="5" placeholder="{{ __('What made your trip special?') }}" required minlength="20">{{ old('text') }}</textarea>
+            <small class="form-error" aria-live="polite">{{ $errors->first('text') }}</small>
           </div>
 
           <div class="form-actions">

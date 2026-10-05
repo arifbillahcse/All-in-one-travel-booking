@@ -272,7 +272,7 @@
       if (!/^\+?\d{10,15}$/.test(digits)) return T("Enter a valid number, e.g. +8801XXXXXXXXX.");
       return "";
     },
-    destination(v) { return v ? "" : "Please choose a destination."; },
+    destination(v) { return v ? "" : T("Please choose a destination."); },
     date(v) {
       if (!v) return T("Please pick a travel date.");
       if (v < todayISO) return T("Travel date can't be in the past.");
@@ -332,30 +332,32 @@
         return;
       }
 
-      const data = Object.fromEntries(new FormData(formEl).entries());
-      const lines = [
-        T("Hello TravelOrio! I'd like to book a trip."),
-        "",
-        T("Name: {v}", { v: data.name.trim() }),
-        T("Phone: {v}", { v: data.phone.trim() }),
-        T("Destination: {v}", { v: T(data.destination) }),
-        T("Package: {v}", { v: T(data.package || "Not sure yet") }),
-        T("Travel date: {v}", { v: TO ? TO.fmtDate(data.date) : data.date }),
-        T("Travelers: {v}", { v: NUM(data.guests) }),
-      ];
-      if (data.estimate) lines.push(T("Estimated total: {v}", { v: data.estimate }));
-      if (data.message && data.message.trim()) lines.push("", T("Message: {v}", { v: data.message.trim() }));
-
-      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
-      const win = window.open(url, "_blank", "noopener");
-      if (success) {
-        success.hidden = false;
-        const ok = T("Thank you! Your request is ready. Complete it in WhatsApp and we'll reply shortly.");
-        success.innerHTML = win
-          ? ok
-          : `${ok} <a href="${url}" target="_blank" rel="noopener"><strong>${T("Tap here to send it on WhatsApp.")}</strong></a>`;
-        success.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
-      }
+      const button = $("button[type=submit]", formEl);
+      if (button) button.disabled = true;
+      TO.send(formEl).then((res) => {
+        if (button) button.disabled = false;
+        if (!res.ok) {
+          // field errors from the server, or one general message
+          let first = null;
+          Object.keys(res.errors || {}).forEach((name) => {
+            const input = formEl.elements[name];
+            if (!input) return;
+            showError(input.closest(".form-field"), res.errors[name][0]);
+            first = first || input;
+          });
+          if (first && first.type !== "hidden") first.focus();
+          else if (!first && success) { success.hidden = false; success.textContent = res.message; }
+          return;
+        }
+        if (success) {
+          success.hidden = false;
+          const ok = T("Thank you! Your request is ready. Complete it in WhatsApp and we'll reply shortly.");
+          success.innerHTML = res.opened
+            ? ok
+            : `${ok} <a href="${res.url}" target="_blank" rel="noopener"><strong>${T("Tap here to send it on WhatsApp.")}</strong></a>`;
+          success.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
+        }
+      });
     });
   }
 
