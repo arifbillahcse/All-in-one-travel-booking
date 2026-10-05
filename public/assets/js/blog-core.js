@@ -351,7 +351,7 @@
     posts.forEach(function (p) { if (!seen[p.category]) { seen[p.category] = 1; out.push(p.category); } });
     return out;
   }
-  var href = function (p) { return "blog-post.html?post=" + encodeURIComponent(p.slug); };
+  var href = function (p) { return ((window.TRAVELORIO_ROUTES || {}).blog || "/blog") + "/" + encodeURIComponent(p.slug); };
 
   /* Card used on the blog page, in "related" and on the home page */
   function card(p, opts) {

@@ -15,7 +15,7 @@
             <button type="button" class="submenu-toggle" aria-expanded="false" aria-controls="submenu-destinations" aria-label="Show destinations"><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5"/></svg></button>
             <ul class="submenu" id="submenu-destinations">
               @foreach (site('destinations') as $slug => $name)
-              <li><a href="{{ route('destination', $slug) }}">{{ $name }}</a></li>
+              <li><a href="{{ route('destination', $slug) }}" @if(request()->is('destinations/'.$slug)) aria-current="page" @endif>{{ $name }}</a></li>
               @endforeach
               <li class="submenu__all"><a href="{{ route('home') }}#destinations">All destinations <span aria-hidden="true">→</span></a></li>
             </ul>

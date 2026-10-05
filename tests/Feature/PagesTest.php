@@ -8,7 +8,7 @@ class PagesTest extends TestCase
 {
     public function test_public_pages_render_with_shared_layout(): void
     {
-        foreach (['/', '/packages', '/why-us', '/reviews', '/blog', '/blog/sample', '/contact', '/destinations/sylhet'] as $url) {
+        foreach (['/', '/packages', '/why-us', '/reviews', '/blog', '/blog/cox-bazar-3-days', '/contact', '/destinations/sylhet'] as $url) {
             $this->get($url)
                 ->assertOk()
                 ->assertSee('TravelOrio')
@@ -20,6 +20,16 @@ class PagesTest extends TestCase
     public function test_unknown_destination_is_404(): void
     {
         $this->get('/destinations/atlantis')->assertNotFound();
+    }
+
+    public function test_unknown_blog_post_is_404(): void
+    {
+        $this->get('/blog/not-a-post')->assertNotFound();
+    }
+
+    public function test_destination_page_has_its_own_title(): void
+    {
+        $this->get('/destinations/sylhet')->assertSee('<title>Sylhet Tour Packages | TravelOrio</title>', false);
     }
 
     public function test_menu_links_every_page(): void

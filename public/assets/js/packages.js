@@ -23,7 +23,7 @@
     if (!cards || !places.length) return;
     cards.innerHTML = places.map(function (src) {
       var p = TO.place(src);
-      var href = "destination.html?place=" + esc(p.slug);
+      var href = esc(((window.TRAVELORIO_ROUTES || {}).destination || "/destinations") + "/" + p.slug);
       return '<article class="card destination" data-reveal>' +
         '<a href="' + href + '" class="card__media" aria-label="' + esc(t("View {name} trip details", { name: p.name })) + '">' +
         '<img src="' + esc(p.cardImage) + '" alt="' + esc(p.name) + '" loading="lazy" width="800" height="600">' +

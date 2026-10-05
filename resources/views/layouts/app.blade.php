@@ -9,7 +9,7 @@
 
   @include('partials.navbar')
 
-  <main id="main">
+  <main id="main" {!! $mainAttrs ?? '' !!}>
     @yield('content')
   </main>
 
@@ -17,9 +17,12 @@
 
   @include('partials.floats')
 
-  {{-- Order matters: translations -> language engine -> page scripts -> shared behaviour.
-       The legacy scripts are replaced by server-side code in later phases. --}}
+  {{-- Order matters: data -> translations -> language engine -> page script -> shared behaviour.
+       These legacy scripts are replaced by server-side code in later phases. --}}
+  <script>window.TRAVELORIO_ROUTES = { destination: @json(url('destinations')), packages: @json(url('packages')), blog: @json(url('blog')) };</script>
+  @stack('scripts-data')
   <script src="{{ asset_js('i18n/bn.js') }}" defer></script>
+  @stack('scripts-i18n')
   <script src="{{ asset_js('i18n/core.js') }}" defer></script>
   @stack('scripts')
   <script src="{{ asset_js('main.js') }}" defer></script>

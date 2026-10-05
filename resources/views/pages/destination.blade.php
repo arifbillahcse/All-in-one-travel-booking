@@ -1,0 +1,484 @@
+@extends('layouts.app', [
+  'title' => $title,
+  'description' => 'Plan your Cox\'s Bazar trip with TravelOrio: itinerary, what\'s included, best time to visit, travel tips and instant booking on WhatsApp.',
+  'bodyClass' => 'page-destination',
+  'mainAttrs' => 'data-dest="coxs-bazar"',
+])
+
+@section('content')
+    <!-- =====================================================
+         1. DESTINATION HERO
+         ===================================================== -->
+    <section class="dest-hero" id="home" aria-label="Destination introduction">
+      <div class="dest-hero__media" aria-hidden="true">
+        <img data-field="heroImage" src="https://picsum.photos/seed/coxsbazar-hero/1920/1080" alt="" width="1920" height="1080" fetchpriority="high">
+      </div>
+
+      <div class="container dest-hero__content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="{{ route('home') }}">Home</a></li>
+            <li><a href="{{ route('home') }}#destinations">Destinations</a></li>
+            <li aria-current="page" data-field="name">Cox's Bazar</li>
+          </ol>
+        </nav>
+
+        <p class="eyebrow dest-hero__eyebrow" data-field="region">Chattogram Division</p>
+        <h1 class="dest-hero__title" data-field="name">Cox's Bazar</h1>
+        <p class="dest-hero__tagline" data-field="tagline">Walk the world's longest natural sea beach and watch the sun melt into the Bay of Bengal.</p>
+
+        <div class="dest-hero__actions">
+          <a href="#book" class="btn btn--primary btn--lg">Book This Trip</a>
+          <a href="#itinerary" class="btn btn--ghost btn--lg">View Itinerary</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         2. QUICK FACTS STRIP
+         ===================================================== -->
+    <section class="facts" aria-label="Quick facts">
+      <div class="container">
+        <dl class="facts__list">
+          <div class="facts__item">
+            <dt>Starting from</dt>
+            <dd data-field="priceFact">৳4,500 <small>/ person</small></dd>
+          </div>
+          <div class="facts__item">
+            <dt>Duration</dt>
+            <dd data-field="duration">2–4 days</dd>
+          </div>
+          <div class="facts__item">
+            <dt>Best time</dt>
+            <dd data-field="bestTime">Nov – Mar</dd>
+          </div>
+          <div class="facts__item">
+            <dt>From Dhaka</dt>
+            <dd data-field="distance">~400 km · 1 hr by air</dd>
+          </div>
+          <div class="facts__item">
+            <dt>Trip style</dt>
+            <dd data-field="style">Beach · Relaxed</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         3. OVERVIEW + STICKY BOOKING CARD
+         ===================================================== -->
+    <section class="section" id="overview">
+      <div class="container detail-layout">
+
+        <div class="detail-main">
+
+          <!-- Overview -->
+          <div class="detail-block" data-reveal>
+            <p class="eyebrow">Overview</p>
+            <h2 class="section__title" data-field="overviewTitle">A coastline made for slow days</h2>
+            <div class="prose" data-field="overview">
+              <p>Cox's Bazar is home to 120 km of unbroken golden sand, the longest natural sea beach in the world. Mornings start with fishermen hauling in their nets, afternoons belong to the surf, and evenings turn the sky orange over the Bay of Bengal.</p>
+              <p>Beyond the main beach you'll find quiet coves, hill-top pagodas, tribal villages and fresh seafood grilled on the sand. With TravelOrio your hotel, transport and local guide are arranged before you arrive, so you can simply enjoy the coast.</p>
+            </div>
+
+            <ul class="tick-list tick-list--2col" data-field="highlights">
+              <li>Sunrise and sunset on Laboni Beach</li>
+              <li>Boat trip to Sonadia Island</li>
+              <li>Scenic drive along Marine Drive</li>
+              <li>Fresh seafood dinner by the sea</li>
+              <li>Himchari waterfall and national park</li>
+              <li>Buddhist temples and local markets</li>
+            </ul>
+          </div>
+
+          <!-- Attractions -->
+          <div class="detail-block" id="attractions" data-reveal>
+            <p class="eyebrow">Top attractions</p>
+            <h2 class="section__title">What you'll see</h2>
+
+            <div class="grid grid--2 attractions" data-field="attractions">
+              <article class="attraction">
+                <img src="https://picsum.photos/seed/laboni/640/420" alt="Laboni Beach at sunset" loading="lazy" width="640" height="420">
+                <div class="attraction__body">
+                  <h3>Laboni Beach</h3>
+                  <p>The main beach and the best place for swimming, parasailing and sunset photos.</p>
+                </div>
+              </article>
+              <article class="attraction">
+                <img src="https://picsum.photos/seed/himchari/640/420" alt="Himchari National Park" loading="lazy" width="640" height="420">
+                <div class="attraction__body">
+                  <h3>Himchari</h3>
+                  <p>Cliffs, a small waterfall and a hilltop viewpoint over the sea.</p>
+                </div>
+              </article>
+              <article class="attraction">
+                <img src="https://picsum.photos/seed/inani/640/420" alt="Rocky shore of Inani Beach" loading="lazy" width="640" height="420">
+                <div class="attraction__body">
+                  <h3>Inani Beach</h3>
+                  <p>Coral-stone shoreline with calmer water and fewer crowds.</p>
+                </div>
+              </article>
+              <article class="attraction">
+                <img src="https://picsum.photos/seed/sonadia/640/420" alt="Sonadia Island shoreline" loading="lazy" width="640" height="420">
+                <div class="attraction__body">
+                  <h3>Sonadia Island</h3>
+                  <p>A quiet island reached by boat, known for birds and red crabs.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Itinerary -->
+          <div class="detail-block" id="itinerary" data-reveal>
+            <p class="eyebrow">Itinerary</p>
+            <h2 class="section__title">Your day-by-day plan</h2>
+
+            <div class="itinerary" data-field="itinerary">
+              <details class="itinerary__day" open>
+                <summary>
+                  <span class="itinerary__num">Day 1</span>
+                  <span class="itinerary__title">Arrival and sunset on Laboni Beach</span>
+                </summary>
+                <div class="itinerary__body">
+                  <ul>
+                    <li>Airport or bus-stop pickup and hotel check-in</li>
+                    <li>Lunch at a seaside restaurant</li>
+                    <li>Free time to swim and relax</li>
+                    <li>Sunset walk along Laboni Beach, followed by dinner</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="itinerary__day">
+                <summary>
+                  <span class="itinerary__num">Day 2</span>
+                  <span class="itinerary__title">Marine Drive, Inani and Himchari</span>
+                </summary>
+                <div class="itinerary__body">
+                  <ul>
+                    <li>Breakfast, then a scenic drive along Marine Drive</li>
+                    <li>Stop at Himchari for the waterfall and viewpoint</li>
+                    <li>Lunch and a swim at Inani Beach</li>
+                    <li>Return for an evening at the local seafood market</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="itinerary__day">
+                <summary>
+                  <span class="itinerary__num">Day 3</span>
+                  <span class="itinerary__title">Sonadia Island boat trip</span>
+                </summary>
+                <div class="itinerary__body">
+                  <ul>
+                    <li>Early boat ride to Sonadia Island</li>
+                    <li>Bird watching, shell hunting and a beach picnic</li>
+                    <li>Back to the hotel by afternoon</li>
+                    <li>Optional shopping for pearls, dry fish and handicrafts</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="itinerary__day">
+                <summary>
+                  <span class="itinerary__num">Day 4</span>
+                  <span class="itinerary__title">Sunrise and departure</span>
+                </summary>
+                <div class="itinerary__body">
+                  <ul>
+                    <li>Sunrise on the beach with tea</li>
+                    <li>Breakfast and hotel check-out</li>
+                    <li>Drop-off at the airport or bus station</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- Included / Not included -->
+          <div class="detail-block" id="inclusions" data-reveal>
+            <p class="eyebrow">Inclusions</p>
+            <h2 class="section__title">What's covered</h2>
+
+            <div class="grid grid--2 inclusions">
+              <div class="inclusions__col inclusions__col--yes">
+                <h3>Included</h3>
+                <ul class="tick-list" data-field="included">
+                  <li>Hotel stay (twin-sharing)</li>
+                  <li>Daily breakfast</li>
+                  <li>Airport or bus-stop pickup and drop</li>
+                  <li>Private AC vehicle for sightseeing</li>
+                  <li>Local English or Bangla-speaking guide</li>
+                  <li>Boat ticket to Sonadia Island</li>
+                </ul>
+              </div>
+              <div class="inclusions__col inclusions__col--no">
+                <h3>Not included</h3>
+                <ul class="cross-list" data-field="excluded">
+                  <li>Flights or long-distance bus tickets</li>
+                  <li>Lunch and dinner (unless upgraded)</li>
+                  <li>Personal expenses and shopping</li>
+                  <li>Water sports and optional activities</li>
+                  <li>Tips for guides and drivers</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gallery -->
+          <div class="detail-block" id="gallery" data-reveal>
+            <p class="eyebrow">Gallery</p>
+            <h2 class="section__title">A glimpse of the trip</h2>
+
+            <div class="gallery" data-field="gallery">
+              <a class="gallery__item gallery__item--wide" href="https://picsum.photos/seed/cox-g1/1600/1000">
+                <img src="https://picsum.photos/seed/cox-g1/800/520" alt="Golden sunset over the Cox's Bazar sea" loading="lazy" width="800" height="520">
+              </a>
+              <a class="gallery__item" href="https://picsum.photos/seed/cox-g2/1200/1200">
+                <img src="https://picsum.photos/seed/cox-g2/520/520" alt="Fishing boats on the shore" loading="lazy" width="520" height="520">
+              </a>
+              <a class="gallery__item" href="https://picsum.photos/seed/cox-g3/1200/1200">
+                <img src="https://picsum.photos/seed/cox-g3/520/520" alt="Waves rolling onto the beach" loading="lazy" width="520" height="520">
+              </a>
+              <a class="gallery__item" href="https://picsum.photos/seed/cox-g4/1200/1200">
+                <img src="https://picsum.photos/seed/cox-g4/520/520" alt="Grilled seafood dinner" loading="lazy" width="520" height="520">
+              </a>
+              <a class="gallery__item" href="https://picsum.photos/seed/cox-g5/1200/1200">
+                <img src="https://picsum.photos/seed/cox-g5/520/520" alt="Marine Drive coastal road" loading="lazy" width="520" height="520">
+              </a>
+              <a class="gallery__item gallery__item--wide" href="https://picsum.photos/seed/cox-g6/1600/1000">
+                <img src="https://picsum.photos/seed/cox-g6/800/520" alt="Pagoda on a green hill" loading="lazy" width="800" height="520">
+              </a>
+            </div>
+          </div>
+
+          <!-- When to go -->
+          <div class="detail-block" id="best-time" data-reveal>
+            <p class="eyebrow">When to go</p>
+            <h2 class="section__title">Best time to visit</h2>
+
+            <div class="seasons" data-field="seasons">
+              <div class="season season--best">
+                <span class="season__badge">Best</span>
+                <h3>Nov – Feb</h3>
+                <p>Cool, dry and sunny. Calm sea, ideal for beach days and boat trips.</p>
+              </div>
+              <div class="season season--good">
+                <span class="season__badge">Good</span>
+                <h3>Mar – May</h3>
+                <p>Warmer with fewer crowds and lower prices. Pack sun protection.</p>
+              </div>
+              <div class="season season--wet">
+                <span class="season__badge">Rainy</span>
+                <h3>Jun – Oct</h3>
+                <p>Dramatic waves and green hills, but boat trips may be cancelled.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Getting there + tips -->
+          <div class="detail-block" id="getting-there" data-reveal>
+            <p class="eyebrow">Plan ahead</p>
+            <h2 class="section__title">Getting there and travel tips</h2>
+
+            <div class="grid grid--2 plan">
+              <div class="plan__col">
+                <h3>How to get there</h3>
+                <ul class="info-list" data-field="transport">
+                  <li><strong>By air:</strong> about 1 hour from Dhaka, with several daily flights.</li>
+                  <li><strong>By bus:</strong> 9–11 hours overnight AC coach from Dhaka.</li>
+                  <li><strong>By train:</strong> Dhaka to Cox's Bazar by rail, about 8–9 hours.</li>
+                </ul>
+              </div>
+              <div class="plan__col">
+                <h3>Good to know</h3>
+                <ul class="info-list" data-field="tips">
+                  <li>Book hotels early for Eid and winter weekends.</li>
+                  <li>Swim only in flagged safe zones.</li>
+                  <li>Carry cash for small shops and tuk-tuks.</li>
+                  <li>Dress modestly when visiting temples and villages.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="detail-block" id="faq" data-reveal>
+            <p class="eyebrow">FAQ</p>
+            <h2 class="section__title">Common questions</h2>
+
+            <div class="faq" data-field="faq">
+              <details class="faq__item">
+                <summary>Is Cox's Bazar safe for families and solo women travelers?</summary>
+                <p>Yes. The main tourist areas are busy and well patrolled. Our guides stay with you, and we choose hotels with good reviews and secure entrances.</p>
+              </details>
+              <details class="faq__item">
+                <summary>Can I customise the itinerary?</summary>
+                <p>Absolutely. Tell us your dates, budget and interests in the booking form and we'll adjust the days, hotel and activities.</p>
+              </details>
+              <details class="faq__item">
+                <summary>How do I pay?</summary>
+                <p>No payment is taken online. After you send a request we confirm availability and share bKash, Nagad or bank transfer details.</p>
+              </details>
+              <details class="faq__item">
+                <summary>What is the cancellation policy?</summary>
+                <p>Free cancellation up to 7 days before departure. After that, charges depend on hotel and transport bookings already made.</p>
+              </details>
+              <details class="faq__item">
+                <summary>Is there a group discount?</summary>
+                <p>Groups of 6 or more receive a reduced per-person price. Message us on WhatsApp for a quote.</p>
+              </details>
+            </div>
+          </div>
+
+        </div><!-- /detail-main -->
+
+
+        <!-- Sticky booking card -->
+        <aside class="detail-side" id="book" aria-label="Book this trip">
+          <div class="book-card" data-reveal>
+            <p class="book-card__from">Starting from</p>
+            <p class="book-card__price" data-field="priceCard"><span class="package__currency">৳</span>4,500<small> / person</small></p>
+            <p class="book-card__note">Free cancellation up to 7 days before departure.</p>
+
+            <form class="book-card__form" id="trip-form" novalidate>
+              <input type="hidden" name="destination" value="Cox's Bazar" data-field="destinationInput">
+
+              <div class="form-field">
+                <label for="t-name">Full name</label>
+                <input type="text" id="t-name" name="name" placeholder="Your name" required autocomplete="name">
+                <small class="form-error" aria-live="polite"></small>
+              </div>
+
+              <div class="form-field">
+                <label for="t-phone">Phone / WhatsApp</label>
+                <input type="tel" id="t-phone" name="phone" placeholder="+880 1XXX-XXXXXX" required autocomplete="tel">
+                <small class="form-error" aria-live="polite"></small>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="t-date">Travel date</label>
+                  <input type="date" id="t-date" name="date" required>
+                  <small class="form-error" aria-live="polite"></small>
+                </div>
+                <div class="form-field">
+                  <label for="t-guests">Travelers</label>
+                  <input type="number" id="t-guests" name="guests" min="1" max="50" value="2" required>
+                  <small class="form-error" aria-live="polite"></small>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="t-package">Package</label>
+                <select id="t-package" name="package">
+                  <option value="">Not sure yet</option>
+                  <option value="Weekend Escape">Weekend Escape</option>
+                  <option value="Explorer" selected>Explorer</option>
+                  <option value="Grand Bangladesh">Grand Bangladesh</option>
+                </select>
+                <small class="form-error" aria-hidden="true"></small>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--block btn--lg">Send via WhatsApp</button>
+              <p class="form-note">No payment is taken at this step.</p>
+              <p class="form-success" id="trip-success" role="status" hidden>Thank you! Complete your request in WhatsApp and we'll reply shortly.</p>
+            </form>
+
+            <ul class="book-card__trust">
+              <li>Reply within a few hours</li>
+              <li>Local guides, vetted hotels</li>
+              <li>No hidden fees</li>
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         4. OTHER DESTINATIONS
+         ===================================================== -->
+    <section class="section section--alt" id="more-destinations">
+      <div class="container">
+        <header class="section__header" data-reveal>
+          <p class="eyebrow">Keep exploring</p>
+          <h2 class="section__title">More places to love</h2>
+          <p class="section__lead">Combine two destinations in our Grand Bangladesh package.</p>
+        </header>
+
+        <div class="grid grid--3" data-field="related">
+          <article class="card destination" data-reveal>
+            <a href="{{ route('destination', 'saint-martin') }}" class="card__media">
+              <img src="https://picsum.photos/seed/saintmartin/800/600" alt="Coral island and turquoise water of Saint Martin's" loading="lazy" width="800" height="600">
+              <span class="card__tag">From ৳7,000</span>
+            </a>
+            <div class="card__body">
+              <p class="card__meta">Bay of Bengal · 2–3 days</p>
+              <h3 class="card__title">Saint Martin's Island</h3>
+              <a href="{{ route('destination', 'saint-martin') }}" class="link-arrow">View details <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="card destination" data-reveal>
+            <a href="{{ route('destination', 'bandarban') }}" class="card__media">
+              <img src="https://picsum.photos/seed/bandarban/800/600" alt="Hills and clouds of Bandarban" loading="lazy" width="800" height="600">
+              <span class="card__tag">From ৳6,000</span>
+            </a>
+            <div class="card__body">
+              <p class="card__meta">Chattogram Hill Tracts · 3 days</p>
+              <h3 class="card__title">Bandarban</h3>
+              <a href="{{ route('destination', 'bandarban') }}" class="link-arrow">View details <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="card destination" data-reveal>
+            <a href="{{ route('destination', 'kuakata') }}" class="card__media">
+              <img src="https://picsum.photos/seed/kuakata/800/600" alt="Sunrise over the sea at Kuakata" loading="lazy" width="800" height="600">
+              <span class="card__tag">From ৳4,000</span>
+            </a>
+            <div class="card__body">
+              <p class="card__meta">Barishal Division · 2 days</p>
+              <h3 class="card__title">Kuakata</h3>
+              <a href="{{ route('destination', 'kuakata') }}" class="link-arrow">View details <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         5. CLOSING CTA
+         ===================================================== -->
+    <section class="cta-band" aria-label="Ready to book">
+      <div class="container cta-band__inner" data-reveal>
+        <div>
+          <h2 class="cta-band__title" data-field="ctaTitle">Ready for your <em>Cox's Bazar</em> escape?</h2>
+          <p>Message us and we'll build a plan around your dates and budget.</p>
+        </div>
+        <a href="{{ whatsapp_url() }}" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+    </section>
+
+  
+@endsection
+
+@push('scripts-data')
+  <script>window.TRAVELORIO_PAGE = { slug: @json($slug) };</script>
+@endpush
+
+@push('scripts-data')
+  <script src="{{ asset_js('data.js') }}" defer></script>
+@endpush
+
+@push('scripts-i18n')
+  <script src="{{ asset_js('i18n/data-bn.js') }}" defer></script>
+@endpush
+
+@push('scripts')
+  <script src="{{ asset_js('destination.js') }}" defer></script>
+@endpush

@@ -5,44 +5,46 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\View\View;
 
 /**
- * Phase 1: every public page renders the shared layout with a placeholder body.
- * Phase 2 replaces each method with the real Blade page.
+ * Phase 2: pages render their Blade views. Content is still supplied by the
+ * legacy scripts in public/assets/js; Phases 3-5 move it to the database.
  */
 class PageController extends Controller
 {
     public function home(): View
     {
-        return $this->page('Home');
+        return view('pages.home');
     }
 
     public function packages(): View
     {
-        return $this->page('Packages');
+        return view('pages.packages');
     }
 
     public function reviews(): View
     {
-        return $this->page('Reviews');
+        return view('pages.reviews');
     }
 
     public function contact(): View
     {
-        return $this->page('Contact');
+        return view('pages.contact');
     }
 
     public function whyUs(): View
     {
-        return $this->page('Why Us');
+        return view('pages.why-us');
     }
 
     public function blog(): View
     {
-        return $this->page('Blog');
+        return view('pages.blog');
     }
 
     public function post(string $slug): View
     {
-        return $this->page('Blog article');
+        abort_unless(in_array($slug, site('blog_slugs'), true), 404);
+
+        return view('pages.blog-post', ['slug' => $slug]);
     }
 
     public function destination(string $slug): View
@@ -50,11 +52,9 @@ class PageController extends Controller
         $name = site("destinations.$slug");
         abort_if($name === null, 404);
 
-        return $this->page($name);
-    }
-
-    private function page(string $title): View
-    {
-        return view('pages.placeholder', ['title' => $title]);
+        return view('pages.destination', [
+            'slug' => $slug,
+            'title' => $name.' Tour Packages',
+        ]);
     }
 }

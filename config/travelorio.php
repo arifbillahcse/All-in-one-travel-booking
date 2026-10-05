@@ -12,6 +12,8 @@ return [
     'name'     => 'TravelOrio',
     'tagline'  => 'Six Places. One Unforgettable Bangladesh.',
     'email'    => env('TRAVELORIO_EMAIL', 'hello@travelorio.com'),
+    'phone'         => env('TRAVELORIO_PHONE', '+8801779440297'),
+    'phone_display' => env('TRAVELORIO_PHONE_DISPLAY', '+880 1779-440297'),
     'whatsapp' => env('TRAVELORIO_WHATSAPP', '8801779440297'),
 
     'social' => [
@@ -28,5 +30,15 @@ return [
         'bandarban'    => 'Bandarban',
         'saint-martin' => "Saint Martin's Island",
         'kuakata'      => 'Kuakata',
+    ],
+
+    // Blog slugs until articles move to the database (Phase 3).
+    'blog_slugs' => [
+        'cox-bazar-3-days',
+        'sundarbans-what-to-expect',
+        'best-time-to-visit-bangladesh',
+        'saint-martin-ship-rules-packing',
+        'bandarban-first-timers',
+        'sylhet-tea-and-food',
     ],
 ];

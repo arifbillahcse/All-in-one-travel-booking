@@ -1,6 +1,6 @@
 /* =========================================================
    TravelOrio — blog article page
-   blog-post.html?post=<slug> -> article, contents list, share
+   /blog/<slug> -> article, contents list, share
    buttons, author box, previous/next, related and trip card.
    Load order: blog-core.js, data.js, bn.js, data-bn.js, blog-bn.js, core.js, THIS, main.js
    ========================================================= */
@@ -12,7 +12,7 @@
   var TO = window.TO, t = TO.t, B = window.TravelBlog, esc = B.esc;
   var $ = function (s) { return document.querySelector(s); };
 
-  var slug = new URLSearchParams(location.search).get("post");
+  var slug = (window.TRAVELORIO_PAGE || {}).slug;
   var all = window.TRAVELORIO_POSTS;
   var base = all.filter(function (p) { return p.slug === slug; })[0] || all.slice().sort(function (a, b) { return b.date.localeCompare(a.date); })[0];
 
@@ -50,7 +50,7 @@
     var dest = p.destination ? TO.placeByName(p.destination) : null;
     var trip = dest
       ? '<aside class="trip-card"><div><p class="eyebrow">' + esc(t("Plan this trip")) + "</p><h3>" + esc(dest.name) + "</h3><p>" + esc(dest.tagline) + "</p></div>" +
-        '<div class="trip-card__actions"><a class="btn btn--primary" href="destination.html?place=' + esc(dest.slug) + '">' + esc(t("View trip details")) + '</a><a class="btn btn--outline" href="packages.html?place=' + esc(dest.slug) + '">' + esc(t("See packages")) + "</a></div></aside>"
+        '<div class="trip-card__actions"><a class="btn btn--primary" href="' + esc(((window.TRAVELORIO_ROUTES || {}).destination || "/destinations") + "/" + dest.slug) + '">' + esc(t("View trip details")) + '</a><a class="btn btn--outline" href="' + esc(((window.TRAVELORIO_ROUTES || {}).packages || "/packages") + "?place=" + dest.slug) + '">' + esc(t("See packages")) + "</a></div></aside>"
       : "";
 
     var text = encodeURIComponent(p.title + " " + url);

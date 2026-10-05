@@ -1,6 +1,6 @@
 /* =========================================================
    TravelOrio — destination page
-   Reads ?place=<slug>, fills destination.html from js/data.js
+   Reads TRAVELORIO_PAGE.slug (set by the Blade view), fills the page from data.js
    (+ Bangla overlay from js/i18n/data-bn.js), updates the page
    title/meta and runs the gallery lightbox. Re-renders when the
    language changes.
@@ -18,7 +18,7 @@
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
   var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]; }); };
 
-  var slug = new URLSearchParams(window.location.search).get("place");
+  var slug = (window.TRAVELORIO_PAGE || {}).slug;
   var base = places.filter(function (p) { return p.slug === slug; })[0] || places[0];
   var IMG = window.TRAVELORIO_IMG;
 
@@ -94,7 +94,7 @@
       var src = places.filter(function (p) { return p.slug === s; })[0];
       return src ? TO.place(src) : null;
     }).filter(Boolean).map(function (r) {
-      var href = "destination.html?place=" + esc(r.slug);
+      var href = esc(((window.TRAVELORIO_ROUTES || {}).destination || "/destinations") + "/" + r.slug);
       return '<article class="card destination" data-reveal>' +
         '<a href="' + href + '" class="card__media" aria-label="' + esc(t("View {name} trip details", { name: r.name })) + '">' +
         '<img src="' + esc(r.cardImage) + '" alt="' + esc(r.name) + '" loading="lazy" width="800" height="600">' +
@@ -166,11 +166,6 @@
       if (e.key === "ArrowRight") show(current + 1);
     });
   }
-
-  // highlight this destination in the menu dropdown
-  $$(".submenu a[href*='place=']").forEach(function (a) {
-    if (a.getAttribute("href").indexOf("place=" + base.slug) > -1) a.setAttribute("aria-current", "page");
-  });
 
   render();
   setupLightbox();
