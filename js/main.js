@@ -417,4 +417,28 @@
   toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" }));
   document.addEventListener("travelorio:langchange", labelTop);
 
+  /* ---------- 11. Destinations dropdown (touch + keyboard) ---------- */
+  const menuItems = $$(".has-menu");
+  const closeSubmenus = (except) => menuItems.forEach((li) => {
+    if (li === except) return;
+    li.classList.remove("is-open");
+    const b = $(".submenu-toggle", li);
+    if (b) b.setAttribute("aria-expanded", "false");
+  });
+  menuItems.forEach((li) => {
+    const btn = $(".submenu-toggle", li);
+    if (!btn) return;
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = !li.classList.contains("is-open");
+      closeSubmenus(li);
+      li.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", String(open));
+    });
+  });
+  document.addEventListener("click", (e) => { if (!e.target.closest(".has-menu")) closeSubmenus(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSubmenus(); });
+  // closing the mobile menu also folds the dropdown
+  if (navToggle) navToggle.addEventListener("click", () => closeSubmenus());
+
 })();

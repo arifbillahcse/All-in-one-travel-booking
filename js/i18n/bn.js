@@ -487,5 +487,7 @@ window.TRAVELORIO_I18N.bn = {
  "4.9 rating · 5,000+ happy travelers": "৪.৯ রেটিং · ৫,০০০+ সন্তুষ্ট ভ্রমণকারী",
  "Switch to dark mode": "ডার্ক মোডে যান",
  "Switch to light mode": "লাইট মোডে যান",
- "Back to top": "উপরে যান"
+ "Back to top": "উপরে যান",
+ "All destinations": "সব গন্তব্য",
+ "Show destinations": "গন্তব্যগুলো দেখুন"
 };

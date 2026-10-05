@@ -2431,6 +2431,103 @@ html[data-theme="dark"] .page-hero { background: linear-gradient(165deg, #04162a
   html[data-theme="dark"] .hero__glint { right: 8%; width: 84px; }
 }
 
+/* ---------- 23. Menu: destinations dropdown ---------- */
+.navbar__links .has-menu { position: relative; display: flex; align-items: center; gap: 0.15rem; }
+.submenu-toggle {
+  display: grid;
+  place-items: center;
+  width: 22px; height: 22px;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  opacity: 0.85;
+}
+.submenu-toggle svg { width: 10px; height: 7px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s var(--ease); }
+.submenu-toggle:hover { opacity: 1; background: rgba(255, 255, 255, 0.16); }
+.navbar.is-scrolled .submenu-toggle:hover { background: var(--foam); }
+.has-menu.is-open .submenu-toggle svg { transform: rotate(180deg); }
+
+.navbar__links .submenu {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.7rem);
+  z-index: 5;
+  display: grid;
+  gap: 0.1rem;
+  min-width: 230px;
+  padding: 0.5rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 8px);
+  transition: opacity 0.2s, transform 0.25s var(--ease), visibility 0.2s;
+}
+.navbar__links .submenu::before {          /* hover bridge so the panel doesn't close in the gap */
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: -0.8rem;
+  height: 0.8rem;
+}
+.navbar__links .has-menu:hover > .submenu,
+.navbar__links .has-menu:focus-within > .submenu,
+.navbar__links .has-menu.is-open > .submenu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.navbar__links .submenu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+  border-radius: 8px;
+  opacity: 1;
+}
+.navbar__links .submenu a::after { display: none; }
+.navbar__links .submenu a:hover,
+.navbar__links .submenu a:focus-visible { background: var(--foam); color: var(--sea); }
+.navbar__links .submenu a[aria-current] { color: var(--sea); background: var(--foam); }
+.navbar__links .submenu a[aria-current]::before { content: ""; width: 6px; height: 6px; margin-right: -0.2rem; background: var(--accent); border-radius: 50%; order: 2; }
+.submenu__all { margin-top: 0.2rem; padding-top: 0.2rem; border-top: 1px solid var(--line); }
+.submenu__all a { font-weight: 600; color: var(--sea); }
+
+@media (max-width: 860px) {
+  .navbar__nav { overflow-y: auto; justify-content: flex-start; padding-top: calc(var(--nav-h) + 1rem); }
+  .navbar__links .has-menu { flex-wrap: wrap; justify-content: center; }
+  .navbar__links .has-menu > a { flex: 0 1 auto; }
+  .submenu-toggle { width: 34px; height: 34px; opacity: 1; background: var(--foam); }
+  .submenu-toggle svg { width: 12px; height: 8px; }
+  .navbar__links .submenu {
+    position: static;
+    flex: 1 1 100%;
+    min-width: 0;
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: max-height 0.35s var(--ease);
+  }
+  .navbar__links .submenu::before { display: none; }
+  .navbar__links .has-menu:hover > .submenu,
+  .navbar__links .has-menu:focus-within > .submenu { max-height: 0; opacity: 1; transform: none; }
+  .navbar__links .has-menu.is-open > .submenu { max-height: 420px; padding: 0.4rem 0 0.2rem; }
+  .navbar__links .submenu a { justify-content: center; font-family: var(--font-sans); font-size: 1.05rem; font-weight: 500; padding: 0.5rem; }
+  .navbar__links .submenu a:hover, .navbar__links .submenu a:focus-visible { background: transparent; }
+  .navbar__links .submenu a[aria-current]::before { margin-right: 0; order: 0; }
+  .submenu__all { border-top: 0; margin-top: 0; }
+}
+
 /* ---------- 17. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

@@ -167,6 +167,11 @@
     });
   }
 
+  // highlight this destination in the menu dropdown
+  $$(".submenu a[href*='place=']").forEach(function (a) {
+    if (a.getAttribute("href").indexOf("place=" + base.slug) > -1) a.setAttribute("aria-current", "page");
+  });
+
   render();
   setupLightbox();
   document.addEventListener("travelorio:langchange", render);
