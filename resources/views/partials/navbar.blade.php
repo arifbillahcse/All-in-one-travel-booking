@@ -14,8 +14,8 @@
             <a href="{{ lroute('home') }}#destinations" @if(request()->routeIs('destination', 'bn.destination')) aria-current="page" @endif>{{ __('Destinations') }}</a>
             <button type="button" class="submenu-toggle" aria-expanded="false" aria-controls="submenu-destinations" aria-label="{{ __('Show destinations') }}"><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5"/></svg></button>
             <ul class="submenu" id="submenu-destinations">
-              @foreach (site('destinations') as $slug => $name)
-              <li><a href="{{ lroute('destination', $slug) }}" @if(request()->is('destinations/'.$slug, 'bn/destinations/'.$slug)) aria-current="page" @endif>{{ __($name) }}</a></li>
+              @foreach ($navDestinations as $place)
+              <li><a href="{{ lroute('destination', $place->slug) }}" @if(request()->is('destinations/'.$place->slug, 'bn/destinations/'.$place->slug)) aria-current="page" @endif>{{ $place->name }}</a></li>
               @endforeach
               <li class="submenu__all"><a href="{{ lroute('home') }}#destinations">{{ __('All destinations') }} <span aria-hidden="true">→</span></a></li>
             </ul>

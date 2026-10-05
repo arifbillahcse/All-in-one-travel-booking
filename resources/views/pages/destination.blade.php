@@ -1,8 +1,5 @@
 @extends('layouts.app', [
-  'title' => $title,
-  'description' => 'Plan your Cox\'s Bazar trip with TravelOrio: itinerary, what\'s included, best time to visit, travel tips and instant booking on WhatsApp.',
   'bodyClass' => 'page-destination',
-  'mainAttrs' => 'data-dest="coxs-bazar"',
 ])
 
 @section('content')
@@ -11,7 +8,7 @@
          ===================================================== -->
     <section class="dest-hero" id="home" aria-label="{{ __('Destination introduction') }}">
       <div class="dest-hero__media" aria-hidden="true">
-        <img data-field="heroImage" src="https://picsum.photos/seed/coxsbazar-hero/1920/1080" alt="" width="1920" height="1080" fetchpriority="high">
+        <img src="{{ $destination->hero_image }}" alt="" width="1920" height="1080" fetchpriority="high">
       </div>
 
       <div class="container dest-hero__content">
@@ -19,13 +16,13 @@
           <ol>
             <li><a href="{{ lroute('home') }}">{{ __('Home') }}</a></li>
             <li><a href="{{ lroute('home') }}#destinations">{{ __('Destinations') }}</a></li>
-            <li aria-current="page" data-field="name">{{ __('Cox\'s Bazar') }}</li>
+            <li aria-current="page">{{ $destination->name }}</li>
           </ol>
         </nav>
 
-        <p class="eyebrow dest-hero__eyebrow" data-field="region">Chattogram Division</p>
-        <h1 class="dest-hero__title" data-field="name">{{ __('Cox\'s Bazar') }}</h1>
-        <p class="dest-hero__tagline" data-field="tagline">Walk the world's longest natural sea beach and watch the sun melt into the Bay of Bengal.</p>
+        <p class="eyebrow dest-hero__eyebrow">{{ $destination->region }}</p>
+        <h1 class="dest-hero__title">{{ $destination->name }}</h1>
+        <p class="dest-hero__tagline">{{ $destination->tagline }}</p>
 
         <div class="dest-hero__actions">
           <a href="#book" class="btn btn--primary btn--lg">{{ __('Book This Trip') }}</a>
@@ -43,23 +40,23 @@
         <dl class="facts__list">
           <div class="facts__item">
             <dt>{{ __('Starting from') }}</dt>
-            <dd data-field="priceFact">৳4,500 <small>{{ __('/ person') }}</small></dd>
+            <dd>{{ format_money($destination->price_from) }} <small>{{ __('/ person') }}</small></dd>
           </div>
           <div class="facts__item">
             <dt>{{ __('Duration') }}</dt>
-            <dd data-field="duration">2–4 days</dd>
+            <dd>{{ $destination->duration }}</dd>
           </div>
           <div class="facts__item">
             <dt>{{ __('Best time') }}</dt>
-            <dd data-field="bestTime">Nov – Mar</dd>
+            <dd>{{ $destination->best_time }}</dd>
           </div>
           <div class="facts__item">
             <dt>{{ __('From Dhaka') }}</dt>
-            <dd data-field="distance">~400 km · 1 hr by air</dd>
+            <dd>{{ $destination->distance }}</dd>
           </div>
           <div class="facts__item">
             <dt>{{ __('Trip style') }}</dt>
-            <dd data-field="style">Beach · Relaxed</dd>
+            <dd>{{ $destination->style }}</dd>
           </div>
         </dl>
       </div>
@@ -77,20 +74,18 @@
           <!-- Overview -->
           <div class="detail-block" data-reveal>
             <p class="eyebrow">{{ __('Overview') }}</p>
-            <h2 class="section__title" data-field="overviewTitle">A coastline made for slow days</h2>
-            <div class="prose" data-field="overview">
-              <p>Cox's Bazar is home to 120 km of unbroken golden sand, the longest natural sea beach in the world. Mornings start with fishermen hauling in their nets, afternoons belong to the surf, and evenings turn the sky orange over the Bay of Bengal.</p>
-              <p>Beyond the main beach you'll find quiet coves, hill-top pagodas, tribal villages and fresh seafood grilled on the sand. With TravelOrio your hotel, transport and local guide are arranged before you arrive, so you can simply enjoy the coast.</p>
+            <h2 class="section__title">{{ $destination->overview_title }}</h2>
+            <div class="prose">
+              @foreach ($destination->overview as $paragraph)
+              <p>{{ $paragraph }}</p>
+              @endforeach
             </div>
 
-            <ul class="tick-list tick-list--2col" data-field="highlights">
-              <li>Sunrise and sunset on Laboni Beach</li>
-              <li>Boat trip to Sonadia Island</li>
-              <li>Scenic drive along Marine Drive</li>
-              <li>Fresh seafood dinner by the sea</li>
-              <li>Himchari waterfall and national park</li>
-              <li>Buddhist temples and local markets</li>
-            </ul>
+            <ul class="tick-list tick-list--2col">
+                @foreach ($destination->highlights as $item)
+                <li>{{ $item }}</li>
+                @endforeach
+              </ul>
           </div>
 
           <!-- Attractions -->
@@ -98,35 +93,11 @@
             <p class="eyebrow">{{ __('Top attractions') }}</p>
             <h2 class="section__title">{{ __('What you\'ll see') }}</h2>
 
-            <div class="grid grid--2 attractions" data-field="attractions">
-              <article class="attraction">
-                <img src="https://picsum.photos/seed/laboni/640/420" alt="Laboni Beach at sunset" loading="lazy" width="640" height="420">
-                <div class="attraction__body">
-                  <h3>Laboni Beach</h3>
-                  <p>The main beach and the best place for swimming, parasailing and sunset photos.</p>
-                </div>
-              </article>
-              <article class="attraction">
-                <img src="https://picsum.photos/seed/himchari/640/420" alt="Himchari National Park" loading="lazy" width="640" height="420">
-                <div class="attraction__body">
-                  <h3>Himchari</h3>
-                  <p>Cliffs, a small waterfall and a hilltop viewpoint over the sea.</p>
-                </div>
-              </article>
-              <article class="attraction">
-                <img src="https://picsum.photos/seed/inani/640/420" alt="Rocky shore of Inani Beach" loading="lazy" width="640" height="420">
-                <div class="attraction__body">
-                  <h3>Inani Beach</h3>
-                  <p>Coral-stone shoreline with calmer water and fewer crowds.</p>
-                </div>
-              </article>
-              <article class="attraction">
-                <img src="https://picsum.photos/seed/sonadia/640/420" alt="Sonadia Island shoreline" loading="lazy" width="640" height="420">
-                <div class="attraction__body">
-                  <h3>Sonadia Island</h3>
-                  <p>A quiet island reached by boat, known for birds and red crabs.</p>
-                </div>
-              </article>
+            <div class="grid grid--2 attractions">
+              @foreach ($destination->attractions as $attraction)
+              <article class="attraction"><img src="{{ $attraction['img'] }}" alt="{{ $attraction['name'] }}" loading="lazy" width="640" height="420">
+                <div class="attraction__body"><h3>{{ $attraction['name'] }}</h3><p>{{ $attraction['text'] }}</p></div></article>
+              @endforeach
             </div>
           </div>
 
@@ -135,65 +106,13 @@
             <p class="eyebrow">{{ __('Itinerary') }}</p>
             <h2 class="section__title">{{ __('Your day-by-day plan') }}</h2>
 
-            <div class="itinerary" data-field="itinerary">
-              <details class="itinerary__day" open>
-                <summary>
-                  <span class="itinerary__num">Day 1</span>
-                  <span class="itinerary__title">Arrival and sunset on Laboni Beach</span>
-                </summary>
-                <div class="itinerary__body">
-                  <ul>
-                    <li>Airport or bus-stop pickup and hotel check-in</li>
-                    <li>Lunch at a seaside restaurant</li>
-                    <li>Free time to swim and relax</li>
-                    <li>Sunset walk along Laboni Beach, followed by dinner</li>
-                  </ul>
-                </div>
-              </details>
-
-              <details class="itinerary__day">
-                <summary>
-                  <span class="itinerary__num">Day 2</span>
-                  <span class="itinerary__title">Marine Drive, Inani and Himchari</span>
-                </summary>
-                <div class="itinerary__body">
-                  <ul>
-                    <li>Breakfast, then a scenic drive along Marine Drive</li>
-                    <li>Stop at Himchari for the waterfall and viewpoint</li>
-                    <li>Lunch and a swim at Inani Beach</li>
-                    <li>Return for an evening at the local seafood market</li>
-                  </ul>
-                </div>
-              </details>
-
-              <details class="itinerary__day">
-                <summary>
-                  <span class="itinerary__num">Day 3</span>
-                  <span class="itinerary__title">Sonadia Island boat trip</span>
-                </summary>
-                <div class="itinerary__body">
-                  <ul>
-                    <li>Early boat ride to Sonadia Island</li>
-                    <li>Bird watching, shell hunting and a beach picnic</li>
-                    <li>Back to the hotel by afternoon</li>
-                    <li>Optional shopping for pearls, dry fish and handicrafts</li>
-                  </ul>
-                </div>
-              </details>
-
-              <details class="itinerary__day">
-                <summary>
-                  <span class="itinerary__num">Day 4</span>
-                  <span class="itinerary__title">Sunrise and departure</span>
-                </summary>
-                <div class="itinerary__body">
-                  <ul>
-                    <li>Sunrise on the beach with tea</li>
-                    <li>Breakfast and hotel check-out</li>
-                    <li>Drop-off at the airport or bus station</li>
-                  </ul>
-                </div>
-              </details>
+            <div class="itinerary">
+              @foreach ($destination->itinerary as $day)
+              <details class="itinerary__day"@if ($loop->first) open @endif><summary>
+                <span class="itinerary__num">{{ t('Day {n}', ['n' => to_locale_digits($loop->iteration)]) }}</span>
+                <span class="itinerary__title">{{ $day['title'] }}</span></summary>
+                <div class="itinerary__body"><ul>@foreach ($day['items'] as $item)<li>{{ $item }}</li>@endforeach</ul></div></details>
+              @endforeach
             </div>
           </div>
 
@@ -205,24 +124,19 @@
             <div class="grid grid--2 inclusions">
               <div class="inclusions__col inclusions__col--yes">
                 <h3>{{ __('Included') }}</h3>
-                <ul class="tick-list" data-field="included">
-                  <li>Hotel stay (twin-sharing)</li>
-                  <li>Daily breakfast</li>
-                  <li>Airport or bus-stop pickup and drop</li>
-                  <li>Private AC vehicle for sightseeing</li>
-                  <li>Local English or Bangla-speaking guide</li>
-                  <li>Boat ticket to Sonadia Island</li>
-                </ul>
+                <ul class="tick-list">
+                @foreach ($destination->included as $item)
+                <li>{{ $item }}</li>
+                @endforeach
+              </ul>
               </div>
               <div class="inclusions__col inclusions__col--no">
                 <h3>{{ __('Not included') }}</h3>
-                <ul class="cross-list" data-field="excluded">
-                  <li>Flights or long-distance bus tickets</li>
-                  <li>Lunch and dinner (unless upgraded)</li>
-                  <li>Personal expenses and shopping</li>
-                  <li>Water sports and optional activities</li>
-                  <li>Tips for guides and drivers</li>
-                </ul>
+                <ul class="cross-list">
+                @foreach ($destination->excluded as $item)
+                <li>{{ $item }}</li>
+                @endforeach
+              </ul>
               </div>
             </div>
           </div>
@@ -232,25 +146,12 @@
             <p class="eyebrow">{{ __('Gallery') }}</p>
             <h2 class="section__title">{{ __('A glimpse of the trip') }}</h2>
 
-            <div class="gallery" data-field="gallery">
-              <a class="gallery__item gallery__item--wide" href="https://picsum.photos/seed/cox-g1/1600/1000">
-                <img src="https://picsum.photos/seed/cox-g1/800/520" alt="Golden sunset over the Cox's Bazar sea" loading="lazy" width="800" height="520">
-              </a>
-              <a class="gallery__item" href="https://picsum.photos/seed/cox-g2/1200/1200">
-                <img src="https://picsum.photos/seed/cox-g2/520/520" alt="Fishing boats on the shore" loading="lazy" width="520" height="520">
-              </a>
-              <a class="gallery__item" href="https://picsum.photos/seed/cox-g3/1200/1200">
-                <img src="https://picsum.photos/seed/cox-g3/520/520" alt="Waves rolling onto the beach" loading="lazy" width="520" height="520">
-              </a>
-              <a class="gallery__item" href="https://picsum.photos/seed/cox-g4/1200/1200">
-                <img src="https://picsum.photos/seed/cox-g4/520/520" alt="Grilled seafood dinner" loading="lazy" width="520" height="520">
-              </a>
-              <a class="gallery__item" href="https://picsum.photos/seed/cox-g5/1200/1200">
-                <img src="https://picsum.photos/seed/cox-g5/520/520" alt="Marine Drive coastal road" loading="lazy" width="520" height="520">
-              </a>
-              <a class="gallery__item gallery__item--wide" href="https://picsum.photos/seed/cox-g6/1600/1000">
-                <img src="https://picsum.photos/seed/cox-g6/800/520" alt="Pagoda on a green hill" loading="lazy" width="800" height="520">
-              </a>
+            <div class="gallery">
+              @foreach ($destination->gallery as $caption)
+              @php($wide = $loop->first || $loop->iteration === 6)
+              <a class="gallery__item{{ $wide ? ' gallery__item--wide' : '' }}" href="{{ placeholder_image($destination->slug.'-g'.$loop->iteration, $wide ? 1600 : 1200, $wide ? 1000 : 1200) }}">
+                <img src="{{ placeholder_image($destination->slug.'-g'.$loop->iteration, $wide ? 800 : 520, 520) }}" alt="{{ $caption }}" loading="lazy" width="{{ $wide ? 800 : 520 }}" height="520"></a>
+              @endforeach
             </div>
           </div>
 
@@ -259,22 +160,10 @@
             <p class="eyebrow">{{ __('When to go') }}</p>
             <h2 class="section__title">{{ __('Best time to visit') }}</h2>
 
-            <div class="seasons" data-field="seasons">
-              <div class="season season--best">
-                <span class="season__badge">Best</span>
-                <h3>Nov – Feb</h3>
-                <p>Cool, dry and sunny. Calm sea, ideal for beach days and boat trips.</p>
-              </div>
-              <div class="season season--good">
-                <span class="season__badge">Good</span>
-                <h3>Mar – May</h3>
-                <p>Warmer with fewer crowds and lower prices. Pack sun protection.</p>
-              </div>
-              <div class="season season--wet">
-                <span class="season__badge">Rainy</span>
-                <h3>Jun – Oct</h3>
-                <p>Dramatic waves and green hills, but boat trips may be cancelled.</p>
-              </div>
+            <div class="seasons">
+              @foreach ($destination->seasons as $season)
+              <div class="season season--{{ $season['tone'] }}"><span class="season__badge">{{ $season['badge'] }}</span><h3>{{ $season['range'] }}</h3><p>{{ $season['text'] }}</p></div>
+              @endforeach
             </div>
           </div>
 
@@ -286,20 +175,19 @@
             <div class="grid grid--2 plan">
               <div class="plan__col">
                 <h3>{{ __('How to get there') }}</h3>
-                <ul class="info-list" data-field="transport">
-                  <li><strong>By air:</strong> about 1 hour from Dhaka, with several daily flights.</li>
-                  <li><strong>By bus:</strong> 9–11 hours overnight AC coach from Dhaka.</li>
-                  <li><strong>By train:</strong> Dhaka to Cox's Bazar by rail, about 8–9 hours.</li>
-                </ul>
+                <ul class="info-list">
+                @foreach ($destination->transport as $item)
+                <li>{!! $item !!}</li>
+                @endforeach
+              </ul>
               </div>
               <div class="plan__col">
                 <h3>{{ __('Good to know') }}</h3>
-                <ul class="info-list" data-field="tips">
-                  <li>Book hotels early for Eid and winter weekends.</li>
-                  <li>Swim only in flagged safe zones.</li>
-                  <li>Carry cash for small shops and tuk-tuks.</li>
-                  <li>Dress modestly when visiting temples and villages.</li>
-                </ul>
+                <ul class="info-list">
+                @foreach ($destination->tips as $item)
+                <li>{{ $item }}</li>
+                @endforeach
+              </ul>
               </div>
             </div>
           </div>
@@ -309,27 +197,10 @@
             <p class="eyebrow">{{ __('FAQ') }}</p>
             <h2 class="section__title">{{ __('Common questions') }}</h2>
 
-            <div class="faq" data-field="faq">
-              <details class="faq__item">
-                <summary>Is Cox's Bazar safe for families and solo women travelers?</summary>
-                <p>Yes. The main tourist areas are busy and well patrolled. Our guides stay with you, and we choose hotels with good reviews and secure entrances.</p>
-              </details>
-              <details class="faq__item">
-                <summary>Can I customise the itinerary?</summary>
-                <p>Absolutely. Tell us your dates, budget and interests in the booking form and we'll adjust the days, hotel and activities.</p>
-              </details>
-              <details class="faq__item">
-                <summary>{{ __('How do I pay?') }}</summary>
-                <p>{{ __('No payment is taken online. After you send a request we confirm availability and share bKash, Nagad or bank transfer details.') }}</p>
-              </details>
-              <details class="faq__item">
-                <summary>{{ __('What is the cancellation policy?') }}</summary>
-                <p>{{ __('Free cancellation up to 7 days before departure. After that, charges depend on hotel and transport bookings already made.') }}</p>
-              </details>
-              <details class="faq__item">
-                <summary>Is there a group discount?</summary>
-                <p>Groups of 6 or more receive a reduced per-person price. Message us on WhatsApp for a quote.</p>
-              </details>
+            <div class="faq">
+              @foreach ($destination->faq as $item)
+              <details class="faq__item"><summary>{{ $item['q'] }}</summary><p>{{ $item['a'] }}</p></details>
+              @endforeach
             </div>
           </div>
 
@@ -340,11 +211,11 @@
         <aside class="detail-side" id="book" aria-label="{{ __('Book this trip') }}">
           <div class="book-card" data-reveal>
             <p class="book-card__from">{{ __('Starting from') }}</p>
-            <p class="book-card__price" data-field="priceCard"><span class="package__currency">৳</span>4,500<small> {{ __('/ person') }}</small></p>
+            <p class="book-card__price"><span class="package__currency">৳</span>{{ format_number($destination->price_from) }}<small> {{ __('/ person') }}</small></p>
             <p class="book-card__note">{{ __('Free cancellation up to 7 days before departure.') }}</p>
 
             <form class="book-card__form" id="trip-form" novalidate>
-              <input type="hidden" name="destination" value="Cox's Bazar" data-field="destinationInput">
+              <input type="hidden" name="destination" value="{{ $destination->getTranslation('name', 'en') }}">
 
               <div class="form-field">
                 <label for="t-name">{{ __('Full name') }}</label>
@@ -375,9 +246,9 @@
                 <label for="t-package">{{ __('Package') }}</label>
                 <select id="t-package" name="package">
                   <option value="">{{ __('Not sure yet') }}</option>
-                  <option value="Weekend Escape">{{ __('Weekend Escape') }}</option>
-                  <option value="Explorer" selected>{{ __('Explorer') }}</option>
-                  <option value="Grand Bangladesh">{{ __('Grand Bangladesh') }}</option>
+                  @foreach ($packages as $package)
+                  <option value="{{ $package->getTranslation('name', 'en') }}" @selected($package->is_featured)>{{ $package->name }}</option>
+                  @endforeach
                 </select>
                 <small class="form-error" aria-hidden="true"></small>
               </div>
@@ -410,42 +281,10 @@
           <p class="section__lead">{{ __('Combine two destinations in our Grand Bangladesh package.') }}</p>
         </header>
 
-        <div class="grid grid--3" data-field="related">
-          <article class="card destination" data-reveal>
-            <a href="{{ lroute('destination', 'saint-martin') }}" class="card__media">
-              <img src="https://picsum.photos/seed/saintmartin/800/600" alt="{{ __('Coral island and turquoise water of Saint Martin\'s') }}" loading="lazy" width="800" height="600">
-              <span class="card__tag">{{ __('From ৳7,000') }}</span>
-            </a>
-            <div class="card__body">
-              <p class="card__meta">{{ __('Bay of Bengal · 2–3 days') }}</p>
-              <h3 class="card__title">{{ __('Saint Martin\'s Island') }}</h3>
-              <a href="{{ lroute('destination', 'saint-martin') }}" class="link-arrow">{{ __('View details') }} <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="card destination" data-reveal>
-            <a href="{{ lroute('destination', 'bandarban') }}" class="card__media">
-              <img src="https://picsum.photos/seed/bandarban/800/600" alt="{{ __('Hills and clouds of Bandarban') }}" loading="lazy" width="800" height="600">
-              <span class="card__tag">{{ __('From ৳6,000') }}</span>
-            </a>
-            <div class="card__body">
-              <p class="card__meta">{{ __('Chattogram Hill Tracts · 3 days') }}</p>
-              <h3 class="card__title">{{ __('Bandarban') }}</h3>
-              <a href="{{ lroute('destination', 'bandarban') }}" class="link-arrow">{{ __('View details') }} <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="card destination" data-reveal>
-            <a href="{{ lroute('destination', 'kuakata') }}" class="card__media">
-              <img src="https://picsum.photos/seed/kuakata/800/600" alt="{{ __('Sunrise over the sea at Kuakata') }}" loading="lazy" width="800" height="600">
-              <span class="card__tag">{{ __('From ৳4,000') }}</span>
-            </a>
-            <div class="card__body">
-              <p class="card__meta">{{ __('Barishal Division · 2 days') }}</p>
-              <h3 class="card__title">{{ __('Kuakata') }}</h3>
-              <a href="{{ lroute('destination', 'kuakata') }}" class="link-arrow">{{ __('View details') }} <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
+        <div class="grid grid--3">
+          @foreach ($related as $place)
+          @include('partials.cards.destination', ['destination' => $place, 'linkLabel' => 'View details'])
+          @endforeach
         </div>
       </div>
     </section>
@@ -457,27 +296,13 @@
     <section class="cta-band" aria-label="{{ __('Ready to book') }}">
       <div class="container cta-band__inner" data-reveal>
         <div>
-          <h2 class="cta-band__title" data-field="ctaTitle">Ready for your <em>{{ __('Cox\'s Bazar') }}</em> escape?</h2>
+          <h2 class="cta-band__title">{!! t('Ready for your {name} escape?', ['name' => '<em>'.e($destination->name).'</em>']) !!}</h2>
           <p>{{ __('Message us and we\'ll build a plan around your dates and budget.') }}</p>
         </div>
-        <a href="{{ whatsapp_url() }}" class="btn btn--primary btn--lg" target="_blank" rel="noopener">{{ __('Chat on WhatsApp') }}</a>
+        <a href="{{ whatsapp_url(t("Hello TravelOrio! I'm interested in a {name} trip.", ['name' => $destination->name])) }}" class="btn btn--primary btn--lg" target="_blank" rel="noopener">{{ __('Chat on WhatsApp') }}</a>
       </div>
     </section>
-
-  
 @endsection
-
-@push('scripts-data')
-  <script>window.TRAVELORIO_PAGE = { slug: @json($slug) };</script>
-@endpush
-
-@push('scripts-data')
-  <script src="{{ asset_js('data.js') }}" defer></script>
-@endpush
-
-@push('scripts-i18n')
-  <script src="{{ asset_js('i18n/data-bn.js') }}" defer></script>
-@endpush
 
 @push('scripts')
   <script src="{{ asset_js('destination.js') }}" defer></script>

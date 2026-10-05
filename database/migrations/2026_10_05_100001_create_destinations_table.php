@@ -19,6 +19,7 @@ return new class extends Migration
             $table->json('name');
             $table->json('region');
             $table->json('tagline');
+            $table->json('summary');                // short blurb for cards
             $table->json('overview_title');
             $table->unsignedInteger('price_from');
             $table->json('duration');

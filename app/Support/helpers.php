@@ -143,3 +143,33 @@ if (! function_exists('format_date')) {
         return to_locale_digits($text);
     }
 }
+
+if (! function_exists('stars')) {
+    /** "★★★★☆" for a 1-5 rating. */
+    function stars(int $rating): string
+    {
+        $rating = max(0, min(5, $rating));
+
+        return str_repeat('★', $rating).str_repeat('☆', 5 - $rating);
+    }
+}
+
+if (! function_exists('initials')) {
+    /** Up to two initials of a name (works for Latin and Bangla). */
+    function initials(string $name): string
+    {
+        $letters = collect(preg_split('/\s+/u', trim($name), -1, PREG_SPLIT_NO_EMPTY))
+            ->take(2)
+            ->map(fn (string $word) => mb_substr($word, 0, 1));
+
+        return mb_strtoupper($letters->implode(''));
+    }
+}
+
+if (! function_exists('placeholder_image')) {
+    /** Stand-in photo until real uploads arrive (Phase 8). */
+    function placeholder_image(string $seed, int $width, int $height): string
+    {
+        return "https://picsum.photos/seed/{$seed}/{$width}/{$height}";
+    }
+}

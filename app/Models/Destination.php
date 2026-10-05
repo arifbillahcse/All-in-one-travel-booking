@@ -17,7 +17,7 @@ class Destination extends Model
 
     /** Columns stored as {"en": ..., "bn": ...}. */
     public array $translatable = [
-        'name', 'region', 'tagline', 'overview_title', 'duration', 'best_time', 'distance', 'style',
+        'name', 'region', 'tagline', 'summary', 'overview_title', 'duration', 'best_time', 'distance', 'style',
         'overview', 'highlights', 'attractions', 'itinerary', 'included', 'excluded',
         'seasons', 'transport', 'tips', 'faq', 'gallery',
     ];

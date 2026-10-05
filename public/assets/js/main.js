@@ -67,6 +67,10 @@
   });
 
 
+  /* ---------- Selects that reload the page when changed (e.g. review sort) ---------- */
+  $$("select[data-autosubmit]").forEach((sel) => sel.addEventListener("change", () => sel.form && sel.form.submit()));
+
+
   /* ---------- 3. Scroll reveal ---------- */
   const revealEls = $$("[data-reveal]");
   if ("IntersectionObserver" in window && !prefersReducedMotion) {
@@ -89,7 +93,7 @@
 
   /* ---------- 4. Hero parallax ---------- */
   const hero = $("#home");
-  const layers = $$(".hero__layer[data-depth]", hero).map((el) => ({
+  const layers = (hero ? $$(".hero__layer[data-depth]", hero) : []).map((el) => ({
     el,
     depth: parseFloat(el.dataset.depth) || 0,
   }));

@@ -143,7 +143,11 @@
           <h2 class="section__title">{{ __('Travelers trust us') }}</h2>
         </header>
 
-        <div class="grid grid--3" id="why-reviews"></div>
+        <div class="grid grid--3" id="why-reviews">
+          @foreach ($stories as $review)
+          @include('partials.cards.review', ['review' => $review])
+          @endforeach
+        </div>
 
         <p class="section__more" data-reveal>
           <a href="{{ lroute('reviews') }}" class="link-arrow">{{ __('Read all traveler reviews') }} <span aria-hidden="true">→</span></a>
@@ -203,15 +207,3 @@
 
   
 @endsection
-
-@push('scripts-data')
-  <script src="{{ asset_js('data.js') }}" defer></script>
-@endpush
-
-@push('scripts-i18n')
-  <script src="{{ asset_js('i18n/data-bn.js') }}" defer></script>
-@endpush
-
-@push('scripts')
-  <script src="{{ asset_js('whyus.js') }}" defer></script>
-@endpush

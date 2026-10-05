@@ -15,8 +15,8 @@
       <nav class="footer__col" aria-label="{{ __('Destinations') }}">
         <h4>{{ __('Destinations') }}</h4>
         <ul>
-          @foreach (site('destinations') as $slug => $name)
-          <li><a href="{{ lroute('destination', $slug) }}">{{ __($name) }}</a></li>
+          @foreach ($navDestinations as $place)
+          <li><a href="{{ lroute('destination', $place->slug) }}">{{ $place->name }}</a></li>
           @endforeach
         </ul>
       </nav>

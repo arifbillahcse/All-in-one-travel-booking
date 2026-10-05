@@ -12,6 +12,8 @@ class DestinationSeeder extends Seeder
 
     public function run(): void
     {
+        $summaries = $this->legacy('destination-summaries');
+
         foreach ($this->legacy('destinations') as $row) {
             ['en' => $en, 'bn' => $bn] = $row;
 
@@ -46,6 +48,7 @@ class DestinationSeeder extends Seeder
                 $destination->setTranslations($column, ['en' => $en[$key], 'bn' => $bn[$key]]);
             }
 
+            $destination->setTranslations('summary', $summaries[$en['slug']]);
             $destination->save();
         }
     }

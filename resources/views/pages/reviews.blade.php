@@ -33,23 +33,30 @@
 
 
     <!-- =====================================================
-         2. RATING SUMMARY + FEATURED STORY (rendered by JS)
+         2. RATING SUMMARY + FEATURED STORY
          ===================================================== -->
     <section class="section section--tight" id="summary">
       <div class="container summary">
 
         <div class="rating-card" id="rating-card" data-reveal>
           <p class="rating-card__label">{{ __('Overall rating') }}</p>
-          <p class="rating-card__score"><span id="rating-avg">4.9</span><small>/ 5</small></p>
-          <p class="rating-card__stars" id="rating-stars" aria-hidden="true">★★★★★</p>
-          <p class="rating-card__count" id="rating-count">{{ __('Based on traveler reviews') }}</p>
-          <ul class="rating-bars" id="rating-bars" aria-label="{{ __('Rating breakdown') }}"></ul>
+          <p class="rating-card__score"><span id="rating-avg">{{ format_number($average, 1) }}</span><small>/ 5</small></p>
+          <p class="rating-card__stars" id="rating-stars" aria-hidden="true">{{ stars((int) round($average)) }}</p>
+          <p class="rating-card__count" id="rating-count">{{ t($total === 1 ? 'Based on {n} traveler review' : 'Based on {n} traveler reviews', ['n' => to_locale_digits($total)]) }}</p>
+          <ul class="rating-bars" id="rating-bars" aria-label="{{ __('Rating breakdown') }}">
+            @foreach ([5, 4, 3, 2, 1] as $star)
+            @php($pct = $total ? (int) round((($breakdown[$star] ?? 0) / $total) * 100) : 0)
+            <li><span class="rating-bars__label">{{ to_locale_digits($star) }} ★</span><span class="rating-bars__track"><span class="rating-bars__fill" style="width:{{ $pct }}%"></span></span><span class="rating-bars__pct">{{ to_locale_digits($pct) }}%</span></li>
+            @endforeach
+          </ul>
         </div>
 
         <figure class="featured-quote" id="featured-quote" data-reveal>
           <svg class="featured-quote__mark" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.5 6C6.5 7 4 9.8 4 13.5V18h6v-6H7c0-2 1-3.500 3-4.200zm9 0c-3 1-5.500 3.800-5.500 7.500V18h6v-6h-3c0-2 1-3.500 3-4.200z"/></svg>
-          <blockquote id="featured-text">{{ __('Our travelers\' words appear here.') }}</blockquote>
-          <figcaption id="featured-author"></figcaption>
+          @if ($featured)
+          <blockquote id="featured-text">{{ $featured->body }}</blockquote>
+          <figcaption id="featured-author"><strong>{{ $featured->name }}</strong> · {{ $featured->city }}<br><span>{{ $featured->destination?->name }} · {{ __($featured->traveler_type) }}</span></figcaption>
+          @endif
         </figure>
 
       </div>
@@ -66,26 +73,39 @@
           <h2 class="section__title">{{ __('What travelers say') }}</h2>
         </header>
 
-        <div class="review-tools" data-reveal>
-          <div class="chips" id="review-filters" role="group" aria-label="{{ __('Filter reviews by destination') }}"></div>
+        <form class="review-tools" data-reveal method="get" action="{{ lroute('reviews') }}#all-reviews">
+          <div class="chips" id="review-filters" role="group" aria-label="{{ __('Filter reviews by destination') }}">
+            <a class="chip" href="{{ lroute('reviews') }}?{{ http_build_query(['sort' => $sort]) }}#all-reviews" @if (! $active) aria-current="true" @endif>{{ t('All ({n})', ['n' => to_locale_digits($total)]) }}</a>
+            @foreach ($destinations as $place)
+            <a class="chip" href="{{ lroute('reviews') }}?{{ http_build_query(['destination' => $place->slug, 'sort' => $sort]) }}#all-reviews" @if ($active?->is($place)) aria-current="true" @endif>{{ $place->name }} ({{ to_locale_digits($place->reviews_count) }})</a>
+            @endforeach
+          </div>
           <div class="review-sort">
             <label for="review-sort">{{ __('Sort by') }}</label>
-            <select id="review-sort">
-              <option value="newest">{{ __('Newest') }}</option>
-              <option value="highest">{{ __('Highest rated') }}</option>
+            <select id="review-sort" name="sort" data-autosubmit>
+              <option value="newest" @selected($sort === 'newest')>{{ __('Newest') }}</option>
+              <option value="highest" @selected($sort === 'highest')>{{ __('Highest rated') }}</option>
             </select>
+            @if ($active)<input type="hidden" name="destination" value="{{ $active->slug }}">@endif
+            <noscript><button type="submit" class="btn btn--outline">{{ __('Apply') }}</button></noscript>
           </div>
-        </div>
+        </form>
 
-        <p class="review-status" id="review-status" aria-live="polite"></p>
+        <p class="review-status" id="review-status" aria-live="polite">@if ($matching){{ t($matching === 1 ? 'Showing {a} of {b} review' : 'Showing {a} of {b} reviews', ['a' => to_locale_digits($reviews->count()), 'b' => to_locale_digits($matching)]) }}@endif</p>
 
         <div class="reviews-grid" id="reviews-grid">
-          <noscript><p>{{ __('Please enable JavaScript to browse reviews.') }}</p></noscript>
+          @forelse ($reviews as $review)
+          @include('partials.cards.review', ['review' => $review, 'showType' => true])
+          @empty
+          <p class="reviews-empty">{{ __('No reviews for this destination yet. Be the first to write one!') }}</p>
+          @endforelse
         </div>
 
+        @if ($reviews->count() < $matching)
         <div class="reviews-more">
-          <button type="button" class="btn btn--outline" id="reviews-more" hidden>{{ __('Show more reviews') }}</button>
+          <a class="btn btn--outline" id="reviews-more" href="{{ lroute('reviews') }}?{{ http_build_query(array_filter(['destination' => $active?->slug, 'sort' => $sort, 'show' => $show + $pageSize])) }}#all-reviews">{{ __('Show more reviews') }}</a>
         </div>
+        @endif
       </div>
     </section>
 
@@ -174,14 +194,6 @@
 
   
 @endsection
-
-@push('scripts-data')
-  <script src="{{ asset_js('data.js') }}" defer></script>
-@endpush
-
-@push('scripts-i18n')
-  <script src="{{ asset_js('i18n/data-bn.js') }}" defer></script>
-@endpush
 
 @push('scripts')
   <script src="{{ asset_js('reviews.js') }}" defer></script>

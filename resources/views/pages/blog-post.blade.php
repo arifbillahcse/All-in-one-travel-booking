@@ -1,6 +1,4 @@
 @extends('layouts.app', [
-  'title' => 'Article',
-  'description' => 'Travel guides and tips from TravelOrio.',
   'bodyClass' => 'page-blog page-article',
 ])
 
@@ -22,12 +20,12 @@
           <ol>
             <li><a href="{{ lroute('home') }}">{{ __('Home') }}</a></li>
             <li><a href="{{ lroute('blog') }}">{{ __('Blog') }}</a></li>
-            <li aria-current="page" id="post-crumb">Article</li>
+            <li aria-current="page" id="post-crumb">{{ $post->title }}</li>
           </ol>
         </nav>
-        <p class="eyebrow page-hero__eyebrow" id="post-cat">Guides</p>
-        <h1 class="page-hero__title page-hero__title--article" id="post-title">Travel story</h1>
-        <p class="page-hero__lead" id="post-meta"></p>
+        <p class="eyebrow page-hero__eyebrow" id="post-cat">{{ $post->category->name }}</p>
+        <h1 class="page-hero__title page-hero__title--article" id="post-title">{{ $post->title }}</h1>
+        <p class="page-hero__lead" id="post-meta">{{ format_date($post->published_at) }} · {{ t('{n} min read', ['n' => to_locale_digits($post->read_minutes)]) }}</p>
       </div>
     </section>
 
@@ -37,7 +35,55 @@
          ===================================================== -->
     <section class="section" id="story">
       <div class="container container--article">
-        <article class="article" id="article"></article>
+        <article class="article" id="article">
+          @php($blocks = collect($post->body))
+          @php($headings = $blocks->where('type', 'h2')->values())
+          <figure class="article__cover"><img src="{{ placeholder_image('blog-'.$post->slug, 1200, 700) }}" alt="{{ $post->title }}" width="1200" height="700"></figure>
+
+          @if ($headings->count() > 1)
+          <nav class="toc" aria-label="{{ __('In this article') }}"><p class="toc__title">{{ __('In this article') }}</p><ol>
+            @foreach ($headings as $heading)
+            <li><a href="#sec-{{ $loop->iteration }}">{{ $heading['text'] }}</a></li>
+            @endforeach
+          </ol></nav>
+          @endif
+
+          <div class="article__body">
+            @php($section = 0)
+            @foreach ($blocks as $block)
+              @switch($block['type'])
+                @case('h2')
+                  <h2 id="sec-{{ ++$section }}">{{ $block['text'] }}</h2>
+                  @break
+                @case('ul')
+                  <ul class="tick-list">@foreach ($block['items'] as $item)<li>{{ $item }}</li>@endforeach</ul>
+                  @break
+                @case('tip')
+                  <aside class="callout"><strong>{{ __('Tip') }}</strong><p>{{ $block['text'] }}</p></aside>
+                  @break
+                @default
+                  <p>{{ $block['text'] }}</p>
+              @endswitch
+            @endforeach
+          </div>
+
+          @if ($post->destination)
+          <aside class="trip-card">
+            <div><p class="eyebrow">{{ __('Plan this trip') }}</p><h3>{{ $post->destination->name }}</h3><p>{{ $post->destination->tagline }}</p></div>
+            <div class="trip-card__actions">
+              <a class="btn btn--primary" href="{{ lroute('destination', $post->destination->slug) }}">{{ __('View trip details') }}</a>
+              <a class="btn btn--outline" href="{{ lroute('packages') }}?place={{ $post->destination->slug }}">{{ __('See packages') }}</a>
+            </div>
+          </aside>
+          @endif
+
+          <div class="share"><span class="share__label">{{ __('Share this article') }}</span>
+            <a class="share__btn" target="_blank" rel="noopener" href="https://wa.me/?text={{ rawurlencode($post->title.' '.url()->current()) }}">WhatsApp</a>
+            <a class="share__btn" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u={{ rawurlencode(url()->current()) }}">Facebook</a>
+            <button type="button" class="share__btn" id="copy-link">{{ __('Copy link') }}</button></div>
+
+          <aside class="author-box"><span class="author-box__avatar" aria-hidden="true">T</span><div><p class="author-box__name">{{ __('TravelOrio Team') }}</p><p>{{ __('Local guides and trip planners who write from first-hand experience.') }}</p></div></aside>
+        </article>
       </div>
     </section>
 
@@ -47,13 +93,24 @@
          ===================================================== -->
     <section class="section section--alt" id="more-reading">
       <div class="container">
-        <nav class="post-nav" id="post-nav" aria-label="{{ __('More articles') }}"></nav>
+        <nav class="post-nav" id="post-nav" aria-label="{{ __('More articles') }}">
+          @if ($previous)
+          <a class="post-nav__link" href="{{ lroute('blog.post', $previous->slug) }}"><span>{{ __('Previous article') }}</span><strong>{{ $previous->title }}</strong></a>
+          @else<span></span>@endif
+          @if ($next)
+          <a class="post-nav__link post-nav__link--next" href="{{ lroute('blog.post', $next->slug) }}"><span>{{ __('Next article') }}</span><strong>{{ $next->title }}</strong></a>
+          @else<span></span>@endif
+        </nav>
 
         <header class="section__header" data-reveal>
           <p class="eyebrow">{{ __('Keep reading') }}</p>
           <h2 class="section__title">{{ __('Related articles') }}</h2>
         </header>
-        <div class="grid grid--3" id="related-posts"></div>
+        <div class="grid grid--3" id="related-posts">
+          @foreach ($related as $item)
+          @include('partials.cards.post', ['post' => $item])
+          @endforeach
+        </div>
       </div>
     </section>
 
@@ -70,20 +127,6 @@
 
   
 @endsection
-
-@push('scripts-data')
-  <script>window.TRAVELORIO_PAGE = { slug: @json($slug) };</script>
-@endpush
-
-@push('scripts-data')
-  <script src="{{ asset_js('blog-core.js') }}" defer></script>
-  <script src="{{ asset_js('data.js') }}" defer></script>
-@endpush
-
-@push('scripts-i18n')
-  <script src="{{ asset_js('i18n/data-bn.js') }}" defer></script>
-  <script src="{{ asset_js('i18n/blog-bn.js') }}" defer></script>
-@endpush
 
 @push('scripts')
   <script src="{{ asset_js('blog-post.js') }}" defer></script>

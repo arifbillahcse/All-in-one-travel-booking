@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -9,16 +13,14 @@ use Illuminate\Support\Facades\Route;
 | In views use lroute('home') / lurl('path') to stay in the current language.
 */
 $pages = function () {
-    Route::controller(PageController::class)->group(function () {
-        Route::get('/', 'home')->name('home');
-        Route::get('/destinations/{slug}', 'destination')->name('destination');
-        Route::get('/packages', 'packages')->name('packages');
-        Route::get('/why-us', 'whyUs')->name('why-us');
-        Route::get('/reviews', 'reviews')->name('reviews');
-        Route::get('/blog', 'blog')->name('blog');
-        Route::get('/blog/{slug}', 'post')->name('blog.post');
-        Route::get('/contact', 'contact')->name('contact');
-    });
+    Route::get('/', [PageController::class, 'home'])->name('home');
+    Route::get('/why-us', [PageController::class, 'whyUs'])->name('why-us');
+    Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+    Route::get('/destinations/{slug}', [DestinationController::class, 'show'])->name('destination');
+    Route::get('/packages', [PackageController::class, 'index'])->name('packages');
+    Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+    Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.post');
 };
 
 Route::group([], $pages);

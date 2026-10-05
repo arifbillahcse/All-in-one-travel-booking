@@ -34,27 +34,47 @@
 
 
     <!-- =====================================================
-         2. ARTICLES (rendered from js/blog-core.js)
+         2. ARTICLES
          ===================================================== -->
     <section class="section" id="articles">
       <div class="container">
 
-        <div class="blog-tools" data-reveal>
-          <div class="chips" id="blog-filters" role="group" aria-label="{{ __('Filter articles by category') }}"></div>
+        <form class="blog-tools" data-reveal method="get" action="{{ lroute('blog') }}#articles" role="search">
+          <div class="chips" id="blog-filters" role="group" aria-label="{{ __('Filter articles by category') }}">
+            <a class="chip" href="{{ lroute('blog') }}{{ $search !== '' ? '?'.http_build_query(['q' => $search]) : '' }}#articles" @if (! $category) aria-current="true" @endif>{{ __('All') }} ({{ to_locale_digits($allCount) }})</a>
+            @foreach ($categories as $item)
+            <a class="chip" href="{{ lroute('blog') }}?{{ http_build_query(array_filter(['category' => $item->slug, 'q' => $search])) }}#articles" @if ($category?->is($item)) aria-current="true" @endif>{{ $item->name }} ({{ to_locale_digits($item->posts_count) }})</a>
+            @endforeach
+          </div>
           <div class="blog-search">
             <label for="blog-search" class="sr-only">{{ __('Search articles') }}</label>
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-            <input type="search" id="blog-search" placeholder="{{ __('Search articles…') }}" autocomplete="off">
+            <input type="search" id="blog-search" name="q" value="{{ $search }}" placeholder="{{ __('Search articles…') }}" autocomplete="off">
+            @if ($category)<input type="hidden" name="category" value="{{ $category->slug }}">@endif
           </div>
+        </form>
+        <p class="review-status" id="blog-status" aria-live="polite">@if ($total){{ t($total === 1 ? '{n} article' : '{n} articles', ['n' => to_locale_digits($total)]) }}@endif</p>
+
+        @if ($featured)
+        <div id="blog-featured" class="blog-featured">
+          @include('partials.cards.post', ['post' => $featured, 'isFeatured' => true])
         </div>
-        <p class="review-status" id="blog-status" aria-live="polite"></p>
+        @endif
+        <div class="grid grid--3" id="blog-grid">
+          @forelse ($posts as $post)
+          @include('partials.cards.post', ['post' => $post])
+          @empty
+          @unless ($featured)
+          <p class="reviews-empty">{{ __('No articles match your search.') }}</p>
+          @endunless
+          @endforelse
+        </div>
 
-        <div id="blog-featured" class="blog-featured" hidden></div>
-        <div class="grid grid--3" id="blog-grid"></div>
-
+        @if ($hasMore)
         <div class="reviews-more">
-          <button type="button" class="btn btn--outline" id="blog-more" hidden>{{ __('Show more articles') }}</button>
+          <a class="btn btn--outline" id="blog-more" href="{{ lroute('blog') }}?{{ http_build_query(array_filter(['category' => $category?->slug, 'q' => $search, 'show' => $show + $pageSize])) }}#articles">{{ __('Show more articles') }}</a>
         </div>
+        @endif
       </div>
     </section>
 
@@ -74,15 +94,3 @@
 
   
 @endsection
-
-@push('scripts-data')
-  <script src="{{ asset_js('blog-core.js') }}" defer></script>
-@endpush
-
-@push('scripts-i18n')
-  <script src="{{ asset_js('i18n/blog-bn.js') }}" defer></script>
-@endpush
-
-@push('scripts')
-  <script src="{{ asset_js('blog.js') }}" defer></script>
-@endpush

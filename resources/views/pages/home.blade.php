@@ -77,12 +77,9 @@
 
       <!-- Clickable destination chips -->
       <ul class="hero__chips" aria-label="{{ __('Destinations') }}">
-        <li><a class="hero-chip" href="{{ lroute('destination', 'coxs-bazar') }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c0-6 1-10 3-13"/><path d="M15 9c-1-3-4-4-7-3 2 0 4 1 5 3M15 9c2-2 5-2 7 0-3-1-5 0-6 1M15 9c0-3 1-5 3-6-1 2-1 4-1 6"/></svg>{{ __('Cox\'s Bazar') }}</a></li>
-        <li><a class="hero-chip" href="{{ lroute('destination', 'sundarbans') }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-6M12 15c-4 0-6-3-5-6 1-3 4-4 5-6 1 2 4 3 5 6 1 3-1 6-5 6z"/></svg>{{ __('Sundarbans') }}</a></li>
-        <li><a class="hero-chip" href="{{ lroute('destination', 'sylhet') }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15M5 19l8-8"/></svg>{{ __('Sylhet') }}</a></li>
-        <li><a class="hero-chip" href="{{ lroute('destination', 'bandarban') }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19l6-10 4 6 3-4 5 8z"/></svg>{{ __('Bandarban') }}</a></li>
-        <li><a class="hero-chip" href="{{ lroute('destination', 'saint-martin') }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21 4 11a8 8 0 0 1 16 0z"/><path d="M12 21V8M8 19l-3-8M16 19l3-8"/></svg>{{ __('Saint Martin\'s Island') }}</a></li>
-        <li><a class="hero-chip" href="{{ lroute('destination', 'kuakata') }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18M7 18a5 5 0 0 1 10 0M12 6v3M5 10l2 2M19 10l-2 2"/></svg>{{ __('Kuakata') }}</a></li>
+        @foreach ($destinations as $place)
+        <li><a class="hero-chip" href="{{ lroute('destination', $place->slug) }}">@include('partials.icons.destination', ['slug' => $place->slug]){{ $place->name }}</a></li>
+        @endforeach
       </ul>
 
       <!-- Hero content -->
@@ -107,12 +104,9 @@
           <label for="search-destination">{{ __('Where') }}</label>
           <select id="search-destination" name="destination">
             <option value="">{{ __('Choose destination') }}</option>
-            <option value="Cox's Bazar">{{ __('Cox\'s Bazar') }}</option>
-            <option value="Sundarbans">{{ __('Sundarbans') }}</option>
-            <option value="Sylhet">{{ __('Sylhet') }}</option>
-            <option value="Bandarban">{{ __('Bandarban') }}</option>
-            <option value="Saint Martin's Island">{{ __('Saint Martin\'s Island') }}</option>
-            <option value="Kuakata">{{ __('Kuakata') }}</option>
+            @foreach ($destinations as $place)
+            <option value="{{ $place->getTranslation('name', 'en') }}">{{ $place->name }}</option>
+            @endforeach
           </select>
         </div>
         <div class="search__field">
@@ -146,85 +140,9 @@
         </header>
 
         <div class="grid grid--3">
-
-          <article class="card destination" data-reveal>
-            <a href="{{ lroute('destination', 'coxs-bazar') }}" class="card__media" aria-label="{{ __('View Cox\'s Bazar trip details') }}">
-              <img src="https://picsum.photos/seed/coxsbazar/800/600" alt="{{ __('Cox\'s Bazar sea beach at sunset') }}" loading="lazy" width="800" height="600">
-              <span class="card__tag">{{ __('From ৳4,500') }}</span>
-            </a>
-            <div class="card__body">
-              <p class="card__meta">{{ __('Chattogram Division · 2–4 days') }}</p>
-              <h3 class="card__title">{{ __('Cox\'s Bazar') }}</h3>
-              <p class="card__text">{{ __('Walk the world\'s longest natural sea beach, catch golden sunsets and explore Himchari and Inani.') }}</p>
-              <a href="{{ lroute('destination', 'coxs-bazar') }}" class="link-arrow">{{ __('View trip details') }} <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="card destination" data-reveal>
-            <a href="{{ lroute('destination', 'sundarbans') }}" class="card__media" aria-label="{{ __('View Sundarbans trip details') }}">
-              <img src="https://picsum.photos/seed/sundarbans/800/600" alt="{{ __('Mangrove forest in the Sundarbans') }}" loading="lazy" width="800" height="600">
-              <span class="card__tag">{{ __('From ৳8,500') }}</span>
-            </a>
-            <div class="card__body">
-              <p class="card__meta">{{ __('Khulna Division · 3 days') }}</p>
-              <h3 class="card__title">{{ __('Sundarbans') }}</h3>
-              <p class="card__text">{{ __('Cruise the tidal creeks of the largest mangrove forest on Earth, home of the Royal Bengal tiger.') }}</p>
-              <a href="{{ lroute('destination', 'sundarbans') }}" class="link-arrow">{{ __('View trip details') }} <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="card destination" data-reveal>
-            <a href="{{ lroute('destination', 'sylhet') }}" class="card__media" aria-label="{{ __('View Sylhet trip details') }}">
-              <img src="https://picsum.photos/seed/sylhet/800/600" alt="{{ __('Tea gardens and misty hills of Sylhet') }}" loading="lazy" width="800" height="600">
-              <span class="card__tag">{{ __('From ৳5,500') }}</span>
-            </a>
-            <div class="card__body">
-              <p class="card__meta">{{ __('Sylhet Division · 2–3 days') }}</p>
-              <h3 class="card__title">{{ __('Sylhet') }}</h3>
-              <p class="card__text">{{ __('Rolling tea estates, the Ratargul swamp forest, Jaflong and the crystal streams of Sripur.') }}</p>
-              <a href="{{ lroute('destination', 'sylhet') }}" class="link-arrow">{{ __('View trip details') }} <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="card destination" data-reveal>
-            <a href="{{ lroute('destination', 'bandarban') }}" class="card__media" aria-label="{{ __('View Bandarban trip details') }}">
-              <img src="https://picsum.photos/seed/bandarban/800/600" alt="{{ __('Hills and clouds of Bandarban') }}" loading="lazy" width="800" height="600">
-              <span class="card__tag">{{ __('From ৳6,000') }}</span>
-            </a>
-            <div class="card__body">
-              <p class="card__meta">{{ __('Chattogram Hill Tracts · 3 days') }}</p>
-              <h3 class="card__title">{{ __('Bandarban') }}</h3>
-              <p class="card__text">{{ __('Sea-of-clouds sunrises, Nafakhum waterfall and Nilgiri, alongside the vibrant hill communities.') }}</p>
-              <a href="{{ lroute('destination', 'bandarban') }}" class="link-arrow">{{ __('View trip details') }} <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="card destination" data-reveal>
-            <a href="{{ lroute('destination', 'saint-martin') }}" class="card__media" aria-label="{{ __('View Saint Martin\'s Island trip details') }}">
-              <img src="https://picsum.photos/seed/saintmartin/800/600" alt="{{ __('Coral island and turquoise water of Saint Martin\'s') }}" loading="lazy" width="800" height="600">
-              <span class="card__tag">{{ __('From ৳7,000') }}</span>
-            </a>
-            <div class="card__body">
-              <p class="card__meta">{{ __('Bay of Bengal · 2–3 days') }}</p>
-              <h3 class="card__title">{{ __('Saint Martin\'s Island') }}</h3>
-              <p class="card__text">{{ __('Bangladesh\'s only coral island: turquoise water, coconut palms and quiet moonlit beaches.') }}</p>
-              <a href="{{ lroute('destination', 'saint-martin') }}" class="link-arrow">{{ __('View trip details') }} <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="card destination" data-reveal>
-            <a href="{{ lroute('destination', 'kuakata') }}" class="card__media" aria-label="{{ __('View Kuakata trip details') }}">
-              <img src="https://picsum.photos/seed/kuakata/800/600" alt="{{ __('Sunrise over the sea at Kuakata') }}" loading="lazy" width="800" height="600">
-              <span class="card__tag">{{ __('From ৳4,000') }}</span>
-            </a>
-            <div class="card__body">
-              <p class="card__meta">{{ __('Barishal Division · 2 days') }}</p>
-              <h3 class="card__title">{{ __('Kuakata') }}</h3>
-              <p class="card__text">{{ __('See both sunrise and sunset from the same beach, plus Buddhist temples and Fatrar Char.') }}</p>
-              <a href="{{ lroute('destination', 'kuakata') }}" class="link-arrow">{{ __('View trip details') }} <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
+          @foreach ($destinations as $place)
+          @include('partials.cards.destination', ['destination' => $place, 'text' => 'summary'])
+          @endforeach
         </div>
       </div>
     </section>
@@ -255,47 +173,23 @@
 
         <div class="grid grid--3 packages">
 
-          <article class="package" data-reveal>
-            <h3 class="package__name">{{ __('Weekend Escape') }}</h3>
-            <p class="package__desc">{{ __('A quick, restful getaway.') }}</p>
-            <p class="package__price"><span class="package__currency">৳</span>{{ __('5,500') }}<small> {{ __('/ person') }}</small></p>
+          @foreach ($packages as $package)
+          <article class="package{{ $package->is_featured ? ' package--featured' : '' }}" data-reveal>
+            @if ($package->badge)
+            <span class="package__badge">{{ $package->badge }}</span>
+            @endif
+            <h3 class="package__name">{{ $package->name }}</h3>
+            <p class="package__desc">{{ $package->description }}</p>
+            <p class="package__price"><span class="package__currency">৳</span>{{ format_number($package->price) }}<small> {{ __('/ person') }}</small></p>
             <ul class="package__list">
-              <li>{{ __('2 days, 1 night') }}</li>
-              <li>{{ __('Standard hotel stay') }}</li>
-              <li>{{ __('Breakfast included') }}</li>
-              <li>{{ __('Local transport') }}</li>
+              @foreach ($package->features as $feature)
+              <li>{{ $feature }}</li>
+              @endforeach
             </ul>
-            <a href="#booking" class="btn btn--outline btn--block" data-package="Weekend Escape">{{ __('Choose plan') }}</a>
+            <a href="#booking" class="btn {{ $package->is_featured ? 'btn--primary' : 'btn--outline' }} btn--block" data-package="{{ $package->getTranslation('name', 'en') }}">{{ __('Choose plan') }}</a>
           </article>
+          @endforeach
 
-          <article class="package package--featured" data-reveal>
-            <span class="package__badge">{{ __('Most Popular') }}</span>
-            <h3 class="package__name">{{ __('Explorer') }}</h3>
-            <p class="package__desc">{{ __('Our complete experience.') }}</p>
-            <p class="package__price"><span class="package__currency">৳</span>{{ __('12,500') }}<small> {{ __('/ person') }}</small></p>
-            <ul class="package__list">
-              <li>{{ __('4 days, 3 nights') }}</li>
-              <li>{{ __('Premium hotel or resort') }}</li>
-              <li>{{ __('All meals included') }}</li>
-              <li>{{ __('Private transport and guide') }}</li>
-              <li>{{ __('Entry tickets and activities') }}</li>
-            </ul>
-            <a href="#booking" class="btn btn--primary btn--block" data-package="Explorer">{{ __('Choose plan') }}</a>
-          </article>
-
-          <article class="package" data-reveal>
-            <h3 class="package__name">{{ __('Grand Bangladesh') }}</h3>
-            <p class="package__desc">{{ __('Multiple destinations in one trip.') }}</p>
-            <p class="package__price"><span class="package__currency">৳</span>{{ __('28,000') }}<small> {{ __('/ person') }}</small></p>
-            <ul class="package__list">
-              <li>{{ __('8 days, 7 nights') }}</li>
-              <li>{{ __('3 destinations of your choice') }}</li>
-              <li>{{ __('Luxury stays') }}</li>
-              <li>{{ __('Dedicated trip manager') }}</li>
-              <li>{{ __('Airport pickup and drop') }}</li>
-            </ul>
-            <a href="#booking" class="btn btn--outline btn--block" data-package="Grand Bangladesh">{{ __('Choose plan') }}</a>
-          </article>
 
         </div>
 
@@ -405,32 +299,16 @@
 
         <div class="grid grid--3">
 
+          @foreach ($stories as $review)
           <figure class="review" data-reveal>
-            <div class="review__stars" aria-label="{{ __('5 out of 5 stars') }}">★★★★★</div>
-            <blockquote class="review__text">{{ __('"The Sundarbans trip was flawless. Our guide spotted tiger tracks on the very first morning. Highly recommended."') }}</blockquote>
+            <div class="review__stars" aria-label="{{ t('{n} out of 5 stars', ['n' => to_locale_digits($review->rating)]) }}">{{ stars($review->rating) }}</div>
+            <blockquote class="review__text">{{ $review->body }}</blockquote>
             <figcaption class="review__author">
-              <img src="https://picsum.photos/seed/person1/80/80" alt="" width="44" height="44" loading="lazy">
-              <span><strong>{{ __('Rahim Uddin') }}</strong><small>{{ __('Dhaka · Sundarbans') }}</small></span>
+              <img src="{{ placeholder_image('person'.$loop->iteration, 80, 80) }}" alt="" width="44" height="44" loading="lazy">
+              <span><strong>{{ $review->name }}</strong><small>{{ $review->city }} · {{ $review->destination?->name }}</small></span>
             </figcaption>
           </figure>
-
-          <figure class="review" data-reveal>
-            <div class="review__stars" aria-label="{{ __('5 out of 5 stars') }}">★★★★★</div>
-            <blockquote class="review__text">{{ __('"Everything was organized perfectly for our family of five. The hotel in Cox\'s Bazar was right on the beach."') }}</blockquote>
-            <figcaption class="review__author">
-              <img src="https://picsum.photos/seed/person2/80/80" alt="" width="44" height="44" loading="lazy">
-              <span><strong>{{ __('Nusrat Jahan') }}</strong><small>{{ __('Chattogram · Cox\'s Bazar') }}</small></span>
-            </figcaption>
-          </figure>
-
-          <figure class="review" data-reveal>
-            <div class="review__stars" aria-label="{{ __('5 out of 5 stars') }}">★★★★★</div>
-            <blockquote class="review__text">{{ __('"Bandarban in the monsoon was magical. Fair prices, kind staff and quick replies on WhatsApp throughout."') }}</blockquote>
-            <figcaption class="review__author">
-              <img src="https://picsum.photos/seed/person3/80/80" alt="" width="44" height="44" loading="lazy">
-              <span><strong>{{ __('Tanvir Ahmed') }}</strong><small>{{ __('Sylhet · Bandarban') }}</small></span>
-            </figcaption>
-          </figure>
+          @endforeach
 
         </div>
       
@@ -442,7 +320,7 @@
 
 
     <!-- =====================================================
-         LATEST ARTICLES (rendered from js/blog-core.js)
+         LATEST ARTICLES
          ===================================================== -->
     <section class="section section--alt" id="blog">
       <div class="container">
@@ -452,7 +330,11 @@
           <p class="section__lead">{{ __('Plan smarter with advice from our local guides.') }}</p>
         </header>
 
-        <div class="grid grid--3" id="home-blog"></div>
+        <div class="grid grid--3" id="home-blog">
+          @foreach ($posts as $post)
+          @include('partials.cards.post', ['post' => $post])
+          @endforeach
+        </div>
 
         <p class="section__more" data-reveal>
           <a href="{{ lroute('blog') }}" class="link-arrow">{{ __('Read the full blog') }} <span aria-hidden="true">→</span></a>
@@ -511,12 +393,9 @@
               <label for="b-destination">{{ __('Destination') }}</label>
               <select id="b-destination" name="destination" required>
                 <option value="">{{ __('Select destination') }}</option>
-                <option value="Cox's Bazar">{{ __('Cox\'s Bazar') }}</option>
-                <option value="Sundarbans">{{ __('Sundarbans') }}</option>
-                <option value="Sylhet">{{ __('Sylhet') }}</option>
-                <option value="Bandarban">{{ __('Bandarban') }}</option>
-                <option value="Saint Martin's Island">{{ __('Saint Martin\'s Island') }}</option>
-                <option value="Kuakata">{{ __('Kuakata') }}</option>
+                @foreach ($destinations as $place)
+                <option value="{{ $place->getTranslation('name', 'en') }}">{{ $place->name }}</option>
+                @endforeach
               </select>
               <small class="form-error" aria-live="polite"></small>
             </div>
@@ -524,9 +403,9 @@
               <label for="b-package">{{ __('Package') }}</label>
               <select id="b-package" name="package">
                 <option value="">{{ __('Not sure yet') }}</option>
-                <option value="Weekend Escape">{{ __('Weekend Escape') }}</option>
-                <option value="Explorer">{{ __('Explorer') }}</option>
-                <option value="Grand Bangladesh">{{ __('Grand Bangladesh') }}</option>
+                @foreach ($packages as $package)
+                <option value="{{ $package->getTranslation('name', 'en') }}">{{ $package->name }}</option>
+                @endforeach
               </select>
               <small class="form-error" aria-hidden="true"></small>
             </div>
@@ -563,15 +442,3 @@
 
   
 @endsection
-
-@push('scripts-data')
-  <script src="{{ asset_js('blog-core.js') }}" defer></script>
-@endpush
-
-@push('scripts-i18n')
-  <script src="{{ asset_js('i18n/blog-bn.js') }}" defer></script>
-@endpush
-
-@push('scripts')
-  <script src="{{ asset_js('home-blog.js') }}" defer></script>
-@endpush

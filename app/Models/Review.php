@@ -31,10 +31,30 @@ class Review extends Model
         return $this->belongsTo(Destination::class);
     }
 
-    /** Visible on the public site, newest first. */
+    /** Visible on the public site. */
     public function scopeApproved(Builder $query): Builder
     {
-        return $query->where('is_approved', true)->orderByDesc('reviewed_on')->orderBy('sort_order');
+        return $query->where('is_approved', true);
+    }
+
+    public function scopeNewestFirst(Builder $query): Builder
+    {
+        return $query->orderByDesc('reviewed_on')->orderByDesc('rating')->orderBy('sort_order');
+    }
+
+    public function scopeHighestRated(Builder $query): Builder
+    {
+        return $query->orderByDesc('rating')->orderByDesc('reviewed_on')->orderBy('sort_order');
+    }
+
+    /**
+     * Five-star stories from different destinations, in curated order.
+     * Used by the home page and Why Us.
+     */
+    public static function stories(int $limit = 3): \Illuminate\Support\Collection
+    {
+        return static::approved()->with('destination')->where('rating', 5)->orderBy('sort_order')->get()
+            ->unique('destination_id')->take($limit)->values();
     }
 
     public function scopeFeatured(Builder $query): Builder

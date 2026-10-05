@@ -46,51 +46,23 @@
 
         <div class="grid grid--3 packages">
 
-          <article class="package" data-reveal>
-            <h3 class="package__name">{{ __('Weekend Escape') }}</h3>
-            <p class="package__desc">{{ __('A quick, restful getaway.') }}</p>
-            <p class="package__best">{{ __('Best for couples and short breaks') }}</p>
-            <p class="package__price"><span class="package__currency">৳</span>{{ __('5,500') }}<small> {{ __('/ person') }}</small></p>
+          @foreach ($packages as $package)
+          <article class="package{{ $package->is_featured ? ' package--featured' : '' }}" data-reveal>
+            @if ($package->badge)
+            <span class="package__badge">{{ $package->badge }}</span>
+            @endif
+            <h3 class="package__name">{{ $package->name }}</h3>
+            <p class="package__desc">{{ $package->description }}</p>
+            <p class="package__best">{{ $package->best_for }}</p>
+            <p class="package__price"><span class="package__currency">৳</span>{{ format_number($package->price) }}<small> {{ __('/ person') }}</small></p>
             <ul class="package__list">
-              <li>{{ __('2 days, 1 night') }}</li>
-              <li>{{ __('Standard hotel stay') }}</li>
-              <li>{{ __('Breakfast included') }}</li>
-              <li>{{ __('Local transport') }}</li>
-              <li>{{ __('1 destination') }}</li>
+              @foreach ($package->features as $feature)
+              <li>{{ $feature }}</li>
+              @endforeach
             </ul>
-            <a href="#booking" class="btn btn--outline btn--block" data-package="Weekend Escape">{{ __('Choose Weekend Escape') }}</a>
+            <a href="#booking" class="btn {{ $package->is_featured ? 'btn--primary' : 'btn--outline' }} btn--block" data-package="{{ $package->getTranslation('name', 'en') }}">{{ t('Choose {name}', ['name' => $package->name]) }}</a>
           </article>
-
-          <article class="package package--featured" data-reveal>
-            <span class="package__badge">{{ __('Most Popular') }}</span>
-            <h3 class="package__name">{{ __('Explorer') }}</h3>
-            <p class="package__desc">{{ __('Our complete experience.') }}</p>
-            <p class="package__best">{{ __('Best for families and friends') }}</p>
-            <p class="package__price"><span class="package__currency">৳</span>{{ __('12,500') }}<small> {{ __('/ person') }}</small></p>
-            <ul class="package__list">
-              <li>{{ __('4 days, 3 nights') }}</li>
-              <li>{{ __('Premium hotel or resort') }}</li>
-              <li>{{ __('All meals included') }}</li>
-              <li>{{ __('Private transport and guide') }}</li>
-              <li>{{ __('Entry tickets and activities') }}</li>
-            </ul>
-            <a href="#booking" class="btn btn--primary btn--block" data-package="Explorer">{{ __('Choose Explorer') }}</a>
-          </article>
-
-          <article class="package" data-reveal>
-            <h3 class="package__name">{{ __('Grand Bangladesh') }}</h3>
-            <p class="package__desc">{{ __('Multiple destinations in one trip.') }}</p>
-            <p class="package__best">{{ __('Best for first-time visitors') }}</p>
-            <p class="package__price"><span class="package__currency">৳</span>{{ __('28,000') }}<small> {{ __('/ person') }}</small></p>
-            <ul class="package__list">
-              <li>{{ __('8 days, 7 nights') }}</li>
-              <li>{{ __('3 destinations of your choice') }}</li>
-              <li>{{ __('Luxury stays') }}</li>
-              <li>{{ __('Dedicated trip manager') }}</li>
-              <li>{{ __('Airport pickup and drop') }}</li>
-            </ul>
-            <a href="#booking" class="btn btn--outline btn--block" data-package="Grand Bangladesh">{{ __('Choose Grand Bangladesh') }}</a>
-          </article>
+          @endforeach
 
         </div>
       </div>
@@ -114,23 +86,23 @@
             <thead>
               <tr>
                 <th scope="col"><span class="sr-only">{{ __('Feature') }}</span></th>
-                <th scope="col">{{ __('Weekend Escape') }}</th>
-                <th scope="col" class="compare__featured">{{ __('Explorer') }}</th>
-                <th scope="col">{{ __('Grand Bangladesh') }}</th>
+                @foreach ($packages as $package)
+                <th scope="col"{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>{{ $package->name }}</th>
+                @endforeach
               </tr>
             </thead>
             <tbody>
-              <tr><th scope="row">{{ __('Price per person') }}</th><td>{{ __('৳5,500') }}</td><td class="compare__featured">{{ __('৳12,500') }}</td><td>{{ __('৳28,000') }}</td></tr>
-              <tr><th scope="row">{{ __('Duration') }}</th><td>{{ __('2 days') }}</td><td class="compare__featured">{{ __('4 days') }}</td><td>{{ __('8 days') }}</td></tr>
-              <tr><th scope="row">{{ __('Destinations') }}</th><td>{{ to_locale_digits('1') }}</td><td class="compare__featured">{{ to_locale_digits('1') }}</td><td>{{ to_locale_digits('3') }}</td></tr>
-              <tr><th scope="row">{{ __('Hotel') }}</th><td>{{ __('Standard') }}</td><td class="compare__featured">{{ __('Premium') }}</td><td>{{ __('Luxury') }}</td></tr>
-              <tr><th scope="row">{{ __('Meals') }}</th><td>{{ __('Breakfast') }}</td><td class="compare__featured">{{ __('All meals') }}</td><td>{{ __('All meals') }}</td></tr>
-              <tr><th scope="row">{{ __('Transport') }}</th><td>{{ __('Local') }}</td><td class="compare__featured">{{ __('Private AC vehicle') }}</td><td>{{ __('Private AC vehicle') }}</td></tr>
-              <tr><th scope="row">{{ __('Local guide') }}</th><td><span class="no" aria-label="{{ __('Not included') }}">—</span></td><td class="compare__featured"><span class="yes" aria-label="{{ __('Included') }}">✓</span></td><td><span class="yes" aria-label="{{ __('Included') }}">✓</span></td></tr>
-              <tr><th scope="row">{{ __('Entry tickets and activities') }}</th><td><span class="no" aria-label="{{ __('Not included') }}">—</span></td><td class="compare__featured"><span class="yes" aria-label="{{ __('Included') }}">✓</span></td><td><span class="yes" aria-label="{{ __('Included') }}">✓</span></td></tr>
-              <tr><th scope="row">{{ __('Airport pickup and drop') }}</th><td><span class="no" aria-label="{{ __('Not included') }}">—</span></td><td class="compare__featured"><span class="no" aria-label="{{ __('Not included') }}">—</span></td><td><span class="yes" aria-label="{{ __('Included') }}">✓</span></td></tr>
-              <tr><th scope="row">{{ __('Dedicated trip manager') }}</th><td><span class="no" aria-label="{{ __('Not included') }}">—</span></td><td class="compare__featured"><span class="no" aria-label="{{ __('Not included') }}">—</span></td><td><span class="yes" aria-label="{{ __('Included') }}">✓</span></td></tr>
-              <tr><th scope="row">{{ __('Free cancellation') }}</th><td>{{ __('7 days before') }}</td><td class="compare__featured">{{ __('7 days before') }}</td><td>{{ __('7 days before') }}</td></tr>
+              <tr><th scope="row">{{ __('Price per person') }}</th>@foreach ($packages as $package)<td{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>{{ format_money($package->price) }}</td>@endforeach</tr>
+              <tr><th scope="row">{{ __('Duration') }}</th>@foreach ($packages as $package)<td{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>{{ t('{n} days', ['n' => to_locale_digits($package->days)]) }}</td>@endforeach</tr>
+              <tr><th scope="row">{{ __('Destinations') }}</th>@foreach ($packages as $package)<td{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>{{ to_locale_digits($package->destinations_count) }}</td>@endforeach</tr>
+              <tr><th scope="row">{{ __('Hotel') }}</th>@foreach ($packages as $package)<td{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>{{ $package->hotel }}</td>@endforeach</tr>
+              <tr><th scope="row">{{ __('Meals') }}</th>@foreach ($packages as $package)<td{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>{{ $package->meals }}</td>@endforeach</tr>
+              <tr><th scope="row">{{ __('Transport') }}</th>@foreach ($packages as $package)<td{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>{{ $package->transport }}</td>@endforeach</tr>
+              <tr><th scope="row">{{ __('Local guide') }}</th>@foreach ($packages as $package)<td{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>@if ($package->has_guide)<span class="yes" aria-label="{{ __('Included') }}">✓</span>@else<span class="no" aria-label="{{ __('Not included') }}">—</span>@endif</td>@endforeach</tr>
+              <tr><th scope="row">{{ __('Entry tickets and activities') }}</th>@foreach ($packages as $package)<td{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>@if ($package->has_tickets)<span class="yes" aria-label="{{ __('Included') }}">✓</span>@else<span class="no" aria-label="{{ __('Not included') }}">—</span>@endif</td>@endforeach</tr>
+              <tr><th scope="row">{{ __('Airport pickup and drop') }}</th>@foreach ($packages as $package)<td{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>@if ($package->has_airport_transfer)<span class="yes" aria-label="{{ __('Included') }}">✓</span>@else<span class="no" aria-label="{{ __('Not included') }}">—</span>@endif</td>@endforeach</tr>
+              <tr><th scope="row">{{ __('Dedicated trip manager') }}</th>@foreach ($packages as $package)<td{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>@if ($package->has_trip_manager)<span class="yes" aria-label="{{ __('Included') }}">✓</span>@else<span class="no" aria-label="{{ __('Not included') }}">—</span>@endif</td>@endforeach</tr>
+              <tr><th scope="row">{{ __('Free cancellation') }}</th>@foreach ($packages as $package)<td{!! $package->is_featured ? ' class="compare__featured"' : '' !!}>{{ $package->cancellation }}</td>@endforeach</tr>
             </tbody>
           </table>
         </div>
@@ -151,9 +123,9 @@
         </header>
 
         <div class="grid grid--3" id="destination-cards">
-          <noscript>
-            <p>Browse destinations on the <a href="{{ lroute('home') }}#destinations">home page</a>.</p>
-          </noscript>
+          @foreach ($destinations as $place)
+          @include('partials.cards.destination', ['destination' => $place, 'text' => 'tagline'])
+          @endforeach
         </div>
       </div>
     </section>
@@ -172,41 +144,16 @@
 
         <div class="grid grid--4 addons">
 
+          @foreach ($addons as $addon)
           <div class="addon" data-reveal>
             <div class="addon__icon" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.300.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+              @include('partials.icons.addon', ['icon' => $addon->icon])
             </div>
-            <h3 class="addon__title">{{ __('Airport transfer') }}</h3>
-            <p class="addon__text">{{ __('Private pickup and drop in an AC car.') }}</p>
-            <p class="addon__price">{{ __('from ৳1,500') }}</p>
+            <h3 class="addon__title">{{ $addon->title }}</h3>
+            <p class="addon__text">{{ $addon->description }}</p>
+            <p class="addon__price">{{ t('from {price}', ['price' => format_money($addon->price_from)]) }}@if ($addon->price_unit) {{ $addon->price_unit }}@endif</p>
           </div>
-
-          <div class="addon" data-reveal>
-            <div class="addon__icon" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg>
-            </div>
-            <h3 class="addon__title">{{ __('Trip photographer') }}</h3>
-            <p class="addon__text">{{ __('A professional to capture your best moments.') }}</p>
-            <p class="addon__price">{{ __('from ৳4,000 / day') }}</p>
-          </div>
-
-          <div class="addon" data-reveal>
-            <div class="addon__icon" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2 3h14l2-3z"/><path d="M12 3v11M12 4l6 8h-6M12 6L7 12h5"/></svg>
-            </div>
-            <h3 class="addon__title">{{ __('Private boat') }}</h3>
-            <p class="addon__text">{{ __('Skip the crowds with your own boat and crew.') }}</p>
-            <p class="addon__price">{{ __('from ৳3,500') }}</p>
-          </div>
-
-          <div class="addon" data-reveal>
-            <div class="addon__icon" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V8M3 14h18v6M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="1.5"/></svg>
-            </div>
-            <h3 class="addon__title">{{ __('Extra night') }}</h3>
-            <p class="addon__text">{{ __('Stay longer at the same hotel and rate.') }}</p>
-            <p class="addon__price">{{ __('from ৳2,800 / room') }}</p>
-          </div>
+          @endforeach
 
         </div>
       </div>
@@ -321,9 +268,9 @@
               <label for="b-package">{{ __('Plan') }}</label>
               <select id="b-package" name="package">
                 <option value="" data-price="">{{ __('Not sure yet') }}</option>
-                <option value="Weekend Escape" data-price="5500">{{ __('Weekend Escape · ৳5,500') }}</option>
-                <option value="Explorer" data-price="12500">{{ __('Explorer · ৳12,500') }}</option>
-                <option value="Grand Bangladesh" data-price="28000">{{ __('Grand Bangladesh · ৳28,000') }}</option>
+                @foreach ($packages as $package)
+                <option value="{{ $package->getTranslation('name', 'en') }}" data-price="{{ $package->price }}">{{ $package->name }} · {{ format_money($package->price) }}</option>
+                @endforeach
               </select>
               <small class="form-error" aria-hidden="true"></small>
             </div>
@@ -331,12 +278,9 @@
               <label for="b-destination">{{ __('Destination') }}</label>
               <select id="b-destination" name="destination" required>
                 <option value="">{{ __('Select destination') }}</option>
-                <option value="Cox's Bazar">{{ __('Cox\'s Bazar') }}</option>
-                <option value="Sundarbans">{{ __('Sundarbans') }}</option>
-                <option value="Sylhet">{{ __('Sylhet') }}</option>
-                <option value="Bandarban">{{ __('Bandarban') }}</option>
-                <option value="Saint Martin's Island">{{ __('Saint Martin\'s Island') }}</option>
-                <option value="Kuakata">{{ __('Kuakata') }}</option>
+                @foreach ($destinations as $place)
+                <option value="{{ $place->getTranslation('name', 'en') }}" data-slug="{{ $place->slug }}">{{ $place->name }}</option>
+                @endforeach
               </select>
               <small class="form-error" aria-live="polite"></small>
             </div>
@@ -373,14 +317,6 @@
 
   
 @endsection
-
-@push('scripts-data')
-  <script src="{{ asset_js('data.js') }}" defer></script>
-@endpush
-
-@push('scripts-i18n')
-  <script src="{{ asset_js('i18n/data-bn.js') }}" defer></script>
-@endpush
 
 @push('scripts')
   <script src="{{ asset_js('packages.js') }}" defer></script>

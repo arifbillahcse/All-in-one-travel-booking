@@ -11,7 +11,8 @@ being migrated from a static HTML/CSS/JS site to Laravel 11.
 | 2 | Pages converted to Blade | done |
 | 3 | Database, models, seeders | done |
 | 4 | Bilingual routing: `/bn/...`, `lang/bn.json`, hreflang | done |
-| 5-10 | Dynamic pages, booking, admin, media/SEO, tests, deploy | next: Phase 5 |
+| 5 | Every page rendered from the database | done |
+| 6-10 | Booking and contact, admin, media/SEO, tests, deploy | next: Phase 6 |
 
 The original static site is kept untouched in `static-backup/` as the visual reference.
 
@@ -36,10 +37,10 @@ Requires PHP 8.2+, Composer, Node 20+.
 - `app/Support/helpers.php`: `site()`, `whatsapp_url()`, `asset_js()`.
 - `resources/views/layouts/app.blade.php`: shared layout. Partials: `head`, `navbar`, `footer`, `floats`.
 - `resources/css/travelorio.css`: the full "Ocean Luxe" stylesheet, compiled by Vite.
-- `public/assets/js/`: legacy scripts from the static site (theme toggle, menu, forms, i18n). Replaced step by step by server-side code in later phases.
+- `public/assets/js/`: small browser scripts: menu, theme, reveal, forms and WhatsApp hand-off (`main.js`), plan estimate (`packages.js`), photo lightbox (`destination.js`), review form (`reviews.js`), article progress bar (`blog-post.js`). `i18n/` only holds the messages those scripts need.
 - `resources/views/pages/*.blade.php`: one Blade view per page (home, packages, reviews, contact, why-us, blog, blog-post, destination). Page scripts are pushed to the layout stacks `scripts-data`, `scripts-i18n` and `scripts`.
 - `routes/web.php` and `app/Http/Controllers/PageController.php`: routes `/`, `/packages`, `/why-us`, `/reviews`, `/blog`, `/blog/{slug}`, `/contact`, `/destinations/{slug}`. Unknown slugs return 404.
-- Page content is still rendered by the legacy scripts from `data.js` / `blog-core.js` until Phases 3-5 move it to the database.
+- Pages are rendered from the database by controllers in `app/Http/Controllers` and the partials in `resources/views/partials/cards`. Filters, sorting, search and "show more" on Reviews and Blog are plain query strings (`?destination=`, `?sort=`, `?category=`, `?q=`, `?show=`), so they work without JavaScript and can be linked.
 
 ## Tests
 
@@ -76,5 +77,5 @@ so every page has its own indexable address and `hreflang` links.
 - Don't add keys that are only digits (Laravel renumbers them). Use `to_locale_digits('3')` instead.
 - Helpers: `lroute('packages')` / `lurl('blog')` (links in the current language), `alternate_url('bn')` (language switch),
   `t('{name} Tour Packages', ['name' => $n])`, `format_money()`, `format_number()`, `format_date()`, `to_locale_digits()`.
-- Database content is translated per column (see Database). Sections still built by the old browser scripts
-  (`public/assets/js/*.js`) use `i18n/core.js` with the page language from `<html lang>`; Phase 5 removes that.
+- Database content is translated per column (see Database). The few messages that browser scripts show (form errors,
+  estimate) come from `public/assets/js/i18n/bn.js` through `TO.t()`; add a key there when a script needs a new message.

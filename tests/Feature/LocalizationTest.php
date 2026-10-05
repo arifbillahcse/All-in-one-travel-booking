@@ -2,10 +2,20 @@
 
 namespace Tests\Feature;
 
+use Database\Seeders\DatabaseSeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class LocalizationTest extends TestCase
 {
+    use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->seed(DatabaseSeeder::class);
+    }
+
     private const PAGES = ['', '/packages', '/why-us', '/reviews', '/blog', '/blog/cox-bazar-3-days', '/contact', '/destinations/sylhet'];
 
     public function test_every_page_exists_in_bangla_under_the_bn_prefix(): void
@@ -101,7 +111,7 @@ class LocalizationTest extends TestCase
         $missing = [];
 
         foreach (glob(resource_path('views/{,*/}*.blade.php'), GLOB_BRACE) as $file) {
-            preg_match_all("/__\\('((?:[^'\\\\]|\\\\.)*)'\\)/", file_get_contents($file), $matches);
+            preg_match_all("/(?:__|\\bt)\\('((?:[^'\\\\]|\\\\.)*)'/", file_get_contents($file), $matches);
 
             foreach ($matches[1] as $key) {
                 $key = str_replace("\\'", "'", $key);

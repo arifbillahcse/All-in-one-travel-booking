@@ -589,5 +589,9 @@
     "Please try again in a moment, or message us on WhatsApp.": "একটু পরে আবার চেষ্টা করুন, অথবা হোয়াটসঅ্যাপে আমাদের মেসেজ করুন।",
     "Page not found | TravelOrio": "পাতা পাওয়া যায়নি | TravelOrio",
     "Server error | TravelOrio": "সার্ভার ত্রুটি | TravelOrio",
-    "Article | TravelOrio": "লেখা | TravelOrio"
+    "Article | TravelOrio": "লেখা | TravelOrio",
+    "Choose {name}": "{name} বেছে নিন",
+    "from {price}": "শুরু {price}",
+    "{n} days": "{n} দিন",
+    "Apply": "প্রয়োগ করুন"
 }

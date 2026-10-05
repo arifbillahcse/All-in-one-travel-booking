@@ -2,10 +2,20 @@
 
 namespace Tests\Feature;
 
+use Database\Seeders\DatabaseSeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class PagesTest extends TestCase
 {
+    use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->seed(DatabaseSeeder::class);
+    }
+
     public function test_public_pages_render_with_shared_layout(): void
     {
         foreach (['/', '/packages', '/why-us', '/reviews', '/blog', '/blog/cox-bazar-3-days', '/contact', '/destinations/sylhet'] as $url) {

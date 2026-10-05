@@ -25,23 +25,5 @@ return [
         'youtube'   => env('TRAVELORIO_YOUTUBE', '#'),
     ],
 
-    // Destination slugs and display names (replaced by the database in Phase 3).
-    'destinations' => [
-        'coxs-bazar'   => "Cox's Bazar",
-        'sundarbans'   => 'Sundarbans',
-        'sylhet'       => 'Sylhet',
-        'bandarban'    => 'Bandarban',
-        'saint-martin' => "Saint Martin's Island",
-        'kuakata'      => 'Kuakata',
-    ],
 
-    // Blog slugs until articles move to the database (Phase 3).
-    'blog_slugs' => [
-        'cox-bazar-3-days',
-        'sundarbans-what-to-expect',
-        'best-time-to-visit-bangladesh',
-        'saint-martin-ship-rules-packing',
-        'bandarban-first-timers',
-        'sylhet-tea-and-food',
-    ],
 ];
