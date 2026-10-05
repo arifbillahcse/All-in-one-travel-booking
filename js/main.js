@@ -372,4 +372,49 @@
   const setYear = () => { if (year) year.textContent = NUM(new Date().getFullYear(), { useGrouping: false }); };
   setYear();
   if (TO) document.addEventListener("travelorio:langchange", setYear);
+
+  /* ---------- 9. Dark mode toggle ---------- */
+  const root = document.documentElement;
+  const themeBtn = $("#theme-toggle");
+  const isDark = () => root.getAttribute("data-theme") === "dark";
+
+  function syncTheme() {
+    const dark = isDark();
+    const meta = $('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", dark ? "#0a1a2a" : "#0a6ea8");
+    if (!themeBtn) return;
+    themeBtn.setAttribute("aria-pressed", String(dark));
+    themeBtn.setAttribute("aria-label", T(dark ? "Switch to light mode" : "Switch to dark mode"));
+  }
+  function setTheme(next, save) {
+    if (next === "dark") root.setAttribute("data-theme", "dark"); else root.removeAttribute("data-theme");
+    if (save) { try { localStorage.setItem("travelorio-theme", next); } catch (e) { /* storage blocked */ } }
+    syncTheme();
+  }
+  if (themeBtn) themeBtn.addEventListener("click", () => setTheme(isDark() ? "light" : "dark", true));
+  // Follow the device setting until the visitor makes their own choice
+  if (window.matchMedia) {
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const onSystem = (e) => { let saved = null; try { saved = localStorage.getItem("travelorio-theme"); } catch (err) {} if (!saved) setTheme(e.matches ? "dark" : "light", false); };
+    if (mq.addEventListener) mq.addEventListener("change", onSystem);
+  }
+  syncTheme();
+  document.addEventListener("travelorio:langchange", syncTheme);
+
+
+  /* ---------- 10. Back to top ---------- */
+  const toTop = document.createElement("button");
+  toTop.type = "button";
+  toTop.className = "to-top";
+  toTop.setAttribute("data-no-i18n", "");
+  toTop.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+  const labelTop = () => toTop.setAttribute("aria-label", T("Back to top"));
+  labelTop();
+  document.body.appendChild(toTop);
+  const showTop = () => toTop.classList.toggle("is-visible", window.scrollY > 700);
+  window.addEventListener("scroll", showTop, { passive: true });
+  showTop();
+  toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" }));
+  document.addEventListener("travelorio:langchange", labelTop);
+
 })();

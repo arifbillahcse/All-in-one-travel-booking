@@ -484,5 +484,8 @@ window.TRAVELORIO_I18N.bn = {
  "View {name} trip details": "{name} ভ্রমণের বিস্তারিত দেখুন",
  "Plan your trip": "আপনার ভ্রমণ সাজান",
  "No payment is taken at this step.": "এই ধাপে কোনো টাকা নেওয়া হয় না।",
- "4.9 rating · 5,000+ happy travelers": "৪.৯ রেটিং · ৫,০০০+ সন্তুষ্ট ভ্রমণকারী"
+ "4.9 rating · 5,000+ happy travelers": "৪.৯ রেটিং · ৫,০০০+ সন্তুষ্ট ভ্রমণকারী",
+ "Switch to dark mode": "ডার্ক মোডে যান",
+ "Switch to light mode": "লাইট মোডে যান",
+ "Back to top": "উপরে যান"
 };
