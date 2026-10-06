@@ -99,6 +99,11 @@ if (! function_exists('alternate_url')) {
         $base = preg_replace('/^bn\./', '', $name);
         $query = request()->getQueryString();
 
+        // Routes outside the public site (admin panel, health check) have no Bangla twin.
+        if (! \Illuminate\Support\Facades\Route::has($prefix.$base)) {
+            return route($prefix.'home');
+        }
+
         return route($prefix.$base, $route->parameters()).($query ? '?'.$query : '');
     }
 }
