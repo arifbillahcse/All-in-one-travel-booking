@@ -2,16 +2,17 @@
 
 namespace App\Providers;
 
-use App\Models\Destination;
 use App\Listeners\StoreImageDimensions;
+use App\Models\Destination;
 use App\Support\ContentCache;
 use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Support\Facades\Event;
-use Spatie\MediaLibrary\MediaCollections\Events\MediaHasBeenAddedEvent;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Spatie\MediaLibrary\MediaCollections\Events\MediaHasBeenAddedEvent;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
             try {
                 return ContentCache::remember('nav-destinations', 3600, fn () => Destination::published()->get(['id', 'slug', 'name']));
             } catch (\Throwable) {
-                return new \Illuminate\Database\Eloquent\Collection(); // keep error pages working when the database is down
+                return new Collection; // keep error pages working when the database is down
             }
         });
     }

@@ -12,6 +12,7 @@ class Inquiry extends Model
     use HasFactory;
 
     public const TYPE_BOOKING = 'booking';
+
     public const TYPE_CONTACT = 'contact';
 
     public const STATUSES = ['new', 'contacted', 'confirmed', 'cancelled'];

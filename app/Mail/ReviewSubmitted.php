@@ -9,9 +9,7 @@ use Illuminate\Mail\Mailables\Envelope;
 
 class ReviewSubmitted extends Mailable
 {
-    public function __construct(public Review $review)
-    {
-    }
+    public function __construct(public Review $review) {}
 
     public function envelope(): Envelope
     {

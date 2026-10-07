@@ -12,20 +12,19 @@ return [
     // Languages the site is published in; the first is the default.
     'locales' => ['en' => 'English', 'bn' => 'বাংলা'],
 
-    'name'     => 'TravelOrio',
-    'tagline'  => 'Six Places. One Unforgettable Bangladesh.',
-    'email'    => env('TRAVELORIO_EMAIL', 'hello@travelorio.com'),
+    'name' => 'TravelOrio',
+    'tagline' => 'Six Places. One Unforgettable Bangladesh.',
+    'email' => env('TRAVELORIO_EMAIL', 'hello@travelorio.com'),
     // Where new inquiries and reviews are emailed (defaults to the public email).
     'notify_email' => env('TRAVELORIO_NOTIFY_EMAIL'),
-    'phone'         => env('TRAVELORIO_PHONE', '+8801779440297'),
+    'phone' => env('TRAVELORIO_PHONE', '+8801779440297'),
     'phone_display' => env('TRAVELORIO_PHONE_DISPLAY', '+880 1779-440297'),
     'whatsapp' => env('TRAVELORIO_WHATSAPP', '8801779440297'),
 
     'social' => [
-        'facebook'  => env('TRAVELORIO_FACEBOOK', '#'),
+        'facebook' => env('TRAVELORIO_FACEBOOK', '#'),
         'instagram' => env('TRAVELORIO_INSTAGRAM', '#'),
-        'youtube'   => env('TRAVELORIO_YOUTUBE', '#'),
+        'youtube' => env('TRAVELORIO_YOUTUBE', '#'),
     ],
-
 
 ];

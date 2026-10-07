@@ -10,9 +10,7 @@ use Illuminate\Mail\Mailables\Envelope;
 /** Tells the team about a new booking request or contact message. Always in English. */
 class InquiryReceived extends Mailable
 {
-    public function __construct(public Inquiry $inquiry)
-    {
-    }
+    public function __construct(public Inquiry $inquiry) {}
 
     public function envelope(): Envelope
     {

@@ -15,7 +15,8 @@ being migrated from a static HTML/CSS/JS site to Laravel 11.
 | 6 | Booking, contact and review forms saved to the database | done |
 | 7 | Admin panel (Filament) | done |
 | 8 | Photo uploads, SEO and speed | done |
-| 9-10 | Tests and fixes, deploy | next: Phase 9 |
+| 9 | Security headers, browser tests, accessibility, CI | done |
+| 10 | Deploy | next: Phase 10 |
 
 The original static site is kept untouched in `static-backup/` as the visual reference.
 
@@ -151,3 +152,36 @@ Without an upload the placeholder photo from the seeders is shown. Set `APP_URL`
 - `ContentCache` caches the menu list and the sitemap; saving or deleting any content bumps a version number, so changes show at once.
 - A test fails if a page's database queries grow with the amount of content (N+1 guard).
 - Pages contain a per-visitor form token, so don't cache whole pages at a CDN; cache `/assets`, `/build` and `/storage` instead.
+
+## Tests
+
+```bash
+php artisan test            # 128 PHP tests: pages, translations, database, forms, admin, media, SEO, security
+vendor/bin/pint --test      # code style (run `vendor/bin/pint` to fix it)
+npm run build && npm run test:e2e   # 65 browser tests in Chromium (needs: npm i, npx playwright install chromium)
+```
+
+The browser tests (`tests/e2e`) start their own PHP server with a throw-away SQLite database, then check:
+every public page in English and Bangla on a desktop and a phone (no console errors, no CSP violations, one `h1`,
+labels, `alt` text, no horizontal scroll); every internal link; the language switch, dark mode and mobile menu;
+booking, contact and review forms; reviews and blog filters; the gallery lightbox; admin login and an edit that shows on the site;
+and accessibility (text contrast in light and dark mode, keyboard focus, reduced motion, tap-target size).
+`.github/workflows/tests.yml` runs all of it, plus `composer audit`, on every push.
+
+## Security
+
+- **Headers** (`SecurityHeaders` middleware): on the public site a Content-Security-Policy where scripts need a per-request nonce
+  (no inline or eval), no plugins, no framing, forms may only post to this site or WhatsApp; `nosniff`, `Referrer-Policy`,
+  `Permissions-Policy`, and HSTS over HTTPS in production. `/admin` is not indexed and may only be framed by itself;
+  it has no CSP because Filament needs inline scripts.
+- **Inline scripts** in a view must carry `nonce="{{ csp_nonce() }}"`; don't add `onclick=`-style handlers or inline `<style>` blocks.
+- **Admin text**: HTML is escaped everywhere. The only exception is the "Getting there" lines, which keep `<strong>`/`<em>` and nothing else (`rich_text()`).
+  JSON-LD is encoded so it cannot close its `<script>` tag.
+- **Forms**: server validation, CSRF, honeypot, rate limits; names lose line breaks (no email-header injection);
+  fields a visitor sends that the form doesn't have are ignored; the estimate is computed on the server.
+- **Admin**: login is throttled; roles; uploads limited to JPG, PNG and WebP; CSV export neutralises spreadsheet formulas.
+- Behind Cloudflare or a load balancer set `TRUSTED_PROXIES=*` so HTTPS and visitor IPs are read correctly.
+- Run `composer audit` and `npm audit` regularly.
+
+**Accessibility**: colours were checked against WCAG AA. The call-to-action coral is now a deeper tone (`--accent-strong`) so white text reaches 5:1;
+the bright coral stays for decoration and dark backgrounds.

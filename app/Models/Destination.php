@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use App\Models\Concerns\BumpsContentCache;
-use Illuminate\Database\Eloquent\Builder;
 use App\Models\Concerns\HasImages;
 use App\Support\Image;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\Translatable\HasTranslations;
 
 class Destination extends Model implements HasMedia

@@ -34,8 +34,7 @@ class DestinationResource extends Resource
             ->simple($long ? Forms\Components\Textarea::make('line')->rows(3)->required() : Forms\Components\TextInput::make('line')->required())
             ->addActionLabel('Add')
             ->reorderable()
-            ->collapsible()
-            ;
+            ->collapsible();
     }
 
     private static function photo(string $collection, string $label): Forms\Components\SpatieMediaLibraryFileUpload

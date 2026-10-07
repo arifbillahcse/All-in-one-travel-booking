@@ -9,6 +9,13 @@ use Illuminate\Validation\Rule;
 /** A traveler's review. It is stored unapproved until someone moderates it. */
 class ReviewSubmissionRequest extends FormRequest
 {
+    protected function prepareForValidation(): void
+    {
+        if (is_string($this->input('name'))) {
+            $this->merge(['name' => trim(preg_replace('/\s+/u', ' ', $this->input('name')))]);
+        }
+    }
+
     public function rules(): array
     {
         return [

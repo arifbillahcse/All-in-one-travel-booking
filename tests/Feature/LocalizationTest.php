@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
 use Tests\TestCase;
 
 class LocalizationTest extends TestCase
@@ -90,7 +91,7 @@ class LocalizationTest extends TestCase
         $this->assertSame('3', to_locale_digits('3'));
 
         app()->setLocale('bn');
-        \Illuminate\Support\Carbon::setLocale('bn');
+        Carbon::setLocale('bn');
         $this->assertSame('৳১২,৫০০', format_money(12500));
         $this->assertSame('১২ মার্চ, ২০২৬', format_date('2026-03-12'));
         $this->assertSame('৩', to_locale_digits('3'));

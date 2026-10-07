@@ -26,6 +26,7 @@ use App\Models\Setting;
 use App\Models\User;
 use Database\Seeders\DatabaseSeeder;
 use Filament\Facades\Filament;
+use Filament\Pages\Auth\Login;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
@@ -93,7 +94,7 @@ class AdminTest extends TestCase
     {
         $user = User::factory()->create(['role' => 'owner', 'password' => Hash::make('a-long-password-1')]);
 
-        Livewire::test(\Filament\Pages\Auth\Login::class)
+        Livewire::test(Login::class)
             ->fillForm(['email' => $user->email, 'password' => 'a-long-password-1'])
             ->call('authenticate')
             ->assertHasNoFormErrors();

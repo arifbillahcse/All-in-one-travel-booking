@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\AddonResource\Pages;
 
-use App\Filament\Resources\AddonResource;
 use App\Filament\Concerns\SavesTranslatedForms;
+use App\Filament\Resources\AddonResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Database\Eloquent\Model;

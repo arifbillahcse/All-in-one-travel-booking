@@ -179,7 +179,7 @@
                 <h3>{{ __('How to get there') }}</h3>
                 <ul class="info-list">
                 @foreach ($destination->transport as $item)
-                <li>{!! $item !!}</li>
+                <li>{{ rich_text($item) }}</li>
                 @endforeach
               </ul>
               </div>

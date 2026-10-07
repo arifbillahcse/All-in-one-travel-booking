@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\InquiryResource\Pages;
 
 use App\Filament\Resources\InquiryResource;
-use Filament\Actions;
 use App\Models\Inquiry;
+use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
 class ListInquiries extends ListRecords

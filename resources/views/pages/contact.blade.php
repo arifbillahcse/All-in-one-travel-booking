@@ -202,7 +202,7 @@
             <a href="https://www.openstreetmap.org/?mlat=23.7461&amp;mlon=90.3742#map=16/23.7461/90.3742" class="btn btn--outline" target="_blank" rel="noopener">{{ __('Open in Maps') }}</a>
           </div>
           <div class="map-card__map">
-            <iframe title="{{ __('Map showing the TravelOrio office in Dhanmondi, Dhaka') }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            <iframe sandbox="allow-scripts allow-same-origin allow-popups" title="{{ __('Map showing the TravelOrio office in Dhanmondi, Dhaka') }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
               src="https://www.openstreetmap.org/export/embed.html?bbox=90.3642%2C23.7401%2C90.3842%2C23.7521&amp;layer=mapnik&amp;marker=23.7461%2C90.3742"></iframe>
           </div>
         </div>

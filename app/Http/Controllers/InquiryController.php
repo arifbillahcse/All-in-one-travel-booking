@@ -21,9 +21,7 @@ use Illuminate\Support\Str;
  */
 class InquiryController extends Controller
 {
-    public function __construct(private WhatsAppMessage $whatsapp)
-    {
-    }
+    public function __construct(private WhatsAppMessage $whatsapp) {}
 
     public function booking(BookingRequest $request): JsonResponse|RedirectResponse
     {

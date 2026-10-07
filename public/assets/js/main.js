@@ -71,6 +71,10 @@
   $$("select[data-autosubmit]").forEach((sel) => sel.addEventListener("change", () => sel.form && sel.form.submit()));
 
 
+  /* ---------- Non-blocking stylesheets (fonts) switch on once they are in ---------- */
+  $$("link[data-swap-media]").forEach((link) => { link.media = "all"; });
+
+
   /* ---------- 3. Scroll reveal ---------- */
   const revealEls = $$("[data-reveal]");
   if ("IntersectionObserver" in window && !prefersReducedMotion) {

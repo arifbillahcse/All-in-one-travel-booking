@@ -15,8 +15,7 @@ final class Image
         public readonly ?string $srcset = null,
         public readonly ?int $width = null,
         public readonly ?int $height = null,
-    ) {
-    }
+    ) {}
 
     /**
      * Attributes for an <img>: src, srcset, sizes, width and height.

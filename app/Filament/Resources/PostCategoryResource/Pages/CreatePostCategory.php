@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\PostCategoryResource\Pages;
 
-use App\Filament\Resources\PostCategoryResource;
 use App\Filament\Concerns\SavesTranslatedForms;
+use App\Filament\Resources\PostCategoryResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;

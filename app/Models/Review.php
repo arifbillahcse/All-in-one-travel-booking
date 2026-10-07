@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Collection;
 use Spatie\Translatable\HasTranslations;
 
 class Review extends Model
@@ -52,7 +53,7 @@ class Review extends Model
      * Five-star stories from different destinations, in curated order.
      * Used by the home page and Why Us.
      */
-    public static function stories(int $limit = 3): \Illuminate\Support\Collection
+    public static function stories(int $limit = 3): Collection
     {
         return static::approved()->with('destination')->where('rating', 5)->orderBy('sort_order')->get()
             ->unique('destination_id')->take($limit)->values();

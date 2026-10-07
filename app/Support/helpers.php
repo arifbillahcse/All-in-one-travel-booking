@@ -1,5 +1,10 @@
 <?php
 
+use App\Models\Setting;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\HtmlString;
+
 if (! function_exists('site')) {
     /**
      * Read a TravelOrio site setting, e.g. site('whatsapp') or site('social.facebook').
@@ -8,8 +13,8 @@ if (! function_exists('site')) {
     {
         // Admin-edited values (settings table) win over the config defaults.
         try {
-            $overrides = \App\Models\Setting::overrides();
-        } catch (\Throwable) {
+            $overrides = Setting::overrides();
+        } catch (Throwable) {
             $overrides = []; // table not migrated yet (fresh install, CI)
         }
 
@@ -39,6 +44,27 @@ if (! function_exists('asset_js')) {
 
         // ?v=<file time> makes browsers fetch a script again after it changes
         return asset('assets/js/'.ltrim($path, '/')).(is_file($file) ? '?v='.filemtime($file) : '');
+    }
+}
+
+if (! function_exists('csp_nonce')) {
+    /** Nonce for inline <script> tags (see SecurityHeaders); empty outside web requests. */
+    function csp_nonce(): string
+    {
+        return app()->bound('csp.nonce') ? app('csp.nonce') : '';
+    }
+}
+
+if (! function_exists('rich_text')) {
+    /**
+     * Text with only <strong> and <em> kept, with no attributes. For admin-written lines that
+     * may contain light emphasis; everything else is removed.
+     */
+    function rich_text(string $text): HtmlString
+    {
+        $clean = preg_replace('/<(strong|em)\b[^>]*>/i', '<$1>', strip_tags($text, '<strong><em>'));
+
+        return new HtmlString($clean);
     }
 }
 
@@ -103,7 +129,7 @@ if (! function_exists('alternate_url')) {
         $query = request()->getQueryString();
 
         // Routes outside the public site (admin panel, health check) have no Bangla twin.
-        if (! \Illuminate\Support\Facades\Route::has($prefix.$base)) {
+        if (! Route::has($prefix.$base)) {
             return route($prefix.'home');
         }
 
@@ -140,9 +166,9 @@ if (! function_exists('format_money')) {
 
 if (! function_exists('format_date')) {
     /** Localised date, e.g. "March 12, 2026" / "১২ মার্চ, ২০২৬" ($format uses Carbon translatedFormat). */
-    function format_date(\DateTimeInterface|string $date, ?string $format = null): string
+    function format_date(DateTimeInterface|string $date, ?string $format = null): string
     {
-        $date = \Illuminate\Support\Carbon::parse($date)->locale(app()->getLocale());
+        $date = Carbon::parse($date)->locale(app()->getLocale());
 
         $text = is_bn()
             ? $date->translatedFormat($format ?? 'j F, Y')

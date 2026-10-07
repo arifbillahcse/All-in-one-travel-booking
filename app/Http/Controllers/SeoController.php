@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destination;
+use App\Models\Package;
 use App\Models\Post;
 use App\Models\Review;
 use App\Support\ContentCache;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
 
 /** robots.txt and sitemap.xml */
 class SeoController extends Controller
@@ -37,7 +39,7 @@ class SeoController extends Controller
     {
         $pages = [
             ['home', [], 1.0, 'weekly', Destination::published()->max('updated_at')],
-            ['packages', [], 0.9, 'weekly', \App\Models\Package::max('updated_at')],
+            ['packages', [], 0.9, 'weekly', Package::max('updated_at')],
             ['why-us', [], 0.6, 'monthly', null],
             ['reviews', [], 0.6, 'weekly', Review::approved()->max('updated_at')],
             ['blog', [], 0.8, 'weekly', Post::published()->max('updated_at')],
@@ -57,7 +59,7 @@ class SeoController extends Controller
         foreach ($pages as [$route, $params, $priority, $frequency, $modified]) {
             $en = route($route, $params);
             $bn = route('bn.'.$route, $params);
-            $lastmod = $modified ? \Illuminate\Support\Carbon::parse($modified)->toAtomString() : null;
+            $lastmod = $modified ? Carbon::parse($modified)->toAtomString() : null;
 
             foreach ([$en, $bn] as $loc) {
                 $out .= "  <url>\n    <loc>".e($loc)."</loc>\n";
