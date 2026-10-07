@@ -38,7 +38,7 @@
         <article class="article" id="article">
           @php($blocks = collect($post->body))
           @php($headings = $blocks->where('type', 'h2')->values())
-          <figure class="article__cover"><img src="{{ placeholder_image('blog-'.$post->slug, 1200, 700) }}" alt="{{ $post->title }}" width="1200" height="700"></figure>
+          <figure class="article__cover"><img {{ $post->coverImage()->attributes('(min-width: 820px) 780px, 100vw', [1200, 700]) }} alt="{{ $post->title }}" fetchpriority="high"></figure>
 
           @if ($headings->count() > 1)
           <nav class="toc" aria-label="{{ __('In this article') }}"><p class="toc__title">{{ __('In this article') }}</p><ol>
@@ -130,4 +130,11 @@
 
 @push('scripts')
   <script src="{{ asset_js('blog-post.js') }}" defer></script>
+@endpush
+
+@push('structured-data')
+  {!! \App\Support\StructuredData::script(['@graph' => [
+      \App\Support\StructuredData::post($post, $post->coverImage()),
+      \App\Support\StructuredData::breadcrumbs([[__('Home'), lroute('home')], [__('Blog'), lroute('blog')], [$post->title, lroute('blog.post', $post->slug)]]),
+  ]]) !!}
 @endpush

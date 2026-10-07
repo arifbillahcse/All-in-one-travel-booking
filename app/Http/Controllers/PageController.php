@@ -13,10 +13,10 @@ class PageController extends Controller
     public function home(): View
     {
         return view('pages.home', [
-            'destinations' => Destination::published()->get(),
+            'destinations' => Destination::published()->with('media')->get(),
             'packages' => Package::published()->get(),
             'stories' => Review::stories(3),
-            'posts' => Post::published()->with('category')->take(3)->get(),
+            'posts' => Post::published()->with(['category', 'media'])->take(3)->get(),
         ]);
     }
 

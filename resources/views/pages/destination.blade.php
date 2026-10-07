@@ -8,7 +8,8 @@
          ===================================================== -->
     <section class="dest-hero" id="home" aria-label="{{ __('Destination introduction') }}">
       <div class="dest-hero__media" aria-hidden="true">
-        <img src="{{ $destination->hero_image }}" alt="" width="1920" height="1080" fetchpriority="high">
+        @php($hero = $destination->heroImage())
+        <img {{ $hero?->attributes('100vw', [1920, 1080]) }} alt="" fetchpriority="high">
       </div>
 
       <div class="container dest-hero__content">
@@ -149,8 +150,9 @@
             <div class="gallery">
               @foreach ($destination->gallery as $caption)
               @php($wide = $loop->first || $loop->iteration === 6)
-              <a class="gallery__item{{ $wide ? ' gallery__item--wide' : '' }}" href="{{ placeholder_image($destination->slug.'-g'.$loop->iteration, $wide ? 1600 : 1200, $wide ? 1000 : 1200) }}">
-                <img src="{{ placeholder_image($destination->slug.'-g'.$loop->iteration, $wide ? 800 : 520, 520) }}" alt="{{ $caption }}" loading="lazy" width="{{ $wide ? 800 : 520 }}" height="520"></a>
+              @php($photo = $destination->galleryImage($loop->index, $wide))
+              <a class="gallery__item{{ $wide ? ' gallery__item--wide' : '' }}" href="{{ $photo->srcset ? $photo->src : placeholder_image($destination->slug.'-g'.$loop->iteration, $wide ? 1600 : 1200, $wide ? 1000 : 1200) }}">
+                <img {{ $photo->attributes($wide ? '(min-width: 900px) 66vw, 100vw' : '(min-width: 900px) 33vw, 50vw', [$wide ? 800 : 520, 520]) }} alt="{{ $caption }}" loading="lazy"></a>
               @endforeach
             </div>
           </div>
@@ -309,4 +311,18 @@
 
 @push('scripts')
   <script src="{{ asset_js('destination.js') }}" defer></script>
+@endpush
+
+@push('structured-data')
+  {!! \App\Support\StructuredData::script(['@graph' => [
+      \App\Support\StructuredData::destination($destination, $hero),
+      \App\Support\StructuredData::faq($destination),
+      \App\Support\StructuredData::breadcrumbs([[__('Home'), lroute('home')], [$destination->name, lroute('destination', $destination->slug)]]),
+  ]]) !!}
+@endpush
+
+@push('preload')
+  @if ($hero)
+  <link rel="preload" as="image" href="{{ $hero->src }}" @if ($hero->srcset) imagesrcset="{{ $hero->srcset }}" imagesizes="100vw" @endif fetchpriority="high">
+  @endif
 @endpush

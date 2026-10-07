@@ -6,6 +6,7 @@ use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SeoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,9 @@ $pages = function () {
     Route::post('/reviews', [ReviewController::class, 'store'])->middleware('throttle:inquiries')->name('reviews.store');
     Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.post');
 };
+
+Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
+Route::get('/sitemap.xml', [SeoController::class, 'sitemap'])->name('sitemap');
 
 Route::group([], $pages);
 Route::prefix('bn')->name('bn.')->group($pages);

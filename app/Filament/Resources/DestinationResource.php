@@ -38,6 +38,13 @@ class DestinationResource extends Resource
             ;
     }
 
+    private static function photo(string $collection, string $label): Forms\Components\SpatieMediaLibraryFileUpload
+    {
+        return Forms\Components\SpatieMediaLibraryFileUpload::make($collection)->label($label)->collection($collection)
+            ->image()->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])->maxSize(10240)
+            ->helperText('JPG, PNG or WebP, up to 10 MB. It is resized automatically. Empty shows the placeholder.');
+    }
+
     public static function form(Form $form): Form
     {
         return $form->schema([
@@ -58,8 +65,8 @@ class DestinationResource extends Resource
                     Forms\Components\Textarea::make('summary')->required()->rows(2)->helperText('Short blurb on the home page card.'),
                     Forms\Components\TextInput::make('overview_title')->required(),
                     Forms\Components\Grid::make(2)->schema([
-                        Forms\Components\TextInput::make('hero_image')->label('Hero image URL')->url(),
-                        Forms\Components\TextInput::make('card_image')->label('Card image URL')->url(),
+                        self::photo('hero', 'Hero photo (wide, shown behind the title)'),
+                        self::photo('card', 'Card photo (shown on the home and packages pages)'),
                     ]),
                     Forms\Components\Select::make('related')->label('Related destinations')->multiple()
                         ->options(fn (?Destination $record) => Destination::query()->when($record, fn ($q) => $q->whereKeyNot($record->getKey()))
@@ -101,7 +108,11 @@ class DestinationResource extends Resource
                         ])->columns(2),
                     self::lines('transport', 'Getting there', long: true)->helperText('You can use <strong>By air:</strong> to bold the start.'),
                     self::lines('tips', 'Travel tips'),
-                    self::lines('gallery', 'Photo captions')->helperText('One line per photo. Real photo uploads arrive with the media update.'),
+                    Forms\Components\SpatieMediaLibraryFileUpload::make('gallery_photos')->label('Gallery photos')
+                        ->collection('gallery')->multiple()->reorderable()->maxFiles(12)->image()
+                        ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])->maxSize(10240)
+                        ->helperText('Photos are matched to the captions below in order. Missing photos show a placeholder. JPG, PNG or WebP, up to 10 MB each.'),
+                    self::lines('gallery', 'Photo captions')->helperText('One line per photo, in the same order as the photos above.'),
                 ]),
                 Forms\Components\Tabs\Tab::make('FAQ')->schema([
                     Forms\Components\Repeater::make('faq')->label('Questions')->collapsible()->itemLabel(fn (array $state) => $state['q'] ?? null)
@@ -118,6 +129,7 @@ class DestinationResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\SpatieMediaLibraryImageColumn::make('card')->collection('card')->conversion('card-400')->label('Photo')->width(64)->height(48),
                 Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('region'),
                 Tables\Columns\TextColumn::make('price_from')->label('From')->money('BDT')->sortable(),

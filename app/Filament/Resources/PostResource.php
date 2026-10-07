@@ -54,8 +54,9 @@ class PostResource extends Resource
             Forms\Components\Section::make('Publishing')->columns(2)->schema([
                 Forms\Components\DateTimePicker::make('published_at')->default(now())->helperText('A future date schedules the article.'),
                 Forms\Components\Toggle::make('is_published')->default(true)->helperText('Turn off to keep it as a draft.'),
-                Forms\Components\TextInput::make('cover_image')->label('Cover image URL')->url()->columnSpanFull()
-                    ->helperText('Optional. Real uploads arrive with the media update.'),
+                Forms\Components\SpatieMediaLibraryFileUpload::make('cover')->label('Cover photo')->collection('cover')->columnSpanFull()
+                    ->image()->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])->maxSize(10240)
+                    ->helperText('JPG, PNG or WebP, up to 10 MB. It is resized automatically. Empty shows a placeholder.'),
             ]),
         ]);
     }
@@ -131,6 +132,7 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\SpatieMediaLibraryImageColumn::make('cover')->collection('cover')->conversion('cover-600')->label('Cover')->width(64)->height(40),
                 Tables\Columns\TextColumn::make('title')->searchable(query: fn ($query, string $search) => $query->where('title->en', 'like', "%{$search}%")->orWhere('title->bn', 'like', "%{$search}%"))->limit(50),
                 Tables\Columns\TextColumn::make('category.name')->label('Category')->badge(),
                 Tables\Columns\TextColumn::make('published_at')->dateTime()->sortable(),

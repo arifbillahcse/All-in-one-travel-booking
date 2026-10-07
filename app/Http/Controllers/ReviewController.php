@@ -42,6 +42,7 @@ class ReviewController extends Controller
             ?? Review::approved()->with('destination')->orderBy('sort_order')->first();
 
         return view('pages.reviews', [
+            'noindex' => $request->query->has('destination') || $request->query->has('sort') || $request->query->has('show'),
             'destinations' => $destinations,
             'active' => $active,
             'sort' => $sort,

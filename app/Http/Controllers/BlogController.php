@@ -22,7 +22,7 @@ class BlogController extends Controller
         $search = trim((string) $request->query('q', ''));
         $show = max(self::PAGE_SIZE, min(120, (int) $request->query('show', self::PAGE_SIZE)));
 
-        $posts = Post::published()->with('category')
+        $posts = Post::published()->with(['category', 'media'])
             ->when($category, fn (Builder $q) => $q->where('post_category_id', $category->id))
             ->when($search !== '', function (Builder $q) use ($search) {
                 $like = '%'.str_replace(['%', '_'], ['\\%', '\\_'], $search).'%';
@@ -40,6 +40,7 @@ class BlogController extends Controller
         $rest = $featured ? $posts->slice(1) : $posts;
 
         return view('pages.blog', [
+            'noindex' => $search !== '',
             'categories' => $categories,
             'allCount' => $categories->sum('posts_count'),
             'category' => $category,
@@ -55,7 +56,7 @@ class BlogController extends Controller
 
     public function show(string $slug): View
     {
-        $post = Post::published()->with(['category', 'destination'])->where('slug', $slug)->firstOrFail();
+        $post = Post::published()->with(['category', 'destination', 'media'])->where('slug', $slug)->firstOrFail();
 
         $newestFirst = Post::published()->get(['id', 'slug', 'title', 'post_category_id']);
         $index = $newestFirst->search(fn (Post $p) => $p->id === $post->id);
@@ -64,11 +65,16 @@ class BlogController extends Controller
             ->sortByDesc(fn (Post $p) => $p->post_category_id === $post->post_category_id)
             ->take(3)->pluck('id');
 
+        $cover = $post->coverImage();
+
         return view('pages.blog-post', [
+            'ogImage' => $cover->src,
+            'ogType' => 'article',
+            'publishedAt' => $post->published_at?->toIso8601String(),
             'post' => $post,
             'previous' => $newestFirst->get($index + 1),   // older
             'next' => $index > 0 ? $newestFirst->get($index - 1) : null,
-            'related' => Post::published()->with('category')->whereIn('id', $related)->get()
+            'related' => Post::published()->with(['category', 'media'])->whereIn('id', $related)->get()
                 ->sortBy(fn (Post $p) => $related->search($p->id))->values(),
             'fullTitle' => $post->title.' | '.site('name'),
             'description' => $post->excerpt,

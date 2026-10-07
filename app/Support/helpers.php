@@ -35,7 +35,10 @@ if (! function_exists('asset_js')) {
      */
     function asset_js(string $path): string
     {
-        return asset('assets/js/'.ltrim($path, '/'));
+        $file = public_path('assets/js/'.ltrim($path, '/'));
+
+        // ?v=<file time> makes browsers fetch a script again after it changes
+        return asset('assets/js/'.ltrim($path, '/')).(is_file($file) ? '?v='.filemtime($file) : '');
     }
 }
 

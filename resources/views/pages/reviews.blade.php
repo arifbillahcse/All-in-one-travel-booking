@@ -201,3 +201,7 @@
 @push('scripts')
   <script src="{{ asset_js('reviews.js') }}" defer></script>
 @endpush
+
+@push('structured-data')
+  {!! \App\Support\StructuredData::script(\App\Support\StructuredData::breadcrumbs([[__('Home'), lroute('home')], [__('Reviews'), lroute('reviews')]])) !!}
+@endpush

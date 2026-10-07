@@ -10,9 +10,13 @@ class DestinationController extends Controller
 {
     public function show(string $slug): View
     {
-        $destination = Destination::published()->where('slug', $slug)->firstOrFail();
+        $destination = Destination::published()->with('media')->where('slug', $slug)->firstOrFail();
+
+        $hero = $destination->heroImage();
 
         return view('pages.destination', [
+            'ogImage' => $hero?->src,
+            'hero' => $hero,
             'destination' => $destination,
             'related' => $destination->relatedDestinations(),
             'packages' => Package::published()->get(),

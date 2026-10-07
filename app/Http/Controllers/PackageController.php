@@ -14,7 +14,7 @@ class PackageController extends Controller
         return view('pages.packages', [
             'packages' => Package::published()->get(),
             'addons' => Addon::published()->get(),
-            'destinations' => Destination::published()->get(),
+            'destinations' => Destination::published()->with('media')->get(),
         ]);
     }
 }

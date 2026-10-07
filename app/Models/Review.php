@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\BumpsContentCache;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +11,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Review extends Model
 {
-    use HasFactory, HasTranslations;
+    use BumpsContentCache, HasFactory, HasTranslations;
 
     protected $guarded = [];
 

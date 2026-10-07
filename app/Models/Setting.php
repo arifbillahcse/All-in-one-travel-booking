@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\BumpsContentCache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Cache;
  */
 class Setting extends Model
 {
+    use BumpsContentCache;
+
     private const CACHE_KEY = 'travelorio.settings';
 
     protected $guarded = [];

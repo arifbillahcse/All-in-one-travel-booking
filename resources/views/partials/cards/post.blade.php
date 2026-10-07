@@ -1,11 +1,12 @@
 @php
   $isFeatured = $isFeatured ?? false;
   [$w, $h] = $isFeatured ? [1000, 700] : [720, 480];
+  $photo = $post->coverImage();
   $href = lroute('blog.post', $post->slug);
 @endphp
 <article class="blog-card{{ $isFeatured ? ' blog-card--featured' : '' }}">
   <a class="blog-card__media" href="{{ $href }}" tabindex="-1" aria-hidden="true">
-    <img src="{{ placeholder_image('blog-'.$post->slug, $w, $h) }}" alt="" loading="lazy" width="{{ $w }}" height="{{ $h }}">
+    <img {{ $photo->attributes($isFeatured ? '(min-width: 900px) 50vw, 100vw' : '(min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw', [$w, $h]) }} alt="" loading="lazy">
     <span class="blog-card__cat">{{ $post->category->name }}</span>
   </a>
   <div class="blog-card__body">

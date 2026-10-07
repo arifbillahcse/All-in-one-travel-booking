@@ -3,7 +3,11 @@
 namespace App\Providers;
 
 use App\Models\Destination;
+use App\Listeners\StoreImageDimensions;
+use App\Support\ContentCache;
 use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\Event;
+use Spatie\MediaLibrary\MediaCollections\Events\MediaHasBeenAddedEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\View;
@@ -19,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
         // Loaded at most once per request (menu and footer both use it).
         $this->app->scoped('nav.destinations', function () {
             try {
-                return Destination::published()->get(['id', 'slug', 'name']);
+                return ContentCache::remember('nav-destinations', 3600, fn () => Destination::published()->get(['id', 'slug', 'name']));
             } catch (\Throwable) {
                 return new \Illuminate\Database\Eloquent\Collection(); // keep error pages working when the database is down
             }
@@ -31,6 +35,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Event::listen(MediaHasBeenAddedEvent::class, StoreImageDimensions::class);
+
         // Form posts: a few per minute and a daily cap per visitor.
         RateLimiter::for('inquiries', fn (Request $request) => [
             Limit::perMinute(5)->by($request->ip()),

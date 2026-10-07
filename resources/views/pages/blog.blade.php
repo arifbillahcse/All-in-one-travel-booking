@@ -94,3 +94,7 @@
 
   
 @endsection
+
+@push('structured-data')
+  {!! \App\Support\StructuredData::script(\App\Support\StructuredData::breadcrumbs([[__('Home'), lroute('home')], [__('Blog'), lroute('blog')]])) !!}
+@endpush

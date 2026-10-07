@@ -19,14 +19,34 @@
 
 <meta property="og:title" content="{{ $metaTitle }}">
 <meta property="og:description" content="{{ $metaDescription }}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ $ogType ?? 'website' }}">
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:site_name" content="{{ site('name') }}">
 <meta property="og:locale" content="{{ is_bn() ? 'bn_BD' : 'en_US' }}">
 <meta property="og:locale:alternate" content="{{ is_bn() ? 'en_US' : 'bn_BD' }}">
+@php($shareImage = $ogImage ?? url('images/og-default.png'))
+<meta property="og:image" content="{{ $shareImage }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $metaTitle }}">
+<meta name="twitter:description" content="{{ $metaDescription }}">
+<meta name="twitter:image" content="{{ $shareImage }}">
+@if (! empty($noindex))
+<meta name="robots" content="noindex,follow">
+@endif
+@isset($publishedAt)
+<meta property="article:published_time" content="{{ $publishedAt }}">
+@endisset
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700&display=swap" rel="stylesheet">
+{{-- Fonts load without blocking the first paint; the system font shows until they arrive. --}}
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700&display=swap"></noscript>
+@stack('preload')
 
 @vite('resources/css/travelorio.css')
+
+{{-- Structured data: the organisation and website on every page, plus whatever the page adds --}}
+{!! \App\Support\StructuredData::script(['@graph' => [\App\Support\StructuredData::organization(), \App\Support\StructuredData::website()]]) !!}
+@stack('structured-data')

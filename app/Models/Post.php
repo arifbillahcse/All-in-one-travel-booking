@@ -2,15 +2,19 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\BumpsContentCache;
+use App\Models\Concerns\HasImages;
+use App\Support\Image;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\Translatable\HasTranslations;
 
-class Post extends Model
+class Post extends Model implements HasMedia
 {
-    use HasFactory, HasTranslations;
+    use BumpsContentCache, HasFactory, HasImages, HasTranslations;
 
     protected $guarded = [];
 
@@ -23,6 +27,21 @@ class Post extends Model
             'read_minutes' => 'integer',
             'is_published' => 'boolean',
         ];
+    }
+
+    protected function imageWidths(): array
+    {
+        return ['cover' => [600, 1000, 1200]];
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('cover')->singleFile()->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp']);
+    }
+
+    public function coverImage(): Image
+    {
+        return $this->image('cover', $this->cover_image ?: placeholder_image('blog-'.$this->slug, 1200, 700));
     }
 
     public function getRouteKeyName(): string
