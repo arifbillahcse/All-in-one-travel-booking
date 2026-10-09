@@ -1,0 +1,1808 @@
+[
+ {
+  "sort": 1,
+  "en": {
+   "slug": "coxs-bazar",
+   "overviewTitle": "A coastline made for slow days",
+   "name": "Cox's Bazar",
+   "region": "Chattogram Division",
+   "tagline": "Walk the world's longest natural sea beach and watch the sun melt into the Bay of Bengal.",
+   "price": 4500,
+   "duration": "2–4 days",
+   "bestTime": "Nov – Mar",
+   "distance": "~400 km · 1 hr by air",
+   "style": "Beach · Relaxed",
+   "overview": [
+    "Cox's Bazar is home to 120 km of unbroken golden sand, the longest natural sea beach in the world. Mornings start with fishermen hauling in their nets, afternoons belong to the surf, and evenings turn the sky orange over the Bay of Bengal.",
+    "Beyond the main beach you'll find quiet coves, hill-top pagodas, tribal villages and fresh seafood grilled on the sand. With TravelOrio your hotel, transport and local guide are arranged before you arrive, so you can simply enjoy the coast."
+   ],
+   "highlights": [
+    "Sunrise and sunset on Laboni Beach",
+    "Boat trip to Sonadia Island",
+    "Scenic drive along Marine Drive",
+    "Fresh seafood dinner by the sea",
+    "Himchari waterfall and national park",
+    "Buddhist temples and local markets"
+   ],
+   "attractions": [
+    {
+     "name": "Laboni Beach",
+     "text": "The main beach and the best place for swimming, parasailing and sunset photos.",
+     "img": "https://picsum.photos/seed/coxs-bazar-a1/640/420"
+    },
+    {
+     "name": "Himchari",
+     "text": "Cliffs, a small waterfall and a hilltop viewpoint over the sea.",
+     "img": "https://picsum.photos/seed/coxs-bazar-a2/640/420"
+    },
+    {
+     "name": "Inani Beach",
+     "text": "Coral-stone shoreline with calmer water and fewer crowds.",
+     "img": "https://picsum.photos/seed/coxs-bazar-a3/640/420"
+    },
+    {
+     "name": "Sonadia Island",
+     "text": "A quiet island reached by boat, known for birds and red crabs.",
+     "img": "https://picsum.photos/seed/coxs-bazar-a4/640/420"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "Arrival and sunset on Laboni Beach",
+     "items": [
+      "Airport or bus-stop pickup and hotel check-in",
+      "Lunch at a seaside restaurant",
+      "Free time to swim and relax",
+      "Sunset walk along Laboni Beach, followed by dinner"
+     ]
+    },
+    {
+     "title": "Marine Drive, Inani and Himchari",
+     "items": [
+      "Breakfast, then a scenic drive along Marine Drive",
+      "Stop at Himchari for the waterfall and viewpoint",
+      "Lunch and a swim at Inani Beach",
+      "Evening at the local seafood market"
+     ]
+    },
+    {
+     "title": "Sonadia Island boat trip",
+     "items": [
+      "Early boat ride to Sonadia Island",
+      "Bird watching, shell hunting and a beach picnic",
+      "Back to the hotel by afternoon",
+      "Optional shopping for pearls, dry fish and handicrafts"
+     ]
+    },
+    {
+     "title": "Sunrise and departure",
+     "items": [
+      "Sunrise on the beach with tea",
+      "Breakfast and hotel check-out",
+      "Drop-off at the airport or bus station"
+     ]
+    }
+   ],
+   "included": [
+    "Hotel stay (twin-sharing)",
+    "Daily breakfast",
+    "Airport or bus-stop pickup and drop",
+    "Private AC vehicle for sightseeing",
+    "Local English or Bangla-speaking guide",
+    "Boat ticket to Sonadia Island"
+   ],
+   "excluded": [
+    "Flights or long-distance bus tickets",
+    "Lunch and dinner (unless upgraded)",
+    "Personal expenses and shopping",
+    "Water sports and optional activities",
+    "Tips for guides and drivers"
+   ],
+   "seasons": [
+    {
+     "tone": "best",
+     "badge": "Best",
+     "range": "Nov – Feb",
+     "text": "Cool, dry and sunny. Calm sea, ideal for beach days and boat trips."
+    },
+    {
+     "tone": "good",
+     "badge": "Good",
+     "range": "Mar – May",
+     "text": "Warmer with fewer crowds and lower prices. Pack sun protection."
+    },
+    {
+     "tone": "wet",
+     "badge": "Rainy",
+     "range": "Jun – Oct",
+     "text": "Dramatic waves and green hills, but boat trips may be cancelled."
+    }
+   ],
+   "transport": [
+    "<strong>By air:</strong> about 1 hour from Dhaka, with several daily flights.",
+    "<strong>By bus:</strong> 9–11 hours overnight AC coach from Dhaka.",
+    "<strong>By train:</strong> Dhaka to Cox's Bazar by rail, about 8–9 hours."
+   ],
+   "tips": [
+    "Book hotels early for Eid and winter weekends.",
+    "Swim only in flagged safe zones.",
+    "Carry cash for small shops and tuk-tuks.",
+    "Dress modestly when visiting temples and villages."
+   ],
+   "faq": [
+    {
+     "q": "Is Cox's Bazar safe for families and solo women travelers?",
+     "a": "Yes. The main tourist areas are busy and well patrolled. Our guides stay with you, and we choose hotels with good reviews and secure entrances."
+    },
+    {
+     "q": "Can I customise the itinerary?",
+     "a": "Absolutely. Tell us your dates, budget and interests in the booking form and we'll adjust the days, hotel and activities."
+    },
+    {
+     "q": "How do I pay?",
+     "a": "No payment is taken online. After you send a request we confirm availability and share bKash, Nagad or bank transfer details."
+    },
+    {
+     "q": "What is the cancellation policy?",
+     "a": "Free cancellation up to 7 days before departure. After that, charges depend on hotel and transport bookings already made."
+    },
+    {
+     "q": "Is there a group discount?",
+     "a": "Groups of 6 or more receive a reduced per-person price. Message us on WhatsApp for a quote."
+    }
+   ],
+   "gallery": [
+    "Golden sunset over the Cox's Bazar sea",
+    "Fishing boats on the shore",
+    "Waves rolling onto the beach",
+    "Grilled seafood dinner",
+    "Marine Drive coastal road",
+    "Pagoda on a green hill"
+   ],
+   "related": [
+    "saint-martin",
+    "bandarban",
+    "kuakata"
+   ],
+   "heroImage": "https://picsum.photos/seed/coxs-bazar-hero/1920/1080",
+   "cardImage": "https://picsum.photos/seed/coxsbazar/800/600"
+  },
+  "bn": {
+   "name": "কক্সবাজার",
+   "region": "চট্টগ্রাম বিভাগ",
+   "tagline": "বিশ্বের দীর্ঘতম প্রাকৃতিক সমুদ্রসৈকতে হাঁটুন, আর দেখুন বঙ্গোপসাগরে সূর্য ডুবে যাওয়ার মুহূর্ত।",
+   "overviewTitle": "ধীরে কাটানো দিনের এক সাগরপাড়",
+   "duration": "২–৪ দিন",
+   "bestTime": "নভেম্বর – মার্চ",
+   "distance": "~৪০০ কিমি · বিমানে ১ ঘণ্টা",
+   "style": "সৈকত · নিরিবিলি",
+   "overview": [
+    "কক্সবাজারে রয়েছে ১২০ কিলোমিটার অবিচ্ছিন্ন সোনালি বালুর তট, যা বিশ্বের দীর্ঘতম প্রাকৃতিক সমুদ্রসৈকত। সকাল শুরু হয় জেলেদের জাল টানার দৃশ্য দিয়ে, দুপুর কাটে ঢেউয়ের সঙ্গে, আর সন্ধ্যায় বঙ্গোপসাগরের আকাশ কমলা রঙে সেজে ওঠে।",
+    "মূল সৈকতের বাইরেও আছে নিরিবিলি খাঁড়ি, পাহাড়চূড়ার প্যাগোডা, পাহাড়ি জনপদ আর সৈকতেই ঝলসানো তাজা সামুদ্রিক খাবার। TravelOrio-র সঙ্গে আপনার হোটেল, যাতায়াত ও স্থানীয় গাইড আগেই ঠিক থাকে, তাই আপনি শুধু সাগরপাড় উপভোগ করুন।"
+   ],
+   "highlights": [
+    "লাবণী সৈকতে সূর্যোদয় ও সূর্যাস্ত",
+    "সোনাদিয়া দ্বীপে নৌ-ভ্রমণ",
+    "মেরিন ড্রাইভ ধরে মনোরম যাত্রা",
+    "সাগরপাড়ে তাজা সামুদ্রিক খাবারের নৈশভোজ",
+    "হিমছড়ি জলপ্রপাত ও জাতীয় উদ্যান",
+    "বৌদ্ধ মন্দির ও স্থানীয় বাজার"
+   ],
+   "attractions": [
+    {
+     "name": "লাবণী সৈকত",
+     "text": "প্রধান সৈকত, সাঁতার, প্যারাসেইলিং ও সূর্যাস্তের ছবি তোলার সেরা জায়গা।"
+    },
+    {
+     "name": "হিমছড়ি",
+     "text": "পাহাড়ের খাড়া ঢাল, ছোট্ট ঝরনা আর সাগরের দিকে তাকিয়ে থাকা একটি পাহাড়চূড়ার ভিউপয়েন্ট।"
+    },
+    {
+     "name": "ইনানী সৈকত",
+     "text": "প্রবাল-পাথরের তটরেখা, শান্ত পানি আর তুলনামূলক কম ভিড়।"
+    },
+    {
+     "name": "সোনাদিয়া দ্বীপ",
+     "text": "নৌকায় পৌঁছানো নিরিবিলি দ্বীপ, পাখি ও লাল কাঁকড়ার জন্য পরিচিত।"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "আগমন ও লাবণী সৈকতে সূর্যাস্ত",
+     "items": [
+      "এয়ারপোর্ট বা বাস-স্ট্যান্ড থেকে পিকআপ ও হোটেলে চেক-ইন",
+      "সমুদ্রের ধারের রেস্তোরাঁয় দুপুরের খাবার",
+      "সাঁতার ও বিশ্রামের জন্য অবসর",
+      "লাবণী সৈকতে সূর্যাস্ত দেখে হেঁটে বেড়ানো, তারপর নৈশভোজ"
+     ]
+    },
+    {
+     "title": "মেরিন ড্রাইভ, ইনানী ও হিমছড়ি",
+     "items": [
+      "সকালের নাস্তা শেষে মেরিন ড্রাইভ ধরে মনোরম যাত্রা",
+      "জলপ্রপাত ও ভিউপয়েন্ট দেখতে হিমছড়িতে যাত্রাবিরতি",
+      "ইনানী সৈকতে দুপুরের খাবার ও সাঁতার",
+      "সন্ধ্যায় স্থানীয় সামুদ্রিক খাবারের বাজার ঘুরে দেখা"
+     ]
+    },
+    {
+     "title": "সোনাদিয়া দ্বীপে নৌ-ভ্রমণ",
+     "items": [
+      "ভোরে নৌকায় সোনাদিয়া দ্বীপে যাত্রা",
+      "পাখি দেখা, ঝিনুক কুড়ানো ও সৈকতে পিকনিক",
+      "বিকেলের মধ্যে হোটেলে ফেরা",
+      "ইচ্ছে হলে মুক্তা, শুঁটকি ও হস্তশিল্প কেনাকাটা"
+     ]
+    },
+    {
+     "title": "সূর্যোদয় ও বিদায়",
+     "items": [
+      "চা হাতে সৈকতে সূর্যোদয়",
+      "সকালের নাস্তা ও হোটেল থেকে চেক-আউট",
+      "এয়ারপোর্ট বা বাস স্টেশনে পৌঁছে দেওয়া"
+     ]
+    }
+   ],
+   "included": [
+    "হোটেলে থাকা (দুইজন এক রুমে)",
+    "প্রতিদিন সকালের নাস্তা",
+    "এয়ারপোর্ট বা বাস-স্ট্যান্ড থেকে আনা-নেওয়া",
+    "ঘোরাঘুরির জন্য ব্যক্তিগত এসি গাড়ি",
+    "বাংলা বা ইংরেজি জানা স্থানীয় গাইড",
+    "সোনাদিয়া দ্বীপের নৌকার টিকিট"
+   ],
+   "excluded": [
+    "বিমান বা দূরপাল্লার বাসের টিকিট",
+    "দুপুর ও রাতের খাবার (আপগ্রেড না করলে)",
+    "ব্যক্তিগত খরচ ও কেনাকাটা",
+    "ওয়াটার স্পোর্টস ও ঐচ্ছিক কার্যক্রম",
+    "গাইড ও ড্রাইভারের বকশিশ"
+   ],
+   "seasons": [
+    {
+     "badge": "সেরা",
+     "range": "নভেম্বর – ফেব্রুয়ারি",
+     "text": "ঠান্ডা, শুকনো ও রৌদ্রোজ্জ্বল। শান্ত সাগর, সৈকতে দিন কাটানো ও নৌ-ভ্রমণের জন্য আদর্শ।"
+    },
+    {
+     "badge": "ভালো",
+     "range": "মার্চ – মে",
+     "text": "তুলনামূলক গরম, ভিড় কম ও খরচও কম। সানস্ক্রিন সঙ্গে রাখুন।"
+    },
+    {
+     "badge": "বর্ষা",
+     "range": "জুন – অক্টোবর",
+     "text": "উত্তাল ঢেউ ও সবুজ পাহাড়, তবে নৌ-ভ্রমণ বাতিল হতে পারে।"
+    }
+   ],
+   "transport": [
+    "<strong>বিমানে:</strong> ঢাকা থেকে প্রায় ১ ঘণ্টা, প্রতিদিন একাধিক ফ্লাইট।",
+    "<strong>বাসে:</strong> ঢাকা থেকে রাতের এসি কোচে ৯–১১ ঘণ্টা।",
+    "<strong>ট্রেনে:</strong> ঢাকা থেকে কক্সবাজার রেলপথে প্রায় ৮–৯ ঘণ্টা।"
+   ],
+   "tips": [
+    "ঈদ ও শীতের ছুটির দিনগুলোর জন্য আগেভাগে হোটেল বুক করুন।",
+    "শুধু পতাকা-চিহ্নিত নিরাপদ এলাকায় সাঁতার কাটুন।",
+    "ছোট দোকান ও টুকটুকের জন্য নগদ টাকা সঙ্গে রাখুন।",
+    "মন্দির ও গ্রামে যাওয়ার সময় শালীন পোশাক পরুন।"
+   ],
+   "faq": [
+    {
+     "q": "পরিবার ও একা নারী ভ্রমণকারীদের জন্য কক্সবাজার কি নিরাপদ?",
+     "a": "হ্যাঁ। প্রধান পর্যটন এলাকাগুলোতে সবসময় লোকজন থাকে এবং নিয়মিত টহল দেওয়া হয়। আমাদের গাইড আপনার সঙ্গে থাকেন, আর আমরা ভালো রিভিউ ও নিরাপদ প্রবেশপথওয়ালা হোটেল বেছে নিই।"
+    },
+    {
+     "q": "আমি কি ভ্রমণসূচি নিজের মতো বদলাতে পারি?",
+     "a": "অবশ্যই। বুকিং ফর্মে আপনার তারিখ, বাজেট ও আগ্রহের কথা জানান, আমরা দিন, হোটেল ও কার্যক্রম সেভাবে সাজিয়ে দেব।"
+    },
+    {
+     "q": "কীভাবে পেমেন্ট করব?",
+     "a": "অনলাইনে কোনো পেমেন্ট নেওয়া হয় না। অনুরোধ পাঠালে আমরা সিট/রুম নিশ্চিত করে বিকাশ, নগদ বা ব্যাংক ট্রান্সফারের তথ্য পাঠাই।"
+    },
+    {
+     "q": "বাতিলের নিয়ম কী?",
+     "a": "যাত্রার ৭ দিন আগে পর্যন্ত বিনা খরচে বাতিল করা যায়। এরপর কত কাটা যাবে তা নির্ভর করে ইতিমধ্যে হওয়া হোটেল ও যাতায়াত বুকিংয়ের ওপর।"
+    },
+    {
+     "q": "গ্রুপে গেলে কি ছাড় আছে?",
+     "a": "৬ জন বা তার বেশি হলে জনপ্রতি কম মূল্য পাবেন। কোটেশনের জন্য হোয়াটসঅ্যাপে মেসেজ করুন।"
+    }
+   ],
+   "gallery": [
+    "কক্সবাজার সাগরে সোনালি সূর্যাস্ত",
+    "সৈকতে নোঙর করা জেলে নৌকা",
+    "সৈকতের ওপর আছড়ে পড়া ঢেউ",
+    "ঝলসানো সামুদ্রিক খাবারের নৈশভোজ",
+    "মেরিন ড্রাইভের উপকূলীয় সড়ক",
+    "সবুজ পাহাড়ে প্যাগোডা"
+   ]
+  }
+ },
+ {
+  "sort": 2,
+  "en": {
+   "slug": "sundarbans",
+   "overviewTitle": "Into the world's largest mangrove",
+   "name": "Sundarbans",
+   "region": "Khulna Division",
+   "tagline": "Cruise silent tidal creeks through the largest mangrove forest on Earth.",
+   "price": 8500,
+   "duration": "3 days",
+   "bestTime": "Nov – Feb",
+   "distance": "~330 km · Khulna / Mongla",
+   "style": "Wildlife · Cruise",
+   "overview": [
+    "The Sundarbans is a UNESCO World Heritage mangrove forest, a maze of tidal rivers and creeks that shelters spotted deer, crocodiles, monkeys, hundreds of bird species and the Royal Bengal tiger.",
+    "You'll sleep aboard a licensed launch, explore by small boat and walk forest trails with an armed forest guard. Tigers are shy, so sightings are rare, but fresh tracks, birdsong and the quiet of the creeks make every hour memorable."
+   ],
+   "highlights": [
+    "Overnight launch cruise through tidal creeks",
+    "Spot deer, crocodiles, monkeys and kingfishers",
+    "Watchtower walks at Karamjal and Kotka",
+    "Sunrise at Hiron Point (Nilkamal)",
+    "Visit the fishing village of Dublar Char",
+    "Evening tea and stories on the deck"
+   ],
+   "attractions": [
+    {
+     "name": "Karamjal",
+     "text": "A wildlife centre with crocodiles and deer, and the usual first stop of the cruise.",
+     "img": "https://picsum.photos/seed/sundarbans-a1/640/420"
+    },
+    {
+     "name": "Hiron Point (Nilkamal)",
+     "text": "Deep forest where deer graze and tiger tracks are often found on the mud.",
+     "img": "https://picsum.photos/seed/sundarbans-a2/640/420"
+    },
+    {
+     "name": "Kotka",
+     "text": "A quiet beach and watchtower at the edge of the forest and the sea.",
+     "img": "https://picsum.photos/seed/sundarbans-a3/640/420"
+    },
+    {
+     "name": "Dublar Char",
+     "text": "A seasonal island where fishing families dry their catch on the sand.",
+     "img": "https://picsum.photos/seed/sundarbans-a4/640/420"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "Board the launch and visit Karamjal",
+     "items": [
+      "Meet at Khulna or Mongla and board the launch",
+      "Lunch onboard while cruising into the forest",
+      "Afternoon visit to Karamjal wildlife centre",
+      "Dinner and overnight on the launch"
+     ]
+    },
+    {
+     "title": "Hiron Point and Kotka",
+     "items": [
+      "Early morning creek cruise for birds and deer",
+      "Forest walk at Hiron Point with the guard",
+      "Lunch, then Kotka beach and watchtower",
+      "Campfire-style evening on deck"
+     ]
+    },
+    {
+     "title": "Dublar Char and return",
+     "items": [
+      "Sunrise cruise to Dublar Char",
+      "Meet the fishing community",
+      "Breakfast onboard and return journey",
+      "Drop-off at Mongla or Khulna by evening"
+     ]
+    }
+   ],
+   "included": [
+    "Shared cabin on a licensed launch",
+    "All meals onboard",
+    "Forest permits and entry fees",
+    "Armed forest guard and local guide",
+    "Pickup and drop at Khulna or Mongla",
+    "Drinking water"
+   ],
+   "excluded": [
+    "Travel from Dhaka to Khulna",
+    "Camera and video fees",
+    "Soft drinks and personal purchases",
+    "Travel insurance",
+    "Tips for crew and guides"
+   ],
+   "seasons": [
+    {
+     "tone": "best",
+     "badge": "Best",
+     "range": "Nov – Feb",
+     "text": "Cool and dry with clear skies and the best chance to see wildlife by the water."
+    },
+    {
+     "tone": "good",
+     "badge": "Good",
+     "range": "Mar – May",
+     "text": "Hotter, but animals gather at the creeks. Bring a hat and plenty of water."
+    },
+    {
+     "tone": "wet",
+     "badge": "Rainy",
+     "range": "Jun – Oct",
+     "text": "Rough water, and the forest is often closed to visitors in the wettest months."
+    }
+   ],
+   "transport": [
+    "<strong>By air:</strong> Dhaka to Jashore in about 50 minutes, then 2 hours by road to Khulna.",
+    "<strong>By train:</strong> overnight train from Dhaka to Khulna, about 9–10 hours.",
+    "<strong>By bus:</strong> 6–8 hours from Dhaka to Khulna via the Padma Bridge."
+   ],
+   "tips": [
+    "A forest permit is required, and we arrange it for you.",
+    "Carry mosquito repellent, a hat and a light rain jacket.",
+    "Never leave the guide's side on forest trails.",
+    "Take your plastic waste back with you."
+   ],
+   "faq": [
+    {
+     "q": "Will I see a Royal Bengal tiger?",
+     "a": "Sightings are rare because tigers avoid people. You are far more likely to see tracks, deer, crocodiles, monkeys and many birds."
+    },
+    {
+     "q": "Can I customise the itinerary?",
+     "a": "Absolutely. Tell us your dates, budget and interests in the booking form and we'll adjust the days, hotel and activities."
+    },
+    {
+     "q": "How do I pay?",
+     "a": "No payment is taken online. After you send a request we confirm availability and share bKash, Nagad or bank transfer details."
+    },
+    {
+     "q": "What is the cancellation policy?",
+     "a": "Free cancellation up to 7 days before departure. After that, charges depend on hotel and transport bookings already made."
+    },
+    {
+     "q": "Is there a group discount?",
+     "a": "Groups of 6 or more receive a reduced per-person price. Message us on WhatsApp for a quote."
+    }
+   ],
+   "gallery": [
+    "Mangrove creek in morning mist",
+    "Our launch moored in the forest",
+    "Spotted deer by the water",
+    "Kingfisher on a branch",
+    "Watchtower above the trees",
+    "Fishing boats at Dublar Char"
+   ],
+   "related": [
+    "sylhet",
+    "coxs-bazar",
+    "kuakata"
+   ],
+   "heroImage": "https://picsum.photos/seed/sundarbans-hero/1920/1080",
+   "cardImage": "https://picsum.photos/seed/sundarbans/800/600"
+  },
+  "bn": {
+   "name": "সুন্দরবন",
+   "region": "খুলনা বিভাগ",
+   "tagline": "পৃথিবীর বৃহত্তম ম্যানগ্রোভ বনের নিস্তব্ধ জোয়ার-ভাটার খাল ধরে ভেসে চলুন।",
+   "overviewTitle": "বিশ্বের বৃহত্তম ম্যানগ্রোভের গভীরে",
+   "duration": "৩ দিন",
+   "bestTime": "নভেম্বর – ফেব্রুয়ারি",
+   "distance": "~৩৩০ কিমি · খুলনা / মোংলা",
+   "style": "বন্যপ্রাণী · লঞ্চ ভ্রমণ",
+   "overview": [
+    "সুন্দরবন ইউনেস্কো ঘোষিত বিশ্ব ঐতিহ্যের ম্যানগ্রোভ বন, নদী ও খালের এক গোলকধাঁধা, যেখানে আছে চিত্রা হরিণ, কুমির, বানর, শত শত প্রজাতির পাখি আর রয়্যাল বেঙ্গল টাইগার।",
+    "আপনি রাত কাটাবেন লাইসেন্সপ্রাপ্ত লঞ্চে, ছোট নৌকায় ঘুরবেন খাল-নালা, আর সশস্ত্র বনরক্ষীর সঙ্গে হাঁটবেন বনের পথে। বাঘ লাজুক প্রাণী, তাই দেখা মেলা বিরল। তবে তাজা পায়ের ছাপ, পাখির ডাক আর খালের নৈঃশব্দ্য প্রতিটি ঘণ্টাকে স্মরণীয় করে তোলে।"
+   ],
+   "highlights": [
+    "জোয়ার-ভাটার খালে রাতভর লঞ্চ ভ্রমণ",
+    "হরিণ, কুমির, বানর ও মাছরাঙা দেখা",
+    "করমজল ও কটকায় ওয়াচটাওয়ারে হাঁটা",
+    "হিরন পয়েন্টে (নীলকমল) সূর্যোদয়",
+    "দুবলার চরের জেলে পল্লী ঘুরে দেখা",
+    "ডেকে সন্ধ্যার চা ও গল্প"
+   ],
+   "attractions": [
+    {
+     "name": "করমজল",
+     "text": "কুমির ও হরিণের বন্যপ্রাণী প্রজনন কেন্দ্র, ভ্রমণের প্রথম যাত্রাবিরতি।"
+    },
+    {
+     "name": "হিরন পয়েন্ট (নীলকমল)",
+     "text": "গভীর বন, যেখানে হরিণ চরে আর কাদায় প্রায়ই বাঘের পায়ের ছাপ মেলে।"
+    },
+    {
+     "name": "কটকা",
+     "text": "বন ও সাগরের সংযোগস্থলে নিরিবিলি সৈকত ও ওয়াচটাওয়ার।"
+    },
+    {
+     "name": "দুবলার চর",
+     "text": "মৌসুমি দ্বীপ, যেখানে জেলে পরিবারগুলো বালুতে মাছ শুকায়।"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "লঞ্চে ওঠা ও করমজল ভ্রমণ",
+     "items": [
+      "খুলনা বা মোংলায় মিলিত হয়ে লঞ্চে ওঠা",
+      "বনের ভেতর চলতে চলতে লঞ্চেই দুপুরের খাবার",
+      "বিকেলে করমজল বন্যপ্রাণী কেন্দ্র ভ্রমণ",
+      "লঞ্চেই রাতের খাবার ও রাত্রিযাপন"
+     ]
+    },
+    {
+     "title": "হিরন পয়েন্ট ও কটকা",
+     "items": [
+      "ভোরে পাখি ও হরিণ দেখতে খালপথে ভ্রমণ",
+      "বনরক্ষীর সঙ্গে হিরন পয়েন্টে বনের পথে হাঁটা",
+      "দুপুরের খাবারের পর কটকা সৈকত ও ওয়াচটাওয়ার",
+      "ডেকে ক্যাম্পফায়ার-ধাঁচের সন্ধ্যা"
+     ]
+    },
+    {
+     "title": "দুবলার চর ও ফেরা",
+     "items": [
+      "সূর্যোদয়ের সময় দুবলার চরে যাত্রা",
+      "জেলে সম্প্রদায়ের সঙ্গে পরিচিত হওয়া",
+      "লঞ্চে সকালের নাস্তা ও ফিরতি যাত্রা",
+      "সন্ধ্যার মধ্যে মোংলা বা খুলনায় নামিয়ে দেওয়া"
+     ]
+    }
+   ],
+   "included": [
+    "লাইসেন্সপ্রাপ্ত লঞ্চে শেয়ার্ড কেবিন",
+    "লঞ্চে সব বেলার খাবার",
+    "বনের অনুমতি ও প্রবেশ ফি",
+    "সশস্ত্র বনরক্ষী ও স্থানীয় গাইড",
+    "খুলনা বা মোংলা থেকে আনা-নেওয়া",
+    "পানীয় জল"
+   ],
+   "excluded": [
+    "ঢাকা থেকে খুলনা যাতায়াত",
+    "ক্যামেরা ও ভিডিও ফি",
+    "কোমল পানীয় ও ব্যক্তিগত কেনাকাটা",
+    "ভ্রমণ বিমা",
+    "ক্রু ও গাইডদের বকশিশ"
+   ],
+   "seasons": [
+    {
+     "badge": "সেরা",
+     "range": "নভেম্বর – ফেব্রুয়ারি",
+     "text": "ঠান্ডা ও শুকনো আবহাওয়া, পরিষ্কার আকাশ এবং পানির ধারে বন্যপ্রাণী দেখার সবচেয়ে ভালো সুযোগ।"
+    },
+    {
+     "badge": "ভালো",
+     "range": "মার্চ – মে",
+     "text": "বেশ গরম, তবে খালের ধারে প্রাণীরা জড়ো হয়। টুপি ও প্রচুর পানি সঙ্গে রাখুন।"
+    },
+    {
+     "badge": "বর্ষা",
+     "range": "জুন – অক্টোবর",
+     "text": "উত্তাল পানি, আর সবচেয়ে বৃষ্টির মাসগুলোতে বন প্রায়ই পর্যটকদের জন্য বন্ধ থাকে।"
+    }
+   ],
+   "transport": [
+    "<strong>বিমানে:</strong> ঢাকা থেকে যশোর প্রায় ৫০ মিনিট, তারপর সড়কপথে খুলনা ২ ঘণ্টা।",
+    "<strong>ট্রেনে:</strong> ঢাকা থেকে খুলনা রাতের ট্রেনে প্রায় ৯–১০ ঘণ্টা।",
+    "<strong>বাসে:</strong> পদ্মা সেতু হয়ে ঢাকা থেকে খুলনা ৬–৮ ঘণ্টা।"
+   ],
+   "tips": [
+    "বনের অনুমতিপত্র লাগে, সেটি আমরা করে দিই।",
+    "মশা তাড়ানোর ক্রিম, টুপি ও হালকা রেইনকোট সঙ্গে রাখুন।",
+    "বনের পথে কখনো গাইডের পাশ ছাড়বেন না।",
+    "প্লাস্টিক বর্জ্য সঙ্গে করে ফেরত নিয়ে আসুন।"
+   ],
+   "faq": [
+    {
+     "q": "আমি কি রয়্যাল বেঙ্গল টাইগার দেখতে পাব?",
+     "a": "বাঘ মানুষ এড়িয়ে চলে বলে দেখা পাওয়া বিরল। বরং পায়ের ছাপ, হরিণ, কুমির, বানর ও নানা পাখি দেখার সম্ভাবনা অনেক বেশি।"
+    },
+    {
+     "q": "আমি কি ভ্রমণসূচি নিজের মতো বদলাতে পারি?",
+     "a": "অবশ্যই। বুকিং ফর্মে আপনার তারিখ, বাজেট ও আগ্রহের কথা জানান, আমরা দিন, হোটেল ও কার্যক্রম সেভাবে সাজিয়ে দেব।"
+    },
+    {
+     "q": "কীভাবে পেমেন্ট করব?",
+     "a": "অনলাইনে কোনো পেমেন্ট নেওয়া হয় না। অনুরোধ পাঠালে আমরা সিট/রুম নিশ্চিত করে বিকাশ, নগদ বা ব্যাংক ট্রান্সফারের তথ্য পাঠাই।"
+    },
+    {
+     "q": "বাতিলের নিয়ম কী?",
+     "a": "যাত্রার ৭ দিন আগে পর্যন্ত বিনা খরচে বাতিল করা যায়। এরপর কত কাটা যাবে তা নির্ভর করে ইতিমধ্যে হওয়া হোটেল ও যাতায়াত বুকিংয়ের ওপর।"
+    },
+    {
+     "q": "গ্রুপে গেলে কি ছাড় আছে?",
+     "a": "৬ জন বা তার বেশি হলে জনপ্রতি কম মূল্য পাবেন। কোটেশনের জন্য হোয়াটসঅ্যাপে মেসেজ করুন।"
+    }
+   ],
+   "gallery": [
+    "ভোরের কুয়াশায় ম্যানগ্রোভের খাল",
+    "বনের ভেতরে নোঙর করা আমাদের লঞ্চ",
+    "পানির ধারে চিত্রা হরিণ",
+    "ডালে বসা মাছরাঙা",
+    "গাছের ওপরে ওয়াচটাওয়ার",
+    "দুবলার চরে জেলে নৌকা"
+   ]
+  }
+ },
+ {
+  "sort": 3,
+  "en": {
+   "slug": "sylhet",
+   "overviewTitle": "Green hills and clear streams",
+   "name": "Sylhet",
+   "region": "Sylhet Division",
+   "tagline": "Mist-wrapped tea hills, swamp forests and crystal streams in Bangladesh's green north-east.",
+   "price": 5500,
+   "duration": "2–3 days",
+   "bestTime": "Oct – Mar",
+   "distance": "~240 km · 40 min by air",
+   "style": "Nature · Tea gardens",
+   "overview": [
+    "Sylhet is Bangladesh at its greenest. Tea estates roll over the hills, rivers run clear from the Meghalaya mountains, and a flooded swamp forest turns into a floating-world of tree trunks and boats.",
+    "Days mix easy walks through tea gardens, boat rides, riverside picnics and local food such as seven-layer tea. It is an easy trip from Dhaka and a favourite for families and couples."
+   ],
+   "highlights": [
+    "Walk through Malnicherra tea estate",
+    "Boat ride in Ratargul Swamp Forest",
+    "Stone-collecting rivers at Jaflong",
+    "Clear streams and picnic spots at Sripur",
+    "Seven-layer tea tasting",
+    "Visit the shrine of Hazrat Shah Jalal"
+   ],
+   "attractions": [
+    {
+     "name": "Ratargul Swamp Forest",
+     "text": "Row through a flooded forest of tree trunks, best when water levels are high.",
+     "img": "https://picsum.photos/seed/sylhet-a1/640/420"
+    },
+    {
+     "name": "Jaflong",
+     "text": "A river valley on the Meghalaya border with stone collectors and mountain views.",
+     "img": "https://picsum.photos/seed/sylhet-a2/640/420"
+    },
+    {
+     "name": "Malnicherra Tea Estate",
+     "text": "The oldest commercial tea garden in the region, with winding paths and viewpoints.",
+     "img": "https://picsum.photos/seed/sylhet-a3/640/420"
+    },
+    {
+     "name": "Lalakhal",
+     "text": "A calm river with green-blue water, perfect for a slow boat ride.",
+     "img": "https://picsum.photos/seed/sylhet-a4/640/420"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "Tea gardens and the city",
+     "items": [
+      "Pickup from airport or station and hotel check-in",
+      "Visit Malnicherra tea estate",
+      "Tea tasting and local lunch",
+      "Evening at the shrine of Hazrat Shah Jalal"
+     ]
+    },
+    {
+     "title": "Ratargul and Lalakhal",
+     "items": [
+      "Early drive to Ratargul Swamp Forest",
+      "Boat ride through the flooded trees",
+      "Lunch, then a boat ride on Lalakhal",
+      "Return for dinner in Sylhet city"
+     ]
+    },
+    {
+     "title": "Jaflong and Sripur",
+     "items": [
+      "Drive to Jaflong river valley",
+      "Walk along the stone beds and the border view",
+      "Picnic at the clear streams of Sripur",
+      "Drop-off at the airport or bus stop"
+     ]
+    }
+   ],
+   "included": [
+    "Hotel stay (twin-sharing)",
+    "Daily breakfast",
+    "Private AC vehicle for sightseeing",
+    "Local guide",
+    "Boat tickets at Ratargul and Lalakhal",
+    "Pickup and drop at Sylhet"
+   ],
+   "excluded": [
+    "Flights, train or bus tickets to Sylhet",
+    "Lunch and dinner (unless upgraded)",
+    "Personal expenses and shopping",
+    "Tips for guides and drivers"
+   ],
+   "seasons": [
+    {
+     "tone": "best",
+     "badge": "Best",
+     "range": "Oct – Mar",
+     "text": "Cool, clear and sunny. Ideal for tea gardens, Jaflong and Sripur."
+    },
+    {
+     "tone": "good",
+     "badge": "Good",
+     "range": "Apr – May",
+     "text": "Warm and green with thunderstorms in the afternoon."
+    },
+    {
+     "tone": "wet",
+     "badge": "Wet",
+     "range": "Jun – Sep",
+     "text": "Heavy rain, but this is when Ratargul fills with water and is at its most magical."
+    }
+   ],
+   "transport": [
+    "<strong>By air:</strong> about 40 minutes from Dhaka, with daily flights.",
+    "<strong>By train:</strong> intercity trains take 6–7 hours from Dhaka.",
+    "<strong>By bus:</strong> 5–7 hours on the Dhaka–Sylhet highway."
+   ],
+   "tips": [
+    "Carry a light raincoat all year round.",
+    "Wear shoes with good grip for tea-garden paths.",
+    "Ratargul is best visited early to avoid crowds.",
+    "Respect border zones and follow your guide's instructions."
+   ],
+   "faq": [
+    {
+     "q": "When is the best time to visit Ratargul?",
+     "a": "June to September, when the water is high enough for boats to move between the trees. In the dry season the forest is mostly dry land."
+    },
+    {
+     "q": "Can I customise the itinerary?",
+     "a": "Absolutely. Tell us your dates, budget and interests in the booking form and we'll adjust the days, hotel and activities."
+    },
+    {
+     "q": "How do I pay?",
+     "a": "No payment is taken online. After you send a request we confirm availability and share bKash, Nagad or bank transfer details."
+    },
+    {
+     "q": "What is the cancellation policy?",
+     "a": "Free cancellation up to 7 days before departure. After that, charges depend on hotel and transport bookings already made."
+    },
+    {
+     "q": "Is there a group discount?",
+     "a": "Groups of 6 or more receive a reduced per-person price. Message us on WhatsApp for a quote."
+    }
+   ],
+   "gallery": [
+    "Tea estate in morning mist",
+    "Boat in Ratargul Swamp Forest",
+    "Clear river at Jaflong",
+    "Seven-layer tea",
+    "Green hills near Sripur",
+    "Quiet stretch of Lalakhal"
+   ],
+   "related": [
+    "bandarban",
+    "sundarbans",
+    "coxs-bazar"
+   ],
+   "heroImage": "https://picsum.photos/seed/sylhet-hero/1920/1080",
+   "cardImage": "https://picsum.photos/seed/sylhet/800/600"
+  },
+  "bn": {
+   "name": "সিলেট",
+   "region": "সিলেট বিভাগ",
+   "tagline": "বাংলাদেশের সবুজ উত্তর-পূর্বে কুয়াশাঘেরা চা-পাহাড়, জলাবন আর স্ফটিক স্বচ্ছ ঝরনা।",
+   "overviewTitle": "সবুজ পাহাড় আর স্বচ্ছ ঝরনার দেশ",
+   "duration": "২–৩ দিন",
+   "bestTime": "অক্টোবর – মার্চ",
+   "distance": "~২৪০ কিমি · বিমানে ৪০ মিনিট",
+   "style": "প্রকৃতি · চা-বাগান",
+   "overview": [
+    "সিলেট বাংলাদেশের সবচেয়ে সবুজ জায়গা। পাহাড়ে পাহাড়ে চা-বাগান, মেঘালয়ের পাহাড় থেকে নেমে আসা স্বচ্ছ নদী, আর বর্ষায় পানিতে ডুবে যাওয়া জলাবন, যেখানে গাছের গুঁড়ির ফাঁক দিয়ে নৌকা চলে।",
+    "দিনগুলো কাটে চা-বাগানে সহজ হাঁটা, নৌকাভ্রমণ, নদীর পাড়ে পিকনিক আর সাত রঙের চায়ের মতো স্থানীয় স্বাদে। ঢাকা থেকে সহজেই যাওয়া যায় বলে পরিবার ও দম্পতিদের প্রিয় গন্তব্য।"
+   ],
+   "highlights": [
+    "মালনীছড়া চা-বাগানে হাঁটা",
+    "রাতারগুল জলাবনে নৌকাভ্রমণ",
+    "জাফলংয়ের পাথুরে নদী",
+    "শ্রীপুরের স্বচ্ছ ঝরনা ও পিকনিক স্পট",
+    "সাত রঙের চায়ের স্বাদ",
+    "হযরত শাহজালাল (র.)-এর মাজার জিয়ারত"
+   ],
+   "attractions": [
+    {
+     "name": "রাতারগুল জলাবন",
+     "text": "পানিতে ডোবা বনের গাছের ফাঁক দিয়ে নৌকায় ঘোরা, পানি বেশি থাকলে সবচেয়ে সুন্দর।"
+    },
+    {
+     "name": "জাফলং",
+     "text": "মেঘালয় সীমান্তের নদী-উপত্যকা, পাথর সংগ্রহকারী আর পাহাড়ের দৃশ্য।"
+    },
+    {
+     "name": "মালনীছড়া চা-বাগান",
+     "text": "অঞ্চলের প্রাচীনতম বাণিজ্যিক চা-বাগান, আঁকাবাঁকা পথ ও ভিউপয়েন্টসহ।"
+    },
+    {
+     "name": "লালাখাল",
+     "text": "সবুজাভ-নীল পানির শান্ত নদী, ধীর নৌকাভ্রমণের জন্য আদর্শ।"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "চা-বাগান ও শহর",
+     "items": [
+      "এয়ারপোর্ট বা স্টেশন থেকে পিকআপ ও হোটেলে চেক-ইন",
+      "মালনীছড়া চা-বাগান ভ্রমণ",
+      "চায়ের স্বাদ নেওয়া ও স্থানীয় খাবারের দুপুর",
+      "সন্ধ্যায় হযরত শাহজালাল (র.)-এর মাজার"
+     ]
+    },
+    {
+     "title": "রাতারগুল ও লালাখাল",
+     "items": [
+      "ভোরে রাতারগুল জলাবনের উদ্দেশে যাত্রা",
+      "ডুবে থাকা গাছের মাঝে নৌকাভ্রমণ",
+      "দুপুরের খাবারের পর লালাখালে নৌকাভ্রমণ",
+      "সিলেট শহরে ফিরে রাতের খাবার"
+     ]
+    },
+    {
+     "title": "জাফলং ও শ্রীপুর",
+     "items": [
+      "জাফলং নদী-উপত্যকায় যাত্রা",
+      "পাথুরে নদীপথ ও সীমান্তের দৃশ্য দেখতে হাঁটা",
+      "শ্রীপুরের স্বচ্ছ ঝরনায় পিকনিক",
+      "এয়ারপোর্ট বা বাস-স্ট্যান্ডে পৌঁছে দেওয়া"
+     ]
+    }
+   ],
+   "included": [
+    "হোটেলে থাকা (দুইজন এক রুমে)",
+    "প্রতিদিন সকালের নাস্তা",
+    "ঘোরাঘুরির জন্য ব্যক্তিগত এসি গাড়ি",
+    "স্থানীয় গাইড",
+    "রাতারগুল ও লালাখালের নৌকার টিকিট",
+    "সিলেটে আনা-নেওয়া"
+   ],
+   "excluded": [
+    "সিলেট পর্যন্ত বিমান, ট্রেন বা বাসের টিকিট",
+    "দুপুর ও রাতের খাবার (আপগ্রেড না করলে)",
+    "ব্যক্তিগত খরচ ও কেনাকাটা",
+    "গাইড ও ড্রাইভারের বকশিশ"
+   ],
+   "seasons": [
+    {
+     "badge": "সেরা",
+     "range": "অক্টোবর – মার্চ",
+     "text": "ঠান্ডা, পরিষ্কার ও রৌদ্রোজ্জ্বল। চা-বাগান, জাফলং ও শ্রীপুরের জন্য আদর্শ।"
+    },
+    {
+     "badge": "ভালো",
+     "range": "এপ্রিল – মে",
+     "text": "উষ্ণ ও সবুজ, বিকেলে বজ্রবৃষ্টি হতে পারে।"
+    },
+    {
+     "badge": "বর্ষা",
+     "range": "জুন – সেপ্টেম্বর",
+     "text": "ভারী বৃষ্টি, কিন্তু এই সময়েই রাতারগুল পানিতে ভরে সবচেয়ে মায়াবী হয়ে ওঠে।"
+    }
+   ],
+   "transport": [
+    "<strong>বিমানে:</strong> ঢাকা থেকে প্রায় ৪০ মিনিট, প্রতিদিন ফ্লাইট আছে।",
+    "<strong>ট্রেনে:</strong> ঢাকা থেকে আন্তঃনগর ট্রেনে ৬–৭ ঘণ্টা।",
+    "<strong>বাসে:</strong> ঢাকা–সিলেট মহাসড়কে ৫–৭ ঘণ্টা।"
+   ],
+   "tips": [
+    "সারা বছরই সঙ্গে একটি হালকা রেইনকোট রাখুন।",
+    "চা-বাগানের পথে ভালো গ্রিপের জুতা পরুন।",
+    "ভিড় এড়াতে রাতারগুলে ভোরে যান।",
+    "সীমান্ত এলাকায় গাইডের নির্দেশ মেনে চলুন।"
+   ],
+   "faq": [
+    {
+     "q": "রাতারগুল যাওয়ার সেরা সময় কখন?",
+     "a": "জুন থেকে সেপ্টেম্বর, যখন গাছের মাঝে নৌকা চলার মতো পানি থাকে। শুকনো মৌসুমে বনের বেশিরভাগ অংশ শুকনো থাকে।"
+    },
+    {
+     "q": "আমি কি ভ্রমণসূচি নিজের মতো বদলাতে পারি?",
+     "a": "অবশ্যই। বুকিং ফর্মে আপনার তারিখ, বাজেট ও আগ্রহের কথা জানান, আমরা দিন, হোটেল ও কার্যক্রম সেভাবে সাজিয়ে দেব।"
+    },
+    {
+     "q": "কীভাবে পেমেন্ট করব?",
+     "a": "অনলাইনে কোনো পেমেন্ট নেওয়া হয় না। অনুরোধ পাঠালে আমরা সিট/রুম নিশ্চিত করে বিকাশ, নগদ বা ব্যাংক ট্রান্সফারের তথ্য পাঠাই।"
+    },
+    {
+     "q": "বাতিলের নিয়ম কী?",
+     "a": "যাত্রার ৭ দিন আগে পর্যন্ত বিনা খরচে বাতিল করা যায়। এরপর কত কাটা যাবে তা নির্ভর করে ইতিমধ্যে হওয়া হোটেল ও যাতায়াত বুকিংয়ের ওপর।"
+    },
+    {
+     "q": "গ্রুপে গেলে কি ছাড় আছে?",
+     "a": "৬ জন বা তার বেশি হলে জনপ্রতি কম মূল্য পাবেন। কোটেশনের জন্য হোয়াটসঅ্যাপে মেসেজ করুন।"
+    }
+   ],
+   "gallery": [
+    "ভোরের কুয়াশায় চা-বাগান",
+    "রাতারগুল জলাবনে নৌকা",
+    "জাফলংয়ের স্বচ্ছ নদী",
+    "সাত রঙের চা",
+    "শ্রীপুরের সবুজ পাহাড়",
+    "লালাখালের শান্ত একটি বাঁক"
+   ]
+  }
+ },
+ {
+  "sort": 4,
+  "en": {
+   "slug": "bandarban",
+   "overviewTitle": "Where the clouds come to rest",
+   "name": "Bandarban",
+   "region": "Chattogram Hill Tracts",
+   "tagline": "Rise above the clouds in Bangladesh's wild hill country.",
+   "price": 6000,
+   "duration": "3 days",
+   "bestTime": "Oct – Mar",
+   "distance": "~330 km · 8–10 hrs by road",
+   "style": "Hills · Adventure",
+   "overview": [
+    "Bandarban is Bangladesh's high country, where misty ridges, deep valleys and rushing waterfalls meet the homes of several indigenous communities. Mornings often start above a sea of clouds.",
+    "Roads are steep and views are huge. We handle local permits, jeeps and hill-community guides so you can focus on sunrise viewpoints, waterfalls and warm hospitality in the villages."
+   ],
+   "highlights": [
+    "Sea-of-clouds sunrise at Nilgiri",
+    "Swim below Nafakhum Waterfall",
+    "Visit the Golden Temple (Buddha Dhatu Jadi)",
+    "Boat ride on the Sangu River",
+    "Meet hill communities and taste local food",
+    "Chimbuk Hill viewpoint at golden hour"
+   ],
+   "attractions": [
+    {
+     "name": "Nilgiri",
+     "text": "A hilltop viewpoint at 2,200 ft, famous for cloud-level sunrises.",
+     "img": "https://picsum.photos/seed/bandarban-a1/640/420"
+    },
+    {
+     "name": "Nafakhum Waterfall",
+     "text": "A wide waterfall on the Sangu River, reached by boat and a short walk.",
+     "img": "https://picsum.photos/seed/bandarban-a2/640/420"
+    },
+    {
+     "name": "Golden Temple",
+     "text": "One of the largest Buddhist temples in the country, with gilded statues on a hill.",
+     "img": "https://picsum.photos/seed/bandarban-a3/640/420"
+    },
+    {
+     "name": "Boga Lake",
+     "text": "A high-altitude lake for trekkers who want a longer adventure.",
+     "img": "https://picsum.photos/seed/bandarban-a4/640/420"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "Arrival and the Golden Temple",
+     "items": [
+      "Arrive in Bandarban and check in",
+      "Visit the Golden Temple",
+      "Sunset at Meghla viewpoint",
+      "Dinner with local flavours"
+     ]
+    },
+    {
+     "title": "Nilgiri and Chimbuk",
+     "items": [
+      "Early jeep ride to Nilgiri for sunrise above the clouds",
+      "Breakfast with a view",
+      "Afternoon at Chimbuk Hill",
+      "Visit a local village"
+     ]
+    },
+    {
+     "title": "Sangu River and Nafakhum",
+     "items": [
+      "Boat ride along the Sangu River",
+      "Short walk to Nafakhum Waterfall",
+      "Swim and picnic lunch",
+      "Return journey and departure"
+     ]
+    }
+   ],
+   "included": [
+    "Hotel or resort stay",
+    "Daily breakfast",
+    "Local jeep (Chander Gari) for hill roads",
+    "Hill-community guide",
+    "Boat tickets",
+    "Local permits where required"
+   ],
+   "excluded": [
+    "Transport from Dhaka to Bandarban",
+    "Lunch and dinner (unless upgraded)",
+    "Personal expenses and shopping",
+    "Tips for guides and drivers"
+   ],
+   "seasons": [
+    {
+     "tone": "best",
+     "badge": "Best",
+     "range": "Oct – Feb",
+     "text": "Clear skies, cool air and the best sea-of-clouds mornings."
+    },
+    {
+     "tone": "good",
+     "badge": "Good",
+     "range": "Mar – May",
+     "text": "Hot days but great waterfalls. Start early and carry water."
+    },
+    {
+     "tone": "wet",
+     "badge": "Rainy",
+     "range": "Jun – Sep",
+     "text": "Lush and dramatic, but roads can be slippery and some trails close."
+    }
+   ],
+   "transport": [
+    "<strong>By bus:</strong> 8–10 hours from Dhaka via Chattogram.",
+    "<strong>By air + road:</strong> fly to Chattogram (1 hour), then 3–3.5 hours by road.",
+    "<strong>Local travel:</strong> only local jeeps are used on hill roads, and we book them for you."
+   ],
+   "tips": [
+    "Roads are steep and winding, so bring motion-sickness tablets if needed.",
+    "Wear shoes with grip for waterfalls and trails.",
+    "Ask before photographing people in villages.",
+    "Some areas need permits or local escorts, and we arrange them."
+   ],
+   "faq": [
+    {
+     "q": "Is a permit needed for Bandarban?",
+     "a": "Some areas and treks require permission from the local administration. We handle this for you, and we always confirm current rules before your trip."
+    },
+    {
+     "q": "Can I customise the itinerary?",
+     "a": "Absolutely. Tell us your dates, budget and interests in the booking form and we'll adjust the days, hotel and activities."
+    },
+    {
+     "q": "How do I pay?",
+     "a": "No payment is taken online. After you send a request we confirm availability and share bKash, Nagad or bank transfer details."
+    },
+    {
+     "q": "What is the cancellation policy?",
+     "a": "Free cancellation up to 7 days before departure. After that, charges depend on hotel and transport bookings already made."
+    },
+    {
+     "q": "Is there a group discount?",
+     "a": "Groups of 6 or more receive a reduced per-person price. Message us on WhatsApp for a quote."
+    }
+   ],
+   "gallery": [
+    "Sea of clouds at sunrise",
+    "Nafakhum Waterfall",
+    "Golden Temple on the hill",
+    "Jeep on a hill road",
+    "Village life in the hills",
+    "Sangu River at dusk"
+   ],
+   "related": [
+    "sylhet",
+    "coxs-bazar",
+    "saint-martin"
+   ],
+   "heroImage": "https://picsum.photos/seed/bandarban-hero/1920/1080",
+   "cardImage": "https://picsum.photos/seed/bandarban/800/600"
+  },
+  "bn": {
+   "name": "বান্দরবান",
+   "region": "পার্বত্য চট্টগ্রাম",
+   "tagline": "বাংলাদেশের বুনো পাহাড়ি অঞ্চলে মেঘের ওপরে উঠে যান।",
+   "overviewTitle": "যেখানে মেঘেরা জিরিয়ে নেয়",
+   "duration": "৩ দিন",
+   "bestTime": "অক্টোবর – মার্চ",
+   "distance": "~৩৩০ কিমি · সড়কপথে ৮–১০ ঘণ্টা",
+   "style": "পাহাড় · অ্যাডভেঞ্চার",
+   "overview": [
+    "বান্দরবান বাংলাদেশের উঁচু পাহাড়ি অঞ্চল, যেখানে কুয়াশাঘেরা পাহাড়ের সারি, গভীর উপত্যকা আর ঝরনার পাশাপাশি বাস করে একাধিক আদিবাসী জনগোষ্ঠী। ভোর হয় প্রায়ই মেঘের সাগরের ওপরে।",
+    "পথ খাড়া, দৃশ্য বিশাল। স্থানীয় অনুমতি, জিপ ও পাহাড়ি গাইড আমরাই ঠিক করি, আপনি শুধু সূর্যোদয়ের ভিউপয়েন্ট, ঝরনা আর গ্রামের আতিথেয়তা উপভোগ করুন।"
+   ],
+   "highlights": [
+    "নীলগিরিতে মেঘের সাগরে সূর্যোদয়",
+    "নাফাখুম জলপ্রপাতের নিচে সাঁতার",
+    "স্বর্ণমন্দির (বুদ্ধ ধাতু জাদি) দর্শন",
+    "সাঙ্গু নদীতে নৌভ্রমণ",
+    "পাহাড়ি জনগোষ্ঠীর সঙ্গে পরিচয় ও স্থানীয় খাবার",
+    "সোনালি আলোয় চিম্বুক পাহাড়ের ভিউপয়েন্ট"
+   ],
+   "attractions": [
+    {
+     "name": "নীলগিরি",
+     "text": "২,২০০ ফুট উচ্চতার পাহাড়চূড়া, মেঘের স্তরে সূর্যোদয়ের জন্য বিখ্যাত।"
+    },
+    {
+     "name": "নাফাখুম জলপ্রপাত",
+     "text": "সাঙ্গু নদীর ওপর প্রশস্ত জলপ্রপাত, নৌকা ও অল্প হাঁটাপথে যেতে হয়।"
+    },
+    {
+     "name": "স্বর্ণমন্দির",
+     "text": "দেশের অন্যতম বড় বৌদ্ধ মন্দির, পাহাড়ের ওপর সোনালি মূর্তিসহ।"
+    },
+    {
+     "name": "বগা লেক",
+     "text": "উঁচু পাহাড়ের হ্রদ, দীর্ঘ ট্রেকিং-অভিযানপ্রেমীদের জন্য।"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "আগমন ও স্বর্ণমন্দির",
+     "items": [
+      "বান্দরবানে পৌঁছে হোটেলে চেক-ইন",
+      "স্বর্ণমন্দির দর্শন",
+      "মেঘলা ভিউপয়েন্টে সূর্যাস্ত",
+      "স্থানীয় স্বাদের নৈশভোজ"
+     ]
+    },
+    {
+     "title": "নীলগিরি ও চিম্বুক",
+     "items": [
+      "মেঘের ওপরে সূর্যোদয় দেখতে ভোরে জিপে নীলগিরি যাত্রা",
+      "দৃশ্যসহ সকালের নাস্তা",
+      "বিকেলে চিম্বুক পাহাড়",
+      "একটি স্থানীয় গ্রাম ঘুরে দেখা"
+     ]
+    },
+    {
+     "title": "সাঙ্গু নদী ও নাফাখুম",
+     "items": [
+      "সাঙ্গু নদীতে নৌভ্রমণ",
+      "নাফাখুম জলপ্রপাত পর্যন্ত অল্প হাঁটা",
+      "সাঁতার ও পিকনিক লাঞ্চ",
+      "ফিরতি যাত্রা ও বিদায়"
+     ]
+    }
+   ],
+   "included": [
+    "হোটেল বা রিসোর্টে থাকা",
+    "প্রতিদিন সকালের নাস্তা",
+    "পাহাড়ি পথের জন্য স্থানীয় জিপ (চান্দের গাড়ি)",
+    "পাহাড়ি জনগোষ্ঠীর গাইড",
+    "নৌকার টিকিট",
+    "প্রয়োজনীয় স্থানীয় অনুমতি"
+   ],
+   "excluded": [
+    "ঢাকা থেকে বান্দরবান যাতায়াত",
+    "দুপুর ও রাতের খাবার (আপগ্রেড না করলে)",
+    "ব্যক্তিগত খরচ ও কেনাকাটা",
+    "গাইড ও ড্রাইভারের বকশিশ"
+   ],
+   "seasons": [
+    {
+     "badge": "সেরা",
+     "range": "অক্টোবর – ফেব্রুয়ারি",
+     "text": "পরিষ্কার আকাশ, ঠান্ডা বাতাস আর মেঘের সাগরে সবচেয়ে সুন্দর ভোর।"
+    },
+    {
+     "badge": "ভালো",
+     "range": "মার্চ – মে",
+     "text": "দিনে গরম, তবে ঝরনায় পানি থাকে ভালো। ভোরে বের হোন, সঙ্গে পানি রাখুন।"
+    },
+    {
+     "badge": "বর্ষা",
+     "range": "জুন – সেপ্টেম্বর",
+     "text": "সবুজ ও নাটকীয়, কিন্তু পথ পিচ্ছিল হতে পারে এবং কিছু ট্রেইল বন্ধ থাকে।"
+    }
+   ],
+   "transport": [
+    "<strong>বাসে:</strong> ঢাকা থেকে চট্টগ্রাম হয়ে ৮–১০ ঘণ্টা।",
+    "<strong>বিমান + সড়ক:</strong> চট্টগ্রামে বিমানে (১ ঘণ্টা), তারপর সড়কপথে ৩–৩.৫ ঘণ্টা।",
+    "<strong>স্থানীয় যাতায়াত:</strong> পাহাড়ি পথে শুধু স্থানীয় জিপ চলে, আমরা সেটি বুক করে দিই।"
+   ],
+   "tips": [
+    "পথ খাড়া ও আঁকাবাঁকা, প্রয়োজনে বমি-বমি ভাব কমানোর ওষুধ রাখুন।",
+    "ঝরনা ও ট্রেইলের জন্য গ্রিপওয়ালা জুতা পরুন।",
+    "গ্রামে কারও ছবি তোলার আগে অনুমতি নিন।",
+    "কিছু এলাকায় অনুমতি বা স্থানীয় সঙ্গী লাগে, সেটি আমরা ঠিক করে দিই।"
+   ],
+   "faq": [
+    {
+     "q": "বান্দরবানের জন্য কি অনুমতি লাগে?",
+     "a": "কিছু এলাকা ও ট্রেকিংয়ে স্থানীয় প্রশাসনের অনুমতি প্রয়োজন। আমরাই তা সামলাই, আর ভ্রমণের আগে সর্বশেষ নিয়ম জানিয়ে দিই।"
+    },
+    {
+     "q": "আমি কি ভ্রমণসূচি নিজের মতো বদলাতে পারি?",
+     "a": "অবশ্যই। বুকিং ফর্মে আপনার তারিখ, বাজেট ও আগ্রহের কথা জানান, আমরা দিন, হোটেল ও কার্যক্রম সেভাবে সাজিয়ে দেব।"
+    },
+    {
+     "q": "কীভাবে পেমেন্ট করব?",
+     "a": "অনলাইনে কোনো পেমেন্ট নেওয়া হয় না। অনুরোধ পাঠালে আমরা সিট/রুম নিশ্চিত করে বিকাশ, নগদ বা ব্যাংক ট্রান্সফারের তথ্য পাঠাই।"
+    },
+    {
+     "q": "বাতিলের নিয়ম কী?",
+     "a": "যাত্রার ৭ দিন আগে পর্যন্ত বিনা খরচে বাতিল করা যায়। এরপর কত কাটা যাবে তা নির্ভর করে ইতিমধ্যে হওয়া হোটেল ও যাতায়াত বুকিংয়ের ওপর।"
+    },
+    {
+     "q": "গ্রুপে গেলে কি ছাড় আছে?",
+     "a": "৬ জন বা তার বেশি হলে জনপ্রতি কম মূল্য পাবেন। কোটেশনের জন্য হোয়াটসঅ্যাপে মেসেজ করুন।"
+    }
+   ],
+   "gallery": [
+    "সূর্যোদয়ে মেঘের সাগর",
+    "নাফাখুম জলপ্রপাত",
+    "পাহাড়ের ওপর স্বর্ণমন্দির",
+    "পাহাড়ি পথে জিপ",
+    "পাহাড়ি গ্রামের জীবন",
+    "গোধূলিতে সাঙ্গু নদী"
+   ]
+  }
+ },
+ {
+  "sort": 5,
+  "en": {
+   "slug": "saint-martin",
+   "overviewTitle": "Island time, turquoise water",
+   "name": "Saint Martin's Island",
+   "region": "Bay of Bengal",
+   "tagline": "Bangladesh's only coral island, ringed by turquoise water and coconut palms.",
+   "price": 7000,
+   "duration": "2–3 days",
+   "bestTime": "Nov – Feb",
+   "distance": "~9 km offshore · via Teknaf",
+   "style": "Island · Beach",
+   "overview": [
+    "Saint Martin's is a tiny coral island at the southern tip of the country. Clear water, coconut palms, quiet lanes and a slow rhythm of life make it feel a world away from the mainland.",
+    "The journey itself is part of the fun: a coastal drive to Teknaf, then a ship across the bay. Once there, days are for swimming, walking the shoreline, tasting fresh fish and watching the sunset from the rocks."
+   ],
+   "highlights": [
+    "Ship ride across the Bay of Bengal",
+    "Swim in clear, turquoise water",
+    "Walk to Chhera Dwip at low tide",
+    "Sunset from the western shore",
+    "Fresh seafood and coconut water",
+    "Stargazing on the beach"
+   ],
+   "attractions": [
+    {
+     "name": "Chhera Dwip",
+     "text": "A small rocky outcrop at the island's tip, reachable on foot at low tide.",
+     "img": "https://picsum.photos/seed/saint-martin-a1/640/420"
+    },
+    {
+     "name": "Coral shoreline",
+     "text": "Rock and coral pools along the beach, with calm swimming spots.",
+     "img": "https://picsum.photos/seed/saint-martin-a2/640/420"
+    },
+    {
+     "name": "Sunset Point",
+     "text": "The west shore, where the sky turns orange over the water.",
+     "img": "https://picsum.photos/seed/saint-martin-a3/640/420"
+    },
+    {
+     "name": "Island village",
+     "text": "Narrow lanes, dried fish racks and friendly local shops.",
+     "img": "https://picsum.photos/seed/saint-martin-a4/640/420"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "Teknaf and the ship to the island",
+     "items": [
+      "Early pickup and coastal drive to Teknaf",
+      "Board the ship to Saint Martin's",
+      "Check in and lunch",
+      "Evening walk and sunset"
+     ]
+    },
+    {
+     "title": "Chhera Dwip and the shoreline",
+     "items": [
+      "Breakfast, then a walk to Chhera Dwip at low tide",
+      "Swim and relax on the beach",
+      "Local seafood lunch",
+      "Stargazing after dinner"
+     ]
+    },
+    {
+     "title": "Return to the mainland",
+     "items": [
+      "Sunrise walk",
+      "Breakfast and check-out",
+      "Ship back to Teknaf",
+      "Drive to Cox's Bazar"
+     ]
+    }
+   ],
+   "included": [
+    "Resort or cottage stay",
+    "Daily breakfast",
+    "Ship ticket (round trip)",
+    "Transport between Cox's Bazar and Teknaf",
+    "Local guide",
+    "Welcome coconut"
+   ],
+   "excluded": [
+    "Travel to Cox's Bazar",
+    "Lunch and dinner (unless upgraded)",
+    "Personal expenses",
+    "Tips for guides and drivers"
+   ],
+   "seasons": [
+    {
+     "tone": "best",
+     "badge": "Best",
+     "range": "Nov – Feb",
+     "text": "Calm sea, clear water and comfortable weather for the ship ride."
+    },
+    {
+     "tone": "good",
+     "badge": "Good",
+     "range": "Mar",
+     "text": "Hotter, but still a regular ship service and good swimming."
+    },
+    {
+     "tone": "wet",
+     "badge": "Closed",
+     "range": "Apr – Oct",
+     "text": "Rough seas, and ship services are usually suspended in these months."
+    }
+   ],
+   "transport": [
+    "<strong>To Cox's Bazar:</strong> fly or take a coach from Dhaka first.",
+    "<strong>To Teknaf:</strong> about 2.5–3 hours by road from Cox's Bazar along Marine Drive.",
+    "<strong>To the island:</strong> ship from Teknaf, about 2–3 hours, in season."
+   ],
+   "tips": [
+    "Respect the coral and never collect shells, corals or live creatures.",
+    "Carry cash, as ATMs are not available on the island.",
+    "Bring sun protection and a power bank.",
+    "Rules on overnight stays and ship schedules can change, so we confirm them before booking."
+   ],
+   "faq": [
+    {
+     "q": "Can we stay overnight on the island?",
+     "a": "Overnight rules and ship schedules can change from season to season. We confirm the latest regulations with you before you book, so you are never caught out."
+    },
+    {
+     "q": "Can I customise the itinerary?",
+     "a": "Absolutely. Tell us your dates, budget and interests in the booking form and we'll adjust the days, hotel and activities."
+    },
+    {
+     "q": "How do I pay?",
+     "a": "No payment is taken online. After you send a request we confirm availability and share bKash, Nagad or bank transfer details."
+    },
+    {
+     "q": "What is the cancellation policy?",
+     "a": "Free cancellation up to 7 days before departure. After that, charges depend on hotel and transport bookings already made."
+    },
+    {
+     "q": "Is there a group discount?",
+     "a": "Groups of 6 or more receive a reduced per-person price. Message us on WhatsApp for a quote."
+    }
+   ],
+   "gallery": [
+    "Turquoise water at the shore",
+    "Ship crossing the bay",
+    "Coconut palms on the beach",
+    "Chhera Dwip at low tide",
+    "Sunset over the island",
+    "Fresh fish lunch"
+   ],
+   "related": [
+    "coxs-bazar",
+    "kuakata",
+    "bandarban"
+   ],
+   "heroImage": "https://picsum.photos/seed/saint-martin-hero/1920/1080",
+   "cardImage": "https://picsum.photos/seed/saintmartin/800/600"
+  },
+  "bn": {
+   "name": "সেন্ট মার্টিন দ্বীপ",
+   "region": "বঙ্গোপসাগর",
+   "tagline": "বাংলাদেশের একমাত্র প্রবাল দ্বীপ, চারদিকে নীল জল আর নারকেল গাছের সারি।",
+   "overviewTitle": "দ্বীপের ধীর সময়, নীলাভ জল",
+   "duration": "২–৩ দিন",
+   "bestTime": "নভেম্বর – ফেব্রুয়ারি",
+   "distance": "~৯ কিমি দূরে · টেকনাফ হয়ে",
+   "style": "দ্বীপ · সৈকত",
+   "overview": [
+    "সেন্ট মার্টিন দেশের দক্ষিণ প্রান্তের একটি ছোট্ট প্রবাল দ্বীপ। স্বচ্ছ জল, নারকেল গাছ, নিরিবিলি গলি আর ধীর গতির জীবন যেন মূল ভূখণ্ড থেকে অনেক দূরের কোনো জগৎ।",
+    "যাত্রাটাই মজার অংশ: উপকূল ধরে টেকনাফ পর্যন্ত সড়কপথ, তারপর জাহাজে সাগর পাড়ি। দ্বীপে দিন কাটে সাঁতার, তীর ধরে হাঁটা, তাজা মাছের স্বাদ আর পাথরের ওপর বসে সূর্যাস্ত দেখায়।"
+   ],
+   "highlights": [
+    "বঙ্গোপসাগরে জাহাজে ভ্রমণ",
+    "স্বচ্ছ নীল জলে সাঁতার",
+    "ভাটার সময় ছেঁড়া দ্বীপ পর্যন্ত হাঁটা",
+    "পশ্চিম তীর থেকে সূর্যাস্ত",
+    "তাজা সামুদ্রিক খাবার ও ডাবের পানি",
+    "সৈকতে বসে তারা দেখা"
+   ],
+   "attractions": [
+    {
+     "name": "ছেঁড়া দ্বীপ",
+     "text": "দ্বীপের দক্ষিণ প্রান্তে ছোট পাথুরে অংশ, ভাটার সময় হেঁটে যাওয়া যায়।"
+    },
+    {
+     "name": "প্রবাল তটরেখা",
+     "text": "সৈকত বরাবর পাথর ও প্রবালের জলাধার, সাঁতারের জন্য শান্ত জায়গা।"
+    },
+    {
+     "name": "সানসেট পয়েন্ট",
+     "text": "পশ্চিম তীর, যেখানে সূর্যাস্তে জলের ওপর আকাশ কমলা হয়ে ওঠে।"
+    },
+    {
+     "name": "দ্বীপের গ্রাম",
+     "text": "সরু গলি, শুঁটকির মাচা আর আন্তরিক স্থানীয় দোকান।"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "টেকনাফ ও দ্বীপের জাহাজ",
+     "items": [
+      "ভোরে পিকআপ ও উপকূল ধরে টেকনাফ যাত্রা",
+      "সেন্ট মার্টিনগামী জাহাজে ওঠা",
+      "চেক-ইন ও দুপুরের খাবার",
+      "সন্ধ্যায় হাঁটা ও সূর্যাস্ত"
+     ]
+    },
+    {
+     "title": "ছেঁড়া দ্বীপ ও তটরেখা",
+     "items": [
+      "সকালের নাস্তার পর ভাটার সময় ছেঁড়া দ্বীপে হাঁটা",
+      "সৈকতে সাঁতার ও বিশ্রাম",
+      "স্থানীয় সামুদ্রিক খাবারের দুপুর",
+      "রাতের খাবারের পর তারা দেখা"
+     ]
+    },
+    {
+     "title": "মূল ভূখণ্ডে ফেরা",
+     "items": [
+      "ভোরে সৈকতে হাঁটা",
+      "সকালের নাস্তা ও চেক-আউট",
+      "টেকনাফের জাহাজে ফেরা",
+      "কক্সবাজার পর্যন্ত সড়কপথ"
+     ]
+    }
+   ],
+   "included": [
+    "রিসোর্ট বা কটেজে থাকা",
+    "প্রতিদিন সকালের নাস্তা",
+    "জাহাজের টিকিট (আসা-যাওয়া)",
+    "কক্সবাজার–টেকনাফ যাতায়াত",
+    "স্থানীয় গাইড",
+    "স্বাগত ডাব"
+   ],
+   "excluded": [
+    "কক্সবাজার পর্যন্ত যাতায়াত",
+    "দুপুর ও রাতের খাবার (আপগ্রেড না করলে)",
+    "ব্যক্তিগত খরচ",
+    "গাইড ও ড্রাইভারের বকশিশ"
+   ],
+   "seasons": [
+    {
+     "badge": "সেরা",
+     "range": "নভেম্বর – ফেব্রুয়ারি",
+     "text": "শান্ত সাগর, স্বচ্ছ জল এবং জাহাজযাত্রার জন্য আরামদায়ক আবহাওয়া।"
+    },
+    {
+     "badge": "ভালো",
+     "range": "মার্চ",
+     "text": "আরেকটু গরম, তবে নিয়মিত জাহাজ চলে আর সাঁতারের জন্য ভালো।"
+    },
+    {
+     "badge": "বন্ধ",
+     "range": "এপ্রিল – অক্টোবর",
+     "text": "উত্তাল সাগর, এই মাসগুলোতে জাহাজ চলাচল সাধারণত বন্ধ থাকে।"
+    }
+   ],
+   "transport": [
+    "<strong>কক্সবাজার পর্যন্ত:</strong> প্রথমে ঢাকা থেকে বিমানে বা কোচে আসুন।",
+    "<strong>টেকনাফ পর্যন্ত:</strong> কক্সবাজার থেকে মেরিন ড্রাইভ ধরে সড়কপথে প্রায় ২.৫–৩ ঘণ্টা।",
+    "<strong>দ্বীপে:</strong> মৌসুমে টেকনাফ থেকে জাহাজে প্রায় ২–৩ ঘণ্টা।"
+   ],
+   "tips": [
+    "প্রবালকে সম্মান করুন, কখনো ঝিনুক, প্রবাল বা জীবন্ত প্রাণী সংগ্রহ করবেন না।",
+    "দ্বীপে এটিএম নেই, তাই নগদ টাকা সঙ্গে রাখুন।",
+    "সানস্ক্রিন ও পাওয়ার ব্যাংক নিন।",
+    "রাত্রিযাপনের নিয়ম ও জাহাজের সময়সূচি বদলাতে পারে, তাই বুকিংয়ের আগে আমরা তা নিশ্চিত করি।"
+   ],
+   "faq": [
+    {
+     "q": "দ্বীপে কি রাত কাটানো যায়?",
+     "a": "রাত্রিযাপনের নিয়ম ও জাহাজের সময়সূচি মৌসুমভেদে বদলাতে পারে। বুকিংয়ের আগে আমরা সর্বশেষ নিয়ম জানিয়ে দিই, যাতে আপনি অপ্রস্তুত না হন।"
+    },
+    {
+     "q": "আমি কি ভ্রমণসূচি নিজের মতো বদলাতে পারি?",
+     "a": "অবশ্যই। বুকিং ফর্মে আপনার তারিখ, বাজেট ও আগ্রহের কথা জানান, আমরা দিন, হোটেল ও কার্যক্রম সেভাবে সাজিয়ে দেব।"
+    },
+    {
+     "q": "কীভাবে পেমেন্ট করব?",
+     "a": "অনলাইনে কোনো পেমেন্ট নেওয়া হয় না। অনুরোধ পাঠালে আমরা সিট/রুম নিশ্চিত করে বিকাশ, নগদ বা ব্যাংক ট্রান্সফারের তথ্য পাঠাই।"
+    },
+    {
+     "q": "বাতিলের নিয়ম কী?",
+     "a": "যাত্রার ৭ দিন আগে পর্যন্ত বিনা খরচে বাতিল করা যায়। এরপর কত কাটা যাবে তা নির্ভর করে ইতিমধ্যে হওয়া হোটেল ও যাতায়াত বুকিংয়ের ওপর।"
+    },
+    {
+     "q": "গ্রুপে গেলে কি ছাড় আছে?",
+     "a": "৬ জন বা তার বেশি হলে জনপ্রতি কম মূল্য পাবেন। কোটেশনের জন্য হোয়াটসঅ্যাপে মেসেজ করুন।"
+    }
+   ],
+   "gallery": [
+    "তটরেখায় নীল জল",
+    "সাগর পাড়ি দিচ্ছে জাহাজ",
+    "সৈকতে নারকেল গাছ",
+    "ভাটায় ছেঁড়া দ্বীপ",
+    "দ্বীপের ওপর সূর্যাস্ত",
+    "তাজা মাছের দুপুর"
+   ]
+  }
+ },
+ {
+  "sort": 6,
+  "en": {
+   "slug": "kuakata",
+   "overviewTitle": "One beach, two skies",
+   "name": "Kuakata",
+   "region": "Barishal Division",
+   "tagline": "Watch the sun rise and set over the same sea.",
+   "price": 4000,
+   "duration": "2 days",
+   "bestTime": "Nov – Mar",
+   "distance": "~320 km · Barishal Division",
+   "style": "Beach · Culture",
+   "overview": [
+    "Kuakata is one of the few places in South Asia where you can watch both sunrise and sunset over the sea from the same beach. The wide, gently sloping shore is quieter than other coasts and perfect for slow family trips.",
+    "Beyond the sea, you'll find mangrove islands, the vibrant Rakhine Buddhist community, riverside villages and plenty of fresh river fish."
+   ],
+   "highlights": [
+    "Sunrise and sunset on the same beach",
+    "Boat trip to Fatrar Char mangrove island",
+    "Walk through Gangamati Reserved Forest",
+    "Visit the Rakhine Buddhist temple",
+    "Local handicraft shopping",
+    "Fresh hilsa and river fish"
+   ],
+   "attractions": [
+    {
+     "name": "Kuakata Sea Beach",
+     "text": "A wide, sandy beach with calm waves and uninterrupted horizons.",
+     "img": "https://picsum.photos/seed/kuakata-a1/640/420"
+    },
+    {
+     "name": "Fatrar Char",
+     "text": "A mangrove-fringed island reached by boat, great for birds and quiet.",
+     "img": "https://picsum.photos/seed/kuakata-a2/640/420"
+    },
+    {
+     "name": "Gangamati Forest",
+     "text": "A reserved coastal forest with walking trails and shade.",
+     "img": "https://picsum.photos/seed/kuakata-a3/640/420"
+    },
+    {
+     "name": "Rakhine Temple",
+     "text": "A peaceful Buddhist temple with a large Buddha statue and local craft shops.",
+     "img": "https://picsum.photos/seed/kuakata-a4/640/420"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "Arrival and sunset by the sea",
+     "items": [
+      "Arrive in Kuakata and check in",
+      "Lunch with fresh river fish",
+      "Free time on the beach",
+      "Sunset walk and dinner"
+     ]
+    },
+    {
+     "title": "Sunrise, Fatrar Char and departure",
+     "items": [
+      "Sunrise on the beach with tea",
+      "Breakfast, then a boat trip to Fatrar Char",
+      "Visit the Rakhine temple and craft market",
+      "Check-out and return"
+     ]
+    }
+   ],
+   "included": [
+    "Hotel stay (twin-sharing)",
+    "Daily breakfast",
+    "Local transport and guide",
+    "Boat ticket to Fatrar Char",
+    "Pickup and drop at Kuakata"
+   ],
+   "excluded": [
+    "Transport from Dhaka to Kuakata",
+    "Lunch and dinner (unless upgraded)",
+    "Personal expenses and shopping",
+    "Tips for guides and drivers"
+   ],
+   "seasons": [
+    {
+     "tone": "best",
+     "badge": "Best",
+     "range": "Nov – Feb",
+     "text": "Cool, clear skies and the best sunrise and sunset views."
+    },
+    {
+     "tone": "good",
+     "badge": "Good",
+     "range": "Mar – May",
+     "text": "Warm and quiet, with lower hotel prices."
+    },
+    {
+     "tone": "wet",
+     "badge": "Rainy",
+     "range": "Jun – Oct",
+     "text": "Stormy skies and rough waves, and some boat trips may stop."
+    }
+   ],
+   "transport": [
+    "<strong>By bus:</strong> about 6–8 hours from Dhaka via the Padma Bridge.",
+    "<strong>By launch:</strong> overnight launch to Barishal, then about 2.5–3 hours by road.",
+    "<strong>By air:</strong> fly to Barishal (about 35 minutes), then 2.5–3 hours by road."
+   ],
+   "tips": [
+    "Arrive before sunset on the first day so you catch both views.",
+    "Sea currents can be strong, so swim only where locals do.",
+    "Carry cash and mosquito repellent.",
+    "Dress modestly at the temple."
+   ],
+   "faq": [
+    {
+     "q": "Is Kuakata good for a short weekend trip?",
+     "a": "Yes. A two-day plan is enough to see both sunrise and sunset, the mangrove island and the temple, though the journey from Dhaka is long."
+    },
+    {
+     "q": "Can I customise the itinerary?",
+     "a": "Absolutely. Tell us your dates, budget and interests in the booking form and we'll adjust the days, hotel and activities."
+    },
+    {
+     "q": "How do I pay?",
+     "a": "No payment is taken online. After you send a request we confirm availability and share bKash, Nagad or bank transfer details."
+    },
+    {
+     "q": "What is the cancellation policy?",
+     "a": "Free cancellation up to 7 days before departure. After that, charges depend on hotel and transport bookings already made."
+    },
+    {
+     "q": "Is there a group discount?",
+     "a": "Groups of 6 or more receive a reduced per-person price. Message us on WhatsApp for a quote."
+    }
+   ],
+   "gallery": [
+    "Sunrise over the Kuakata sea",
+    "Wide, quiet beach",
+    "Fishing boats at dawn",
+    "Mangrove at Fatrar Char",
+    "Buddha statue at the temple",
+    "Fresh river fish lunch"
+   ],
+   "related": [
+    "coxs-bazar",
+    "saint-martin",
+    "sundarbans"
+   ],
+   "heroImage": "https://picsum.photos/seed/kuakata-hero/1920/1080",
+   "cardImage": "https://picsum.photos/seed/kuakata/800/600"
+  },
+  "bn": {
+   "name": "কুয়াকাটা",
+   "region": "বরিশাল বিভাগ",
+   "tagline": "একই সাগরে সূর্যোদয় ও সূর্যাস্ত দেখুন।",
+   "overviewTitle": "এক সৈকত, দুই আকাশ",
+   "duration": "২ দিন",
+   "bestTime": "নভেম্বর – মার্চ",
+   "distance": "~৩২০ কিমি · বরিশাল বিভাগ",
+   "style": "সৈকত · সংস্কৃতি",
+   "overview": [
+    "দক্ষিণ এশিয়ায় খুব কম জায়গা আছে যেখানে একই সৈকত থেকে সাগরের বুকে সূর্যোদয় ও সূর্যাস্ত দুটিই দেখা যায়, কুয়াকাটা তার একটি। চওড়া, ধীরে ঢালু তট অন্য উপকূলের চেয়ে শান্ত, ধীর পারিবারিক ভ্রমণের জন্য চমৎকার।",
+    "সাগরের বাইরেও আছে ম্যানগ্রোভ দ্বীপ, প্রাণবন্ত রাখাইন বৌদ্ধ সম্প্রদায়, নদীতীরের গ্রাম আর তাজা নদীর মাছ।"
+   ],
+   "highlights": [
+    "একই সৈকতে সূর্যোদয় ও সূর্যাস্ত",
+    "ফাতরার চর ম্যানগ্রোভ দ্বীপে নৌ-ভ্রমণ",
+    "গঙ্গামতি সংরক্ষিত বনে হাঁটা",
+    "রাখাইন বৌদ্ধ মন্দির দর্শন",
+    "স্থানীয় হস্তশিল্প কেনাকাটা",
+    "তাজা ইলিশ ও নদীর মাছ"
+   ],
+   "attractions": [
+    {
+     "name": "কুয়াকাটা সমুদ্রসৈকত",
+     "text": "শান্ত ঢেউ আর অবারিত দিগন্ত নিয়ে চওড়া বালুর সৈকত।"
+    },
+    {
+     "name": "ফাতরার চর",
+     "text": "ম্যানগ্রোভে ঘেরা দ্বীপ, নৌকায় যেতে হয়, পাখি ও নিস্তব্ধতার জন্য সেরা।"
+    },
+    {
+     "name": "গঙ্গামতি বন",
+     "text": "হাঁটার পথ ও ছায়াঘেরা উপকূলীয় সংরক্ষিত বন।"
+    },
+    {
+     "name": "রাখাইন মন্দির",
+     "text": "বিশাল বুদ্ধমূর্তি ও স্থানীয় হস্তশিল্পের দোকানসহ শান্ত বৌদ্ধ মন্দির।"
+    }
+   ],
+   "itinerary": [
+    {
+     "title": "আগমন ও সাগরপাড়ে সূর্যাস্ত",
+     "items": [
+      "কুয়াকাটায় পৌঁছে হোটেলে চেক-ইন",
+      "তাজা নদীর মাছসহ দুপুরের খাবার",
+      "সৈকতে অবসর সময়",
+      "সূর্যাস্তের হাঁটা ও নৈশভোজ"
+     ]
+    },
+    {
+     "title": "সূর্যোদয়, ফাতরার চর ও বিদায়",
+     "items": [
+      "চা হাতে সৈকতে সূর্যোদয়",
+      "সকালের নাস্তার পর ফাতরার চরে নৌ-ভ্রমণ",
+      "রাখাইন মন্দির ও হস্তশিল্প বাজার ঘুরে দেখা",
+      "চেক-আউট ও ফেরা"
+     ]
+    }
+   ],
+   "included": [
+    "হোটেলে থাকা (দুইজন এক রুমে)",
+    "প্রতিদিন সকালের নাস্তা",
+    "স্থানীয় যাতায়াত ও গাইড",
+    "ফাতরার চরের নৌকার টিকিট",
+    "কুয়াকাটায় আনা-নেওয়া"
+   ],
+   "excluded": [
+    "ঢাকা থেকে কুয়াকাটা যাতায়াত",
+    "দুপুর ও রাতের খাবার (আপগ্রেড না করলে)",
+    "ব্যক্তিগত খরচ ও কেনাকাটা",
+    "গাইড ও ড্রাইভারের বকশিশ"
+   ],
+   "seasons": [
+    {
+     "badge": "সেরা",
+     "range": "নভেম্বর – ফেব্রুয়ারি",
+     "text": "ঠান্ডা, পরিষ্কার আকাশ এবং সূর্যোদয়-সূর্যাস্তের সেরা দৃশ্য।"
+    },
+    {
+     "badge": "ভালো",
+     "range": "মার্চ – মে",
+     "text": "উষ্ণ ও নিরিবিলি, হোটেলের দামও কম।"
+    },
+    {
+     "badge": "বর্ষা",
+     "range": "জুন – অক্টোবর",
+     "text": "ঝোড়ো আকাশ ও উত্তাল ঢেউ, কিছু নৌ-ভ্রমণ বন্ধ থাকতে পারে।"
+    }
+   ],
+   "transport": [
+    "<strong>বাসে:</strong> পদ্মা সেতু হয়ে ঢাকা থেকে প্রায় ৬–৮ ঘণ্টা।",
+    "<strong>লঞ্চে:</strong> রাতের লঞ্চে বরিশাল, তারপর সড়কপথে প্রায় ২.৫–৩ ঘণ্টা।",
+    "<strong>বিমানে:</strong> বরিশালে বিমানে (প্রায় ৩৫ মিনিট), তারপর সড়কপথে ২.৫–৩ ঘণ্টা।"
+   ],
+   "tips": [
+    "প্রথম দিন সূর্যাস্তের আগে পৌঁছান, তাহলে দুই দৃশ্যই দেখতে পাবেন।",
+    "সাগরের স্রোত তীব্র হতে পারে, শুধু স্থানীয়রা যেখানে নামে সেখানেই সাঁতার কাটুন।",
+    "নগদ টাকা ও মশা তাড়ানোর ক্রিম সঙ্গে রাখুন।",
+    "মন্দিরে যাওয়ার সময় শালীন পোশাক পরুন।"
+   ],
+   "faq": [
+    {
+     "q": "ছোট উইকেন্ড ট্রিপের জন্য কি কুয়াকাটা ঠিক আছে?",
+     "a": "হ্যাঁ। দুই দিনেই সূর্যোদয়, সূর্যাস্ত, ম্যানগ্রোভ দ্বীপ ও মন্দির ঘুরে দেখা যায়, যদিও ঢাকা থেকে যাত্রাপথটি দীর্ঘ।"
+    },
+    {
+     "q": "আমি কি ভ্রমণসূচি নিজের মতো বদলাতে পারি?",
+     "a": "অবশ্যই। বুকিং ফর্মে আপনার তারিখ, বাজেট ও আগ্রহের কথা জানান, আমরা দিন, হোটেল ও কার্যক্রম সেভাবে সাজিয়ে দেব।"
+    },
+    {
+     "q": "কীভাবে পেমেন্ট করব?",
+     "a": "অনলাইনে কোনো পেমেন্ট নেওয়া হয় না। অনুরোধ পাঠালে আমরা সিট/রুম নিশ্চিত করে বিকাশ, নগদ বা ব্যাংক ট্রান্সফারের তথ্য পাঠাই।"
+    },
+    {
+     "q": "বাতিলের নিয়ম কী?",
+     "a": "যাত্রার ৭ দিন আগে পর্যন্ত বিনা খরচে বাতিল করা যায়। এরপর কত কাটা যাবে তা নির্ভর করে ইতিমধ্যে হওয়া হোটেল ও যাতায়াত বুকিংয়ের ওপর।"
+    },
+    {
+     "q": "গ্রুপে গেলে কি ছাড় আছে?",
+     "a": "৬ জন বা তার বেশি হলে জনপ্রতি কম মূল্য পাবেন। কোটেশনের জন্য হোয়াটসঅ্যাপে মেসেজ করুন।"
+    }
+   ],
+   "gallery": [
+    "কুয়াকাটার সাগরে সূর্যোদয়",
+    "চওড়া নিরিবিলি সৈকত",
+    "ভোরের জেলে নৌকা",
+    "ফাতরার চরের ম্যানগ্রোভ",
+    "মন্দিরে বুদ্ধমূর্তি",
+    "তাজা নদীর মাছের দুপুর"
+   ]
+  }
+ }
+]
