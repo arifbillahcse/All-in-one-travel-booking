@@ -35,7 +35,7 @@ class SecurityHeaders
             'X-Frame-Options' => $isAdmin ? 'SAMEORIGIN' : 'DENY',
         ];
 
-        if ($isAdmin) {
+        if ($isAdmin || config('travelorio.noindex')) {
             $headers['X-Robots-Tag'] = 'noindex, nofollow';
         } else {
             $headers['Content-Security-Policy'] = $this->policy($nonce);

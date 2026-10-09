@@ -15,6 +15,10 @@ class SeoController extends Controller
 {
     public function robots(): Response
     {
+        if (config('travelorio.noindex')) {
+            return response("User-agent: *\nDisallow: /\n", 200, ['Content-Type' => 'text/plain; charset=UTF-8']);
+        }
+
         $lines = [
             'User-agent: *',
             'Disallow: /admin',

@@ -30,7 +30,7 @@
 <meta name="twitter:title" content="{{ $metaTitle }}">
 <meta name="twitter:description" content="{{ $metaDescription }}">
 <meta name="twitter:image" content="{{ $shareImage }}">
-@if (! empty($noindex))
+@if (! empty($noindex) || config('travelorio.noindex'))
 <meta name="robots" content="noindex,follow">
 @endif
 @isset($publishedAt)

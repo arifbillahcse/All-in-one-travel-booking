@@ -16,7 +16,7 @@ being migrated from a static HTML/CSS/JS site to Laravel 11.
 | 7 | Admin panel (Filament) | done |
 | 8 | Photo uploads, SEO and speed | done |
 | 9 | Security headers, browser tests, accessibility, CI | done |
-| 10 | Deploy | next: Phase 10 |
+| 10 | Deployment, backups, handover | done |
 
 The original static site is kept untouched in `static-backup/` as the visual reference.
 
@@ -185,3 +185,12 @@ and accessibility (text contrast in light and dark mode, keyboard focus, reduced
 
 **Accessibility**: colours were checked against WCAG AA. The call-to-action coral is now a deeper tone (`--accent-strong`) so white text reaches 5:1;
 the bright coral stays for decoration and dark backgrounds.
+
+## Deployment and operations
+
+- Server guide: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md); owner's guide: [docs/HANDOVER.md](docs/HANDOVER.md).
+- Config templates in `deploy/` (Nginx, Supervisor queue worker, cron, `deploy.sh`) and `.env.production.example`.
+- `php artisan travelorio:preflight [--strict]` checks debug off, https URL, real mail, queue, logs, PHP limits, build and storage link.
+- `php artisan travelorio:backup` / `travelorio:restore [file]`: DB + photos in one checksummed zip; nightly at 02:30 via the scheduler; optional off-server copy with `BACKUP_DISK`.
+- `SITE_NOINDEX=true` hides a staging site from search engines.
+- Old static URLs (`/packages.html`, `/destination.html?place=…`, `?lang=bn`) 301-redirect to the new pages.

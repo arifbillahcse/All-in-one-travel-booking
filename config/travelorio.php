@@ -27,4 +27,12 @@ return [
         'youtube' => env('TRAVELORIO_YOUTUBE', '#'),
     ],
 
+    // Staging copies must not appear in search engines.
+    'noindex' => (bool) env('SITE_NOINDEX', false),
+
+    'backup' => [
+        'path' => env('BACKUP_PATH', storage_path('app/backups')),
+        'keep' => (int) env('BACKUP_KEEP', 14),
+        'disk' => env('BACKUP_DISK'),   // optional second copy on another filesystem disk
+    ],
 ];

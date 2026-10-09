@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\LegacyRedirectController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ReviewController;
@@ -27,6 +28,11 @@ $pages = function () {
     Route::post('/reviews', [ReviewController::class, 'store'])->middleware('throttle:inquiries')->name('reviews.store');
     Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.post');
 };
+
+// Addresses from the first, static version of the site
+Route::get('/{page}.html', [LegacyRedirectController::class, 'page'])->where('page', 'index|packages|reviews|contact|why-us|blog');
+Route::get('/destination.html', [LegacyRedirectController::class, 'destination']);
+Route::get('/blog-post.html', [LegacyRedirectController::class, 'post']);
 
 Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
 Route::get('/sitemap.xml', [SeoController::class, 'sitemap'])->name('sitemap');
