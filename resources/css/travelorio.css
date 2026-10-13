@@ -2729,3 +2729,63 @@ html[data-theme="dark"] .blog-card__cat { color: #06284a; }
   .hero__layer { transition: none; }
   .js [data-reveal] { opacity: 1; transform: none; }
 }
+
+
+/* ---------- 18. Premium motion layer (decorative; see public/assets/js/motion.js) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* Smooth page entrance */
+  body { animation: pageIn 0.7s var(--ease) both; }
+  @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Scroll progress */
+  .scroll-progress {
+    position: fixed; inset: 0 0 auto 0; z-index: 120; height: 3px;
+    background: linear-gradient(90deg, var(--aqua), var(--sea), var(--accent-strong));
+    transform-origin: 0 50%; transform: scaleX(0);
+    pointer-events: none;
+  }
+
+  /* Richer reveal: lift + soft de-blur */
+  .js [data-reveal] { filter: blur(6px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease); }
+  .js [data-reveal].is-visible { filter: none; }
+  .js .card[data-reveal].is-visible,
+  .js .package[data-reveal].is-visible,
+  .js .review[data-reveal].is-visible {
+    transition: opacity 0.9s var(--ease), transform 0.35s var(--ease), box-shadow 0.4s var(--ease), filter 0.9s var(--ease);
+  }
+
+  /* The existing title underline draws itself when the heading enters view */
+  .motion .section__header .section__title::after { transform: scaleX(0); transition: transform 0.9s var(--ease) 0.2s; }
+  .motion .section__header .section__title.in-view::after { transform: scaleX(1); }
+
+  /* Photos settle in */
+  .motion .card__media img { transition: transform 0.9s var(--ease), filter 0.9s var(--ease); }
+  .motion .card__media:not(.in-view) img { filter: saturate(0.6) brightness(1.06); }
+
+  /* Cursor-following sheen on cards */
+  .card, .package, .review, .blog-card { position: relative; will-change: transform; }
+  .card::after, .package::after, .review::after, .blog-card::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.22), transparent 60%);
+    opacity: 0; transition: opacity 0.4s var(--ease);
+  }
+  .card:hover::after, .package:hover::after, .review:hover::after, .blog-card:hover::after { opacity: 1; }
+  html[data-theme="dark"] .card::after, html[data-theme="dark"] .package::after,
+  html[data-theme="dark"] .review::after, html[data-theme="dark"] .blog-card::after {
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.08), transparent 60%);
+  }
+
+  /* Buttons: sheen sweep + ripple */
+  .btn { position: relative; overflow: hidden; isolation: isolate; }
+  .btn--primary::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+    transform: translateX(-120%); transition: transform 0.7s var(--ease);
+  }
+  .btn--primary:hover::before { transform: translateX(120%); }
+  .ripple {
+    position: absolute; border-radius: 50%; pointer-events: none; z-index: -1;
+    background: rgba(255, 255, 255, 0.4); transform: scale(0); animation: ripple 0.65s ease-out forwards;
+  }
+  @keyframes ripple { to { transform: scale(1); opacity: 0; } }
+}

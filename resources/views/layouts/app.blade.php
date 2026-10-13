@@ -24,5 +24,6 @@
   <script src="{{ asset_js('i18n/core.js') }}" defer></script>
   @stack('scripts')
   <script src="{{ asset_js('main.js') }}" defer></script>
+  <script src="{{ asset_js('motion.js') }}" defer></script>
 </body>
 </html>
