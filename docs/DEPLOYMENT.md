@@ -78,7 +78,7 @@ php artisan db:seed --force                    # the six destinations, packages,
 php artisan storage:link
 php artisan travelorio:admin you@example.com --name="Your Name" --role=owner
 php artisan filament:upgrade && php artisan optimize
-npm ci && npm run build                        # creates public/build (required: the site refuses to look right without it)
+PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install --no-audit --no-fund && npm run build   # creates public/build (required: without it every public page returns a 500 "Vite manifest not found"; the admin still works)
 cp deploy/supervisor-queue.conf /etc/supervisor/conf.d/travelorio-queue.conf && supervisorctl reread && supervisorctl update
 crontab -u www-data deploy/cron.txt            # nightly backups at 02:30
 php artisan travelorio:preflight               # every line should be OK

@@ -19,7 +19,14 @@ echo "==> PHP dependencies"
 composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
 echo "==> Front-end build"
-if command -v npm >/dev/null; then npm ci && npm run build; else echo "npm missing: upload public/build from CI"; fi
+if command -v npm >/dev/null; then
+  # the repo ships no package-lock.json, so "npm ci" would fail; skip the browser-test download on servers
+  export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+  if [ -f package-lock.json ]; then npm ci; else npm install --no-audit --no-fund; fi
+  npm run build
+else
+  echo "npm missing: build public/build on another machine and upload it"
+fi
 
 echo "==> Database + caches"
 php artisan migrate --force
