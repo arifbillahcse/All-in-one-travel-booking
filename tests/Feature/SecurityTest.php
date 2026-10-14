@@ -215,4 +215,13 @@ class SecurityTest extends TestCase
         $this->assertFileDoesNotExist(public_path('.env'));
         $this->assertFileDoesNotExist(public_path('phpinfo.php'));
     }
+
+    public function test_placeholder_photos_may_follow_the_picsum_redirect(): void
+    {
+        // picsum.photos answers with a redirect to a sub-domain; the policy is checked on every hop
+        $csp = $this->get('/')->headers->get('Content-Security-Policy');
+
+        $this->assertStringContainsString('https://picsum.photos', $csp);
+        $this->assertStringContainsString('https://*.picsum.photos', $csp);
+    }
 }

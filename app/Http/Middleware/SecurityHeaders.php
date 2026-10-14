@@ -63,7 +63,7 @@ class SecurityHeaders
             'style-src' => "'self' https://fonts.googleapis.com",
             'style-src-attr' => "'unsafe-inline'",       // a few style="" attributes (rating bars, error pages)
             'font-src' => "'self' https://fonts.gstatic.com",
-            'img-src' => "'self' data: https://picsum.photos {$appOrigin}",
+            'img-src' => "'self' data: https://picsum.photos https://*.picsum.photos {$appOrigin}",
             'connect-src' => "'self'",
             'frame-src' => 'https://www.openstreetmap.org',   // the map on the contact page
             'form-action' => "'self' https://wa.me https://api.whatsapp.com",
