@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CompanyProfileController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\LegacyRedirectController;
@@ -33,6 +34,9 @@ $pages = function () {
 Route::get('/{page}.html', [LegacyRedirectController::class, 'page'])->where('page', 'index|packages|reviews|contact|why-us|blog');
 Route::get('/destination.html', [LegacyRedirectController::class, 'destination']);
 Route::get('/blog-post.html', [LegacyRedirectController::class, 'post']);
+
+// Print-ready company profile for buyers and partners (English, not indexed)
+Route::get('/company-profile', [CompanyProfileController::class, 'show'])->name('company-profile');
 
 Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
 Route::get('/sitemap.xml', [SeoController::class, 'sitemap'])->name('sitemap');

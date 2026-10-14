@@ -194,3 +194,4 @@ the bright coral stays for decoration and dark backgrounds.
 - `php artisan travelorio:backup` / `travelorio:restore [file]`: DB + photos in one checksummed zip; nightly at 02:30 via the scheduler; optional off-server copy with `BACKUP_DISK`.
 - `SITE_NOINDEX=true` hides a staging site from search engines.
 - Old static URLs (`/packages.html`, `/destination.html?place=…`, `?lang=bn`) 301-redirect to the new pages.
+- Company profile (A4 PDF for buyers): `/company-profile` page, built with `node tools/build-company-profile.mjs` into `docs/TravelOrio-Company-Profile.pdf`.

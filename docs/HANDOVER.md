@@ -28,3 +28,14 @@ Admin panel: **https://your-domain/admin** (sign in with the email/password you 
 - Bookings are *requests*, confirmed manually over WhatsApp; there is no online payment.
 - Old links like `/packages.html` redirect to the new addresses, so existing Google results keep working.
 - Keep the server `.env` file and the database backups safe – they contain all secrets and customer phone numbers/emails. Use strong, unique admin passwords.
+
+## Company profile PDF (for buyers and partners)
+- Preview in a browser: `/company-profile` (English, hidden from search engines). It is built from the live site: published destinations, packages, add-ons and approved five-star reviews.
+- Make the PDF: `node tools/build-company-profile.mjs` (writes `docs/TravelOrio-Company-Profile.pdf`; `--url https://your-domain` builds from the live site).
+- Optional corporate lines (registration number, trade licence, TIN) appear in "Corporate details" once they are set in Site settings; nothing is printed for empty fields.
+- Check the figures (5,000+ travelers, 4.9 rating) are true before sending the PDF to a buyer.
+
+## Sharing data
+- Safe to share: public marketing content (destinations, prices, packages) and business facts the owner supplied for this purpose.
+- Needs written permission first: client logos, photos and testimonials from third parties, and anything marked confidential.
+- Never share without the person's consent: inquiry details (names, phone numbers, emails) and booking records. The website promises "We never share your details".

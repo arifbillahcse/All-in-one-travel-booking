@@ -13,6 +13,7 @@ return [
     'locales' => ['en' => 'English', 'bn' => 'বাংলা'],
 
     'name' => 'TravelOrio',
+    'website' => env('TRAVELORIO_WEBSITE', 'www.travelorio.com'),   // shown on printed material
     'tagline' => 'Six Places. One Unforgettable Bangladesh.',
     'email' => env('TRAVELORIO_EMAIL', 'hello@travelorio.com'),
     // Where new inquiries and reviews are emailed (defaults to the public email).
