@@ -1,0 +1,2 @@
+# crontab -u www-data -e   (runs backups, queue cleanup – see routes/console.php)
+* * * * * cd /var/www/travelorio/current && php artisan schedule:run >> /dev/null 2>&1

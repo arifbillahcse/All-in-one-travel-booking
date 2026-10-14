@@ -1,0 +1,231 @@
+[
+ {
+  "sort": 1,
+  "en": {
+   "name": "Rahim Uddin",
+   "city": "Dhaka",
+   "slug": "sundarbans",
+   "rating": 5,
+   "date": "2026-02",
+   "type": "Friends",
+   "featured": true,
+   "title": "Flawless from start to finish",
+   "text": "The Sundarbans trip was flawless. Our guide spotted tiger tracks on the very first morning, and the launch was clean and comfortable. Every detail had been handled before we even arrived. Highly recommended."
+  },
+  "bn": {
+   "name": "রহিম উদ্দিন",
+   "city": "ঢাকা",
+   "title": "শুরু থেকে শেষ পর্যন্ত নিখুঁত",
+   "text": "সুন্দরবন ভ্রমণ ছিল নিখুঁত। প্রথম সকালেই আমাদের গাইড বাঘের পায়ের ছাপ খুঁজে পেয়েছিলেন, আর লঞ্চটাও ছিল পরিষ্কার ও আরামদায়ক। আমরা পৌঁছানোর আগেই সব খুঁটিনাটি সামলানো ছিল। সবাইকে সুপারিশ করব।"
+  }
+ },
+ {
+  "sort": 2,
+  "en": {
+   "name": "Nusrat Jahan",
+   "city": "Chattogram",
+   "slug": "coxs-bazar",
+   "rating": 5,
+   "date": "2026-01",
+   "type": "Family",
+   "title": "Perfect for a family of five",
+   "text": "Everything was organised perfectly for our family of five. The hotel was right on the beach, the driver was patient with the kids, and the Sonadia boat trip was the highlight for all of us."
+  },
+  "bn": {
+   "name": "নুসরাত জাহান",
+   "city": "চট্টগ্রাম",
+   "title": "পাঁচজনের পরিবারের জন্য একদম ঠিক",
+   "text": "আমাদের পাঁচজনের পরিবারের জন্য সবকিছু চমৎকারভাবে গোছানো ছিল। হোটেলটি ছিল একদম সৈকতের পাশে, ড্রাইভার বাচ্চাদের সঙ্গে ধৈর্যশীল ছিলেন, আর সোনাদিয়ার নৌ-ভ্রমণ ছিল আমাদের সবার সেরা মুহূর্ত।"
+  }
+ },
+ {
+  "sort": 3,
+  "en": {
+   "name": "Tanvir Ahmed",
+   "city": "Sylhet",
+   "slug": "bandarban",
+   "rating": 5,
+   "date": "2025-12",
+   "type": "Friends",
+   "title": "Magical, even in the clouds",
+   "text": "Bandarban in winter was magical. Fair prices, kind staff and quick replies on WhatsApp throughout. The Nilgiri sunrise above the clouds is something I will never forget."
+  },
+  "bn": {
+   "name": "তানভীর আহমেদ",
+   "city": "সিলেট",
+   "title": "মেঘের মাঝেও জাদুময়",
+   "text": "শীতে বান্দরবান ছিল জাদুর মতো। ন্যায্য দাম, আন্তরিক কর্মী আর পুরো সময় হোয়াটসঅ্যাপে দ্রুত উত্তর। নীলগিরিতে মেঘের ওপরে সূর্যোদয় আমি কখনো ভুলব না।"
+  }
+ },
+ {
+  "sort": 4,
+  "en": {
+   "name": "Sadia Rahman",
+   "city": "Dhaka",
+   "slug": "saint-martin",
+   "rating": 5,
+   "date": "2026-02",
+   "type": "Couple",
+   "title": "Our quietest, happiest weekend",
+   "text": "We wanted to switch off and Saint Martin's was perfect. TravelOrio explained the ship timings and island rules clearly beforehand, so nothing surprised us. Sunset on the rocks was unreal."
+  },
+  "bn": {
+   "name": "সাদিয়া রহমান",
+   "city": "ঢাকা",
+   "title": "আমাদের সবচেয়ে নিরিবিলি, সবচেয়ে সুখের উইকেন্ড",
+   "text": "আমরা একটু নিজেদের মতো সময় চেয়েছিলাম, আর সেন্ট মার্টিন ছিল ঠিক তেমনই। জাহাজের সময় ও দ্বীপের নিয়ম TravelOrio আগেই স্পষ্ট করে জানিয়েছিল, তাই কোনো চমক ছিল না। পাথরের ওপর বসে সূর্যাস্ত ছিল অবিশ্বাস্য।"
+  }
+ },
+ {
+  "sort": 5,
+  "en": {
+   "name": "Imran Hossain",
+   "city": "Khulna",
+   "slug": "sylhet",
+   "rating": 5,
+   "date": "2025-11",
+   "type": "Couple",
+   "title": "Tea gardens and swamp forest",
+   "text": "A beautifully paced three days. Ratargul by boat was surreal, and our guide knew exactly when to arrive to avoid the crowds. The seven-layer tea was a lovely bonus."
+  },
+  "bn": {
+   "name": "ইমরান হোসেন",
+   "city": "খুলনা",
+   "title": "চা-বাগান আর জলাবন",
+   "text": "তিনটি দিন ছিল সুন্দরভাবে সাজানো। নৌকায় রাতারগুল ছিল অবিশ্বাস্য, আর আমাদের গাইড জানতেন ঠিক কখন গেলে ভিড় এড়ানো যাবে। সাত রঙের চা ছিল বাড়তি পাওনা।"
+  }
+ },
+ {
+  "sort": 6,
+  "en": {
+   "name": "Farzana Akter",
+   "city": "Rajshahi",
+   "slug": "kuakata",
+   "rating": 4,
+   "date": "2026-01",
+   "type": "Family",
+   "title": "Lovely beach, long journey",
+   "text": "Seeing sunrise and sunset from the same beach was wonderful and the Rakhine temple was peaceful. The road from Dhaka is long, but the team kept us updated and the hotel was spotless."
+  },
+  "bn": {
+   "name": "ফারজানা আক্তার",
+   "city": "রাজশাহী",
+   "title": "সুন্দর সৈকত, দীর্ঘ পথ",
+   "text": "একই সৈকত থেকে সূর্যোদয় ও সূর্যাস্ত দেখা চমৎকার ছিল, আর রাখাইন মন্দিরটি ছিল শান্ত। ঢাকা থেকে পথ দীর্ঘ, কিন্তু দলটি আমাদের সবসময় জানিয়ে রেখেছিল এবং হোটেলটি ছিল ঝকঝকে পরিষ্কার।"
+  }
+ },
+ {
+  "sort": 7,
+  "en": {
+   "name": "Mahfuz Alam",
+   "city": "Dhaka",
+   "slug": "coxs-bazar",
+   "rating": 5,
+   "date": "2025-12",
+   "type": "Solo",
+   "title": "Great for solo travelers",
+   "text": "I travelled alone and felt looked after the entire time. The guide suggested quieter spots like Inani, and the single-room price was fair. I would book again without thinking."
+  },
+  "bn": {
+   "name": "মাহফুজ আলম",
+   "city": "ঢাকা",
+   "title": "একা ভ্রমণকারীদের জন্য দারুণ",
+   "text": "আমি একা গিয়েছিলাম, পুরো সময় নিজেকে নিরাপদ ও যত্নে মনে হয়েছে। গাইড ইনানীর মতো নিরিবিলি জায়গার কথা বলেছিলেন, আর একক রুমের দামও ন্যায্য ছিল। দ্বিতীয়বার ভাবার প্রয়োজনই নেই, আবার বুক করব।"
+  }
+ },
+ {
+  "sort": 8,
+  "en": {
+   "name": "Tahmina Sultana",
+   "city": "Dhaka",
+   "slug": "bandarban",
+   "rating": 5,
+   "date": "2026-03",
+   "type": "Family",
+   "title": "Careful with permits and safety",
+   "text": "I was nervous about the hills with my parents, but the team handled the permits, the jeeps and a gentle itinerary. My father still talks about the Golden Temple."
+  },
+  "bn": {
+   "name": "তাহমিনা সুলতানা",
+   "city": "ঢাকা",
+   "title": "অনুমতি ও নিরাপত্তায় যত্নবান",
+   "text": "বাবা-মাকে নিয়ে পাহাড়ে যেতে ভয় ছিল, কিন্তু দলটি অনুমতি, জিপ আর সহজ ভ্রমণসূচি সবকিছু সামলে নিয়েছে। আমার বাবা এখনো স্বর্ণমন্দিরের গল্প করেন।"
+  }
+ },
+ {
+  "sort": 9,
+  "en": {
+   "name": "Rafiqul Islam",
+   "city": "Bogura",
+   "slug": "sundarbans",
+   "rating": 5,
+   "date": "2025-11",
+   "type": "Family",
+   "title": "Educational and peaceful",
+   "text": "The kids learnt so much about the mangroves and the animals. Food on the launch was fresh and tasty, and the crew was respectful and careful throughout."
+  },
+  "bn": {
+   "name": "রফিকুল ইসলাম",
+   "city": "বগুড়া",
+   "title": "শিক্ষণীয় ও শান্তিপূর্ণ",
+   "text": "বাচ্চারা ম্যানগ্রোভ আর প্রাণীদের সম্পর্কে অনেক কিছু শিখেছে। লঞ্চের খাবার ছিল তাজা ও সুস্বাদু, আর ক্রুরা ছিলেন সম্মানজনক ও সতর্ক।"
+  }
+ },
+ {
+  "sort": 10,
+  "en": {
+   "name": "Nabila Karim",
+   "city": "Dhaka",
+   "slug": "saint-martin",
+   "rating": 5,
+   "date": "2026-01",
+   "type": "Friends",
+   "title": "Clear water, clear communication",
+   "text": "Booking was easy over WhatsApp, and every question got a quick, honest answer. The island was exactly as promised: turquoise water, coconut palms and no rush."
+  },
+  "bn": {
+   "name": "নাবিলা করিম",
+   "city": "ঢাকা",
+   "title": "স্বচ্ছ জল, স্বচ্ছ যোগাযোগ",
+   "text": "হোয়াটসঅ্যাপে বুকিং ছিল সহজ, আর প্রতিটি প্রশ্নের দ্রুত সৎ উত্তর পেয়েছি। দ্বীপটি ঠিক প্রতিশ্রুতির মতোই ছিল: নীল জল, নারকেল গাছ আর কোনো তাড়াহুড়ো নেই।"
+  }
+ },
+ {
+  "sort": 11,
+  "en": {
+   "name": "Shamim Reza",
+   "city": "Narayanganj",
+   "slug": "sylhet",
+   "rating": 5,
+   "date": "2026-03",
+   "type": "Friends",
+   "title": "Worth every taka",
+   "text": "Jaflong and Sripur in one day sounded tiring, but the schedule was relaxed with proper breaks. Prices were exactly what was quoted, with no surprise charges at the end."
+  },
+  "bn": {
+   "name": "শামীম রেজা",
+   "city": "নারায়ণগঞ্জ",
+   "title": "প্রতিটি টাকা সার্থক",
+   "text": "এক দিনে জাফলং আর শ্রীপুর শুনে ক্লান্তিকর মনে হয়েছিল, কিন্তু যথেষ্ট বিরতিসহ সূচি ছিল স্বস্তিদায়ক। কোটেশনে যা বলা হয়েছিল ঠিক সেই দামই দিয়েছি, শেষে কোনো অতিরিক্ত চার্জ নেই।"
+  }
+ },
+ {
+  "sort": 12,
+  "en": {
+   "name": "Priya Das",
+   "city": "Barishal",
+   "slug": "kuakata",
+   "rating": 5,
+   "date": "2025-12",
+   "type": "Couple",
+   "title": "A calm, beautiful short break",
+   "text": "Two days was just right. We caught a golden sunset on the first evening and a misty sunrise the next morning. Fatrar Char by boat was a pleasant surprise."
+  },
+  "bn": {
+   "name": "প্রিয়া দাস",
+   "city": "বরিশাল",
+   "title": "শান্ত, সুন্দর একটি ছোট ছুটি",
+   "text": "দুই দিনই ঠিক ছিল। প্রথম সন্ধ্যায় সোনালি সূর্যাস্ত আর পরদিন ভোরে কুয়াশামাখা সূর্যোদয় দেখেছি। নৌকায় ফাতরার চর ছিল সুন্দর এক চমক।"
+  }
+ }
+]

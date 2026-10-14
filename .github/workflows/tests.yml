@@ -1,0 +1,82 @@
+name: Tests
+
+on:
+  push:
+    branches: [main, 'claude/**']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  php:
+    name: PHP ${{ matrix.php }} (tests, style, audit)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.3', '8.4']
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, gd, intl, exif, fileinfo
+          coverage: none
+
+      - name: Install PHP packages
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Known vulnerabilities in PHP packages
+        run: composer audit
+
+      - name: Environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build assets (the pages need the Vite manifest)
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+
+      - name: Code style
+        run: vendor/bin/pint --test
+
+      - name: Unit and feature tests
+        run: php artisan test
+
+  browser:
+    name: Browser tests (Chromium)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, gd, intl, exif, fileinfo
+          coverage: none
+
+      - run: composer install --prefer-dist --no-interaction --no-progress
+
+      - run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: |
+          npm install --no-audit --no-fund
+          npm run build
+          npx playwright install --with-deps chromium
+
+      - name: Pages, flows, admin and accessibility in a real browser
+        run: npm run test:e2e

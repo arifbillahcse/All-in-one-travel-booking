@@ -295,6 +295,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) - 8px); }
 .hero {
   --sea-h: clamp(190px, 27svh, 270px);   /* height of the sea band at the bottom */
   position: relative;
+  overflow-x: clip;
   min-height: 640px;
   min-height: max(640px, min(calc(100svh - 44px), 960px));
   display: flex;
@@ -2597,6 +2598,9 @@ html[data-theme="dark"] .page-hero { background: linear-gradient(165deg, #04162a
 }
 @media (max-width: 1024px) { .include-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .include-grid { grid-template-columns: 1fr; } }
+
+/* Guard against sub-pixel horizontal scroll from animated/transformed children */
+main { overflow-x: clip; }
 
 /* ---------- 25. Blog ---------- */
 .blog-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; }
